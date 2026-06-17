@@ -2,7 +2,7 @@ name: Deploy Dashboard to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, "claude/gracious-wozniak-vxth1y"]
   workflow_dispatch:
 
 permissions:
