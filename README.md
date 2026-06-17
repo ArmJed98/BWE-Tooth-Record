@@ -119,9 +119,29 @@ gviz อ่านได้เฉพาะ Sheet ที่เปิด public:
 
 | ไฟล์ | คำอธิบาย |
 |------|----------|
-| `index.html` | หน้าแดชบอร์ด (เสิร์ฟผ่าน GitHub Pages) |
+| `index.html` | หน้าแดชบอร์ด (เสิร์ฟผ่าน GitHub Pages) — มีหน้า Hero + กราฟทั้งหมด |
 | `BWE_dashboard.html` | สำเนา backup ของแดชบอร์ดต้นฉบับ |
+| `assets/bwe-hero.jpg` | รูปเครื่องจักรพื้นหลังของหน้า Hero |
+| `assets/tooth-front/back/side.jpg` | รูปฟันจริง 3 มุม (แสดงในหน้า Heatmap) — ดูวิธีเพิ่มด้านล่าง |
 | `sheet-template/*.csv` | เทมเพลตโครงสร้างแต่ละแท็บของ Google Sheet |
+| `apps-script/` | โค้ด + คู่มือบันทึกข้อมูลจาก Dashboard กลับเข้า Google Sheet |
+
+---
+
+## 6. เพิ่มรูปฟันจริง (Real Tooth BWE Views) ในหน้า Heatmap
+
+หน้า Heatmap มีช่องแสดงรูปฟันจริง 3 มุม (front / back / side) ทางขวา
+เพิ่มรูปได้ผ่านหน้าเว็บ GitHub (ลากวาง ไม่ต้องใช้ git):
+
+1. ตั้งชื่อรูป 3 ไฟล์ในเครื่องให้ตรงนี้ (ตัวพิมพ์เล็ก):
+   - `tooth-front.jpg` (มุมหน้า)
+   - `tooth-back.jpg` (มุมหลัง)
+   - `tooth-side.jpg` (มุมข้าง)
+2. ไปที่ repo บน GitHub → เข้าโฟลเดอร์ **`assets/`** → **Add file** → **Upload files**
+3. ลากรูปทั้ง 3 วาง → **Commit changes**
+4. รอ ~1 นาที แล้วรีโหลดหน้า → รูปจะขึ้นแทนช่อง placeholder
+
+> ถ้ายังไม่อัปรูป หน้าจะแสดง placeholder ไว้ก่อน ไม่พัง · รองรับ `.jpg`
 
 ---
 

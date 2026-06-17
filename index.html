@@ -330,16 +330,16 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 }
 @media print{.hx-hero{display:none!important}}
 
-/* heatmap 2-column layout (heat left, real tooth photo right) */
+/* heatmap 2-column layout (heat left, real tooth photos right) */
 .hm-layout{display:grid; grid-template-columns:minmax(0,2.3fr) minmax(0,1fr); gap:18px; align-items:start}
-.hm-figure{position:relative; margin:12px 0 0}
-.hm-figure img{width:100%; display:block; border-radius:8px; border:1px solid var(--line); background:#0c1418}
+.hm-views{display:flex; flex-direction:column; gap:14px; margin-top:12px}
+.hm-figure{position:relative; margin:0}
+.hm-figure img{width:100%; display:block; border-radius:8px; border:1px solid var(--line); background:#0c1418; max-height:300px; object-fit:cover}
 .hm-figure.missing img{display:none}
-.hm-missing{display:none; padding:38px 16px; text-align:center; color:var(--muted); font-size:13px; line-height:1.7; border:1px dashed var(--line2); border-radius:8px; background:var(--panel2,#0e171c)}
+.hm-missing{display:none; padding:30px 14px; text-align:center; color:var(--muted); font-size:12.5px; line-height:1.7; border:1px dashed var(--line2); border-radius:8px; background:var(--panel2,#0e171c)}
 .hm-figure.missing .hm-missing{display:block}
-.hm-figure figcaption{display:flex; justify-content:space-around; gap:6px; margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em}
-.hm-figure.missing figcaption{display:none}
-@media(max-width:980px){.hm-layout{grid-template-columns:1fr}}
+.hm-figure figcaption{margin-top:6px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; text-align:center}
+@media(max-width:980px){.hm-layout{grid-template-columns:1fr} .hm-views{flex-direction:row; flex-wrap:wrap} .hm-views .hm-figure{flex:1; min-width:160px}}
 </style>
 </head>
 <body>
@@ -485,12 +485,26 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <div class="panel hm-photo">
       <h3>สภาพฟันจริง — Real Tooth BWE Views</h3>
       <div class="ph-sub">ภาพถ่ายปลายฟันขุดจริง 3 มุมมอง</div>
-      <figure class="hm-figure">
-        <img id="toothViews" src="assets/real-tooth-bwe-views.jpg" alt="Real Tooth BWE views — front / back / side"
-             onerror="this.closest('.hm-figure').classList.add('missing')">
-        <div class="hm-missing">รอแนบรูป <code>real-tooth-bwe-views.jpg</code><br>ใน <code>assets/</code></div>
-        <figcaption><span>มุมหน้า (Front)</span><span>มุมหลัง (Back)</span><span>มุมข้าง (Side)</span></figcaption>
-      </figure>
+      <div class="hm-views">
+        <figure class="hm-figure">
+          <img src="assets/tooth-front.jpg" alt="Real tooth — front" loading="lazy"
+               onerror="this.closest('.hm-figure').classList.add('missing')">
+          <div class="hm-missing">รอรูป <code>tooth-front.jpg</code></div>
+          <figcaption>มุมหน้า · Front</figcaption>
+        </figure>
+        <figure class="hm-figure">
+          <img src="assets/tooth-back.jpg" alt="Real tooth — back" loading="lazy"
+               onerror="this.closest('.hm-figure').classList.add('missing')">
+          <div class="hm-missing">รอรูป <code>tooth-back.jpg</code></div>
+          <figcaption>มุมหลัง · Back</figcaption>
+        </figure>
+        <figure class="hm-figure">
+          <img src="assets/tooth-side.jpg" alt="Real tooth — side" loading="lazy"
+               onerror="this.closest('.hm-figure').classList.add('missing')">
+          <div class="hm-missing">รอรูป <code>tooth-side.jpg</code></div>
+          <figcaption>มุมข้าง · Side</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
