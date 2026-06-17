@@ -944,20 +944,28 @@ let toastTimer;
 function toast(msg,bg){toastEl.textContent=msg; toastEl.style.background=bg||'var(--good)'; toastEl.classList.add('show');
   clearTimeout(toastTimer); toastTimer=setTimeout(()=>toastEl.classList.remove('show'),2200);}
 
-// storage abstraction (window.storage when available; else session memory + file backup)
+// storage: เก็บถาวรด้วย localStorage (คงอยู่ข้ามการรีเฟรช/ปิดเปิดเบราว์เซอร์)
+// สำรอง: window.storage (ถ้ามี) แล้วจึง memory ชั่วคราว
 async function loadRecords(){
+  records = [];
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw){ const arr = JSON.parse(raw); if(Array.isArray(arr)) records = arr; return; }
+  }catch(e){ /* localStorage อาจถูกปิด */ }
   try{
     if(window.storage && typeof window.storage.get==='function'){
-      hasStorage = true;
-      try{ const r = await window.storage.get(STORE_KEY); records = r&&r.value ? JSON.parse(r.value) : []; }
-      catch(e){ records = []; }
-    } else { records = []; }
-  }catch(e){ records=[]; }
+      const r = await window.storage.get(STORE_KEY);
+      if(r && r.value){ const arr = JSON.parse(r.value); if(Array.isArray(arr)) records = arr; }
+    }
+  }catch(e){ /* ignore */ }
 }
 async function saveRecords(){
-  if(hasStorage){
-    try{ await window.storage.set(STORE_KEY, JSON.stringify(records)); }catch(e){ console.warn('save failed',e); }
-  }
+  const payload = JSON.stringify(records);
+  try{ localStorage.setItem(STORE_KEY, payload); }
+  catch(e){ console.warn('localStorage save failed', e); }
+  try{
+    if(window.storage && typeof window.storage.set==='function') await window.storage.set(STORE_KEY, payload);
+  }catch(e){ /* ignore */ }
 }
 
 // dropdowns
