@@ -161,6 +161,8 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
 .tag.lost{background:rgba(204,58,33,.12); color:#a82e18}
 .tag.replace{background:rgba(194,120,15,.14); color:#9a5e0a}
 .tag.hardface{background:rgba(18,127,155,.13); color:#0c6479}
+.tag.sleeve_lost{background:rgba(204,58,33,.10); color:#a82e18}
+.tag.sleeve_assembly{background:rgba(204,58,33,.12); color:#a82e18}
 .tag.m1{background:rgba(194,120,15,.12); color:#9a5e0a}
 .tag.m2{background:rgba(18,127,155,.12); color:#0c6479}
 .delx{cursor:pointer; color:var(--dim); border:none; background:none; font-size:17px; padding:2px 6px; border-radius:5px}
@@ -1042,7 +1044,7 @@ function renderDay(date){
   document.getElementById('dayLabel').textContent = date ? `วันที่ ${thDate(date)} · ${rows.length} รายการ` : 'เลือกวันที่เพื่อดูรายละเอียด';
   document.getElementById('reportMeta').innerHTML = `วันที่: <b>${thDate(date)}</b><br>จำนวนรายการ: ${rows.length}<br>พิมพ์เมื่อ: ${thDate(new Date().toISOString().slice(0,10))}`;
 
-  const lost = rows.filter(r=>r.type==='lost').length;
+  const lost = rows.filter(r=>r.type==='lost'||r.type==='sleeve_assembly').length;
   const repl = rows.filter(r=>r.type==='replace').length;
   const hf = rows.filter(r=>r.type==='hardface').length;
   const issued = rows.reduce((a,r)=>a+(r.issued||0),0);
@@ -1115,7 +1117,7 @@ document.getElementById('printBtn').addEventListener('click',()=>window.print())
 /* ---- Print preview modal ---- */
 function buildPaper(date){
   const rows = records.filter(r=>r.date===date);
-  const lost = rows.filter(r=>r.type==='lost').length;
+  const lost = rows.filter(r=>r.type==='lost'||r.type==='sleeve_assembly').length;
   const repl = rows.filter(r=>r.type==='replace').length;
   const hf = rows.filter(r=>r.type==='hardface').length;
   const issued = rows.reduce((a,r)=>a+(r.issued||0),0);
