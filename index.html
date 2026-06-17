@@ -26,7 +26,7 @@ body{
     radial-gradient(1200px 600px at 80% -10%, rgba(194,120,15,.05), transparent 60%),
     radial-gradient(900px 500px at -10% 20%, rgba(18,127,155,.045), transparent 55%),
     var(--bg);
-  color:var(--txt); font-family:'IBM Plex Sans Thai',sans-serif; font-size:16.5px; line-height:1.55;
+  color:var(--txt); font-family:'IBM Plex Sans Thai',sans-serif; font-size:19px; line-height:1.55;
   -webkit-font-smoothing:antialiased; padding-bottom:60px;
 }
 .mono{font-family:'JetBrains Mono',monospace}
@@ -40,53 +40,53 @@ header{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
 .wheel{width:38px;height:38px;flex:0 0 38px}
 .wheel circle,.wheel line{stroke:var(--heat);stroke-width:1.4;fill:none}
 .wheel .hub{fill:var(--heat)}
-.brand h1{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:22px; letter-spacing:.04em; text-transform:uppercase; line-height:1}
-.brand .sub{font-size:11.5px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; margin-top:3px}
+.brand h1{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:25.3px; letter-spacing:.04em; text-transform:uppercase; line-height:1}
+.brand .sub{font-size:13.2px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; margin-top:3px}
 .spacer{flex:1}
 .machtog{display:flex; border:1px solid var(--line2); border-radius:7px; overflow:hidden}
-.machtog button{font-family:'Saira Condensed',sans-serif; font-size:15px; letter-spacing:.08em; text-transform:uppercase;
+.machtog button{font-family:'Saira Condensed',sans-serif; font-size:17.2px; letter-spacing:.08em; text-transform:uppercase;
   background:#fff; color:var(--muted); border:none; padding:9px 18px; cursor:pointer; transition:.15s; border-right:1px solid var(--line2)}
 .machtog button:last-child{border-right:none}
 .machtog button.on{background:var(--heat); color:#fff; font-weight:600}
 .machtog button.on.bwe2{background:var(--uptime); color:#fff}
-.asof{font-size:11.5px; color:var(--dim); text-align:right; line-height:1.35}
+.asof{font-size:13.2px; color:var(--dim); text-align:right; line-height:1.35}
 .orglogo{display:flex; align-items:center; gap:11px; padding-left:16px; margin-left:4px; border-left:1px solid var(--line)}
 .orglogo img{height:46px; width:auto; display:block}
 .orgname{font-family:'Saira Condensed',sans-serif; line-height:1.1}
-.orgname .o1{display:block; font-size:21px; font-weight:700; color:var(--heat); letter-spacing:.02em}
-.orgname .o2{display:block; font-size:12.5px; color:var(--muted); letter-spacing:.02em; text-transform:uppercase}
+.orgname .o1{display:block; font-size:24.1px; font-weight:700; color:var(--heat); letter-spacing:.02em}
+.orgname .o2{display:block; font-size:14.4px; color:var(--muted); letter-spacing:.02em; text-transform:uppercase}
 .rpt-logo,.pp-logo{print-color-adjust:exact; -webkit-print-color-adjust:exact}
 
 /* ---- Nav ---- */
 nav{display:flex; gap:4px; padding:8px 22px 0; max-width:1280px; margin:0 auto; flex-wrap:wrap; border-bottom:1px solid var(--line)}
-nav a{font-family:'Saira Condensed',sans-serif; font-size:15px; letter-spacing:.05em; text-transform:uppercase;
+nav a{font-family:'Saira Condensed',sans-serif; font-size:17.2px; letter-spacing:.05em; text-transform:uppercase;
   color:var(--muted); text-decoration:none; padding:10px 14px; border-bottom:2px solid transparent; transition:.15s; white-space:nowrap}
 nav a:hover{color:var(--txt)} nav a.active{color:var(--heat); border-color:var(--heat)}
 
 /* ---- Section ---- */
 section{padding:46px 0 8px}
-.eyebrow{font-family:'Saira Condensed',sans-serif; font-size:13px; letter-spacing:.22em; text-transform:uppercase; color:var(--heat); display:flex; align-items:center; gap:10px}
+.eyebrow{font-family:'Saira Condensed',sans-serif; font-size:14.9px; letter-spacing:.22em; text-transform:uppercase; color:var(--heat); display:flex; align-items:center; gap:10px}
 .eyebrow::before{content:""; width:26px; height:1px; background:var(--heat)}
-h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; letter-spacing:.01em; margin:8px 0 4px}
-.lead{color:var(--muted); font-size:15.5px; max-width:780px; margin-bottom:24px}
+h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; letter-spacing:.01em; margin:8px 0 4px}
+.lead{color:var(--muted); font-size:17.8px; max-width:780px; margin-bottom:24px}
 
 /* ---- KPI strip ---- */
 .kpis{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-top:26px}
 .kpi{background:#fff; border:1px solid var(--line); border-radius:11px; padding:17px 18px; position:relative; overflow:hidden; box-shadow:var(--shadow)}
 .kpi::after{content:""; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--heat)}
 .kpi.w::after{background:var(--wear)} .kpi.u::after{background:var(--uptime)} .kpi.g::after{background:var(--good)}
-.kpi .lab{font-size:12.5px; color:var(--muted); letter-spacing:.03em; text-transform:uppercase; font-weight:500}
-.kpi .val{font-family:'JetBrains Mono',monospace; font-size:34px; font-weight:700; margin-top:7px; letter-spacing:-.02em; color:var(--txt)}
-.kpi .unit{font-size:14px; color:var(--dim); font-weight:400}
-.kpi .delta{font-size:12.5px; margin-top:6px; color:var(--muted)}
+.kpi .lab{font-size:14.4px; color:var(--muted); letter-spacing:.03em; text-transform:uppercase; font-weight:500}
+.kpi .val{font-family:'JetBrains Mono',monospace; font-size:39.1px; font-weight:700; margin-top:7px; letter-spacing:-.02em; color:var(--txt)}
+.kpi .unit{font-size:16.1px; color:var(--dim); font-weight:400}
+.kpi .delta{font-size:14.4px; margin-top:6px; color:var(--muted)}
 .kpi .delta b{color:var(--txt)}
 
 /* ---- Panels & grids ---- */
 .grid2{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
 .panel{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow)}
-.panel h3{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:19px; letter-spacing:.02em; display:flex; align-items:center; gap:9px; margin-bottom:3px; color:var(--txt)}
-.panel .ph-sub{font-size:13.5px; color:var(--muted); margin-bottom:14px}
+.panel h3{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:21.8px; letter-spacing:.02em; display:flex; align-items:center; gap:9px; margin-bottom:3px; color:var(--txt)}
+.panel .ph-sub{font-size:15.5px; color:var(--muted); margin-bottom:14px}
 .chartbox{position:relative; height:300px}
 .chartbox.tall{height:340px}
 .dot{width:9px;height:9px;border-radius:2px;display:inline-block}
@@ -94,15 +94,15 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
 /* ---- Heatmap (signature) ---- */
 .heatwrap{overflow-x:auto; padding-bottom:4px}
 .heat{border-collapse:separate; border-spacing:3px; font-family:'JetBrains Mono',monospace; min-width:640px}
-.heat th{font-size:11px; font-weight:500; color:var(--muted); padding:4px 2px; text-align:center}
+.heat th{font-size:12.6px; font-weight:500; color:var(--muted); padding:4px 2px; text-align:center}
 .heat th.rh{text-align:right; padding-right:8px; color:var(--dim)}
 .heat .tooth-h{position:relative}
-.heat .tooth-h .tt{font-size:8.5px; color:var(--dim); display:block}
-.heat td{width:36px; height:32px; text-align:center; border-radius:4px; font-size:13px; color:#19242b; font-weight:600; cursor:default; transition:transform .1s}
+.heat .tooth-h .tt{font-size:9.8px; color:var(--dim); display:block}
+.heat td{width:36px; height:32px; text-align:center; border-radius:4px; font-size:14.9px; color:#19242b; font-weight:600; cursor:default; transition:transform .1s}
 .heat td:hover{transform:scale(1.16); outline:2px solid #19242b; position:relative; z-index:2}
 .heat td.z{color:var(--dim); background:#eef1f3 !important}
 .heat .rowsum{background:transparent!important; color:var(--txt); font-weight:700}
-.legrow{display:flex; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; font-size:13px; color:var(--muted)}
+.legrow{display:flex; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; font-size:14.9px; color:var(--muted)}
 .scale{display:flex; align-items:center; gap:6px}
 .scalebar{display:flex; border-radius:3px; overflow:hidden; border:1px solid var(--line)}
 .scalebar span{width:22px;height:14px;display:block}
@@ -112,58 +112,58 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
 .insights{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px}
 .ins{background:linear-gradient(150deg,rgba(194,120,15,.08),#fff); border:1px solid var(--line); border-left:4px solid var(--heat); border-radius:10px; padding:17px 19px; box-shadow:var(--shadow)}
 .ins.u{background:linear-gradient(150deg,rgba(18,127,155,.08),#fff); border-left-color:var(--uptime)}
-.ins .t{font-family:'Saira Condensed',sans-serif; font-size:17px; font-weight:600; letter-spacing:.02em; color:var(--txt); margin-bottom:6px; display:flex; align-items:center; gap:8px}
-.ins .ic{font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--heat)}
+.ins .t{font-family:'Saira Condensed',sans-serif; font-size:19.5px; font-weight:600; letter-spacing:.02em; color:var(--txt); margin-bottom:6px; display:flex; align-items:center; gap:8px}
+.ins .ic{font-family:'JetBrains Mono',monospace; font-size:12.6px; color:var(--heat)}
 .ins.u .ic{color:var(--uptime)}
-.ins p{font-size:14.5px; color:var(--muted); line-height:1.6}
+.ins p{font-size:16.7px; color:var(--muted); line-height:1.6}
 .ins b{color:var(--txt); font-weight:600}
 
 /* ---- store gauges ---- */
 .store{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
 .gauge{text-align:center; padding:8px}
-.gauge .gv{font-family:'JetBrains Mono',monospace; font-size:38px; font-weight:700}
-.gauge .gl{font-size:13px; color:var(--muted); margin-top:2px; text-transform:uppercase; letter-spacing:.04em}
+.gauge .gv{font-family:'JetBrains Mono',monospace; font-size:43.7px; font-weight:700}
+.gauge .gl{font-size:14.9px; color:var(--muted); margin-top:2px; text-transform:uppercase; letter-spacing:.04em}
 .bar{height:9px; background:#e6eaee; border-radius:5px; overflow:hidden; margin-top:12px}
 .bar i{display:block; height:100%; border-radius:5px}
 
 /* ---- Entry form ---- */
 .formgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
 .field{display:flex; flex-direction:column; gap:6px}
-.field label{font-size:13.5px; color:var(--muted); letter-spacing:.02em; font-weight:500}
+.field label{font-size:15.5px; color:var(--muted); letter-spacing:.02em; font-weight:500}
 .field label .req{color:var(--wear)}
-.field input,.field select{font-family:'IBM Plex Sans Thai',sans-serif; font-size:15.5px; background:#fff; color:var(--txt);
+.field input,.field select{font-family:'IBM Plex Sans Thai',sans-serif; font-size:17.8px; background:#fff; color:var(--txt);
   border:1px solid var(--line2); border-radius:7px; padding:11px 13px; outline:none; transition:.15s}
 .field input:focus,.field select:focus{border-color:var(--heat); box-shadow:0 0 0 3px rgba(194,120,15,.14)}
-.field .hint{font-size:11.5px; color:var(--dim)}
+.field .hint{font-size:13.2px; color:var(--dim)}
 .field input.mono{font-family:'JetBrains Mono',monospace}
 .btnrow{display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; align-items:center}
-.btn{font-family:'Saira Condensed',sans-serif; font-size:15px; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
+.btn{font-family:'Saira Condensed',sans-serif; font-size:17.2px; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
   border:1px solid var(--line2); border-radius:8px; padding:12px 22px; background:#fff; color:var(--txt); transition:.15s; display:inline-flex; align-items:center; gap:8px}
 .btn:hover{border-color:var(--heat); color:var(--heat)}
 .btn.primary{background:var(--heat); color:#fff; border-color:var(--heat); font-weight:600}
 .btn.primary:hover{filter:brightness(1.06); color:#fff}
 .btn.ghost{color:var(--muted)}
 .btn.danger:hover{border-color:var(--wear); color:var(--wear)}
-.note{font-size:13px; color:var(--muted); margin-left:auto}
+.note{font-size:14.9px; color:var(--muted); margin-left:auto}
 .toast{position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px); background:var(--good); color:#fff;
-  font-weight:600; padding:12px 24px; border-radius:9px; opacity:0; transition:.25s; z-index:220; font-size:15px; pointer-events:none; box-shadow:0 6px 20px rgba(0,0,0,.15)}
+  font-weight:600; padding:12px 24px; border-radius:9px; opacity:0; transition:.25s; z-index:220; font-size:17.2px; pointer-events:none; box-shadow:0 6px 20px rgba(0,0,0,.15)}
 .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
 
 /* ---- Records / report tables ---- */
-.rtbl{width:100%; border-collapse:collapse; font-size:14.5px; margin-top:8px}
-.rtbl th{font-family:'Saira Condensed',sans-serif; font-size:14px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);
+.rtbl{width:100%; border-collapse:collapse; font-size:16.7px; margin-top:8px}
+.rtbl th{font-family:'Saira Condensed',sans-serif; font-size:16.1px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted);
   text-align:left; padding:11px 12px; border-bottom:2px solid var(--line2); white-space:nowrap}
 .rtbl td{padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:middle}
 .rtbl tr:hover td{background:rgba(194,120,15,.05)}
 .rtbl .num{font-family:'JetBrains Mono',monospace; text-align:right}
 .rtbl .center{text-align:center}
 .recpager{display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap; margin-top:14px}
-.recpager .pg{min-width:34px; height:34px; padding:0 10px; border:1px solid var(--line2); background:var(--panel,#fff); color:var(--txt); border-radius:7px; cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:13.5px; display:inline-flex; align-items:center; justify-content:center; transition:all .15s}
+.recpager .pg{min-width:34px; height:34px; padding:0 10px; border:1px solid var(--line2); background:var(--panel,#fff); color:var(--txt); border-radius:7px; cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:15.5px; display:inline-flex; align-items:center; justify-content:center; transition:all .15s}
 .recpager .pg:hover:not(:disabled){border-color:var(--heat); color:var(--heat)}
 .recpager .pg.on{background:var(--heat); border-color:var(--heat); color:#fff; font-weight:700}
 .recpager .pg:disabled{opacity:.4; cursor:default}
-.recpager .pginfo{margin:0 8px; font-size:13px; color:var(--muted)}
-.tag{font-size:12px; padding:3px 10px; border-radius:20px; font-weight:600; white-space:nowrap}
+.recpager .pginfo{margin:0 8px; font-size:14.9px; color:var(--muted)}
+.tag{font-size:13.8px; padding:3px 10px; border-radius:20px; font-weight:600; white-space:nowrap}
 .tag.lost{background:rgba(204,58,33,.12); color:#a82e18}
 .tag.replace{background:rgba(194,120,15,.14); color:#9a5e0a}
 .tag.hardface{background:rgba(18,127,155,.13); color:#0c6479}
@@ -171,13 +171,14 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
 .tag.sleeve_assembly{background:rgba(204,58,33,.12); color:#a82e18}
 .tag.m1{background:rgba(194,120,15,.12); color:#9a5e0a}
 .tag.m2{background:rgba(18,127,155,.12); color:#0c6479}
-.delx{cursor:pointer; color:var(--dim); border:none; background:none; font-size:17px; padding:2px 6px; border-radius:5px}
+.delx{cursor:pointer; color:var(--dim); border:none; background:none; font-size:19.5px; padding:2px 6px; border-radius:5px}
 .delx:hover{color:var(--wear); background:rgba(204,58,33,.1)}
-.empty{text-align:center; color:var(--dim); padding:30px; font-size:14px}
+.empty{text-align:center; color:var(--dim); padding:30px; font-size:16.1px}
 .daypick{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px}
-.daypick select,.daypick input{font-family:'IBM Plex Sans Thai',sans-serif; font-size:15px; background:#fff; color:var(--txt); border:1px solid var(--line2); border-radius:7px; padding:10px 13px}
+.daypick select,.daypick input{font-family:'IBM Plex Sans Thai',sans-serif; font-size:17.2px; background:#fff; color:var(--txt); border:1px solid var(--line2); border-radius:7px; padding:10px 13px}
 .sumcards{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px}
 .report-head{display:none}
+.chart-print{display:none}
 
 @media(max-width:980px){.formgrid{grid-template-columns:1fr 1fr} .sumcards{grid-template-columns:1fr 1fr}}
 
@@ -215,6 +216,13 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
   .delx,.report-actions{display:none!important}
   .signrow{display:flex!important; justify-content:space-between; margin-top:50px; gap:40px}
   .signrow div{flex:1; border-top:1px solid #000; padding-top:6px; font-size:11px; text-align:center}
+  /* report diagram (top) + summary charts (bottom) in printout */
+  .report-diagram{display:block!important; margin-bottom:14px; page-break-inside:avoid}
+  .report-diagram img{max-width:100%!important; border:1px solid #999!important}
+  .report-charts{display:grid!important; grid-template-columns:1fr 1fr; gap:20px; margin-top:16px; page-break-inside:avoid}
+  .report-charts .chartbox{display:none!important}
+  .report-charts .chart-print{display:block!important; width:100%; max-width:100%; height:auto}
+  .report-charts h3{font-size:13px}
   /* default: preview overlay hidden in print */
   .pv-overlay{display:none!important}
   /* when preview is open, print the paper only */
@@ -231,12 +239,12 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
   display:none; flex-direction:column; opacity:0; transition:opacity .18s}
 .pv-overlay.show{display:flex; opacity:1}
 .pv-bar{display:flex; align-items:center; gap:14px; padding:14px 22px; background:#fff; border-bottom:1px solid var(--line); flex-wrap:wrap}
-.pv-title{font-family:'Saira Condensed',sans-serif; font-size:18px; font-weight:600; letter-spacing:.02em; color:var(--txt)}
-.pv-hint{font-size:13px; color:var(--muted)}
+.pv-title{font-family:'Saira Condensed',sans-serif; font-size:20.7px; font-weight:600; letter-spacing:.02em; color:var(--txt)}
+.pv-hint{font-size:14.9px; color:var(--muted)}
 .pv-actions{margin-left:auto; display:flex; gap:10px}
 .pv-scroll{flex:1; overflow:auto; padding:30px 16px; display:flex; justify-content:center}
 .pv-paper{background:#fff; color:#000; width:794px; max-width:100%; min-height:1000px; padding:48px 52px;
-  box-shadow:0 8px 40px rgba(0,0,0,.28); border-radius:2px; align-self:flex-start; font-size:13px}
+  box-shadow:0 8px 40px rgba(0,0,0,.28); border-radius:2px; align-self:flex-start; font-size:14.9px}
 .pv-paper .pp-head{border-bottom:2px solid #000; padding-bottom:12px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px}
 .pv-paper .pp-brand{display:flex; align-items:center; gap:14px}
 .pv-paper .pp-logo{height:56px; width:auto}
@@ -258,12 +266,18 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
 .pv-paper .pp-sign{display:flex; justify-content:space-between; gap:40px; margin-top:60px}
 .pv-paper .pp-sign div{flex:1; border-top:1px solid #000; padding-top:7px; font-size:11.5px; text-align:center}
 .pv-paper .pp-empty{text-align:center; color:#666; padding:30px}
+.pv-paper .pp-secttl{font-family:'Saira Condensed',sans-serif; font-size:15px; font-weight:700; color:#000; text-transform:uppercase; letter-spacing:.03em; margin:0 0 8px; border-left:3px solid #c2780f; padding-left:8px}
+.pv-paper .pp-diagram{margin:18px 0 6px; page-break-inside:avoid}
+.pv-paper .pp-diagram img{width:100%; max-width:680px; display:block; margin:0 auto; border:1px solid #999; border-radius:4px}
+.pv-paper .pp-legend{text-align:center; font-size:12px; color:#333; margin-top:6px}
+.pv-paper .pp-charts{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px; page-break-inside:avoid}
+.pv-paper .pp-chart img{width:100%; height:auto; display:block; border:1px solid #ddd}
 @media(max-width:980px){.pv-paper{padding:28px 24px}}
 
-footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; color:var(--muted); font-size:12.5px; line-height:1.6}
-.tip{position:fixed; pointer-events:none; background:#19242b; border:1px solid #3a4750; border-radius:6px; padding:8px 11px; font-size:12px; font-family:'JetBrains Mono',monospace; color:#f1f4f6; opacity:0; transition:opacity .1s; z-index:99; max-width:240px; box-shadow:0 4px 14px rgba(0,0,0,.18)}
+footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; color:var(--muted); font-size:14.4px; line-height:1.6}
+.tip{position:fixed; pointer-events:none; background:#19242b; border:1px solid #3a4750; border-radius:6px; padding:8px 11px; font-size:13.8px; font-family:'JetBrains Mono',monospace; color:#f1f4f6; opacity:0; transition:opacity .1s; z-index:99; max-width:240px; box-shadow:0 4px 14px rgba(0,0,0,.18)}
 
-@media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)} .grid2,.grid3{grid-template-columns:1fr} .insights{grid-template-columns:1fr} h2{font-size:27px}}
+@media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)} .grid2,.grid3{grid-template-columns:1fr} .insights{grid-template-columns:1fr} h2{font-size:31px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 :focus-visible{outline:2px solid var(--heat); outline-offset:2px}
 
@@ -283,14 +297,14 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 /* hero topbar */
 .hx-topbar{position:relative; z-index:20; display:flex; justify-content:space-between; align-items:center; padding:20px 5vw}
 .hx-logo{display:flex; align-items:center; gap:11px}
-.hx-logo-mark{width:38px; height:38px; background:var(--hx-rust); clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:12px; color:#fff}
-.hx-logo-text{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--hx-chalk); line-height:1.3}
-.hx-logo-text span{display:block; font-size:10px; color:var(--hx-fog); letter-spacing:.08em}
+.hx-logo-mark{width:38px; height:38px; background:var(--hx-rust); clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:13.8px; color:#fff}
+.hx-logo-text{font-family:'JetBrains Mono',monospace; font-size:13.8px; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--hx-chalk); line-height:1.3}
+.hx-logo-text span{display:block; font-size:11.5px; color:var(--hx-fog); letter-spacing:.08em}
 
 /* BWE switcher (top-right of image) */
 .hx-switch{display:flex; align-items:center; gap:6px}
-.hx-switch-label{font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--hx-fog); margin-right:4px}
-.bwe-btn{font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:.05em; padding:6px 16px 4px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); color:var(--hx-fog); cursor:pointer; clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%); transition:all .2s}
+.hx-switch-label{font-family:'JetBrains Mono',monospace; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--hx-fog); margin-right:4px}
+.bwe-btn{font-family:'Bebas Neue',sans-serif; font-size:20.7px; letter-spacing:.05em; padding:6px 16px 4px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); color:var(--hx-fog); cursor:pointer; clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%); transition:all .2s}
 .bwe-btn:hover{background:rgba(196,90,26,.25); border-color:var(--hx-rust); color:var(--hx-chalk)}
 .bwe-btn.active{background:var(--hx-rust); border-color:var(--hx-rust); color:#fff}
 .bwe-btn.bwe2.active{background:var(--uptime); border-color:var(--uptime)}
@@ -300,13 +314,13 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 .hx-content{position:relative; z-index:10; margin-top:auto; padding:0 5vw}
 .hx-eyebrow{display:flex; align-items:center; gap:12px; margin-bottom:16px}
 .hx-eyebrow-line{width:28px; height:2px; background:var(--hx-rust); flex-shrink:0}
-.hx-eyebrow-text{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--hx-amber)}
+.hx-eyebrow-text{font-family:'JetBrains Mono',monospace; font-size:12.6px; letter-spacing:.18em; text-transform:uppercase; color:var(--hx-amber)}
 .hx-title{font-family:'Bebas Neue',sans-serif; font-size:clamp(54px,10vw,112px); line-height:.9; letter-spacing:.01em; color:#fff; margin-bottom:10px}
 .hx-title em{font-style:normal; color:var(--hx-rust)}
 .hx-subtitle{font-family:'Bebas Neue',sans-serif; font-size:clamp(17px,2.6vw,30px); color:var(--hx-fog); letter-spacing:.06em; margin-bottom:20px}
-.hx-desc{font-size:14px; line-height:1.75; color:var(--hx-chalk); opacity:.72; max-width:460px; margin-bottom:32px}
+.hx-desc{font-size:16.1px; line-height:1.75; color:var(--hx-chalk); opacity:.72; max-width:460px; margin-bottom:32px}
 .hx-cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
-.hx-cta{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all .2s}
+.hx-cta{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; font-family:'JetBrains Mono',monospace; font-size:12.6px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all .2s}
 .hx-cta--primary{background:var(--hx-rust); color:#fff; clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
 .hx-cta--primary:hover{background:var(--hx-amber); transform:translateY(-2px)}
 .hx-cta--ghost{background:transparent; color:var(--hx-chalk); border:1px solid rgba(232,226,214,.22); clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
@@ -319,9 +333,9 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 .dock-item:hover{transform:translateY(-4px)}
 .dock-item::after{content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:0; height:2px; background:var(--hx-rust); transition:width .22s}
 .dock-item:hover::after{width:60%}
-.dock-icon{width:44px; height:44px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; transition:background .18s,border-color .18s; backdrop-filter:blur(6px)}
+.dock-icon{width:44px; height:44px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:23px; transition:background .18s,border-color .18s; backdrop-filter:blur(6px)}
 .dock-item:hover .dock-icon{background:rgba(196,90,26,.22); border-color:rgba(196,90,26,.5)}
-.dock-label{font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--hx-fog); white-space:nowrap; text-align:center; line-height:1.25; transition:color .18s}
+.dock-label{font-family:'JetBrains Mono',monospace; font-size:10.3px; letter-spacing:.08em; text-transform:uppercase; color:var(--hx-fog); white-space:nowrap; text-align:center; line-height:1.25; transition:color .18s}
 .dock-item:hover .dock-label{color:var(--hx-amber)}
 .dock-sep{width:1px; height:36px; background:rgba(255,255,255,.08); flex-shrink:0; margin:0 4px 14px; align-self:center}
 
@@ -339,20 +353,24 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   .hx-content{padding:0 5vw}
 }
 @media(max-width:480px){
-  .bwe-btn{font-size:15px; padding:5px 12px 3px}
+  .bwe-btn{font-size:17.2px; padding:5px 12px 3px}
   .hx-desc{display:none}
 }
 @media print{.hx-hero{display:none!important}}
 
 /* heatmap 2-column layout (heat left, real tooth photos right) */
-.hm-layout{display:grid; grid-template-columns:minmax(0,2.3fr) minmax(0,1fr); gap:18px; align-items:start}
-.hm-views{display:flex; flex-direction:column; gap:14px; margin-top:12px}
+.hm-layout{display:grid; grid-template-columns:minmax(0,2.55fr) minmax(0,1fr); gap:18px; align-items:stretch}
+.hm-layout .heatwrap{overflow-x:auto}
+.hm-layout .heat{width:100%; min-width:0}
+.hm-layout .heat td{width:auto; height:36px}
+.hm-layout .heat .tooth-h{width:auto}
+.hm-views{display:flex; flex-direction:column; gap:10px; margin-top:12px}
 .hm-figure{position:relative; margin:0}
-.hm-figure img{width:100%; display:block; border-radius:8px; border:1px solid var(--line); background:#0c1418; max-height:300px; object-fit:cover}
+.hm-figure img{width:100%; display:block; border-radius:8px; border:1px solid var(--line); background:#0c1418; height:190px; object-fit:cover}
 .hm-figure.missing img{display:none}
-.hm-missing{display:none; padding:30px 14px; text-align:center; color:var(--muted); font-size:12.5px; line-height:1.7; border:1px dashed var(--line2); border-radius:8px; background:var(--panel2,#0e171c)}
+.hm-missing{display:none; padding:30px 14px; text-align:center; color:var(--muted); font-size:14.4px; line-height:1.7; border:1px dashed var(--line2); border-radius:8px; background:var(--panel2,#0e171c)}
 .hm-figure.missing .hm-missing{display:block}
-.hm-figure figcaption{margin-top:6px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; text-align:center}
+.hm-figure figcaption{margin-top:5px; font-family:'JetBrains Mono',monospace; font-size:12.6px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em; text-align:center}
 @media(max-width:980px){.hm-layout{grid-template-columns:1fr} .hm-views{flex-direction:row; flex-wrap:wrap} .hm-views .hm-figure{flex:1; min-width:160px}}
 </style>
 </head>
@@ -484,7 +502,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 <!-- HEATMAP -->
 <section id="heatmap">
   <div class="eyebrow">02 — Hardfacing Map</div>
-  <h2>แผนที่ความเข้มการเชื่อมพอก — <span id="hmName" style="color:var(--heat)">BWE 1</span></h2>
+  <h2>Hard-facing Mapping — <span id="hmName" style="color:var(--heat)">BWE 1</span></h2>
   <p class="lead">บุ้งกี๋ 18 ใบ × ฟัน 13 ซี่ (T1–T13) — สีเข้มขึ้นตามจำนวนครั้งที่เชื่อมพอกปลายฟัน ใช้ระบุ "จุดร้อน" ของการสึกหรอ <span style="color:var(--short)">▮ ฟันสั้น</span> = T1–T7, T10, T13 · <span style="color:var(--long)">▮ ฟันยาว</span> = T8, T9, T11, T12</p>
   <div class="hm-layout">
     <div class="panel">
@@ -529,7 +547,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <h2>วิเคราะห์ตามตำแหน่งฟัน — <span id="posName" style="color:var(--heat)">BWE 1</span></h2>
   <p class="lead">รวมจำนวนการเชื่อมพอกของแต่ละตำแหน่งฟันทั้ง 18 บุ้งกี๋ ช่วยชี้ว่าตำแหน่งใดสึกหรอเร็วที่สุดและควรปรับวัสดุ/รอบบำรุง</p>
   <div class="panel" style="margin-bottom:18px">
-    <h3 style="margin-bottom:6px">แผนผังตำแหน่งฟัน T1–T13 ในบุ้งกี๋ (แบบแปลนจริง)</h3><div class="ph-sub">แบบแปลนวิศวกรรมจริง — Pre-Cutting 7 ซี่ (น้ำเงิน) · Main-Cutting 6 ซี่ (เขียว)</div><img class="tooth-diagram" alt="แผนผังตำแหน่งฟัน Bucket Wheel Excavator" style="width:100%;max-width:1180px;display:block;margin:10px auto 0;border-radius:8px;border:1px solid var(--line);background:#fff"><p style="text-align:center;font-size:13.5px;color:var(--muted);margin-top:12px">ฟันหมายเลข <strong style="color:#2e7d32">1–6 (เขียว)</strong> = Main-Cutting · <strong style="color:#1565c0">7–13 (น้ำเงิน)</strong> = Pre-Cutting · (แบ่งโซนตามภาพตัดด้านซ้าย)</p>
+    <h3 style="margin-bottom:6px">แผนผังตำแหน่งฟัน T1–T13 ในบุ้งกี๋ (แบบแปลนจริง)</h3><div class="ph-sub">แบบแปลนวิศวกรรมจริง — Pre-Cutting 7 ซี่ (น้ำเงิน) · Main-Cutting 6 ซี่ (เขียว)</div><img class="tooth-diagram" alt="แผนผังตำแหน่งฟัน Bucket Wheel Excavator" style="width:100%;max-width:1180px;display:block;margin:10px auto 0;border-radius:8px;border:1px solid var(--line);background:#fff"><p style="text-align:center;font-size:15.5px;color:var(--muted);margin-top:12px">ฟันหมายเลข <strong style="color:#2e7d32">1–6 (เขียว)</strong> = Main-Cutting · <strong style="color:#1565c0">7–13 (น้ำเงิน)</strong> = Pre-Cutting · (แบ่งโซนตามภาพตัดด้านซ้าย)</p>
   </div>
   <div class="grid2">
     <div class="panel"><h3>การเชื่อมพอกรวมรายตำแหน่ง T1–T13</h3><div class="ph-sub">แท่งสีตามชนิดฟัน (สั้น/ยาว)</div><div class="chartbox tall"><canvas id="posChart"></canvas></div></div>
@@ -576,12 +594,12 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <div class="grid3">
     <div class="panel"><h3>ภาพรวมคลัง</h3><div class="ph-sub">หน่วย: ซี่ (Teeth)</div>
       <div class="store" style="margin-top:18px">
-        <div class="gauge"><div class="gv" style="color:var(--good)">2,808</div><div class="gl">รับเข้า GR</div></div>
-        <div class="gauge"><div class="gv" style="color:var(--wear)">1,600</div><div class="gl">เบิกใช้ GI</div></div>
-        <div class="gauge"><div class="gv" style="color:var(--uptime)">1,208</div><div class="gl">คงเหลือ</div></div>
+        <div class="gauge"><div class="gv" id="gGR" style="color:var(--good)">2,808</div><div class="gl">รับเข้า GR</div></div>
+        <div class="gauge"><div class="gv" id="gGI" style="color:var(--wear)">1,600</div><div class="gl">เบิกใช้ GI</div></div>
+        <div class="gauge"><div class="gv" id="gStock" style="color:var(--uptime)">1,208</div><div class="gl">คงเหลือ</div></div>
       </div>
-      <div class="bar"><i style="width:57%;background:var(--wear)"></i></div>
-      <div style="font-size:12px;color:var(--muted);margin-top:8px">เบิกใช้ไปแล้ว <b style="color:var(--txt)">57.0%</b> ของยอดรับเข้า · คงเหลือพอใช้ต่อ <b style="color:var(--txt)">43.0%</b></div>
+      <div class="bar"><i id="storeBar" style="width:57%;background:var(--wear)"></i></div>
+      <div id="storeText" style="font-size:13.8px;color:var(--muted);margin-top:8px">เบิกใช้ไปแล้ว <b style="color:var(--txt)">57.0%</b> ของยอดรับเข้า · คงเหลือพอใช้ต่อ <b style="color:var(--txt)">43.0%</b></div>
     </div>
     <div class="panel"><h3>เบิกใช้ (GI) รายงวด — BWE#2</h3><div class="ph-sub">แนวโน้มความต้องการอะไหล่</div><div class="chartbox" style="height:230px"><canvas id="giChart"></canvas></div></div>
     <div class="panel"><h3>เปรียบเทียบอายุการใช้งาน</h3><div class="ph-sub">การเบิกใช้สะสม GI ต่อเครื่อง</div><div class="chartbox" style="height:230px"><canvas id="lifeChart"></canvas></div></div>
@@ -594,7 +612,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <h2>บันทึกข้อมูลฟัน <span style="color:var(--good)">+</span></h2>
   <p class="lead">กรอกรายการเปลี่ยน/สูญหาย/เชื่อมพอกฟันแต่ละรายการ ระบบจะบันทึกไว้และนำไปสรุปในหน้า "สรุปรายวัน" โดยอัตโนมัติ — ข้อมูลจะถูกเก็บไว้ในเครื่องของคุณ (และสามารถสำรองเป็นไฟล์ได้)</p>
   <div class="panel" style="margin-bottom:18px">
-    <h3 style="margin-bottom:6px">แผนผังตำแหน่งฟัน T1–T13 ในบุ้งกี๋ (แบบแปลนจริง)</h3><div class="ph-sub">แบบแปลนวิศวกรรมจริง — Pre-Cutting 7 ซี่ (น้ำเงิน) · Main-Cutting 6 ซี่ (เขียว)</div><img class="tooth-diagram" alt="แผนผังตำแหน่งฟัน Bucket Wheel Excavator" style="width:100%;max-width:1180px;display:block;margin:10px auto 0;border-radius:8px;border:1px solid var(--line);background:#fff"><p style="text-align:center;font-size:13.5px;color:var(--muted);margin-top:12px">ฟันหมายเลข <strong style="color:#2e7d32">1–6 (เขียว)</strong> = Main-Cutting · <strong style="color:#1565c0">7–13 (น้ำเงิน)</strong> = Pre-Cutting · (แบ่งโซนตามภาพตัดด้านซ้าย)</p>
+    <h3 style="margin-bottom:6px">แผนผังตำแหน่งฟัน T1–T13 ในบุ้งกี๋ (แบบแปลนจริง)</h3><div class="ph-sub">แบบแปลนวิศวกรรมจริง — Pre-Cutting 7 ซี่ (น้ำเงิน) · Main-Cutting 6 ซี่ (เขียว)</div><img class="tooth-diagram" alt="แผนผังตำแหน่งฟัน Bucket Wheel Excavator" style="width:100%;max-width:1180px;display:block;margin:10px auto 0;border-radius:8px;border:1px solid var(--line);background:#fff"><p style="text-align:center;font-size:15.5px;color:var(--muted);margin-top:12px">ฟันหมายเลข <strong style="color:#2e7d32">1–6 (เขียว)</strong> = Main-Cutting · <strong style="color:#1565c0">7–13 (น้ำเงิน)</strong> = Pre-Cutting · (แบ่งโซนตามภาพตัดด้านซ้าย)</p>
   </div>
   <div class="panel">
     <h3>แบบฟอร์มบันทึก</h3>
@@ -619,7 +637,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   </div>
 
   <div class="panel" style="margin-top:18px">
-    <h3>รายการที่บันทึกไว้ <span class="mono" style="color:var(--dim);font-size:13px" id="recCount"></span></h3>
+    <h3>รายการที่บันทึกไว้ <span class="mono" style="color:var(--dim);font-size:14.9px" id="recCount"></span></h3>
     <div class="ph-sub">เรียงจากใหม่ไปเก่า</div>
     <div style="overflow-x:auto">
       <table class="rtbl" id="recTable"></table>
@@ -653,13 +671,21 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <p class="lead">สรุปยอดบันทึกของแต่ละวัน เลือกวันที่เพื่อดูรายละเอียด แล้วกด "พิมพ์ / บันทึกเป็น PDF" เพื่อเก็บเป็นเอกสาร</p>
 
   <div class="daypick no-print">
-    <label style="color:var(--muted);font-size:14px">เลือกวันที่:</label>
+    <label style="color:var(--muted);font-size:16.1px">เลือกวันที่:</label>
     <select id="daySelect"></select>
     <button class="btn" id="previewBtn">👁 ดูตัวอย่างก่อนพิมพ์</button>
     <button class="btn primary" id="printBtn">🖨 พิมพ์ / บันทึกเป็น PDF</button>
   </div>
 
   <div class="sumcards" id="sumCards"></div>
+
+  <!-- แผนผังตำแหน่งฟัน (Pre / Main Cutting) — แสดงด้านบนของรายงาน -->
+  <div class="panel report-diagram">
+    <h3>แผนผังตำแหน่งฟัน T1–T13 — Pre-Cutting / Main-Cutting</h3>
+    <div class="ph-sub">แบบแปลนวิศวกรรมจริง — Pre-Cutting 7 ซี่ (น้ำเงิน) · Main-Cutting 6 ซี่ (เขียว)</div>
+    <img class="tooth-diagram" alt="แผนผังตำแหน่งฟัน Bucket Wheel Excavator" style="width:100%;max-width:1180px;display:block;margin:10px auto 0;border-radius:8px;border:1px solid var(--line);background:#fff">
+    <p style="text-align:center;font-size:15.5px;color:var(--muted);margin-top:10px">ฟันหมายเลข <strong style="color:#2e7d32">1–6 (เขียว)</strong> = Main-Cutting · <strong style="color:#1565c0">7–13 (น้ำเงิน)</strong> = Pre-Cutting</p>
+  </div>
 
   <div class="panel">
     <h3>รายการประจำวัน</h3>
@@ -672,9 +698,14 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     </div>
   </div>
 
-  <div class="grid2 no-print" style="margin-top:18px">
-    <div class="panel"><h3>สรุปตามประเภทเหตุการณ์</h3><div class="ph-sub">เฉพาะวันที่เลือก</div><div class="chartbox" style="height:240px"><canvas id="dayTypeChart"></canvas></div></div>
-    <div class="panel"><h3>สรุปตามบุ้งกี๋</h3><div class="ph-sub">เฉพาะวันที่เลือก</div><div class="chartbox" style="height:240px"><canvas id="dayBucketChart"></canvas></div></div>
+  <!-- กราฟสรุป — แสดงด้านล่างของรายงาน (พิมพ์ได้ผ่านรูปภาพ) -->
+  <div class="grid2 report-charts" style="margin-top:18px">
+    <div class="panel"><h3>สรุปตามประเภทเหตุการณ์</h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
+      <div class="chartbox" style="height:240px"><canvas id="dayTypeChart"></canvas></div>
+      <img id="dayTypeImg" class="chart-print" alt="สรุปตามประเภทเหตุการณ์"></div>
+    <div class="panel"><h3>สรุปตามบุ้งกี๋</h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
+      <div class="chartbox" style="height:240px"><canvas id="dayBucketChart"></canvas></div>
+      <img id="dayBucketImg" class="chart-print" alt="สรุปตามบุ้งกี๋"></div>
   </div>
 </section>
 
@@ -722,8 +753,30 @@ function showTip(html,x,y){tip.innerHTML=html; tip.style.opacity=1; tip.style.le
 function hideTip(){tip.style.opacity=0;}
 
 /* ---------- OVERVIEW ---------- */
+// ── รวมผลจากรายการที่บันทึก (Data Entry) เพื่อปรับค่าใน "ฐานข้อมูล" ที่แสดง ──
+// lost (รวม sleeve_assembly), replace, hardface ต่อเครื่อง · และ issued (GI) รวมทั้งหมด
+function recordAgg(){
+  const a = {issued:0, BWE1:{lost:0,replace:0,hardface:0}, BWE2:{lost:0,replace:0,hardface:0}};
+  (records||[]).forEach(r=>{
+    a.issued += (parseInt(r.issued)||0);
+    const m = a[r.machine]; if(!m) return;
+    if(r.type==='lost' || r.type==='sleeve_assembly') m.lost++;
+    else if(r.type==='replace') m.replace++;
+    else if(r.type==='hardface') m.hardface++;
+  });
+  return a;
+}
+// สรุปต่อเครื่อง = ค่าฐาน (จาก Sheet/fallback) + ผลจากรายการที่บันทึก
+function adjSummaryRow(eq){
+  const base = (DATA.summary||[]).find(r=>r.eq===eq) || {eq,smu:0,install:0,replace:0,lost:0,hardface:0};
+  const d = recordAgg()[eq] || {lost:0,replace:0,hardface:0};
+  return {...base, lost:base.lost+d.lost, replace:base.replace+d.replace, hardface:base.hardface+d.hardface};
+}
+// เรียกหลังบันทึก/ลบรายการ เพื่อให้ KPI + คลังอัปเดตตาม
+function refreshDerived(){ try{ renderKPIs(); renderOverviewCharts(); renderStore(); }catch(e){} }
+
 function renderKPIs(){
-  const s = DATA.summary.find(r=>r.eq===machine);
+  const s = adjSummaryRow(machine);
   const lossRate = (s.lost/s.smu).toFixed(2);
   const k = [
     {l:'ชั่วโมงเดินเครื่อง SMU', v:s.smu.toLocaleString(), u:'hrs', cls:'', d:'Service Meter Units'},
@@ -741,7 +794,7 @@ function renderKPIs(){
 
 let cmpChart, ratioChart, posChart, slChart;
 function renderOverviewCharts(){
-  const b1=DATA.summary[0], b2=DATA.summary[1];
+  const b1=adjSummaryRow('BWE1'), b2=adjSummaryRow('BWE2');
   const labels=['SMU (×10)','ติดตั้ง','เปลี่ยน','สูญหาย','เชื่อมพอก'];
   const v1=[b1.smu/10,b1.install,b1.replace,b1.lost,b1.hardface];
   const v2=[b2.smu/10,b2.install,b2.replace,b2.lost,b2.hardface];
@@ -874,6 +927,22 @@ function renderAvail(){
 
 /* ---------- STORE ---------- */
 function renderStore(){
+  // คลัง: ปรับตามรายการที่บันทึก (เบิก GI เพิ่ม → คงเหลือลด)
+  const st = DATA.store || {gr:0,gi:0,stock:0};
+  const issuedAdd = recordAgg().issued;
+  const gr = st.gr;
+  const gi = st.gi + issuedAdd;
+  const stock = st.stock - issuedAdd;
+  const usedPct = gr>0 ? (gi/gr*100) : 0;
+  const elGR=document.getElementById('gGR'), elGI=document.getElementById('gGI'), elS=document.getElementById('gStock');
+  if(elGR) elGR.textContent = gr.toLocaleString();
+  if(elGI) elGI.textContent = gi.toLocaleString();
+  if(elS){ elS.textContent = stock.toLocaleString(); elS.style.color = stock<0 ? C.wear : 'var(--uptime)'; }
+  const bar=document.getElementById('storeBar'); if(bar) bar.style.width = Math.max(0,Math.min(100,usedPct))+'%';
+  const txt=document.getElementById('storeText');
+  if(txt) txt.innerHTML = `เบิกใช้ไปแล้ว <b style="color:var(--txt)">${usedPct.toFixed(1)}%</b> ของยอดรับเข้า · คงเหลือพอใช้ต่อ <b style="color:var(--txt)">${(100-usedPct).toFixed(1)}%</b>`
+    + (issuedAdd>0 ? ` <span style="color:var(--good)">(รวมเบิกจากบันทึก ${issuedAdd} ซี่)</span>` : '');
+
   mkChart('giChart',{type:'bar',data:{labels:DATA.periods,datasets:[
     {data:DATA.gi,backgroundColor:C.heat,borderRadius:3}]},
     options:{maintainAspectRatio:false,plugins:{legend:{display:false},
@@ -1001,7 +1070,7 @@ function addRecord(){
   records.unshift(r);
   saveRecords();
   recPage = 1;
-  renderRecords(); refreshDaily();
+  renderRecords(); refreshDaily(); refreshDerived();
   document.getElementById('lastSaved').textContent =
     `${MACHINE_LABEL[r.machine]} · บุ้งกี๋ ${r.bucket} · ${r.tooth} · ${TYPE_LABEL[r.type]}`;
   document.getElementById('f_note').value='';
@@ -1048,7 +1117,7 @@ function renderRecords(){
   });
   t.innerHTML = h;
   t.querySelectorAll('.delx').forEach(b=>b.addEventListener('click',()=>{
-    records = records.filter(x=>x.id!==b.dataset.id); saveRecords(); renderRecords(); refreshDaily(); toast('ลบรายการแล้ว','var(--wear)');
+    records = records.filter(x=>x.id!==b.dataset.id); saveRecords(); renderRecords(); refreshDaily(); refreshDerived(); toast('ลบรายการแล้ว','var(--wear)');
   }));
   renderRecPager(totalPages);
 }
@@ -1157,7 +1226,7 @@ function importJSON(file){
   const fr=new FileReader();
   fr.onload=()=>{ try{ const arr=JSON.parse(fr.result); if(Array.isArray(arr)){
       const ids=new Set(records.map(r=>r.id)); arr.forEach(r=>{if(!ids.has(r.id))records.push(r);});
-      records.sort((a,b)=>b.id.localeCompare(a.id)); saveRecords(); renderRecords(); refreshDaily(); toast('นำเข้าข้อมูลสำเร็จ');
+      records.sort((a,b)=>b.id.localeCompare(a.id)); saveRecords(); renderRecords(); refreshDaily(); refreshDerived(); toast('นำเข้าข้อมูลสำเร็จ');
     } else toast('ไฟล์ไม่ถูกต้อง','var(--wear)'); }catch(e){ toast('อ่านไฟล์ไม่สำเร็จ','var(--wear)'); } };
   fr.readAsText(file);
 }
@@ -1168,9 +1237,18 @@ document.getElementById('clearForm').addEventListener('click',()=>{document.getE
 document.getElementById('exportBtn').addEventListener('click', exportJSON);
 document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
 document.getElementById('importFile').addEventListener('change',e=>{if(e.target.files[0])importJSON(e.target.files[0]);e.target.value='';});
-document.getElementById('clearAll').addEventListener('click',()=>{ if(confirm('ลบรายการที่บันทึกทั้งหมด? การกระทำนี้ย้อนกลับไม่ได้')){records=[];saveRecords();renderRecords();refreshDaily();toast('ลบทั้งหมดแล้ว','var(--wear)');} });
+document.getElementById('clearAll').addEventListener('click',()=>{ if(confirm('ลบรายการที่บันทึกทั้งหมด? การกระทำนี้ย้อนกลับไม่ได้')){records=[];saveRecords();renderRecords();refreshDaily();refreshDerived();toast('ลบทั้งหมดแล้ว','var(--wear)');} });
 document.getElementById('daySelect').addEventListener('change',e=>renderDay(e.target.value));
 document.getElementById('printBtn').addEventListener('click',()=>window.print());
+
+// แปลงกราฟสรุปรายวันเป็นรูปภาพก่อนพิมพ์ (พิมพ์/บันทึก PDF ได้ชัวร์)
+function snapshotDayCharts(){
+  [['dayTypeChart','dayTypeImg'],['dayBucketChart','dayBucketImg']].forEach(([cid,iid])=>{
+    try{ const ch = Chart.getChart(cid); const img = document.getElementById(iid);
+      if(ch && img) img.src = ch.toBase64Image('image/png', 1); }catch(e){}
+  });
+}
+window.addEventListener('beforeprint', snapshotDayCharts);
 
 /* ---- Print preview modal ---- */
 function buildPaper(date){
@@ -1189,6 +1267,9 @@ function buildPaper(date){
         <td class="num">${r.smu!=null?r.smu.toLocaleString():'—'}</td><td class="num">${r.issued||0}</td><td>${r.note||''}</td></tr>`;
     }).join('') + `<tr class="pp-total"><td colspan="6" style="text-align:right">รวมเบิกจากคลัง (GI)</td><td class="num">${issued}</td><td></td></tr>`;
   }
+  const chartImg = (cid)=>{ try{ const c=Chart.getChart(cid); return c?c.toBase64Image('image/png',1):''; }catch(e){ return ''; } };
+  const typeImg = chartImg('dayTypeChart');
+  const bucketImg = chartImg('dayBucketChart');
   document.getElementById('pvPaper').innerHTML = `
     <div class="pp-head">
       <div class="pp-brand">
@@ -1203,12 +1284,22 @@ function buildPaper(date){
       <div class="pp-card"><div class="l">เปลี่ยน / เชื่อมพอก</div><div class="v">${repl}/${hf}</div></div>
       <div class="pp-card"><div class="l">เบิกจากคลังรวม</div><div class="v">${issued}</div></div>
     </div>
+    <div class="pp-diagram">
+      <div class="pp-secttl">แผนผังตำแหน่งฟัน T1–T13 · Pre-Cutting / Main-Cutting</div>
+      <img src="${TOOTH_DIAGRAM}" alt="แผนผังตำแหน่งฟัน">
+      <div class="pp-legend"><span style="color:#2e7d32">■ 1–6 Main-Cutting</span> · <span style="color:#1565c0">■ 7–13 Pre-Cutting</span></div>
+    </div>
     <table><thead><tr><th>เครื่อง</th><th>บุ้งกี๋</th><th>ฟัน</th><th>ชนิด</th><th>ประเภท</th><th class="num">SMU</th><th class="num">เบิก</th><th>หมายเหตุ</th></tr></thead><tbody>${tbody}</tbody></table>
+    <div class="pp-charts">
+      <div class="pp-chart"><div class="pp-secttl">สรุปตามประเภทเหตุการณ์</div>${typeImg?`<img src="${typeImg}" alt="สรุปตามประเภท">`:'<div class="pp-empty">— ไม่มีกราฟ —</div>'}</div>
+      <div class="pp-chart"><div class="pp-secttl">สรุปตามบุ้งกี๋</div>${bucketImg?`<img src="${bucketImg}" alt="สรุปตามบุ้งกี๋">`:'<div class="pp-empty">— ไม่มีกราฟ —</div>'}</div>
+    </div>
     <div class="pp-sign"><div>ผู้บันทึก / Recorded by</div><div>ผู้ตรวจสอบ / Verified by</div><div>ผู้อนุมัติ / Approved by</div></div>`;
 }
 function openPreview(){
   const date = document.getElementById('daySelect').value;
   if(!date){ toast('ยังไม่มีข้อมูลให้แสดง — กรุณาบันทึกรายการก่อน','var(--wear)'); return; }
+  renderDay(date);   // ให้กราฟตรงกับวันที่เลือกก่อนสร้างรูปภาพ
   buildPaper(date);
   const ov = document.getElementById('pvOverlay');
   ov.classList.add('show'); document.body.classList.add('pv-open'); document.body.style.overflow='hidden';
@@ -1359,7 +1450,7 @@ document.getElementById('hdrLogo').src = LOGO_SRC;
 document.querySelectorAll('.tooth-diagram').forEach(im=>im.src=TOOTH_DIAGRAM);
 document.getElementById('rptLogo').src = LOGO_SRC;
 initForm();
-loadRecords().then(()=>{ renderRecords(); refreshDaily(); });
+loadRecords().then(()=>{ renderRecords(); refreshDaily(); refreshDerived(); });
 
 renderDashboard();
 refreshLiveData();
