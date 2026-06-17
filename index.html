@@ -320,6 +320,12 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 .hx-reveal{opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease}
 .hx-reveal.visible{opacity:1; transform:translateY(0)}
 
+/* desktop: dock pinned to bottom-RIGHT corner, clear of the left CTA buttons */
+@media(min-width:769px){
+  .icon-dock{position:absolute; right:0; bottom:0; width:auto; max-width:64vw;
+    padding:14px 4vw 22px; justify-content:flex-end}
+  .hx-content{padding-bottom:26px}
+}
 @media(max-width:768px){
   .hx-switch-label{display:none}
   .hx-content{padding:0 5vw}
