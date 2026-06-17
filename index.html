@@ -157,6 +157,12 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:32px; le
 .rtbl tr:hover td{background:rgba(194,120,15,.05)}
 .rtbl .num{font-family:'JetBrains Mono',monospace; text-align:right}
 .rtbl .center{text-align:center}
+.recpager{display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap; margin-top:14px}
+.recpager .pg{min-width:34px; height:34px; padding:0 10px; border:1px solid var(--line2); background:var(--panel,#fff); color:var(--txt); border-radius:7px; cursor:pointer; font-family:'JetBrains Mono',monospace; font-size:13.5px; display:inline-flex; align-items:center; justify-content:center; transition:all .15s}
+.recpager .pg:hover:not(:disabled){border-color:var(--heat); color:var(--heat)}
+.recpager .pg.on{background:var(--heat); border-color:var(--heat); color:#fff; font-weight:700}
+.recpager .pg:disabled{opacity:.4; cursor:default}
+.recpager .pginfo{margin:0 8px; font-size:13px; color:var(--muted)}
 .tag{font-size:12px; padding:3px 10px; border-radius:20px; font-weight:600; white-space:nowrap}
 .tag.lost{background:rgba(204,58,33,.12); color:#a82e18}
 .tag.replace{background:rgba(194,120,15,.14); color:#9a5e0a}
@@ -618,6 +624,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <div style="overflow-x:auto">
       <table class="rtbl" id="recTable"></table>
     </div>
+    <div id="recPager" class="recpager no-print"></div>
     <div class="btnrow no-print">
       <button class="btn" id="exportBtn">⤓ สำรองข้อมูล (.json)</button>
       <button class="btn" id="importBtn">⤒ นำเข้าข้อมูล</button>
@@ -985,6 +992,7 @@ function addRecord(){
   if(!r.date){ toast('กรุณาเลือกวันที่','var(--wear)'); return; }
   records.unshift(r);
   saveRecords();
+  recPage = 1;
   renderRecords(); refreshDaily();
   document.getElementById('lastSaved').textContent =
     `${MACHINE_LABEL[r.machine]} · บุ้งกี๋ ${r.bucket} · ${r.tooth} · ${TYPE_LABEL[r.type]}`;
@@ -998,12 +1006,25 @@ function addRecord(){
   }
 }
 
+const REC_PER_PAGE = 6;
+let recPage = 1;
 function renderRecords(){
   const t = document.getElementById('recTable');
+  const pager = document.getElementById('recPager');
   document.getElementById('recCount').textContent = `(${records.length} รายการ)`;
-  if(!records.length){ t.innerHTML = `<tr><td class="empty">ยังไม่มีรายการ — กรอกแบบฟอร์มด้านบนเพื่อเริ่มบันทึก</td></tr>`; return; }
+  if(!records.length){
+    t.innerHTML = `<tr><td class="empty">ยังไม่มีรายการ — กรอกแบบฟอร์มด้านบนเพื่อเริ่มบันทึก</td></tr>`;
+    if(pager) pager.innerHTML = '';
+    return;
+  }
+  const totalPages = Math.ceil(records.length / REC_PER_PAGE);
+  if(recPage > totalPages) recPage = totalPages;
+  if(recPage < 1) recPage = 1;
+  const start = (recPage - 1) * REC_PER_PAGE;
+  const pageRows = records.slice(start, start + REC_PER_PAGE);
+
   let h = `<tr><th>วันที่</th><th>เครื่อง</th><th>บุ้งกี๋</th><th>ฟัน</th><th>ประเภท</th><th class="num">SMU</th><th class="num">เบิก</th><th>หมายเหตุ</th><th></th></tr>`;
-  records.forEach(r=>{
+  pageRows.forEach(r=>{
     const ki = TEETH.indexOf(r.tooth);
     h += `<tr>
       <td class="mono">${r.date}</td>
@@ -1020,6 +1041,35 @@ function renderRecords(){
   t.innerHTML = h;
   t.querySelectorAll('.delx').forEach(b=>b.addEventListener('click',()=>{
     records = records.filter(x=>x.id!==b.dataset.id); saveRecords(); renderRecords(); refreshDaily(); toast('ลบรายการแล้ว','var(--wear)');
+  }));
+  renderRecPager(totalPages);
+}
+
+function renderRecPager(totalPages){
+  const pager = document.getElementById('recPager');
+  if(!pager) return;
+  if(totalPages <= 1){ pager.innerHTML = ''; return; }
+  // หน้าที่จะโชว์: ย่อด้วย … เมื่อมีหลายหน้า
+  const pages = [];
+  const win = 1; // จำนวนหน้ารอบ ๆ หน้าปัจจุบัน
+  for(let p=1; p<=totalPages; p++){
+    if(p===1 || p===totalPages || (p>=recPage-win && p<=recPage+win)) pages.push(p);
+    else if(pages[pages.length-1] !== '…') pages.push('…');
+  }
+  let h = `<button class="pg" data-go="prev" ${recPage===1?'disabled':''}>‹</button>`;
+  pages.forEach(p=>{
+    if(p==='…'){ h += `<span class="pginfo">…</span>`; }
+    else h += `<button class="pg ${p===recPage?'on':''}" data-go="${p}">${p}</button>`;
+  });
+  h += `<button class="pg" data-go="next" ${recPage===totalPages?'disabled':''}>›</button>`;
+  h += `<span class="pginfo">หน้า ${recPage}/${totalPages}</span>`;
+  pager.innerHTML = h;
+  pager.querySelectorAll('.pg').forEach(b=>b.addEventListener('click',()=>{
+    const g = b.dataset.go;
+    if(g==='prev') recPage--;
+    else if(g==='next') recPage++;
+    else recPage = parseInt(g);
+    renderRecords();
   }));
 }
 
