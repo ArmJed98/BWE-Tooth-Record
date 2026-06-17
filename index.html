@@ -597,7 +597,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
         <select id="f_machine"><option value="BWE1">BWE 1</option><option value="BWE2">BWE 2</option></select></div>
       <div class="field"><label>SMU เครื่องจักร (ชั่วโมง)</label><input type="number" class="mono" id="f_smu" min="0" placeholder="เช่น 628"><span class="hint">ชั่วโมงเดินเครื่องสะสม</span></div>
       <div class="field"><label>ประเภทเหตุการณ์ <span class="req">*</span></label>
-        <select id="f_type"><option value="lost">ฟันสูญหาย (Lost)</option><option value="replace">เปลี่ยนฟัน (Replace)</option><option value="hardface">เชื่อมพอก (Hardface)</option></select></div>
+        <select id="f_type"><option value="lost">ฟันสูญหาย (Lost)</option><option value="replace">เปลี่ยนฟัน (Replace)</option><option value="hardface">เชื่อมพอก (Hardface)</option><option value="sleeve_lost">ปลอกฟันสูญหาย (Sleeve Lost)</option><option value="sleeve_assembly">เชื่อมประกอบชุดปลอกฟัน (Sleeve Assembly)</option></select></div>
       <div class="field"><label>ตำแหน่งบุ้งกี๋ <span class="req">*</span></label><select id="f_bucket"></select></div>
       <div class="field"><label>ตำแหน่งฟัน <span class="req">*</span></label><select id="f_tooth"></select><span class="hint" id="f_toothkind">—</span></div>
       <div class="field"><label>จำนวนฟันที่เบิกจากคลัง</label><input type="number" class="mono" id="f_issued" min="0" value="0" placeholder="0"><span class="hint">GI — Goods Issue</span></div>
@@ -923,7 +923,7 @@ window.addEventListener('scroll',()=>{
 });
 
 /* ========== DATA ENTRY + DAILY SUMMARY ========== */
-const TYPE_LABEL = {lost:'ฟันสูญหาย', replace:'เปลี่ยนฟัน', hardface:'เชื่อมพอก'};
+const TYPE_LABEL = {lost:'ฟันสูญหาย', replace:'เปลี่ยนฟัน', hardface:'เชื่อมพอก', sleeve_lost:'ปลอกฟันสูญหาย', sleeve_assembly:'เชื่อมประกอบปลอกฟัน'};
 const MACHINE_LABEL = {BWE1:'BWE 1', BWE2:'BWE 2'};
 const STORE_KEY = 'bwe:tooth-records';
 let records = [];
