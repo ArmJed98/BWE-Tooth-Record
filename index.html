@@ -6,7 +6,7 @@
 <title>BWE Tooth Intelligence — แดชบอร์ดวิเคราะห์ฟันบุ้งกี๋</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{
@@ -258,9 +258,154 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 @media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)} .grid2,.grid3{grid-template-columns:1fr} .insights{grid-template-columns:1fr} h2{font-size:27px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 :focus-visible{outline:2px solid var(--heat); outline-offset:2px}
+
+/* ══════════ HERO LANDING (full-screen machine image) ══════════ */
+:root{
+  --hx-coal:#0b0d10; --hx-rust:#c45a1a; --hx-amber:#e88c2a;
+  --hx-chalk:#ede8df; --hx-fog:#8d95a0;
+}
+.hx-hero{position:relative; height:100vh; min-height:600px; display:flex; flex-direction:column; overflow:hidden; background:var(--hx-coal)}
+.hx-bg{position:absolute; inset:0; background-image:url('assets/bwe-hero.jpg'); background-size:cover; background-position:center 30%; filter:brightness(0.55) saturate(0.8); transform:scale(1.05); transition:transform 9s ease-out}
+.hx-bg.loaded{transform:scale(1.0)}
+.hx-vig{position:absolute; inset:0; background:
+  linear-gradient(to bottom, rgba(11,13,16,0.72) 0%, transparent 24%),
+  linear-gradient(to top, rgba(11,13,16,0.98) 0%, rgba(11,13,16,0.55) 32%, transparent 62%)}
+.hx-vig-side{position:absolute; inset:0; background:linear-gradient(to right, rgba(11,13,16,0.6) 0%, transparent 55%)}
+
+/* hero topbar */
+.hx-topbar{position:relative; z-index:20; display:flex; justify-content:space-between; align-items:center; padding:20px 5vw}
+.hx-logo{display:flex; align-items:center; gap:11px}
+.hx-logo-mark{width:38px; height:38px; background:var(--hx-rust); clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue',sans-serif; font-size:12px; color:#fff}
+.hx-logo-text{font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; letter-spacing:.13em; text-transform:uppercase; color:var(--hx-chalk); line-height:1.3}
+.hx-logo-text span{display:block; font-size:10px; color:var(--hx-fog); letter-spacing:.08em}
+
+/* BWE switcher (top-right of image) */
+.hx-switch{display:flex; align-items:center; gap:6px}
+.hx-switch-label{font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--hx-fog); margin-right:4px}
+.bwe-btn{font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:.05em; padding:6px 16px 4px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14); color:var(--hx-fog); cursor:pointer; clip-path:polygon(0 0,calc(100% - 7px) 0,100% 7px,100% 100%,0 100%); transition:all .2s}
+.bwe-btn:hover{background:rgba(196,90,26,.25); border-color:var(--hx-rust); color:var(--hx-chalk)}
+.bwe-btn.active{background:var(--hx-rust); border-color:var(--hx-rust); color:#fff}
+.bwe-btn.bwe2.active{background:var(--uptime); border-color:var(--uptime)}
+.hx-divider{width:1px; height:20px; background:rgba(255,255,255,.15)}
+
+/* hero content */
+.hx-content{position:relative; z-index:10; margin-top:auto; padding:0 5vw}
+.hx-eyebrow{display:flex; align-items:center; gap:12px; margin-bottom:16px}
+.hx-eyebrow-line{width:28px; height:2px; background:var(--hx-rust); flex-shrink:0}
+.hx-eyebrow-text{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--hx-amber)}
+.hx-title{font-family:'Bebas Neue',sans-serif; font-size:clamp(54px,10vw,112px); line-height:.9; letter-spacing:.01em; color:#fff; margin-bottom:10px}
+.hx-title em{font-style:normal; color:var(--hx-rust)}
+.hx-subtitle{font-family:'Bebas Neue',sans-serif; font-size:clamp(17px,2.6vw,30px); color:var(--hx-fog); letter-spacing:.06em; margin-bottom:20px}
+.hx-desc{font-size:14px; line-height:1.75; color:var(--hx-chalk); opacity:.72; max-width:460px; margin-bottom:32px}
+.hx-cta-row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+.hx-cta{display:inline-flex; align-items:center; gap:8px; padding:13px 26px; font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.12em; text-transform:uppercase; text-decoration:none; border:none; cursor:pointer; transition:all .2s}
+.hx-cta--primary{background:var(--hx-rust); color:#fff; clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.hx-cta--primary:hover{background:var(--hx-amber); transform:translateY(-2px)}
+.hx-cta--ghost{background:transparent; color:var(--hx-chalk); border:1px solid rgba(232,226,214,.22); clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%)}
+.hx-cta--ghost:hover{border-color:var(--hx-rust); color:var(--hx-amber); transform:translateY(-2px)}
+
+/* icon dock (bottom corner of image) */
+.icon-dock{position:relative; z-index:10; padding:16px 5vw 24px; display:flex; align-items:center; gap:0; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none}
+.icon-dock::-webkit-scrollbar{display:none}
+.dock-item{display:flex; flex-direction:column; align-items:center; gap:7px; padding:10px 14px; min-width:74px; cursor:pointer; text-decoration:none; position:relative; transition:transform .18s; flex-shrink:0}
+.dock-item:hover{transform:translateY(-4px)}
+.dock-item::after{content:''; position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:0; height:2px; background:var(--hx-rust); transition:width .22s}
+.dock-item:hover::after{width:60%}
+.dock-icon{width:44px; height:44px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:20px; transition:background .18s,border-color .18s; backdrop-filter:blur(6px)}
+.dock-item:hover .dock-icon{background:rgba(196,90,26,.22); border-color:rgba(196,90,26,.5)}
+.dock-label{font-family:'JetBrains Mono',monospace; font-size:9px; letter-spacing:.08em; text-transform:uppercase; color:var(--hx-fog); white-space:nowrap; text-align:center; line-height:1.25; transition:color .18s}
+.dock-item:hover .dock-label{color:var(--hx-amber)}
+.dock-sep{width:1px; height:36px; background:rgba(255,255,255,.08); flex-shrink:0; margin:0 4px 14px; align-self:center}
+
+.hx-reveal{opacity:0; transform:translateY(18px); transition:opacity .55s ease,transform .55s ease}
+.hx-reveal.visible{opacity:1; transform:translateY(0)}
+
+@media(max-width:768px){
+  .hx-switch-label{display:none}
+  .hx-content{padding:0 5vw}
+}
+@media(max-width:480px){
+  .bwe-btn{font-size:15px; padding:5px 12px 3px}
+  .hx-desc{display:none}
+}
+@media print{.hx-hero{display:none!important}}
+
+/* heatmap 2-column layout (heat left, real tooth photo right) */
+.hm-layout{display:grid; grid-template-columns:minmax(0,2.3fr) minmax(0,1fr); gap:18px; align-items:start}
+.hm-figure{position:relative; margin:12px 0 0}
+.hm-figure img{width:100%; display:block; border-radius:8px; border:1px solid var(--line); background:#0c1418}
+.hm-figure.missing img{display:none}
+.hm-missing{display:none; padding:38px 16px; text-align:center; color:var(--muted); font-size:13px; line-height:1.7; border:1px dashed var(--line2); border-radius:8px; background:var(--panel2,#0e171c)}
+.hm-figure.missing .hm-missing{display:block}
+.hm-figure figcaption{display:flex; justify-content:space-around; gap:6px; margin-top:8px; font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:.06em}
+.hm-figure.missing figcaption{display:none}
+@media(max-width:980px){.hm-layout{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
+<!-- ══════════ HERO LANDING ══════════ -->
+<section class="hx-hero" id="home">
+  <div class="hx-bg" id="hxBg"></div>
+  <div class="hx-vig"></div>
+  <div class="hx-vig-side"></div>
+
+  <!-- hero topbar -->
+  <nav class="hx-topbar">
+    <div class="hx-logo">
+      <div class="hx-logo-mark">BWE</div>
+      <div class="hx-logo-text">Tooth Intelligence<span>ITD · Mae Moh Mine Ph.9</span></div>
+    </div>
+    <!-- BWE switcher (top-right) -->
+    <div class="hx-switch">
+      <span class="hx-switch-label">เครื่องจักร</span>
+      <button class="bwe-btn active" data-m="BWE1">BWE 1</button>
+      <div class="hx-divider"></div>
+      <button class="bwe-btn bwe2" data-m="BWE2">BWE 2</button>
+    </div>
+  </nav>
+
+  <!-- hero copy -->
+  <div class="hx-content">
+    <div class="hx-eyebrow hx-reveal">
+      <div class="hx-eyebrow-line"></div>
+      <span class="hx-eyebrow-text">Bucket Wheel Excavator · Wear &amp; Hardfacing Analytics</span>
+    </div>
+    <h1 class="hx-title hx-reveal">BWE<br><em>Tooth</em><br>Record</h1>
+    <p class="hx-subtitle hx-reveal">Fleet Intelligence Dashboard</p>
+    <p class="hx-desc hx-reveal">ระบบติดตามและวิเคราะห์สภาพฟันขุดของรถ BWE 1 &amp; BWE 2<br>ครอบคลุมการสึกหรอ, การเชื่อมพอก, การสูญหาย และความพร้อมใช้งาน</p>
+    <div class="hx-cta-row hx-reveal">
+      <a href="#overview" class="hx-cta hx-cta--primary">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        เข้าสู่ Dashboard
+      </a>
+      <a href="#entry" class="hx-cta hx-cta--ghost">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        บันทึกข้อมูล
+      </a>
+    </div>
+  </div>
+
+  <!-- module icon dock (bottom corner of image) -->
+  <div class="icon-dock">
+    <a href="#overview" class="dock-item hx-reveal"><div class="dock-icon">⚙️</div><span class="dock-label">Fleet<br>Overview</span></a>
+    <div class="dock-sep"></div>
+    <a href="#heatmap" class="dock-item hx-reveal"><div class="dock-icon">🔥</div><span class="dock-label">Hardfacing<br>Map</span></a>
+    <div class="dock-sep"></div>
+    <a href="#position" class="dock-item hx-reveal"><div class="dock-icon">📐</div><span class="dock-label">Tooth<br>Position</span></a>
+    <div class="dock-sep"></div>
+    <a href="#loss" class="dock-item hx-reveal"><div class="dock-icon">📉</div><span class="dock-label">Tooth<br>Loss</span></a>
+    <div class="dock-sep"></div>
+    <a href="#avail" class="dock-item hx-reveal"><div class="dock-icon">✅</div><span class="dock-label">Availability<br>M/A</span></a>
+    <div class="dock-sep"></div>
+    <a href="#store" class="dock-item hx-reveal"><div class="dock-icon">📦</div><span class="dock-label">Spare<br>Parts</span></a>
+    <div class="dock-sep"></div>
+    <a href="#entry" class="dock-item hx-reveal"><div class="dock-icon">✏️</div><span class="dock-label">Data<br>Entry</span></a>
+    <div class="dock-sep"></div>
+    <a href="#daily" class="dock-item hx-reveal"><div class="dock-icon">🖨️</div><span class="dock-label">Daily<br>Report</span></a>
+  </div>
+</section>
+
 <header>
   <div class="topbar">
     <div class="brand">
@@ -327,13 +472,25 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <div class="eyebrow">02 — Hardfacing Map</div>
   <h2>แผนที่ความเข้มการเชื่อมพอก — <span id="hmName" style="color:var(--heat)">BWE 1</span></h2>
   <p class="lead">บุ้งกี๋ 18 ใบ × ฟัน 13 ซี่ (T1–T13) — สีเข้มขึ้นตามจำนวนครั้งที่เชื่อมพอกปลายฟัน ใช้ระบุ "จุดร้อน" ของการสึกหรอ <span style="color:var(--short)">▮ ฟันสั้น</span> = T1–T7, T10, T13 · <span style="color:var(--long)">▮ ฟันยาว</span> = T8, T9, T11, T12</p>
-  <div class="panel">
-    <div class="heatwrap"><table class="heat" id="heat"></table></div>
-    <div class="legrow">
-      <div class="scale"><span>ครั้งการเชื่อมพอก</span><div class="scalebar" id="scalebar"></div><span class="mono" id="scalemax"></span></div>
-      <div class="tcls"><span class="dot" style="background:var(--short)"></span> ฟันสั้น (Short)</div>
-      <div class="tcls"><span class="dot" style="background:var(--long)"></span> ฟันยาว (Long)</div>
-      <div style="margin-left:auto" class="mono" id="hmtotal"></div>
+  <div class="hm-layout">
+    <div class="panel">
+      <div class="heatwrap"><table class="heat" id="heat"></table></div>
+      <div class="legrow">
+        <div class="scale"><span>ครั้งการเชื่อมพอก</span><div class="scalebar" id="scalebar"></div><span class="mono" id="scalemax"></span></div>
+        <div class="tcls"><span class="dot" style="background:var(--short)"></span> ฟันสั้น (Short)</div>
+        <div class="tcls"><span class="dot" style="background:var(--long)"></span> ฟันยาว (Long)</div>
+        <div style="margin-left:auto" class="mono" id="hmtotal"></div>
+      </div>
+    </div>
+    <div class="panel hm-photo">
+      <h3>สภาพฟันจริง — Real Tooth BWE Views</h3>
+      <div class="ph-sub">ภาพถ่ายปลายฟันขุดจริง 3 มุมมอง</div>
+      <figure class="hm-figure">
+        <img id="toothViews" src="assets/real-tooth-bwe-views.jpg" alt="Real Tooth BWE views — front / back / side"
+             onerror="this.closest('.hm-figure').classList.add('missing')">
+        <div class="hm-missing">รอแนบรูป <code>real-tooth-bwe-views.jpg</code><br>ใน <code>assets/</code></div>
+        <figcaption><span>มุมหน้า (Front)</span><span>มุมหลัง (Back)</span><span>มุมข้าง (Side)</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -701,15 +858,40 @@ function renderStore(){
       scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'ซี่ (สะสม)'}}}}});
 }
 
-/* ---------- machine toggle ---------- */
-document.querySelectorAll('#machtog button').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    machine = btn.dataset.m;
-    document.querySelectorAll('#machtog button').forEach(b=>{b.classList.remove('on','bwe2');});
-    btn.classList.add('on'); if(machine==='BWE2') btn.classList.add('bwe2');
-    renderKPIs(); renderOverviewCharts(); renderHeat(); renderPosition();
+/* ---------- machine toggle (shared by header + hero) ---------- */
+function setMachine(m){
+  machine = m;
+  // header toggle
+  document.querySelectorAll('#machtog button').forEach(b=>{
+    const on = b.dataset.m===m;
+    b.classList.toggle('on', on);
+    b.classList.toggle('bwe2', on && m==='BWE2');
   });
+  // hero switcher
+  document.querySelectorAll('.bwe-btn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.m===m);
+  });
+  renderKPIs(); renderOverviewCharts(); renderHeat(); renderPosition();
+}
+document.querySelectorAll('#machtog button, .bwe-btn').forEach(btn=>{
+  btn.addEventListener('click',()=> setMachine(btn.dataset.m));
 });
+
+/* ---------- hero animations ---------- */
+(function(){
+  const bg = document.getElementById('hxBg');
+  if(bg) window.addEventListener('load', ()=> setTimeout(()=> bg.classList.add('loaded'), 80));
+  // parallax
+  window.addEventListener('scroll', ()=>{
+    if(bg && window.scrollY < window.innerHeight*1.5)
+      bg.style.transform = 'scale(1.0) translateY(' + (window.scrollY*0.15) + 'px)';
+  }, {passive:true});
+  // reveal
+  const obs = new IntersectionObserver(
+    es => es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } }),
+    {threshold:0.1});
+  document.querySelectorAll('.hx-reveal').forEach(el=> obs.observe(el));
+})();
 
 /* ---------- scrollspy ---------- */
 const navLinks=[...document.querySelectorAll('#nav a')];
@@ -785,7 +967,13 @@ function addRecord(){
   document.getElementById('lastSaved').textContent =
     `${MACHINE_LABEL[r.machine]} · บุ้งกี๋ ${r.bucket} · ${r.tooth} · ${TYPE_LABEL[r.type]}`;
   document.getElementById('f_note').value='';
-  toast('บันทึกรายการแล้ว');
+  // บันทึกเข้า Google Sheet (ถ้าตั้งค่า writeUrl ไว้)
+  if(SHEET_CONFIG.writeUrl){
+    toast('บันทึกแล้ว · กำลังส่งเข้า Google Sheet…');
+    sendToSheet(r).then(ok=> toast(ok?'ส่งเข้า Google Sheet แล้ว ✓':'บันทึกในเครื่องแล้ว (ส่งเข้า Sheet ไม่ได้)', ok?'var(--good)':'var(--wear)'));
+  } else {
+    toast('บันทึกรายการแล้ว');
+  }
 }
 
 function renderRecords(){
@@ -959,8 +1147,23 @@ const SHEET_CONFIG = {
   id: '1_HnUI5RIjXqAMwq_ZPVIw1xHLqPN77u-KOP765o_arM',  // Spreadsheet ID ของคุณ
   enabled: true,            // false = ใช้ข้อมูลฝังในไฟล์ (ไม่ดึงจาก Sheet)
   refreshMs: 5 * 60 * 1000, // รีเฟรชอัตโนมัติทุก 5 นาที (0 = ปิด)
+  // URL ของ Google Apps Script Web App สำหรับ "เขียน" ข้อมูลกลับเข้า Sheet
+  // วางลิงก์ที่ได้จากการ Deploy (ดูคู่มือใน apps-script/README.md). เว้นว่าง = ปิดการบันทึกเข้า Sheet
+  writeUrl: '',
   tabs: { summary:'summary', hf1:'hf1', hf2:'hf2', tooth:'tooth', periods:'periods', daily:'daily', life:'life' }
 };
+
+// ── เขียนรายการบันทึกกลับเข้า Google Sheet (ผ่าน Apps Script Web App) ──
+// ใช้ mode:'no-cors' จึงอ่าน response ไม่ได้ แต่ข้อมูลถูกส่งถึง Apps Script (ฝั่ง doPost จะ append แถว)
+function sendToSheet(rec){
+  if(!SHEET_CONFIG.writeUrl) return Promise.resolve(false);
+  return fetch(SHEET_CONFIG.writeUrl, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // text/plain เลี่ยง preflight
+    body: JSON.stringify(rec)
+  }).then(()=>true).catch(()=>false);
+}
 
 // ดึงข้อมูลแต่ละแท็บผ่าน gviz แบบ JSONP (ไม่ติด CORS เมื่อ Sheet เปิด public)
 function gvizFetch(sheetName, headerRows){
