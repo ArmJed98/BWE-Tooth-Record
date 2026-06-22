@@ -270,8 +270,9 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .pv-paper .pp-diagram{margin:18px 0 6px; page-break-inside:avoid}
 .pv-paper .pp-diagram img{width:100%; max-width:680px; display:block; margin:0 auto; border:1px solid #999; border-radius:4px}
 .pv-paper .pp-legend{text-align:center; font-size:12px; color:#333; margin-top:6px}
-.pv-paper .pp-charts{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:22px; page-break-inside:avoid}
+.pv-paper .pp-charts{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:12px; page-break-inside:avoid}
 .pv-paper .pp-chart img{width:100%; height:auto; display:block; border:1px solid #ddd}
+.pv-paper .pp-csub{font-size:12px; font-weight:700; color:#222; margin:0 0 4px; text-align:center}
 @media(max-width:980px){.pv-paper{padding:28px 24px}}
 
 footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; color:var(--muted); font-size:14.4px; line-height:1.6}
@@ -698,14 +699,20 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     </div>
   </div>
 
-  <!-- กราฟสรุป — แสดงด้านล่างของรายงาน (พิมพ์ได้ผ่านรูปภาพ) -->
+  <!-- กราฟสรุป — แยกตามเครื่อง BWE1 / BWE2 (พิมพ์ได้ผ่านรูปภาพ) -->
   <div class="grid2 report-charts" style="margin-top:18px">
-    <div class="panel"><h3>สรุปตามประเภทเหตุการณ์</h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
-      <div class="chartbox" style="height:240px"><canvas id="dayTypeChart"></canvas></div>
-      <img id="dayTypeImg" class="chart-print" alt="สรุปตามประเภทเหตุการณ์"></div>
-    <div class="panel"><h3>สรุปตามบุ้งกี๋</h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
-      <div class="chartbox" style="height:240px"><canvas id="dayBucketChart"></canvas></div>
-      <img id="dayBucketImg" class="chart-print" alt="สรุปตามบุ้งกี๋"></div>
+    <div class="panel"><h3>สรุปตามประเภทเหตุการณ์ — <span style="color:var(--heat)">BWE 1</span></h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
+      <div class="chartbox" style="height:240px"><canvas id="dayType1"></canvas></div>
+      <img id="dayType1Img" class="chart-print" alt="สรุปตามประเภทเหตุการณ์ BWE1"></div>
+    <div class="panel"><h3>สรุปตามประเภทเหตุการณ์ — <span style="color:var(--uptime)">BWE 2</span></h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
+      <div class="chartbox" style="height:240px"><canvas id="dayType2"></canvas></div>
+      <img id="dayType2Img" class="chart-print" alt="สรุปตามประเภทเหตุการณ์ BWE2"></div>
+    <div class="panel"><h3>สรุปตามบุ้งกี๋ — <span style="color:var(--heat)">BWE 1</span></h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
+      <div class="chartbox" style="height:240px"><canvas id="dayBucket1"></canvas></div>
+      <img id="dayBucket1Img" class="chart-print" alt="สรุปตามบุ้งกี๋ BWE1"></div>
+    <div class="panel"><h3>สรุปตามบุ้งกี๋ — <span style="color:var(--uptime)">BWE 2</span></h3><div class="ph-sub">เฉพาะวันที่เลือก</div>
+      <div class="chartbox" style="height:240px"><canvas id="dayBucket2"></canvas></div>
+      <img id="dayBucket2Img" class="chart-print" alt="สรุปตามบุ้งกี๋ BWE2"></div>
   </div>
 </section>
 
@@ -1233,18 +1240,23 @@ function renderDay(date){
     dt.innerHTML=h;
   }
 
-  // charts
-  const tc=[lost,repl,hf];
-  if(dayTypeChart) dayTypeChart.destroy();
-  dayTypeChart=mkChart('dayTypeChart',{type:'doughnut',data:{labels:['สูญหาย','เปลี่ยน','เชื่อมพอก'],
-    datasets:[{data:tc,backgroundColor:[C.wear,C.heat,C.uptime],borderColor:'#ffffff',borderWidth:2}]},
-    options:{maintainAspectRatio:false,animation:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:14}}}}});
-
-  const bsum=Array(18).fill(0); rows.forEach(r=>bsum[r.bucket-1]++);
-  if(dayBucketChart) dayBucketChart.destroy();
-  dayBucketChart=mkChart('dayBucketChart',{type:'bar',data:{labels:bsum.map((_,i)=>'B'+(i+1)),
-    datasets:[{data:bsum,backgroundColor:bsum.map(v=>v>0?C.heat:C.empty),borderRadius:3}]},
-    options:{maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,ticks:{stepSize:1}}}}});
+  // charts — แยกตามเครื่อง (ไม่รวม BWE1/BWE2 เข้าด้วยกัน)
+  ['BWE1','BWE2'].forEach((mc,idx)=>{
+    const n = idx+1;
+    const rws = rows.filter(r=>r.machine===mc);
+    const lo = rws.filter(r=>r.type==='lost'||r.type==='sleeve_assembly').length;
+    const rp = rws.filter(r=>r.type==='replace').length;
+    const hfc = rws.filter(r=>r.type==='hardface').length;
+    const accent = mc==='BWE1'?C.heat:C.uptime;
+    mkChart('dayType'+n,{type:'doughnut',data:{labels:['สูญหาย','เปลี่ยน','เชื่อมพอก'],
+      datasets:[{data:[lo,rp,hfc],backgroundColor:[C.wear,C.heat,C.uptime],borderColor:'#ffffff',borderWidth:2}]},
+      options:{maintainAspectRatio:false,animation:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:14}}}}});
+    const bs=Array(18).fill(0); rws.forEach(r=>bs[r.bucket-1]++);
+    mkChart('dayBucket'+n,{type:'bar',data:{labels:bs.map((_,i)=>'B'+(i+1)),
+      datasets:[{data:bs,backgroundColor:bs.map(v=>v>0?accent:C.empty),borderRadius:3}]},
+      options:{maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,ticks:{stepSize:1}}}}});
+  });
 }
 
 /* ---- export / import / clear ---- */
@@ -1275,7 +1287,7 @@ document.getElementById('printBtn').addEventListener('click',()=>window.print())
 
 // แปลงกราฟสรุปรายวันเป็นรูปภาพก่อนพิมพ์ (พิมพ์/บันทึก PDF ได้ชัวร์)
 function snapshotDayCharts(){
-  [['dayTypeChart','dayTypeImg'],['dayBucketChart','dayBucketImg']].forEach(([cid,iid])=>{
+  [['dayType1','dayType1Img'],['dayType2','dayType2Img'],['dayBucket1','dayBucket1Img'],['dayBucket2','dayBucket2Img']].forEach(([cid,iid])=>{
     try{ const ch = Chart.getChart(cid); const img = document.getElementById(iid);
       if(ch && img) img.src = ch.toBase64Image('image/png', 1); }catch(e){}
   });
@@ -1300,8 +1312,8 @@ function buildPaper(date){
     }).join('') + `<tr class="pp-total"><td colspan="6" style="text-align:right">รวมเบิกจากคลัง (GI)</td><td class="num">${issued}</td><td></td></tr>`;
   }
   const chartImg = (cid)=>{ try{ const c=Chart.getChart(cid); return c?c.toBase64Image('image/png',1):''; }catch(e){ return ''; } };
-  const typeImg = chartImg('dayTypeChart');
-  const bucketImg = chartImg('dayBucketChart');
+  const t1=chartImg('dayType1'), t2=chartImg('dayType2'), b1=chartImg('dayBucket1'), b2=chartImg('dayBucket2');
+  const imgCell=(src,alt)=> src?`<img src="${src}" alt="${alt}">`:'<div class="pp-empty">— ไม่มีข้อมูล —</div>';
   document.getElementById('pvPaper').innerHTML = `
     <div class="pp-head">
       <div class="pp-brand">
@@ -1322,9 +1334,12 @@ function buildPaper(date){
       <div class="pp-legend"><span style="color:#2e7d32">■ 1–6 Main-Cutting</span> · <span style="color:#1565c0">■ 7–13 Pre-Cutting</span></div>
     </div>
     <table><thead><tr><th>เครื่อง</th><th>บุ้งกี๋</th><th>ฟัน</th><th>ชนิด</th><th>ประเภท</th><th class="num">SMU</th><th class="num">เบิก</th><th>หมายเหตุ</th></tr></thead><tbody>${tbody}</tbody></table>
+    <div class="pp-secttl" style="margin-top:22px">สรุปกราฟแยกตามเครื่องจักร</div>
     <div class="pp-charts">
-      <div class="pp-chart"><div class="pp-secttl">สรุปตามประเภทเหตุการณ์</div>${typeImg?`<img src="${typeImg}" alt="สรุปตามประเภท">`:'<div class="pp-empty">— ไม่มีกราฟ —</div>'}</div>
-      <div class="pp-chart"><div class="pp-secttl">สรุปตามบุ้งกี๋</div>${bucketImg?`<img src="${bucketImg}" alt="สรุปตามบุ้งกี๋">`:'<div class="pp-empty">— ไม่มีกราฟ —</div>'}</div>
+      <div class="pp-chart"><div class="pp-csub">ประเภทเหตุการณ์ · BWE 1</div>${imgCell(t1,'ประเภท BWE1')}</div>
+      <div class="pp-chart"><div class="pp-csub">ประเภทเหตุการณ์ · BWE 2</div>${imgCell(t2,'ประเภท BWE2')}</div>
+      <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 1</div>${imgCell(b1,'บุ้งกี๋ BWE1')}</div>
+      <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 2</div>${imgCell(b2,'บุ้งกี๋ BWE2')}</div>
     </div>
     <div class="pp-sign"><div>ผู้บันทึก / Recorded by</div><div>ผู้ตรวจสอบ / Verified by</div><div>ผู้อนุมัติ / Approved by</div></div>`;
 }
