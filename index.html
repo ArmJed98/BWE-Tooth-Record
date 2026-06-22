@@ -230,7 +230,9 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
   body.pv-open .pv-overlay{display:block!important; position:static!important; background:#fff!important; backdrop-filter:none!important; inset:auto!important}
   body.pv-open .pv-bar{display:none!important}
   body.pv-open .pv-scroll{overflow:visible!important; padding:0!important; display:block!important}
-  body.pv-open .pv-paper{box-shadow:none!important; width:auto!important; min-height:auto!important; padding:0!important}
+  body.pv-open .pv-paper{box-shadow:none!important; width:auto!important; min-height:auto!important; padding:0!important; gap:0!important; display:block!important}
+  body.pv-open .pp-page{box-shadow:none!important; width:auto!important; min-height:auto!important; padding:0!important; border-radius:0}
+  body.pv-open .pp-page + .pp-page{break-before:page; page-break-before:always}
 }
 .signrow{display:none}
 
@@ -243,9 +245,11 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .pv-hint{font-size:14.9px; color:var(--muted)}
 .pv-actions{margin-left:auto; display:flex; gap:10px}
 .pv-scroll{flex:1; overflow:auto; padding:30px 16px; display:flex; justify-content:center}
-.pv-paper{background:#fff; color:#000; width:794px; max-width:100%; min-height:1000px; padding:48px 52px;
-  box-shadow:0 8px 40px rgba(0,0,0,.28); border-radius:2px; align-self:flex-start; font-size:14.9px}
-.pv-paper .pp-head{border-bottom:2px solid #000; padding-bottom:12px; margin-bottom:18px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px}
+.pv-paper{width:794px; max-width:100%; align-self:center; display:flex; flex-direction:column; align-items:center; gap:26px; background:transparent}
+.pp-page{background:#fff; color:#000; width:100%; min-height:1040px; padding:44px 52px;
+  box-shadow:0 8px 40px rgba(0,0,0,.28); border-radius:2px; font-size:14.9px; display:flex; flex-direction:column}
+.pp-topic{margin:14px 0 16px}
+.pv-paper .pp-head{border-bottom:2px solid #000; padding-bottom:12px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px}
 .pv-paper .pp-brand{display:flex; align-items:center; gap:14px}
 .pv-paper .pp-logo{height:56px; width:auto}
 .pv-paper .pp-org{font-size:13px; color:#000; font-weight:700; margin-top:3px}
@@ -1283,7 +1287,7 @@ document.getElementById('importBtn').addEventListener('click',()=>document.getEl
 document.getElementById('importFile').addEventListener('change',e=>{if(e.target.files[0])importJSON(e.target.files[0]);e.target.value='';});
 document.getElementById('clearAll').addEventListener('click',()=>{ if(confirm('ลบรายการที่บันทึกทั้งหมด? การกระทำนี้ย้อนกลับไม่ได้')){records=[];saveRecords();renderRecords();refreshDaily();refreshDerived();toast('ลบทั้งหมดแล้ว','var(--wear)');} });
 document.getElementById('daySelect').addEventListener('change',e=>renderDay(e.target.value));
-document.getElementById('printBtn').addEventListener('click',()=>window.print());
+document.getElementById('printBtn').addEventListener('click', openPreview);
 
 // แปลงกราฟสรุปรายวันเป็นรูปภาพก่อนพิมพ์ (พิมพ์/บันทึก PDF ได้ชัวร์)
 function snapshotDayCharts(){
@@ -1314,34 +1318,43 @@ function buildPaper(date){
   const chartImg = (cid)=>{ try{ const c=Chart.getChart(cid); return c?c.toBase64Image('image/png',1):''; }catch(e){ return ''; } };
   const t1=chartImg('dayType1'), t2=chartImg('dayType2'), b1=chartImg('dayBucket1'), b2=chartImg('dayBucket2');
   const imgCell=(src,alt)=> src?`<img src="${src}" alt="${alt}">`:'<div class="pp-empty">— ไม่มีข้อมูล —</div>';
-  document.getElementById('pvPaper').innerHTML = `
+  // header เดียวกัน ใช้ซ้ำทุกหน้า (pageNo / pageTotal)
+  const head = (pageNo)=>`
     <div class="pp-head">
       <div class="pp-brand">
         <img class="pp-logo" src="${LOGO_SRC}" alt="ITD">
         <div><h1>รายงานสรุปการใช้ฟันรถขุดล้อตัก (BWE)</h1><div class="pp-org">ITD. — Mae Moh Mine Phase 9</div><div class="pp-sub">Bucket Wheel Excavator — Daily Teeth Report</div></div>
       </div>
-      <div class="pp-meta">วันที่: <b>${thDate(date)}</b><br>จำนวนรายการ: ${rows.length}<br>พิมพ์เมื่อ: ${thDate(new Date().toISOString().slice(0,10))}</div>
+      <div class="pp-meta">วันที่: <b>${thDate(date)}</b><br>จำนวนรายการ: ${rows.length}<br>พิมพ์เมื่อ: ${thDate(new Date().toISOString().slice(0,10))}<br>หน้า ${pageNo}/2</div>
+    </div>`;
+  document.getElementById('pvPaper').innerHTML = `
+    <div class="pp-page">
+      ${head(1)}
+      <div class="pp-secttl pp-topic">หน้า 1 · สรุปรายการประจำวัน</div>
+      <div class="pp-cards">
+        <div class="pp-card"><div class="l">รายการทั้งหมด</div><div class="v">${rows.length}</div></div>
+        <div class="pp-card"><div class="l">ฟันสูญหาย</div><div class="v">${lost}</div></div>
+        <div class="pp-card"><div class="l">เปลี่ยน / เชื่อมพอก</div><div class="v">${repl}/${hf}</div></div>
+        <div class="pp-card"><div class="l">เบิกจากคลังรวม</div><div class="v">${issued}</div></div>
+      </div>
+      <div class="pp-diagram">
+        <div class="pp-secttl">แผนผังตำแหน่งฟัน T1–T13 · Pre-Cutting / Main-Cutting</div>
+        <img src="${TOOTH_DIAGRAM}" alt="แผนผังตำแหน่งฟัน">
+        <div class="pp-legend"><span style="color:#2e7d32">■ 1–6 Main-Cutting</span> · <span style="color:#1565c0">■ 7–13 Pre-Cutting</span></div>
+      </div>
+      <table><thead><tr><th>เครื่อง</th><th>บุ้งกี๋</th><th>ฟัน</th><th>ชนิด</th><th>ประเภท</th><th class="num">SMU</th><th class="num">เบิก</th><th>หมายเหตุ</th></tr></thead><tbody>${tbody}</tbody></table>
+      <div class="pp-sign"><div>ผู้บันทึก / Recorded by</div><div>ผู้ตรวจสอบ / Verified by</div><div>ผู้อนุมัติ / Approved by</div></div>
     </div>
-    <div class="pp-cards">
-      <div class="pp-card"><div class="l">รายการทั้งหมด</div><div class="v">${rows.length}</div></div>
-      <div class="pp-card"><div class="l">ฟันสูญหาย</div><div class="v">${lost}</div></div>
-      <div class="pp-card"><div class="l">เปลี่ยน / เชื่อมพอก</div><div class="v">${repl}/${hf}</div></div>
-      <div class="pp-card"><div class="l">เบิกจากคลังรวม</div><div class="v">${issued}</div></div>
-    </div>
-    <div class="pp-diagram">
-      <div class="pp-secttl">แผนผังตำแหน่งฟัน T1–T13 · Pre-Cutting / Main-Cutting</div>
-      <img src="${TOOTH_DIAGRAM}" alt="แผนผังตำแหน่งฟัน">
-      <div class="pp-legend"><span style="color:#2e7d32">■ 1–6 Main-Cutting</span> · <span style="color:#1565c0">■ 7–13 Pre-Cutting</span></div>
-    </div>
-    <table><thead><tr><th>เครื่อง</th><th>บุ้งกี๋</th><th>ฟัน</th><th>ชนิด</th><th>ประเภท</th><th class="num">SMU</th><th class="num">เบิก</th><th>หมายเหตุ</th></tr></thead><tbody>${tbody}</tbody></table>
-    <div class="pp-secttl" style="margin-top:22px">สรุปกราฟแยกตามเครื่องจักร</div>
-    <div class="pp-charts">
-      <div class="pp-chart"><div class="pp-csub">ประเภทเหตุการณ์ · BWE 1</div>${imgCell(t1,'ประเภท BWE1')}</div>
-      <div class="pp-chart"><div class="pp-csub">ประเภทเหตุการณ์ · BWE 2</div>${imgCell(t2,'ประเภท BWE2')}</div>
-      <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 1</div>${imgCell(b1,'บุ้งกี๋ BWE1')}</div>
-      <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 2</div>${imgCell(b2,'บุ้งกี๋ BWE2')}</div>
-    </div>
-    <div class="pp-sign"><div>ผู้บันทึก / Recorded by</div><div>ผู้ตรวจสอบ / Verified by</div><div>ผู้อนุมัติ / Approved by</div></div>`;
+    <div class="pp-page">
+      ${head(2)}
+      <div class="pp-secttl pp-topic">หน้า 2 · กราฟสรุปแยกตามเครื่องจักร</div>
+      <div class="pp-charts">
+        <div class="pp-chart"><div class="pp-csub">ประเภทเหตุการณ์ · BWE 1</div>${imgCell(t1,'ประเภท BWE1')}</div>
+        <div class="pp-chart"><div class="pp-csub">ประเภทเหตุการณ์ · BWE 2</div>${imgCell(t2,'ประเภท BWE2')}</div>
+        <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 1</div>${imgCell(b1,'บุ้งกี๋ BWE1')}</div>
+        <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 2</div>${imgCell(b2,'บุ้งกี๋ BWE2')}</div>
+      </div>
+    </div>`;
 }
 function openPreview(){
   const date = document.getElementById('daySelect').value;
