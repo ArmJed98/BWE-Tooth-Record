@@ -244,9 +244,10 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .pv-title{font-family:'Saira Condensed',sans-serif; font-size:20.7px; font-weight:600; letter-spacing:.02em; color:var(--txt)}
 .pv-hint{font-size:14.9px; color:var(--muted)}
 .pv-actions{margin-left:auto; display:flex; gap:10px}
-.pv-scroll{flex:1; overflow-y:auto; overflow-x:hidden; padding:30px 16px; display:block}
-.pv-paper{width:794px; max-width:100%; align-self:flex-start; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:26px; background:transparent}
-.pp-page{background:#fff; color:#000; width:100%; min-height:1040px; padding:44px 52px;
+/* preview: pages laid out LEFT→RIGHT (read both at full size, scroll sideways) */
+.pv-scroll{flex:1; overflow:auto; padding:30px; display:flex; justify-content:safe center; align-items:flex-start}
+.pv-paper{display:flex; flex-direction:row; align-items:flex-start; gap:28px; background:transparent; flex:0 0 auto}
+.pp-page{background:#fff; color:#000; width:794px; flex:0 0 794px; min-height:1040px; padding:44px 52px;
   box-shadow:0 8px 40px rgba(0,0,0,.28); border-radius:2px; font-size:14.9px; display:flex; flex-direction:column}
 .pp-topic{margin:14px 0 16px}
 .pv-paper .pp-head{border-bottom:2px solid #000; padding-bottom:12px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:flex-end; gap:20px}
@@ -724,7 +725,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 <div class="pv-overlay" id="pvOverlay" role="dialog" aria-modal="true" aria-label="ตัวอย่างก่อนพิมพ์">
   <div class="pv-bar">
     <span class="pv-title">👁 ตัวอย่างเอกสารก่อนพิมพ์</span>
-    <span class="pv-hint">นี่คือหน้าตาเอกสารที่จะพิมพ์ออกมา</span>
+    <span class="pv-hint">เลื่อนซ้าย–ขวาเพื่อดูทั้ง 2 หน้า · เวลาพิมพ์จะแยกเป็นคนละแผ่น</span>
     <div class="pv-actions">
       <button class="btn" id="pvClose">✕ ปิด</button>
       <button class="btn primary" id="pvPrint">🖨 พิมพ์ / บันทึก PDF</button>
