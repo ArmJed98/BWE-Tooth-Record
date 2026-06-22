@@ -766,14 +766,32 @@ function recordAgg(){
   });
   return a;
 }
+// SMU ปัจจุบันของเครื่อง = ค่าจากการบันทึกล่าสุด (ถ้ามี) ไม่งั้นใช้ค่าฐาน
+function latestSmu(eq){
+  let best=null, bestId='';
+  (records||[]).forEach(r=>{
+    if(r.machine===eq && r.smu!=null && r.smu!=='' && String(r.id) > bestId){ bestId=String(r.id); best=parseInt(r.smu); }
+  });
+  return (best!=null && !isNaN(best)) ? best : null;
+}
+function currentSmu(eq){
+  const base = (DATA.summary||[]).find(r=>r.eq===eq);
+  const ls = latestSmu(eq);
+  return ls!=null ? ls : (base ? base.smu : 0);
+}
 // สรุปต่อเครื่อง = ค่าฐาน (จาก Sheet/fallback) + ผลจากรายการที่บันทึก
 function adjSummaryRow(eq){
   const base = (DATA.summary||[]).find(r=>r.eq===eq) || {eq,smu:0,install:0,replace:0,lost:0,hardface:0};
   const d = recordAgg()[eq] || {lost:0,replace:0,hardface:0};
-  return {...base, lost:base.lost+d.lost, replace:base.replace+d.replace, hardface:base.hardface+d.hardface};
+  return {...base, smu:currentSmu(eq), lost:base.lost+d.lost, replace:base.replace+d.replace, hardface:base.hardface+d.hardface};
 }
-// เรียกหลังบันทึก/ลบรายการ เพื่อให้ KPI + คลังอัปเดตตาม
-function refreshDerived(){ try{ renderKPIs(); renderOverviewCharts(); renderStore(); }catch(e){} }
+// เรียกหลังบันทึก/ลบรายการ — อัปเดตตัวเลขคลัง + KPI (แยก try กันพังต่อเนื่อง)
+function refreshDerived(){
+  try{ renderStore(); }catch(e){}
+  try{ renderKPIs(); }catch(e){}
+  try{ renderOverviewCharts(); }catch(e){}
+  try{ fillSmuField(); }catch(e){}
+}
 
 function renderKPIs(){
   const s = adjSummaryRow(machine);
@@ -1045,6 +1063,16 @@ function initForm(){
   fillSelect(document.getElementById('f_tooth'), TEETH);
   updateToothKind();
   document.getElementById('f_tooth').addEventListener('change', updateToothKind);
+  // เลือกเครื่องจักร → เติม SMU ปัจจุบันให้อัตโนมัติ (ไม่ต้องกรอกเอง)
+  document.getElementById('f_machine').addEventListener('change', fillSmuField);
+  fillSmuField();
+}
+// เติมช่อง SMU ด้วยค่าปัจจุบันของเครื่องที่เลือก
+function fillSmuField(){
+  const sel = document.getElementById('f_machine'); const f = document.getElementById('f_smu');
+  if(!sel || !f) return;
+  const cur = currentSmu(sel.value);
+  if(cur!=null){ f.value = cur; f.placeholder = String(cur); }
 }
 function updateToothKind(){
   const i = TEETH.indexOf(document.getElementById('f_tooth').value);
@@ -1233,7 +1261,7 @@ function importJSON(file){
 
 // wire up
 document.getElementById('addBtn').addEventListener('click', addRecord);
-document.getElementById('clearForm').addEventListener('click',()=>{document.getElementById('f_note').value='';document.getElementById('f_smu').value='';document.getElementById('f_issued').value='0';toast('ล้างฟอร์มแล้ว','var(--dim)');});
+document.getElementById('clearForm').addEventListener('click',()=>{document.getElementById('f_note').value='';document.getElementById('f_issued').value='0';fillSmuField();toast('ล้างฟอร์มแล้ว','var(--dim)');});
 document.getElementById('exportBtn').addEventListener('click', exportJSON);
 document.getElementById('importBtn').addEventListener('click',()=>document.getElementById('importFile').click());
 document.getElementById('importFile').addEventListener('change',e=>{if(e.target.files[0])importJSON(e.target.files[0]);e.target.value='';});
