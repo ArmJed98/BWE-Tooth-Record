@@ -120,6 +120,10 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 
 /* ---- store gauges ---- */
 .store{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.pricerow{display:flex; gap:14px; flex-wrap:wrap; margin-top:12px}
+.pricerow .field{flex:1; min-width:150px}
+.costcards{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+@media(max-width:700px){.costcards{grid-template-columns:1fr}}
 .gauge{text-align:center; padding:8px}
 .gauge .gv{font-family:'JetBrains Mono',monospace; font-size:43.7px; font-weight:700}
 .gauge .gl{font-size:14.9px; color:var(--muted); margin-top:2px; text-transform:uppercase; letter-spacing:.04em}
@@ -176,7 +180,7 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .empty{text-align:center; color:var(--dim); padding:30px; font-size:16.1px}
 .daypick{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px}
 .daypick select,.daypick input{font-family:'IBM Plex Sans Thai',sans-serif; font-size:17.2px; background:#fff; color:var(--txt); border:1px solid var(--line2); border-radius:7px; padding:10px 13px}
-.sumcards{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:20px}
+.sumcards{display:grid; grid-template-columns:repeat(5,1fr); gap:14px; margin-bottom:20px}
 .report-head{display:none}
 .chart-print{display:none}
 
@@ -281,6 +285,10 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .pv-paper .pp-storebar .s{flex:1; border:1px solid #000; padding:8px 10px; display:flex; flex-direction:column; align-items:center}
 .pv-paper .pp-storebar .l{font-size:11px; color:#333; text-transform:uppercase; letter-spacing:.03em}
 .pv-paper .pp-storebar .v{font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700}
+.pv-paper .pp-daycost{margin-top:12px; font-size:13.5px; color:#222; text-align:right; border-top:1px dashed #999; padding-top:8px}
+.pv-paper .pp-daycost b{color:#b3401f; font-size:16px}
+.pv-paper .pp-chart-wide{margin-top:4px}
+.pv-paper .pp-chart-wide img{width:100%; height:auto; max-height:240px; object-fit:contain; display:block; border:1px solid #ddd}
 .pv-paper .pp-csub{font-size:12px; font-weight:700; color:#222; margin:0 0 4px; text-align:center}
 @media(max-width:980px){.pv-paper{padding:28px 24px}}
 
@@ -613,6 +621,24 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     </div>
     <div class="panel"><h3>เบิกใช้ (GI) รายงวด — BWE#2</h3><div class="ph-sub">แนวโน้มความต้องการอะไหล่</div><div class="chartbox" style="height:230px"><canvas id="giChart"></canvas></div></div>
     <div class="panel"><h3>เปรียบเทียบอายุการใช้งาน</h3><div class="ph-sub">การเบิกใช้สะสม GI ต่อเครื่อง</div><div class="chartbox" style="height:230px"><canvas id="lifeChart"></canvas></div></div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <h3>ราคา &amp; มูลค่าอะไหล่ฟัน</h3>
+    <div class="ph-sub">กรอกราคาต่อฟัน/ปลอกฟัน (แก้ไขได้ · บันทึกอัตโนมัติ) — ราคาต่อชุด = ฟัน + ปลอกฟัน</div>
+    <div class="pricerow">
+      <div class="field"><label>ราคาต่อฟัน (บาท)</label><input type="number" id="p_tooth" class="mono" min="0" step="1"></div>
+      <div class="field"><label>ราคาต่อปลอกฟัน (บาท)</label><input type="number" id="p_sleeve" class="mono" min="0" step="1"></div>
+      <div class="field"><label>ราคาต่อชุด (ฟัน+ปลอก)</label><input type="text" id="p_set" class="mono" disabled></div>
+    </div>
+    <div class="costcards" id="costCards" style="margin-top:14px"></div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <h3>ค่าใช้จ่ายฟันสูญหายแต่ละครั้ง (บาท)</h3>
+    <div class="ph-sub">รวมมูลค่าฟัน/ปลอกฟัน/ชุด ที่สูญหายในแต่ละวัน — คิดจากรายการที่บันทึก × ราคา</div>
+    <div class="chartbox"><canvas id="lossCostChart"></canvas></div>
+    <div class="mono" id="lossCostTotal" style="margin-top:10px;color:var(--muted)"></div>
   </div>
 </section>
 
@@ -981,6 +1007,29 @@ function renderStore(){
   if(txt) txt.innerHTML = `เบิกใช้ไปแล้ว <b style="color:var(--txt)">${usedPct.toFixed(1)}%</b> ของยอดรับเข้า · คงเหลือพอใช้ต่อ <b style="color:var(--txt)">${(100-usedPct).toFixed(1)}%</b>`
     + (issuedAdd>0 ? ` <span style="color:var(--good)">(รวมเบิกจากบันทึก ${issuedAdd} ซี่)</span>` : '');
 
+  // ---- ราคา / มูลค่า / ค่าใช้จ่ายฟันสูญหาย ----
+  const pt=document.getElementById('p_tooth'), ps=document.getElementById('p_sleeve'), pset=document.getElementById('p_set');
+  if(pt && document.activeElement!==pt) pt.value=priceTooth;
+  if(ps && document.activeElement!==ps) ps.value=priceSleeve;
+  if(pset) pset.value=(priceTooth+priceSleeve).toLocaleString()+' บาท';
+  const lossCostAll = totalLossCost(records);
+  const cc=document.getElementById('costCards');
+  if(cc) cc.innerHTML = [
+    {l:'มูลค่าคงเหลือในคลัง', v:baht(stock*priceTooth), c:'u'},
+    {l:'มูลค่าเบิกใช้สะสม (GI)', v:baht(gi*priceTooth), c:''},
+    {l:'มูลค่าฟันสูญหาย (จากบันทึก)', v:baht(lossCostAll), c:'w'},
+  ].map(x=>`<div class="kpi ${x.c}"><div class="lab">${x.l}</div><div class="val" style="font-size:24px">${x.v}</div></div>`).join('');
+
+  const byDate = lossCostByDate();
+  const dts = Object.keys(byDate).sort();
+  mkChart('lossCostChart',{type:'bar',data:{labels:dts.length?dts:['—'],datasets:[
+    {data:dts.length?dts.map(d=>byDate[d]):[0],backgroundColor:C.wear,borderRadius:3}]},
+    options:{maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>baht(c.parsed.y)}}},
+      scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,ticks:{callback:v=>v.toLocaleString()}}}}});
+  const lct=document.getElementById('lossCostTotal');
+  if(lct) lct.innerHTML = dts.length ? `รวมค่าใช้จ่ายฟันสูญหายทั้งหมด <b style="color:var(--wear)">${baht(lossCostAll)}</b> จาก ${records.filter(r=>lossCostOf(r)>0).length} รายการ` : 'ยังไม่มีรายการสูญหายที่บันทึก';
+
   mkChart('giChart',{type:'bar',data:{labels:DATA.periods,datasets:[
     {data:DATA.gi,backgroundColor:C.heat,borderRadius:3}]},
     options:{maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},
@@ -1044,6 +1093,29 @@ const MACHINE_LABEL = {BWE1:'BWE 1', BWE2:'BWE 2'};
 const STORE_KEY = 'bwe:tooth-records';
 let records = [];
 let hasStorage = false;
+
+/* ===== ราคา / ค่าใช้จ่ายฟัน ===== */
+const PT_KEY='bwe:price-tooth', PS_KEY='bwe:price-sleeve';
+let priceTooth = 5652, priceSleeve = 5652;   // ค่าเริ่มต้น (แก้ไขได้ในหน้าคลัง)
+function loadPrices(){ try{
+  const a=localStorage.getItem(PT_KEY); if(a!=null&&a!=='') priceTooth=parseFloat(a)||0;
+  const b=localStorage.getItem(PS_KEY); if(b!=null&&b!=='') priceSleeve=parseFloat(b)||0;
+}catch(e){} }
+function savePrices(){ try{ localStorage.setItem(PT_KEY,String(priceTooth)); localStorage.setItem(PS_KEY,String(priceSleeve)); }catch(e){} }
+const baht = n => '฿'+Math.round(n||0).toLocaleString();
+// ค่าใช้จ่ายต่อรายการสูญหาย: ฟันหาย=ราคาฟัน · ปลอกฟันหาย=ราคาปลอก · เชื่อมประกอบชุด=ฟัน+ปลอก (ชุด)
+function lossCostOf(r){
+  if(!r) return 0;
+  if(r.type==='lost') return priceTooth;
+  if(r.type==='sleeve_lost') return priceSleeve;
+  if(r.type==='sleeve_assembly') return priceTooth + priceSleeve;
+  return 0;
+}
+function totalLossCost(rows){ return (rows||records).reduce((a,r)=>a+lossCostOf(r),0); }
+function lossCostByDate(){
+  const m={}; (records||[]).forEach(r=>{ const c=lossCostOf(r); if(c>0) m[r.date]=(m[r.date]||0)+c; });
+  return m;
+}
 
 // toast
 const toastEl = document.createElement('div'); toastEl.className='toast'; document.body.appendChild(toastEl);
@@ -1223,11 +1295,13 @@ function renderDay(date){
   const repl = rows.filter(r=>r.type==='replace').length;
   const hf = rows.filter(r=>r.type==='hardface').length;
   const issued = rows.reduce((a,r)=>a+(r.issued||0),0);
+  const dayLossCost = totalLossCost(rows);
   const cards=[
     {l:'รายการทั้งหมด', v:rows.length, c:''},
     {l:'ฟันสูญหาย', v:lost, c:'w'},
     {l:'เปลี่ยน / เชื่อมพอก', v:repl+'/'+hf, c:'u'},
     {l:'เบิกจากคลังรวม', v:issued, c:'g'},
+    {l:'มูลค่าฟันสูญหาย', v:baht(dayLossCost), c:'w'},
   ];
   document.getElementById('sumCards').innerHTML = cards.map(x=>`<div class="kpi ${x.c}"><div class="lab">${x.l}</div><div class="val">${x.v}</div></div>`).join('');
 
@@ -1322,9 +1396,10 @@ function buildPaper(date){
   }
   const chartImg = (cid)=>{ try{ const c=Chart.getChart(cid); return c?c.toBase64Image('image/png',1):''; }catch(e){ return ''; } };
   const t1=chartImg('dayType1'), t2=chartImg('dayType2'), b1=chartImg('dayBucket1'), b2=chartImg('dayBucket2');
-  const giImg=chartImg('giChart'), lifeImg=chartImg('lifeChart');
+  const giImg=chartImg('giChart'), lifeImg=chartImg('lifeChart'), costImg=chartImg('lossCostChart');
   const txt=(id)=>{ const e=document.getElementById(id); return e?e.textContent:'—'; };
   const stGR=txt('gGR'), stGI=txt('gGI'), stStock=txt('gStock');
+  const dayLossCost = totalLossCost(rows), allLossCost = totalLossCost(records);
   const imgCell=(src,alt)=> src?`<img src="${src}" alt="${alt}">`:'<div class="pp-empty">— ไม่มีข้อมูล —</div>';
   // header เดียวกัน ใช้ซ้ำทุกหน้า (pageNo / pageTotal)
   const head = (pageNo)=>`
@@ -1333,7 +1408,7 @@ function buildPaper(date){
         <img class="pp-logo" src="${LOGO_SRC}" alt="ITD">
         <div><h1>รายงานสรุปการใช้ฟันรถขุดล้อตัก (BWE)</h1><div class="pp-org">ITD. — Mae Moh Mine Phase 9</div><div class="pp-sub">Bucket Wheel Excavator — Daily Teeth Report</div></div>
       </div>
-      <div class="pp-meta">วันที่: <b>${thDate(date)}</b><br>จำนวนรายการ: ${rows.length}<br>พิมพ์เมื่อ: ${thDate(new Date().toISOString().slice(0,10))}<br>หน้า ${pageNo}/2</div>
+      <div class="pp-meta">วันที่: <b>${thDate(date)}</b><br>จำนวนรายการ: ${rows.length}<br>พิมพ์เมื่อ: ${thDate(new Date().toISOString().slice(0,10))}<br>หน้า ${pageNo}/3</div>
     </div>`;
   document.getElementById('pvPaper').innerHTML = `
     <div class="pp-page">
@@ -1344,6 +1419,7 @@ function buildPaper(date){
         <div class="pp-card"><div class="l">ฟันสูญหาย</div><div class="v">${lost}</div></div>
         <div class="pp-card"><div class="l">เปลี่ยน / เชื่อมพอก</div><div class="v">${repl}/${hf}</div></div>
         <div class="pp-card"><div class="l">เบิกจากคลังรวม</div><div class="v">${issued}</div></div>
+        <div class="pp-card"><div class="l">มูลค่าฟันสูญหาย</div><div class="v" style="font-size:18px">${baht(dayLossCost)}</div></div>
       </div>
       <div class="pp-diagram">
         <div class="pp-secttl">แผนผังตำแหน่งฟัน T1–T13 · Pre-Cutting / Main-Cutting</div>
@@ -1362,16 +1438,27 @@ function buildPaper(date){
         <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 1</div>${imgCell(b1,'บุ้งกี๋ BWE1')}</div>
         <div class="pp-chart"><div class="pp-csub">รายบุ้งกี๋ · BWE 2</div>${imgCell(b2,'บุ้งกี๋ BWE2')}</div>
       </div>
-      <div class="pp-secttl" style="margin-top:18px">สรุปคลังอะไหล่ฟันขุด</div>
+      <div class="pp-daycost">ค่าใช้จ่ายฟันสูญหายของวันนี้ <b>${baht(dayLossCost)}</b></div>
+    </div>
+    <div class="pp-page">
+      ${head(3)}
+      <div class="pp-secttl pp-topic">หน้า 3 · คลังอะไหล่ &amp; ค่าใช้จ่าย</div>
       <div class="pp-storebar">
         <div class="s"><span class="l">รับเข้า GR</span><span class="v" style="color:#2e7d32">${stGR}</span></div>
         <div class="s"><span class="l">เบิกใช้ GI</span><span class="v" style="color:#b3401f">${stGI}</span></div>
         <div class="s"><span class="l">คงเหลือ</span><span class="v" style="color:#127f9b">${stStock}</span></div>
       </div>
+      <div class="pp-storebar" style="margin-top:10px">
+        <div class="s"><span class="l">มูลค่าคงเหลือ</span><span class="v" style="font-size:18px;color:#127f9b">${baht((parseInt(stStock.replace(/,/g,''))||0)*priceTooth)}</span></div>
+        <div class="s"><span class="l">ราคาต่อฟัน</span><span class="v" style="font-size:18px">${baht(priceTooth)}</span></div>
+        <div class="s"><span class="l">มูลค่าฟันสูญหายสะสม</span><span class="v" style="font-size:18px;color:#b3401f">${baht(allLossCost)}</span></div>
+      </div>
       <div class="pp-charts">
         <div class="pp-chart"><div class="pp-csub">เบิกใช้ (GI) รายงวด · BWE#2</div>${imgCell(giImg,'GI รายงวด')}</div>
         <div class="pp-chart"><div class="pp-csub">เปรียบเทียบอายุการใช้งาน (GI สะสม)</div>${imgCell(lifeImg,'GI สะสมต่อเครื่อง')}</div>
       </div>
+      <div class="pp-secttl" style="margin-top:14px">ค่าใช้จ่ายฟันสูญหายแต่ละครั้ง (บาท)</div>
+      <div class="pp-chart pp-chart-wide">${imgCell(costImg,'ค่าใช้จ่ายฟันสูญหายรายวัน')}</div>
     </div>`;
 }
 function openPreview(){
@@ -1532,6 +1619,13 @@ function mkChart(id, cfg){ const ex = Chart.getChart(id); if(ex) ex.destroy(); r
 document.getElementById('hdrLogo').src = LOGO_SRC;
 document.querySelectorAll('.tooth-diagram').forEach(im=>im.src=TOOTH_DIAGRAM);
 document.getElementById('rptLogo').src = LOGO_SRC;
+loadPrices();
+// ช่องกรอกราคา → อัปเดตมูลค่า/กราฟ/รายงานทันที
+(function(){
+  const pt=document.getElementById('p_tooth'), ps=document.getElementById('p_sleeve');
+  if(pt) pt.addEventListener('input', e=>{ priceTooth=parseFloat(e.target.value)||0; savePrices(); refreshDerived(); refreshDaily(); });
+  if(ps) ps.addEventListener('input', e=>{ priceSleeve=parseFloat(e.target.value)||0; savePrices(); refreshDerived(); refreshDaily(); });
+})();
 initForm();
 loadRecords().then(()=>{ renderRecords(); refreshDaily(); refreshDerived(); });
 
