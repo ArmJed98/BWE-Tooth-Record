@@ -1206,13 +1206,13 @@ function renderDay(date){
   if(dayTypeChart) dayTypeChart.destroy();
   dayTypeChart=mkChart('dayTypeChart',{type:'doughnut',data:{labels:['สูญหาย','เปลี่ยน','เชื่อมพอก'],
     datasets:[{data:tc,backgroundColor:[C.wear,C.heat,C.uptime],borderColor:'#ffffff',borderWidth:2}]},
-    options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:14}}}}});
+    options:{maintainAspectRatio:false,animation:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,padding:14}}}}});
 
   const bsum=Array(18).fill(0); rows.forEach(r=>bsum[r.bucket-1]++);
   if(dayBucketChart) dayBucketChart.destroy();
   dayBucketChart=mkChart('dayBucketChart',{type:'bar',data:{labels:bsum.map((_,i)=>'B'+(i+1)),
     datasets:[{data:bsum,backgroundColor:bsum.map(v=>v>0?C.heat:C.empty),borderRadius:3}]},
-    options:{maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,ticks:{stepSize:1}}}}});
+    options:{maintainAspectRatio:false,animation:false,plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,ticks:{stepSize:1}}}}});
 }
 
 /* ---- export / import / clear ---- */
@@ -1299,10 +1299,13 @@ function buildPaper(date){
 function openPreview(){
   const date = document.getElementById('daySelect').value;
   if(!date){ toast('ยังไม่มีข้อมูลให้แสดง — กรุณาบันทึกรายการก่อน','var(--wear)'); return; }
-  renderDay(date);   // ให้กราฟตรงกับวันที่เลือกก่อนสร้างรูปภาพ
-  buildPaper(date);
-  const ov = document.getElementById('pvOverlay');
-  ov.classList.add('show'); document.body.classList.add('pv-open'); document.body.style.overflow='hidden';
+  renderDay(date);   // วาดกราฟของวันที่เลือก (animation:false → วาดเสร็จทันที)
+  // รอเฟรมถัดไปให้ canvas ถูกวาดจริงก่อน แล้วค่อยจับเป็นรูปใส่เอกสาร
+  requestAnimationFrame(()=>{
+    buildPaper(date);
+    const ov = document.getElementById('pvOverlay');
+    ov.classList.add('show'); document.body.classList.add('pv-open'); document.body.style.overflow='hidden';
+  });
 }
 function closePreview(){
   document.getElementById('pvOverlay').classList.remove('show'); document.body.classList.remove('pv-open'); document.body.style.overflow='';
