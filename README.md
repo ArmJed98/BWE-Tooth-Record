@@ -112,7 +112,7 @@ gviz อ่านได้เฉพาะ Sheet ที่เปิด public:
 - `short_len` / `long_len` = ความยาวเฉลี่ย (cm) ของฟันสั้น/ฟันยาว ณ วันตรวจ
 - `short_threshold` / `long_threshold` = เกณฑ์ความยาวที่ต้องเปลี่ยน (สั้น 15.5 · ยาว 16.5)
 - `avg_age` = อายุฟันเฉลี่ย (ชั่วโมง) · ความยาวเดิม สั้น 20 / ยาว 28 cm
-- มีไฟล์พร้อม import: **`BWE_Tooth_Wear_clean.xlsx`** (แท็บ `wear`)
+- มีไฟล์พร้อม import: **`sheet-template/BWE_Tooth_Wear_clean.xlsx`** (แท็บ `wear`)
 
 ---
 
@@ -129,10 +129,10 @@ gviz อ่านได้เฉพาะ Sheet ที่เปิด public:
 | ไฟล์ | คำอธิบาย |
 |------|----------|
 | `index.html` | หน้าแดชบอร์ด (เสิร์ฟผ่าน GitHub Pages) — มีหน้า Hero + กราฟทั้งหมด |
-| `BWE_dashboard.html` | สำเนา backup ของแดชบอร์ดต้นฉบับ |
 | `assets/bwe-hero.jpg` | รูปเครื่องจักรพื้นหลังของหน้า Hero |
 | `assets/tooth-front/back/side.jpg` | รูปฟันจริง 3 มุม (แสดงในหน้า Heatmap) — ดูวิธีเพิ่มด้านล่าง |
 | `sheet-template/*.csv` | เทมเพลตโครงสร้างแต่ละแท็บของ Google Sheet |
+| `sheet-template/BWE_Tooth_Wear_clean.xlsx` | ไฟล์พร้อม import แท็บ `wear` (อายุ/ความยาวฟัน) |
 | `apps-script/` | โค้ด + คู่มือบันทึกข้อมูลจาก Dashboard กลับเข้า Google Sheet |
 
 ---
