@@ -10,14 +10,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{
-  --bg:#1a1f24; --panel:#242a30; --panel2:#2c333a;
-  --txt:#e6ecf0; --muted:#9ba6ae; --dim:#6a747c; --line:#333b42; --line2:#414a53;
-  --heat:#e08d2a;     /* hardfacing / weld heat (brightened for dark) */
-  --wear:#e35a3f;     /* loss / wear */
-  --uptime:#3ba7c1;   /* availability */
-  --good:#3fb576;
-  --short:#e08d2a; --long:#3ba7c1;
-  --shadow:0 1px 3px rgba(0,0,0,.35), 0 2px 6px rgba(0,0,0,.2);
+  /* คูล-ธีม: น้ำเงิน-เทา ทั้งชุด — ไม่มีสีอุ่น */
+  --bg:#131a25; --panel:#1e2836; --panel2:#26324a;
+  --txt:#e0e8f0; --muted:#92a2b5; --dim:#6a7787; --line:#2c3849; --line2:#3d4c62;
+  --heat:#38b6c9;     /* accent หลัก · teal cool */
+  --wear:#e56d8a;     /* loss / danger · cool rose (warning แต่ไม่ warm) */
+  --uptime:#6c9df8;   /* availability · soft blue */
+  --good:#4bd4a3;     /* success · mint */
+  --short:#38b6c9; --long:#6c9df8;
+  --shadow:0 1px 3px rgba(0,10,25,.4), 0 2px 8px rgba(0,10,25,.25);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -34,7 +35,7 @@ body{
 
 /* ---- Top bar ---- */
 header{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
-  background:rgba(36,42,48,.88); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); box-shadow:0 1px 0 rgba(0,0,0,.4);}
+  background:rgba(30,40,54,.88); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); box-shadow:0 1px 0 rgba(0,10,25,.5);}
 .topbar{display:flex; align-items:center; gap:18px; padding:14px 22px; max-width:1280px; margin:0 auto; flex-wrap:wrap}
 .brand{display:flex; align-items:center; gap:13px}
 .wheel{width:38px;height:38px;flex:0 0 38px}
@@ -100,7 +101,7 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .heat .tooth-h .tt{font-size:9.8px; color:var(--dim); display:block}
 .heat td{width:36px; height:32px; text-align:center; border-radius:4px; font-size:14.9px; color:#19242b; font-weight:600; cursor:default; transition:transform .1s}
 .heat td:hover{transform:scale(1.16); outline:2px solid #19242b; position:relative; z-index:2}
-.heat td.z{color:var(--dim); background:#1f262c !important}
+.heat td.z{color:var(--dim); background:#1a2230 !important}
 .heat .rowsum{background:transparent!important; color:var(--txt); font-weight:700}
 .legrow{display:flex; align-items:center; gap:16px; margin-top:14px; flex-wrap:wrap; font-size:14.9px; color:var(--muted)}
 .scale{display:flex; align-items:center; gap:6px}
@@ -168,13 +169,13 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .recpager .pg:disabled{opacity:.4; cursor:default}
 .recpager .pginfo{margin:0 8px; font-size:14.9px; color:var(--muted)}
 .tag{font-size:13.8px; padding:3px 10px; border-radius:20px; font-weight:600; white-space:nowrap}
-.tag.lost{background:rgba(227,90,63,.18); color:#f19685}
-.tag.replace{background:rgba(224,141,42,.2); color:#f0b968}
-.tag.hardface{background:rgba(59,167,193,.2); color:#7ecbdb}
-.tag.sleeve_lost{background:rgba(227,90,63,.15); color:#f19685}
-.tag.sleeve_assembly{background:rgba(227,90,63,.18); color:#f19685}
-.tag.m1{background:rgba(224,141,42,.18); color:#f0b968}
-.tag.m2{background:rgba(59,167,193,.18); color:#7ecbdb}
+.tag.lost{background:rgba(229,109,138,.18); color:#f2a5b7}
+.tag.replace{background:rgba(56,182,201,.2); color:#7cdae5}
+.tag.hardface{background:rgba(108,157,248,.2); color:#a3befa}
+.tag.sleeve_lost{background:rgba(229,109,138,.15); color:#f2a5b7}
+.tag.sleeve_assembly{background:rgba(229,109,138,.18); color:#f2a5b7}
+.tag.m1{background:rgba(56,182,201,.18); color:#7cdae5}
+.tag.m2{background:rgba(108,157,248,.18); color:#a3befa}
 .delx{cursor:pointer; color:var(--dim); border:none; background:none; font-size:19.5px; padding:2px 6px; border-radius:5px}
 .delx:hover{color:var(--wear); background:rgba(204,58,33,.1)}
 .empty{text-align:center; color:var(--dim); padding:30px; font-size:16.1px}
@@ -301,8 +302,9 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 
 /* ══════════ HERO LANDING (full-screen machine image) ══════════ */
 :root{
-  --hx-coal:#0b0d10; --hx-rust:#c45a1a; --hx-amber:#e88c2a;
-  --hx-chalk:#ede8df; --hx-fog:#8d95a0;
+  /* Hero — คูลโทนให้เข้าชุด */
+  --hx-coal:#0d1420; --hx-rust:#38b6c9; --hx-amber:#7cdae5;
+  --hx-chalk:#e0e8f0; --hx-fog:#8b98ab;
 }
 .hx-hero{position:relative; height:100vh; min-height:600px; display:flex; flex-direction:column; overflow:hidden; background:var(--hx-coal)}
 .hx-bg{position:absolute; inset:0; background-image:url('assets/bwe-hero.jpg'); background-size:cover; background-position:center 30%; filter:brightness(0.55) saturate(0.8); transform:scale(1.05); transition:transform 9s ease-out}
@@ -809,10 +811,10 @@ let machine = 'BWE1';
 Chart.defaults.font.family = FONT;
 Chart.defaults.color = '#566a73';
 Chart.defaults.font.size = 13;
-const GRID = 'rgba(255,255,255,.08)';
-const C = {heat:'#e08d2a', wear:'#e35a3f', uptime:'#3ba7c1', good:'#3fb576', short:'#e08d2a', long:'#3ba7c1', dim:'#6a747c', empty:'#2a3138'};
-// ธีมมืด: ตัวหนังสือ/legend สีอ่อน
-if(typeof Chart!=='undefined'){ Chart.defaults.color='#c8d1d8'; Chart.defaults.borderColor=GRID; }
+const GRID = 'rgba(140,180,220,.09)';
+const C = {heat:'#38b6c9', wear:'#e56d8a', uptime:'#6c9df8', good:'#4bd4a3', short:'#38b6c9', long:'#6c9df8', dim:'#6a7787', empty:'#26324a'};
+// คูลธีมมืด: ตัวหนังสือ/legend สีฟ้าเทาอ่อน
+if(typeof Chart!=='undefined'){ Chart.defaults.color='#c0cddc'; Chart.defaults.borderColor=GRID; }
 
 const tip = document.getElementById('tip');
 function showTip(html,x,y){tip.innerHTML=html; tip.style.opacity=1; tip.style.left=(x+14)+'px'; tip.style.top=(y+14)+'px';}
