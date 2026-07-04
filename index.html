@@ -10,14 +10,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{
-  /* คูล-ธีม: น้ำเงิน-เทา ทั้งชุด — ไม่มีสีอุ่น */
+  /* พื้นคูล + สีเน้นโทนร้อน · BWE1 ส้ม / BWE2 น้ำเงิน */
   --bg:#131a25; --panel:#1e2836; --panel2:#26324a;
   --txt:#e0e8f0; --muted:#92a2b5; --dim:#6a7787; --line:#2c3849; --line2:#3d4c62;
-  --heat:#38b6c9;     /* accent หลัก · teal cool */
-  --wear:#e56d8a;     /* loss / danger · cool rose (warning แต่ไม่ warm) */
-  --uptime:#6c9df8;   /* availability · soft blue */
-  --good:#4bd4a3;     /* success · mint */
-  --short:#38b6c9; --long:#6c9df8;
+  --heat:#e6934a;     /* BWE1 · ส้มอุ่น */
+  --wear:#e5624a;     /* loss / danger · warm coral */
+  --uptime:#4c9de0;   /* BWE2 · น้ำเงินสด */
+  --good:#4bd47c;
+  --short:#e6934a; --long:#4c9de0;
   --shadow:0 1px 3px rgba(0,10,25,.4), 0 2px 8px rgba(0,10,25,.25);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -111,8 +111,8 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 
 /* ---- Insight callouts ---- */
 .insights{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px}
-.ins{background:linear-gradient(150deg,rgba(56,182,201,.14),var(--panel)); border:1px solid var(--line); border-left:4px solid var(--heat); border-radius:10px; padding:17px 19px; box-shadow:var(--shadow)}
-.ins.u{background:linear-gradient(150deg,rgba(108,157,248,.14),var(--panel)); border-left-color:var(--uptime)}
+.ins{background:linear-gradient(150deg,rgba(230,147,74,.14),var(--panel)); border:1px solid var(--line); border-left:4px solid var(--heat); border-radius:10px; padding:17px 19px; box-shadow:var(--shadow)}
+.ins.u{background:linear-gradient(150deg,rgba(76,157,224,.14),var(--panel)); border-left-color:var(--uptime)}
 .ins b{color:var(--txt)}
 .ins .t{font-family:'Saira Condensed',sans-serif; font-size:19.5px; font-weight:600; letter-spacing:.02em; color:var(--txt); margin-bottom:6px; display:flex; align-items:center; gap:8px}
 .ins .ic{font-family:'JetBrains Mono',monospace; font-size:12.6px; color:var(--heat)}
@@ -170,13 +170,13 @@ h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:36.8px; 
 .recpager .pg:disabled{opacity:.4; cursor:default}
 .recpager .pginfo{margin:0 8px; font-size:14.9px; color:var(--muted)}
 .tag{font-size:13.8px; padding:3px 10px; border-radius:20px; font-weight:600; white-space:nowrap}
-.tag.lost{background:rgba(229,109,138,.18); color:#f2a5b7}
-.tag.replace{background:rgba(56,182,201,.2); color:#7cdae5}
-.tag.hardface{background:rgba(108,157,248,.2); color:#a3befa}
-.tag.sleeve_lost{background:rgba(229,109,138,.15); color:#f2a5b7}
-.tag.sleeve_assembly{background:rgba(229,109,138,.18); color:#f2a5b7}
-.tag.m1{background:rgba(56,182,201,.18); color:#7cdae5}
-.tag.m2{background:rgba(108,157,248,.18); color:#a3befa}
+.tag.lost{background:rgba(229,98,74,.2); color:#f5a08e}
+.tag.replace{background:rgba(230,147,74,.22); color:#f2b675}
+.tag.hardface{background:rgba(76,157,224,.22); color:#8fbdec}
+.tag.sleeve_lost{background:rgba(229,98,74,.15); color:#f5a08e}
+.tag.sleeve_assembly{background:rgba(229,98,74,.2); color:#f5a08e}
+.tag.m1{background:rgba(230,147,74,.2); color:#f2b675}
+.tag.m2{background:rgba(76,157,224,.2); color:#8fbdec}
 .delx{cursor:pointer; color:var(--dim); border:none; background:none; font-size:19.5px; padding:2px 6px; border-radius:5px}
 .delx:hover{color:var(--wear); background:rgba(204,58,33,.1)}
 .empty{text-align:center; color:var(--dim); padding:30px; font-size:16.1px}
@@ -303,8 +303,8 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 
 /* ══════════ HERO LANDING (full-screen machine image) ══════════ */
 :root{
-  /* Hero — คูลโทนให้เข้าชุด */
-  --hx-coal:#0d1420; --hx-rust:#38b6c9; --hx-amber:#7cdae5;
+  /* Hero — พื้นคูลเข้ม + accent อุ่น */
+  --hx-coal:#0d1420; --hx-rust:#e6934a; --hx-amber:#f4b268;
   --hx-chalk:#e0e8f0; --hx-fog:#8b98ab;
 }
 .hx-hero{position:relative; height:100vh; min-height:600px; display:flex; flex-direction:column; overflow:hidden; background:var(--hx-coal)}
@@ -813,8 +813,8 @@ Chart.defaults.font.family = FONT;
 Chart.defaults.color = '#566a73';
 Chart.defaults.font.size = 13;
 const GRID = 'rgba(140,180,220,.09)';
-const C = {heat:'#38b6c9', wear:'#e56d8a', uptime:'#6c9df8', good:'#4bd4a3', short:'#38b6c9', long:'#6c9df8', dim:'#6a7787', empty:'#26324a'};
-// คูลธีมมืด: ตัวหนังสือ/legend สีฟ้าเทาอ่อน
+const C = {heat:'#e6934a', wear:'#e5624a', uptime:'#4c9de0', good:'#4bd47c', short:'#e6934a', long:'#4c9de0', dim:'#6a7787', empty:'#26324a'};
+// พื้นคูลเข้ม · label/legend สีฟ้าเทาอ่อน
 if(typeof Chart!=='undefined'){ Chart.defaults.color='#c0cddc'; Chart.defaults.borderColor=GRID; }
 
 const tip = document.getElementById('tip');
