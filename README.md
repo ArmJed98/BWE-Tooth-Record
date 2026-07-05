@@ -154,6 +154,17 @@ gviz อ่านได้เฉพาะ Sheet ที่เปิด public:
 
 ---
 
+## 7. โมดูล Production & Plan / Downtime Analysis
+
+สองหัวข้อนี้ (`#production`, `#downtime`) สรุปจากไฟล์ **Operation Daily Report** (Excel) ที่อัปโหลดครั้งเดียว — **ยังไม่ได้เชื่อมกับ Google Sheet แบบสด** เหมือนข้อมูลฟัน
+
+- **Production & Plan**: ปริมาณขุด BCM รายเดือน (ก.ค. 2563 – ส.ค. 2568), Productivity BCM/ชม., การใช้ไฟฟ้า kWh/BCM — จากชีต `Total Production`
+- **Downtime Analysis**: วิเคราะห์เวลาหยุดเครื่อง 1,723 เหตุการณ์ (พ.ค. – ก.ย. 2568) แยกตามสาเหตุ/แผนก/เครื่องจักร — จากชีต `Downtime BWE`
+
+ถ้าต้องการอัปเดตข้อมูลใหม่ ส่งไฟล์รายงานฉบับล่าสุดมาประมวลผลซ้ำ หรือแจ้งให้เชื่อมกับ Google Sheet แบบสดเหมือนแท็บอื่น ๆ ได้
+
+---
+
 ## หมายเหตุทางเทคนิค
 
 - ดึงข้อมูลผ่าน gviz แบบ JSONP (แทรก `<script>`) จึงไม่ติดปัญหา CORS เมื่อ Sheet เปิด public
