@@ -56,7 +56,11 @@
     border-radius:8px; padding:11px 14px; outline:none; transition:.15s;
   }
   .field input.mono{font-family:'JetBrains Mono',monospace}
-  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--heat)}
+  .field input:hover:not(:disabled):not([readonly]), .field select:hover:not(:disabled), .field textarea:hover:not(:disabled):not([readonly]){
+    border-color:var(--heat); transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(230,147,74,.15); animation:fieldWiggle .35s ease}
+  @keyframes fieldWiggle{0%{transform:translateY(-2px) rotate(0)}25%{transform:translateY(-2px) rotate(-.5deg)}75%{transform:translateY(-2px) rotate(.5deg)}100%{transform:translateY(-2px) rotate(0)}}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--heat); transform:translateY(-2px); box-shadow:0 4px 12px rgba(230,147,74,.2)}
   .field input:disabled, .field input[readonly]{opacity:.7; background:var(--panel); cursor:not-allowed}
   .field .hint{font-size:13.5px; color:var(--dim)}
   .field .hint b{color:var(--good)}
@@ -190,7 +194,7 @@
   <div class="sec-head">
     <div class="title-block">
       <div class="eyebrow">Form 01 — Downtime</div>
-      <h2>ฟอร์มบันทึกเวลาหยุดเครื่อง <span class="tag status-view" id="dt-view-status" style="display:none">โหมดดู · 2025-09-10</span></h2>
+      <h2>ฟอร์มบันทึกเวลาหยุดเครื่องจักร <span class="tag status-view" id="dt-view-status" style="display:none">โหมดดู · 2025-09-10</span></h2>
     </div>
     <div class="datepicker-wrap">
       <button class="btn cal" onclick="togglePicker('dt-picker')">📅 ดูข้อมูลย้อนหลัง</button>
