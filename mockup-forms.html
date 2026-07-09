@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup Forms — BWE Performance Record</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --bg:#131a25; --panel:#1e2836; --panel2:#26324a;
+    --txt:#e0e8f0; --muted:#92a2b5; --dim:#6a7787; --line:#2c3849; --line2:#3d4c62;
+    --heat:#e6934a; --wear:#e5624a; --uptime:#4c9de0; --good:#4bd47c;
+    --shadow:0 1px 3px rgba(0,10,25,.4),0 2px 8px rgba(0,10,25,.25);
+  }
+  body{background:var(--bg); color:var(--txt); font-family:'IBM Plex Sans Thai',sans-serif; font-size:19px; line-height:1.55; padding-bottom:60px}
+  .wrap{max-width:1280px; margin:0 auto; padding:0 22px}
+
+  /* MOCKUP BANNER */
+  .mockup-banner{background:linear-gradient(90deg,rgba(230,147,74,.3),rgba(76,157,224,.3)); border-bottom:2px solid var(--heat); padding:12px 22px; text-align:center; font-family:'Saira Condensed',sans-serif; font-size:17px; letter-spacing:.06em; color:var(--txt)}
+  .mockup-banner b{color:var(--heat); text-transform:uppercase; letter-spacing:.12em}
+  .mockup-banner code{background:rgba(0,0,0,.3); padding:2px 8px; border-radius:4px; font-family:'JetBrains Mono',monospace; font-size:14px}
+
+  /* HEADER */
+  header{background:rgba(30,40,54,.88); backdrop-filter:blur(6px); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50}
+  .topbar{display:flex; align-items:center; gap:16px; padding:14px 22px; max-width:1280px; margin:0 auto}
+  .brand h1{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:25.3px; letter-spacing:.04em; text-transform:uppercase; line-height:1}
+  .brand .sub{font-size:13.2px; color:var(--muted); letter-spacing:.14em; text-transform:uppercase; margin-top:3px}
+  .spacer{flex:1}
+
+  /* SECTIONS */
+  section{padding:40px 22px; max-width:1280px; margin:0 auto}
+  .eyebrow{font-family:'Saira Condensed',sans-serif; font-size:17px; letter-spacing:.22em; text-transform:uppercase; color:var(--heat); display:flex; align-items:center; gap:10px}
+  h2{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:34px; letter-spacing:.01em; margin:8px 0 4px; display:flex; align-items:center; gap:14px; flex-wrap:wrap}
+  .lead{color:var(--muted); font-size:17.8px; max-width:820px; margin-bottom:24px}
+
+  .panel{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:20px 22px; box-shadow:var(--shadow); margin-bottom:18px}
+  .panel h3{font-family:'Saira Condensed',sans-serif; font-weight:600; font-size:20px; letter-spacing:.02em; margin-bottom:3px; color:var(--txt)}
+  .ph-sub{color:var(--muted); font-size:14.5px; margin-bottom:14px}
+
+  /* FIELDS */
+  .formgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .formgrid.cols2{grid-template-columns:1fr 1fr}
+  .formgrid.cols3{grid-template-columns:repeat(3,1fr)}
+  .field{display:flex; flex-direction:column; gap:6px}
+  .field.wide{grid-column:span 2}
+  .field.wide3{grid-column:span 3}
+  .field.wide4{grid-column:1 / -1}
+  .field label{font-size:14.5px; color:var(--muted); font-weight:500}
+  .field label .req{color:var(--wear); margin-left:2px}
+  .field input, .field select, .field textarea{
+    font-family:'IBM Plex Sans Thai',sans-serif; font-size:17.8px;
+    background:var(--panel2); color:var(--txt); border:1px solid var(--line2);
+    border-radius:8px; padding:11px 14px; outline:none; transition:.15s;
+  }
+  .field input.mono{font-family:'JetBrains Mono',monospace}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--heat)}
+  .field input:disabled, .field input[readonly]{opacity:.7; background:var(--panel); cursor:not-allowed}
+  .field .hint{font-size:13.5px; color:var(--dim)}
+  .field .hint b{color:var(--good)}
+  .field textarea{min-height:64px; resize:vertical; line-height:1.5}
+
+  /* SHIFT GROUP (Day/Night side-by-side) */
+  .shift-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:14px}
+  .shift-card{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:16px 18px}
+  .shift-card.day{border-left:4px solid var(--heat)}
+  .shift-card.night{border-left:4px solid var(--uptime)}
+  .shift-card h4{font-family:'Saira Condensed',sans-serif; font-size:19px; margin-bottom:4px; display:flex; align-items:center; gap:8px}
+  .shift-card .ph-sub{margin-bottom:12px}
+  .shift-card .machinegrid{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+  .shift-card .machine-block{background:rgba(20,26,36,.5); border-radius:8px; padding:12px 14px}
+  .shift-card .machine-block .mtitle{font-family:'Saira Condensed',sans-serif; font-size:15px; letter-spacing:.06em; margin-bottom:8px; color:var(--muted)}
+  .shift-card .machine-block .mtitle .dot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle}
+  .shift-card .machine-block .mtitle.b1 .dot{background:var(--heat)}
+  .shift-card .machine-block .mtitle.b2 .dot{background:var(--uptime)}
+  .shift-card .machine-block .row{display:flex; flex-direction:column; gap:8px}
+  .shift-card .machine-block label{font-size:13px; color:var(--muted); margin-bottom:2px}
+  .shift-card .machine-block input{padding:8px 10px; font-size:15.5px}
+  .shift-card .machine-block .calc{background:var(--panel); border-color:var(--line); color:var(--good)}
+
+  /* BUTTONS */
+  .btnrow{display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; align-items:center}
+  .btn{font-family:'Saira Condensed',sans-serif; font-size:16px; letter-spacing:.05em; text-transform:uppercase; cursor:pointer;
+    border:1px solid var(--line2); border-radius:8px; padding:11px 20px; background:var(--panel2); color:var(--txt); transition:.15s; display:inline-flex; align-items:center; gap:8px}
+  .btn:hover{border-color:var(--heat); color:var(--heat)}
+  .btn.primary{background:var(--heat); color:#fff; border-color:var(--heat); font-weight:600}
+  .btn.primary:hover{background:#f0a35c; color:#fff}
+  .btn.ghost{background:transparent}
+  .btn.cal{background:var(--panel2); color:var(--uptime); border-color:var(--line2); padding:8px 14px; font-size:15px}
+  .btn.cal:hover{border-color:var(--uptime); color:var(--uptime); background:rgba(76,157,224,.1)}
+
+  /* CALENDAR / DATE PICKER MOCK */
+  .datepicker-wrap{position:relative; display:inline-block}
+  .datepicker-pop{position:absolute; top:calc(100% + 8px); right:0; background:var(--panel); border:1px solid var(--line2); border-radius:10px; padding:14px; box-shadow:0 8px 30px rgba(0,0,0,.5); min-width:280px; z-index:20; display:none}
+  .datepicker-pop.show{display:block}
+  .cal-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:10px}
+  .cal-head b{font-family:'Saira Condensed',sans-serif; font-size:16px; letter-spacing:.03em}
+  .cal-nav{background:none; border:none; color:var(--muted); cursor:pointer; padding:4px 8px; font-size:16px}
+  .cal-nav:hover{color:var(--heat)}
+  .cal-grid{display:grid; grid-template-columns:repeat(7,1fr); gap:2px; font-family:'JetBrains Mono',monospace; font-size:13px}
+  .cal-dow{color:var(--dim); text-align:center; padding:6px 0; font-size:11px}
+  .cal-day{background:none; border:none; color:var(--txt); padding:8px 0; cursor:pointer; border-radius:6px; text-align:center; position:relative; font-family:'JetBrains Mono',monospace; font-size:13px}
+  .cal-day:hover{background:var(--panel2)}
+  .cal-day.has{color:var(--good)}
+  .cal-day.has::after{content:''; position:absolute; bottom:3px; left:50%; transform:translateX(-50%); width:4px; height:4px; background:var(--good); border-radius:50%}
+  .cal-day.off{color:var(--dim); opacity:.35}
+  .cal-day.today{background:var(--heat); color:#fff; font-weight:700}
+  .cal-day.selected{background:var(--uptime); color:#fff; font-weight:700}
+  .cal-foot{margin-top:10px; padding-top:10px; border-top:1px solid var(--line); font-size:12.5px; color:var(--muted); display:flex; justify-content:space-between}
+  .cal-foot span{display:inline-flex; align-items:center; gap:5px}
+  .cal-foot .badge{width:6px; height:6px; border-radius:50%; background:var(--good); display:inline-block}
+
+  /* TAG */
+  .tag{font-size:13.5px; padding:3px 10px; border-radius:20px; font-weight:600; white-space:nowrap; display:inline-block}
+  .tag.day{background:rgba(230,147,74,.2); color:#f2b675}
+  .tag.night{background:rgba(76,157,224,.2); color:#8fbdec}
+  .tag.b1{background:rgba(230,147,74,.2); color:#f2b675}
+  .tag.b2{background:rgba(76,157,224,.2); color:#8fbdec}
+  .tag.status-view{background:rgba(75,212,124,.15); color:#7fe0a4; margin-left:12px}
+  .tag.status-view::before{content:'👁 '; }
+
+  /* HISTORY TABLE */
+  .rtbl{width:100%; border-collapse:collapse; font-size:15.5px; margin-top:8px}
+  .rtbl th{font-family:'Saira Condensed',sans-serif; font-size:14.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); text-align:left; padding:10px 12px; border-bottom:2px solid var(--line2); font-weight:500}
+  .rtbl td{padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:middle}
+  .rtbl tr:hover td{background:rgba(76,157,224,.04)}
+  .rtbl .num{font-family:'JetBrains Mono',monospace; text-align:right}
+  .rtbl .center{text-align:center}
+  .rtbl .actions button{background:none; border:none; color:var(--dim); cursor:pointer; font-size:16px; padding:4px 6px; border-radius:5px}
+  .rtbl .actions button:hover{background:var(--panel2); color:var(--heat)}
+  .rtbl .actions button.del:hover{color:var(--wear)}
+
+  /* SUMMARY CARDS */
+  .kpirow{display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-top:14px}
+  .kpirow .kpi{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; border-left:3px solid var(--heat)}
+  .kpirow .kpi.u{border-left-color:var(--uptime)}
+  .kpirow .kpi.g{border-left-color:var(--good)}
+  .kpirow .kpi .lab{font-size:12.5px; color:var(--muted); text-transform:uppercase; letter-spacing:.04em}
+  .kpirow .kpi .val{font-family:'JetBrains Mono',monospace; font-size:22px; font-weight:700; margin-top:4px}
+  .kpirow .kpi .val .u{font-size:13px; color:var(--dim); font-weight:400; margin-left:4px}
+
+  /* SECTION HEADER WITH CALENDAR ICON */
+  .sec-head{display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; margin-bottom:6px}
+  .sec-head .title-block{flex:1; min-width:280px}
+
+  /* NOTES */
+  .note-box{background:rgba(76,157,224,.08); border:1px solid rgba(76,157,224,.2); border-left:4px solid var(--uptime); border-radius:8px; padding:14px 18px; margin-top:8px; margin-bottom:24px; color:var(--muted); font-size:15px; line-height:1.7}
+  .note-box b{color:var(--txt)}
+
+  /* FOOTER */
+  .mock-foot{text-align:center; padding:32px 22px; color:var(--dim); font-size:14px; border-top:1px solid var(--line); margin-top:40px}
+
+  @media(max-width:980px){
+    .formgrid{grid-template-columns:repeat(2,1fr)}
+    .formgrid.cols3{grid-template-columns:1fr}
+    .field.wide,.field.wide3{grid-column:span 1}
+    .field.wide4{grid-column:1 / -1}
+    .shift-grid{grid-template-columns:1fr}
+    .kpirow{grid-template-columns:repeat(2,1fr)}
+  }
+</style>
+</head>
+<body>
+
+<div class="mockup-banner">
+  🎨 <b>MOCKUP</b> — ตัวอย่างดีไซน์ 4 ฟอร์ม สำหรับ Downtime · Electricity · Daily Production · Historical Browser · <code>ยังไม่เชื่อมกับข้อมูลจริง</code>
+</div>
+
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <h1>BWE Performance Record</h1>
+      <div class="sub">Form Design Mockup</div>
+    </div>
+    <div class="spacer"></div>
+    <div style="color:var(--muted); font-size:14px">📅 <span style="font-family:'JetBrains Mono',monospace">2025-09-15</span></div>
+  </div>
+</header>
+
+<div class="note-box wrap" style="margin-top:20px">
+  <b>💡 หมายเหตุการดีไซน์</b> — ทุกฟอร์มมีไอคอน <span class="btn cal" style="pointer-events:none">📅 ดูข้อมูลย้อนหลัง</span> ที่หัวข้อ กดแล้วเปิดปฏิทินเลือกวัน (มีจุดสีเขียวใต้วันที่มีข้อมูล) → ฟอร์มจะเติมข้อมูลของวันนั้นแบบดูอย่างเดียว มีปุ่ม <b>แก้ไข</b> เพื่อเปิดการแก้ไข · จุดสีขวาบนหัวข้อคือ <span class="tag status-view">โหมดดู</span> ที่ปรากฏเมื่อเลือกวันเก่า
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FORM 1: DOWNTIME                                    -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="f-downtime">
+  <div class="sec-head">
+    <div class="title-block">
+      <div class="eyebrow">Form 01 — Downtime</div>
+      <h2>ฟอร์มบันทึกเวลาหยุดเครื่อง <span class="tag status-view" id="dt-view-status" style="display:none">โหมดดู · 2025-09-10</span></h2>
+    </div>
+    <div class="datepicker-wrap">
+      <button class="btn cal" onclick="togglePicker('dt-picker')">📅 ดูข้อมูลย้อนหลัง</button>
+      <div class="datepicker-pop" id="dt-picker"></div>
+    </div>
+  </div>
+  <p class="lead">บันทึกแต่ละเหตุการณ์ที่ทำให้เครื่องหยุดทำงาน — ระบบจะคำนวณระยะเวลาให้อัตโนมัติจากเวลาเริ่ม/สิ้นสุด</p>
+
+  <div class="panel">
+    <h3>รายละเอียดเหตุการณ์</h3>
+    <div class="ph-sub">ช่องที่มี <span style="color:var(--wear)">*</span> จำเป็นต้องกรอก</div>
+    <div class="formgrid" style="margin-top:14px">
+      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" value="2025-09-15"></div>
+      <div class="field"><label>เครื่องจักร <span class="req">*</span></label><select><option>BWE 1</option><option selected>BWE 2</option></select></div>
+      <div class="field"><label>กะ <span class="req">*</span></label><select><option>Day</option><option>Night</option></select></div>
+      <div class="field"><label>สถานที่</label><input type="text" placeholder="เช่น BWE2, Line A, A9.1" value="BWE2"></div>
+
+      <div class="field"><label>แผนก <span class="req">*</span></label>
+        <select>
+          <option value="">— เลือก —</option>
+          <option>ME · เครื่องกล</option>
+          <option>EE · ไฟฟ้า</option>
+          <option selected>CV · สายพาน</option>
+          <option>OPT · ปฏิบัติการ</option>
+          <option>System · ระบบ</option>
+          <option>Uncontrol · ควบคุมไม่ได้</option>
+        </select>
+      </div>
+      <div class="field"><label>หมวดหมู่ <span class="req">*</span></label>
+        <select>
+          <option selected>CM · ซ่อมแซม</option>
+          <option>PM · บำรุงรักษาตามแผน</option>
+          <option>Rain · ฝนตก</option>
+          <option>Shift · เปลี่ยนกะ/ย้ายสายพาน</option>
+          <option>Relocate · ย้ายเครื่อง</option>
+          <option>Dust · ฝุ่น</option>
+          <option>Idle · รอคอย</option>
+          <option>Other · อื่นๆ</option>
+        </select>
+      </div>
+      <div class="field"><label>เวลาเริ่ม <span class="req">*</span></label><input type="time" class="mono" value="14:30"></div>
+      <div class="field"><label>เวลาสิ้นสุด <span class="req">*</span></label><input type="time" class="mono" value="16:15"></div>
+
+      <div class="field wide4"><label>คำอธิบาย <span class="req">*</span></label>
+        <textarea placeholder="เช่น: ซ่อมสายพาน Wheel Boom · เชื่อมการ์ด · Belt rip trip">Shift สายพาน Line A</textarea>
+      </div>
+
+      <div class="field">
+        <label>ระยะเวลาหยุด <span style="color:var(--dim); font-size:12px">(คำนวณอัตโนมัติ)</span></label>
+        <input class="mono" value="1.75 ชม." readonly>
+        <span class="hint"><b>= 1 ชั่วโมง 45 นาที</b></span>
+      </div>
+      <div class="field"><label>ความถี่</label><input type="number" class="mono" value="1" min="1"></div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn primary">+ บันทึกเหตุการณ์</button>
+      <button class="btn ghost">ล้างฟอร์ม</button>
+      <span style="margin-left:auto; color:var(--muted); font-size:14px">บันทึกล่าสุด: <b style="color:var(--txt)">BWE2 · CV · Belt rip trip (13:20 น.)</b></span>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>เหตุการณ์ที่บันทึกไว้ วันนี้ <span style="color:var(--dim); font-size:15px; font-family:'JetBrains Mono',monospace; margin-left:8px">(4 รายการ · รวม 3.8 ชม.)</span></h3>
+    <table class="rtbl">
+      <tr><th>เวลา</th><th>เครื่อง</th><th>กะ</th><th>แผนก</th><th>หมวด</th><th>คำอธิบาย</th><th class="num">ชม.</th><th></th></tr>
+      <tr><td class="mono">07:00 – 08:27</td><td><span class="tag b1">BWE 1</span></td><td><span class="tag day">Day</span></td><td>EE</td><td>CM</td><td>ไฟฟ้าแรงสูงแก้ไขสายไฟ</td><td class="num">1.45</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
+      <tr><td class="mono">09:12 – 10:15</td><td><span class="tag b1">BWE 1</span></td><td><span class="tag day">Day</span></td><td>ME</td><td>CM</td><td>หยุดแก้ไข Slew Discharge</td><td class="num">1.05</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
+      <tr><td class="mono">13:00 – 13:20</td><td><span class="tag b2">BWE 2</span></td><td><span class="tag day">Day</span></td><td>CV</td><td>CM</td><td>Belt rip trip</td><td class="num">0.33</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
+      <tr><td class="mono">14:30 – 16:15</td><td><span class="tag b2">BWE 2</span></td><td><span class="tag day">Day</span></td><td>CV</td><td>CM</td><td>Shift สายพาน Line A</td><td class="num">1.75</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FORM 2: ELECTRICITY CONSUMPTION                     -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="f-elec">
+  <div class="sec-head">
+    <div class="title-block">
+      <div class="eyebrow">Form 02 — Electricity Consumption</div>
+      <h2>ฟอร์มบันทึกการใช้ไฟฟ้า</h2>
+    </div>
+    <div class="datepicker-wrap">
+      <button class="btn cal" onclick="togglePicker('el-picker')">📅 ดูข้อมูลย้อนหลัง</button>
+      <div class="datepicker-pop" id="el-picker"></div>
+    </div>
+  </div>
+  <p class="lead">บันทึกการใช้ไฟฟ้ารายวัน (kWh) แยกตามเครื่องและ Belt Wagon (BW#1/BW#2/BW#3) — ระบบจะรวมยอดต่อเครื่องให้อัตโนมัติ</p>
+
+  <div class="panel">
+    <h3>วันที่</h3>
+    <div class="formgrid cols3" style="margin-top:8px">
+      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" value="2025-09-15"></div>
+      <div class="field"><label>ผู้บันทึก</label><input type="text" placeholder="ชื่อผู้บันทึก" value="Eng. K."></div>
+      <div class="field"><label>เวลาที่อ่านมิเตอร์</label><input type="time" class="mono" value="06:00"></div>
+    </div>
+  </div>
+
+  <div class="grid2" style="display:grid; grid-template-columns:1fr 1fr; gap:18px">
+    <div class="panel" style="border-left:4px solid var(--heat)">
+      <h3>🟠 BWE 1 · การใช้ไฟฟ้า (kWh)</h3>
+      <div class="ph-sub">Belt Wagon 3 ตัวจะรวมเป็น Total อัตโนมัติ</div>
+      <div class="formgrid cols2" style="margin-top:12px">
+        <div class="field"><label>BWE#1 หลัก</label><input type="number" class="mono" value="0"></div>
+        <div class="field"><label>BW#1</label><input type="number" class="mono" value="0"></div>
+        <div class="field"><label>BW#2</label><input type="number" class="mono" value="0"></div>
+        <div class="field"><label>BW#3</label><input type="number" class="mono" value="0"></div>
+      </div>
+      <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
+        <div class="kpi"><div class="lab">Total BWE 1 (auto-sum)</div><div class="val">0 <span class="u">kWh</span></div></div>
+      </div>
+    </div>
+
+    <div class="panel" style="border-left:4px solid var(--uptime)">
+      <h3>🔵 BWE 2 · การใช้ไฟฟ้า (kWh)</h3>
+      <div class="ph-sub">Belt Wagon 3 ตัวจะรวมเป็น Total อัตโนมัติ</div>
+      <div class="formgrid cols2" style="margin-top:12px">
+        <div class="field"><label>BWE#2 หลัก</label><input type="number" class="mono" value="7000"></div>
+        <div class="field"><label>BW#1</label><input type="number" class="mono" value=""></div>
+        <div class="field"><label>BW#2</label><input type="number" class="mono" value="1000"></div>
+        <div class="field"><label>BW#3</label><input type="number" class="mono" value="1000"></div>
+      </div>
+      <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
+        <div class="kpi u"><div class="lab">Total BWE 2 (auto-sum)</div><div class="val" style="color:var(--uptime)">9,000 <span class="u">kWh</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="kpirow">
+      <div class="kpi g"><div class="lab">รวมทั้งวัน</div><div class="val" style="color:var(--good)">9,000 <span class="u">kWh</span></div></div>
+      <div class="kpi"><div class="lab">Cost @ 4.72 ฿/kWh</div><div class="val">42,480 <span class="u">฿</span></div></div>
+      <div class="kpi u"><div class="lab">Consumption Ratio</div><div class="val" style="color:var(--uptime)">1.68 <span class="u">kWh/BCM</span></div><span class="hint" style="font-size:12px; color:var(--dim)">(ต้องมี Production ก่อน)</span></div>
+      <div class="kpi"><div class="lab">เทียบเป้าหมาย 0.72 kWh/BCM</div><div class="val" style="color:var(--wear)">+133%</div></div>
+    </div>
+    <div class="btnrow">
+      <button class="btn primary">+ บันทึกการใช้ไฟฟ้า</button>
+      <button class="btn ghost">ล้างฟอร์ม</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- FORM 3: DAILY PRODUCTION (DAY/NIGHT)                -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="f-production">
+  <div class="sec-head">
+    <div class="title-block">
+      <div class="eyebrow">Form 03 — Daily Production Report</div>
+      <h2>ฟอร์มบันทึกการผลิตประจำวัน · Day / Night Shift</h2>
+    </div>
+    <div class="datepicker-wrap">
+      <button class="btn cal" onclick="togglePicker('pr-picker')">📅 ดูข้อมูลย้อนหลัง</button>
+      <div class="datepicker-pop" id="pr-picker"></div>
+    </div>
+  </div>
+  <p class="lead">บันทึก Load Time, Volume, และ Productivity แยกตามกะ (Day/Night) และเครื่อง (BWE1/BWE2) — Productivity คำนวณอัตโนมัติจาก Volume ÷ Load Time</p>
+
+  <div class="panel">
+    <h3>ข้อมูลทั่วไป</h3>
+    <div class="formgrid cols3" style="margin-top:8px">
+      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" value="2025-09-15"></div>
+      <div class="field"><label>Blasting Pattern · Hour Diff</label><input type="number" step="0.01" class="mono" value="11.94"></div>
+      <div class="field"><label>SMU A9</label><input type="number" step="0.01" class="mono" value="11.94"></div>
+      <div class="field"><label>Avg. Step · BWE 1 (cm)</label><input type="number" step="0.01" class="mono" placeholder="—"></div>
+      <div class="field"><label>Avg. Step · BWE 2 (cm)</label><input type="number" step="0.01" class="mono" value="37.75"></div>
+      <div class="field"><label>ผู้บันทึก</label><input type="text" placeholder="ชื่อวิศวกร" value="Eng. K."></div>
+    </div>
+  </div>
+
+  <div class="shift-grid">
+    <!-- DAY SHIFT -->
+    <div class="shift-card day">
+      <h4>☀️ กะกลางวัน (Day) <span class="tag day" style="font-size:12px">06:00 – 18:00</span></h4>
+      <div class="ph-sub">Load Time · Volume · A9 hours</div>
+
+      <div class="machinegrid" style="margin-top:14px">
+        <div class="machine-block">
+          <div class="mtitle b1"><span class="dot"></span>BWE 1</div>
+          <div class="row">
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" placeholder="0.00"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" placeholder="0"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="—" readonly></div>
+          </div>
+        </div>
+
+        <div class="machine-block">
+          <div class="mtitle b2"><span class="dot"></span>BWE 2</div>
+          <div class="row">
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" value="2.95"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" value="1943.75"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="658.9 BCM/ชม." readonly></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formgrid cols2" style="margin-top:14px">
+        <div class="field"><label>A9 Day (ชม.)</label><input type="number" step="0.01" class="mono" value="3.41"></div>
+        <div class="field"><label>Lost Time Day (ชม.)</label><input type="number" step="0.01" class="mono" value="9.05"></div>
+      </div>
+    </div>
+
+    <!-- NIGHT SHIFT -->
+    <div class="shift-card night">
+      <h4>🌙 กะกลางคืน (Night) <span class="tag night" style="font-size:12px">18:00 – 06:00</span></h4>
+      <div class="ph-sub">Load Time · Volume · A9 hours</div>
+
+      <div class="machinegrid" style="margin-top:14px">
+        <div class="machine-block">
+          <div class="mtitle b1"><span class="dot"></span>BWE 1</div>
+          <div class="row">
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" placeholder="0.00"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" placeholder="0"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="—" readonly></div>
+          </div>
+        </div>
+
+        <div class="machine-block">
+          <div class="mtitle b2"><span class="dot"></span>BWE 2</div>
+          <div class="row">
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" value="6.59"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" value="3998.75"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="606.8 BCM/ชม." readonly></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="formgrid cols2" style="margin-top:14px">
+        <div class="field"><label>A9 Night (ชม.)</label><input type="number" step="0.01" class="mono" value="8.53"></div>
+        <div class="field"><label>Lost Time Night (ชม.)</label><input type="number" step="0.01" class="mono" value="5.41"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>สรุปทั้งวัน (Auto)</h3>
+    <div class="ph-sub">คำนวณจากช่องข้างบน</div>
+    <div class="kpirow">
+      <div class="kpi u"><div class="lab">Volume BWE 2 รวม</div><div class="val" style="color:var(--uptime)">5,942.5 <span class="u">BCM</span></div></div>
+      <div class="kpi u"><div class="lab">Load Time BWE 2 รวม</div><div class="val" style="color:var(--uptime)">9.54 <span class="u">ชม.</span></div></div>
+      <div class="kpi g"><div class="lab">Productivity BWE 2 เฉลี่ย</div><div class="val" style="color:var(--good)">622.9 <span class="u">BCM/ชม.</span></div></div>
+      <div class="kpi"><div class="lab">Total (BWE1+2)</div><div class="val">5,942.5 <span class="u">BCM</span></div></div>
+    </div>
+    <div class="formgrid cols2" style="margin-top:14px">
+      <div class="field"><label>หมายเหตุ BWE 1</label><textarea placeholder="เช่น: อยู่ระหว่างย้ายเครื่อง"></textarea></div>
+      <div class="field"><label>หมายเหตุ BWE 2</label><textarea placeholder="เช่น: A9 Shift สายพาน">—</textarea></div>
+    </div>
+
+    <div class="btnrow">
+      <button class="btn primary">+ บันทึกรายงานประจำวัน</button>
+      <button class="btn ghost">ล้างฟอร์ม</button>
+      <button class="btn">📋 คัดลอกจากเมื่อวาน</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- 4. HISTORICAL BROWSER — DETAIL VIEW                 -->
+<!-- ═══════════════════════════════════════════════════ -->
+<section id="f-history">
+  <div class="eyebrow">Feature — Historical Browser</div>
+  <h2>ดูข้อมูลย้อนหลังของแต่ละวัน</h2>
+  <p class="lead">ทุกฟอร์มด้านบนมีปุ่ม <span class="btn cal" style="pointer-events:none">📅 ดูข้อมูลย้อนหลัง</span> ที่มุมขวาบน — กดแล้วเปิดปฏิทินให้เลือกวัน ระบบจะเติมฟอร์มด้วยข้อมูลของวันนั้นแบบ <b>อ่านอย่างเดียว</b> พร้อมปุ่ม <b>แก้ไข</b> ถ้าต้องการเปลี่ยน</p>
+
+  <div class="grid2" style="display:grid; grid-template-columns:2fr 1fr; gap:18px">
+    <div class="panel">
+      <h3>ตัวอย่างการใช้งาน</h3>
+      <div class="ph-sub">3 สถานะ · Add / View / Edit</div>
+      <ol style="margin:12px 0 0 24px; color:var(--muted); line-height:1.9">
+        <li><b style="color:var(--txt)">Add (default)</b> — เปิดฟอร์มมา ทุกช่องว่าง วันที่ = วันนี้ กด บันทึกเพิ่มรายการใหม่</li>
+        <li><b style="color:var(--txt)">📅 View</b> — กดปุ่มปฏิทิน → เลือกวันที่มีจุดเขียว → ฟอร์มเติมข้อมูลอัตโนมัติ ทุกช่องเป็น readonly มี <span class="tag status-view">โหมดดู</span> ปรากฏข้าง h2</li>
+        <li><b style="color:var(--txt)">✎ Edit</b> — กดปุ่ม แก้ไข → ปลดล็อคช่อง แก้แล้วบันทึกทับ</li>
+      </ol>
+    </div>
+
+    <div class="panel">
+      <h3>สัญลักษณ์ในปฏิทิน</h3>
+      <ul style="list-style:none; margin-top:12px">
+        <li style="padding:8px 0; display:flex; align-items:center; gap:12px"><span style="width:26px; height:26px; background:var(--heat); border-radius:6px; color:#fff; text-align:center; line-height:26px; font-family:'JetBrains Mono',monospace; font-size:13px">15</span><span>วันนี้</span></li>
+        <li style="padding:8px 0; display:flex; align-items:center; gap:12px"><span style="width:26px; height:26px; background:var(--uptime); border-radius:6px; color:#fff; text-align:center; line-height:26px; font-family:'JetBrains Mono',monospace; font-size:13px">10</span><span>วันที่กำลังดู</span></li>
+        <li style="padding:8px 0; display:flex; align-items:center; gap:12px"><span style="width:26px; height:26px; position:relative; text-align:center; line-height:26px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--good)">12<span style="position:absolute; bottom:3px; left:50%; transform:translateX(-50%); width:4px; height:4px; background:var(--good); border-radius:50%"></span></span><span>มีข้อมูลบันทึกไว้</span></li>
+        <li style="padding:8px 0; display:flex; align-items:center; gap:12px"><span style="width:26px; height:26px; text-align:center; line-height:26px; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--dim); opacity:.4">05</span><span>ยังไม่มีข้อมูล</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h3>📅 ตัวอย่าง Popup ปฏิทิน (ขยายให้เห็นชัด)</h3>
+    <div class="ph-sub">คลิกวันเพื่อโหลดข้อมูลวันนั้นเข้าฟอร์ม</div>
+    <div id="cal-demo" style="max-width:340px; margin-top:14px"></div>
+  </div>
+</section>
+
+<div class="mock-foot">
+  🎨 MOCKUP by Claude Code — สำหรับ Review เท่านั้น · ยังไม่เชื่อมกับ Google Sheet / localStorage<br>
+  <span style="color:var(--muted)">ถ้าอนุมัติดีไซน์แล้ว จะรวมเข้า index.html + เชื่อม Apps Script สำหรับส่งข้อมูลเข้า Sheet ต่อไป</span>
+</div>
+
+<script>
+/* ---- Toggle date picker popups ---- */
+function togglePicker(id){
+  const el = document.getElementById(id);
+  const opening = !el.classList.contains('show');
+  document.querySelectorAll('.datepicker-pop').forEach(p=>p.classList.remove('show'));
+  if(opening){ renderCalendar(el, 2025, 9); el.classList.add('show'); }
+}
+document.addEventListener('click', e=>{
+  if(!e.target.closest('.datepicker-wrap')) document.querySelectorAll('.datepicker-pop').forEach(p=>p.classList.remove('show'));
+});
+
+/* ---- Calendar renderer (mock — has=days with green dot) ---- */
+const MOCK_HAS = new Set([1,2,3,4,5,6,7,8,9,10,11,12,13]);  // days that have data
+const TODAY = 15;
+const SELECTED = 10;
+function renderCalendar(container, year, month){
+  const first = new Date(year, month-1, 1).getDay();  // 0=Sun
+  const dim = new Date(year, month, 0).getDate();
+  const thM = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  let html = `<div class="cal-head">
+    <button class="cal-nav">‹</button>
+    <b>${thM[month-1]} ${year+543}</b>
+    <button class="cal-nav">›</button>
+  </div>
+  <div class="cal-grid">`;
+  ['อา','จ','อ','พ','พฤ','ศ','ส'].forEach(d=>html+=`<div class="cal-dow">${d}</div>`);
+  for(let i=0;i<first;i++) html+='<div></div>';
+  for(let d=1; d<=dim; d++){
+    const cls = [];
+    if(MOCK_HAS.has(d)) cls.push('has');
+    if(d===TODAY) cls.push('today');
+    if(d===SELECTED) cls.push('selected');
+    if(d>TODAY) cls.push('off');
+    html += `<button class="cal-day ${cls.join(' ')}">${d}</button>`;
+  }
+  html += `</div>
+  <div class="cal-foot">
+    <span><span class="badge"></span> มีข้อมูล</span>
+    <span style="color:var(--heat)">● วันนี้</span>
+  </div>`;
+  container.innerHTML = html;
+  // click day → close + toggle status pill (demo)
+  container.querySelectorAll('.cal-day.has').forEach(b=>{
+    b.addEventListener('click',()=>{
+      container.classList.remove('show');
+      const st = document.getElementById('dt-view-status');
+      if(st){ st.style.display='inline-block'; st.textContent='โหมดดู · 2025-09-'+String(b.textContent).padStart(2,'0'); }
+    });
+  });
+}
+
+/* ---- Inline calendar demo ---- */
+renderCalendar(document.getElementById('cal-demo'), 2025, 9);
+document.getElementById('cal-demo').style.display='block';
+document.getElementById('cal-demo').style.background='var(--panel2)';
+document.getElementById('cal-demo').style.padding='16px';
+document.getElementById('cal-demo').style.borderRadius='10px';
+document.getElementById('cal-demo').style.border='1px solid var(--line2)';
+</script>
+</body>
+</html>
