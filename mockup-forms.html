@@ -203,13 +203,13 @@
     <h3>รายละเอียดเหตุการณ์</h3>
     <div class="ph-sub">ช่องที่มี <span style="color:var(--wear)">*</span> จำเป็นต้องกรอก</div>
     <div class="formgrid" style="margin-top:14px">
-      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" value="2025-09-15"></div>
-      <div class="field"><label>เครื่องจักร <span class="req">*</span></label><select><option>BWE 1</option><option selected>BWE 2</option></select></div>
-      <div class="field"><label>กะ <span class="req">*</span></label><select><option>Day</option><option>Night</option></select></div>
-      <div class="field"><label>สถานที่</label><input type="text" placeholder="เช่น BWE2, Line A, A9.1" value="BWE2"></div>
+      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" id="dt_date" value="2025-09-15"></div>
+      <div class="field"><label>เครื่องจักร <span class="req">*</span></label><select id="dt_machine"><option>BWE 1</option><option selected>BWE 2</option></select></div>
+      <div class="field"><label>กะ <span class="req">*</span></label><select id="dt_shift"><option>Day</option><option>Night</option></select></div>
+      <div class="field"><label>สถานที่</label><input type="text" id="dt_location" placeholder="เช่น BWE2, Line A, A9.1" value="BWE2"></div>
 
       <div class="field"><label>แผนก <span class="req">*</span></label>
-        <select>
+        <select id="dt_dept">
           <option value="">— เลือก —</option>
           <option>ME · เครื่องกล</option>
           <option>EE · ไฟฟ้า</option>
@@ -220,7 +220,7 @@
         </select>
       </div>
       <div class="field"><label>หมวดหมู่ <span class="req">*</span></label>
-        <select>
+        <select id="dt_cat">
           <option selected>CM · ซ่อมแซม</option>
           <option>PM · บำรุงรักษาตามแผน</option>
           <option>Rain · ฝนตก</option>
@@ -231,36 +231,35 @@
           <option>Other · อื่นๆ</option>
         </select>
       </div>
-      <div class="field"><label>เวลาเริ่ม <span class="req">*</span></label><input type="time" class="mono" value="14:30"></div>
-      <div class="field"><label>เวลาสิ้นสุด <span class="req">*</span></label><input type="time" class="mono" value="16:15"></div>
+      <div class="field"><label>เวลาเริ่ม <span class="req">*</span></label><input type="time" class="mono" id="dt_start" value="14:30"></div>
+      <div class="field"><label>เวลาสิ้นสุด <span class="req">*</span></label><input type="time" class="mono" id="dt_end" value="16:15"></div>
 
       <div class="field wide4"><label>คำอธิบาย <span class="req">*</span></label>
-        <textarea placeholder="เช่น: ซ่อมสายพาน Wheel Boom · เชื่อมการ์ด · Belt rip trip">Shift สายพาน Line A</textarea>
+        <textarea id="dt_desc" placeholder="เช่น: ซ่อมสายพาน Wheel Boom · เชื่อมการ์ด · Belt rip trip">Shift สายพาน Line A</textarea>
       </div>
 
       <div class="field">
         <label>ระยะเวลาหยุด <span style="color:var(--dim); font-size:12px">(คำนวณอัตโนมัติ)</span></label>
-        <input class="mono" value="1.75 ชม." readonly>
-        <span class="hint"><b>= 1 ชั่วโมง 45 นาที</b></span>
+        <input class="mono" id="dt_dur" value="1.75 ชม." readonly>
+        <span class="hint" id="dt_dur_hint"><b>= 1 ชั่วโมง 45 นาที</b></span>
       </div>
-      <div class="field"><label>ความถี่</label><input type="number" class="mono" value="1" min="1"></div>
+      <div class="field"><label>ความถี่</label><input type="number" class="mono" id="dt_freq" value="1" min="1"></div>
     </div>
 
-    <div class="btnrow">
-      <button class="btn primary">+ บันทึกเหตุการณ์</button>
-      <button class="btn ghost">ล้างฟอร์ม</button>
-      <span style="margin-left:auto; color:var(--muted); font-size:14px">บันทึกล่าสุด: <b style="color:var(--txt)">BWE2 · CV · Belt rip trip (13:20 น.)</b></span>
+    <div class="btnrow" id="dt_btns">
+      <button class="btn primary" id="dt_btn_save">+ บันทึกเหตุการณ์</button>
+      <button class="btn ghost" id="dt_btn_clear">ล้างฟอร์ม</button>
+      <button class="btn" id="dt_btn_edit" style="display:none">✎ แก้ไข</button>
+      <button class="btn ghost" id="dt_btn_back" style="display:none">← กลับมาบันทึกวันนี้</button>
+      <span id="dt_last" style="margin-left:auto; color:var(--muted); font-size:14px">บันทึกล่าสุด: <b style="color:var(--txt)">BWE2 · CV · Belt rip trip (13:20 น.)</b></span>
     </div>
   </div>
 
   <div class="panel">
-    <h3>เหตุการณ์ที่บันทึกไว้ วันนี้ <span style="color:var(--dim); font-size:15px; font-family:'JetBrains Mono',monospace; margin-left:8px">(4 รายการ · รวม 3.8 ชม.)</span></h3>
+    <h3 id="dt_hist_title">เหตุการณ์ที่บันทึกไว้ วันนี้ <span id="dt_hist_count" style="color:var(--dim); font-size:15px; font-family:'JetBrains Mono',monospace; margin-left:8px"></span></h3>
     <table class="rtbl">
-      <tr><th>เวลา</th><th>เครื่อง</th><th>กะ</th><th>แผนก</th><th>หมวด</th><th>คำอธิบาย</th><th class="num">ชม.</th><th></th></tr>
-      <tr><td class="mono">07:00 – 08:27</td><td><span class="tag b1">BWE 1</span></td><td><span class="tag day">Day</span></td><td>EE</td><td>CM</td><td>ไฟฟ้าแรงสูงแก้ไขสายไฟ</td><td class="num">1.45</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
-      <tr><td class="mono">09:12 – 10:15</td><td><span class="tag b1">BWE 1</span></td><td><span class="tag day">Day</span></td><td>ME</td><td>CM</td><td>หยุดแก้ไข Slew Discharge</td><td class="num">1.05</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
-      <tr><td class="mono">13:00 – 13:20</td><td><span class="tag b2">BWE 2</span></td><td><span class="tag day">Day</span></td><td>CV</td><td>CM</td><td>Belt rip trip</td><td class="num">0.33</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
-      <tr><td class="mono">14:30 – 16:15</td><td><span class="tag b2">BWE 2</span></td><td><span class="tag day">Day</span></td><td>CV</td><td>CM</td><td>Shift สายพาน Line A</td><td class="num">1.75</td><td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td></tr>
+      <thead><tr><th>เวลา</th><th>เครื่อง</th><th>กะ</th><th>แผนก</th><th>หมวด</th><th>คำอธิบาย</th><th class="num">ชม.</th><th></th></tr></thead>
+      <tbody id="dt_hist_body"></tbody>
     </table>
   </div>
 </section>
@@ -272,7 +271,7 @@
   <div class="sec-head">
     <div class="title-block">
       <div class="eyebrow">Form 02 — Electricity Consumption</div>
-      <h2>ฟอร์มบันทึกการใช้ไฟฟ้า</h2>
+      <h2>ฟอร์มบันทึกการใช้ไฟฟ้า <span class="tag status-view" id="el-view-status" style="display:none">โหมดดู</span></h2>
     </div>
     <div class="datepicker-wrap">
       <button class="btn cal" onclick="togglePicker('el-picker')">📅 ดูข้อมูลย้อนหลัง</button>
@@ -284,9 +283,9 @@
   <div class="panel">
     <h3>วันที่</h3>
     <div class="formgrid cols3" style="margin-top:8px">
-      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" value="2025-09-15"></div>
-      <div class="field"><label>ผู้บันทึก</label><input type="text" placeholder="ชื่อผู้บันทึก" value="Eng. K."></div>
-      <div class="field"><label>เวลาที่อ่านมิเตอร์</label><input type="time" class="mono" value="06:00"></div>
+      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" id="el_date" value="2025-09-15"></div>
+      <div class="field"><label>ผู้บันทึก</label><input type="text" id="el_by" placeholder="ชื่อผู้บันทึก" value="Eng. K."></div>
+      <div class="field"><label>เวลาที่อ่านมิเตอร์</label><input type="time" class="mono" id="el_time" value="06:00"></div>
     </div>
   </div>
 
@@ -295,13 +294,13 @@
       <h3>🟠 BWE 1 · การใช้ไฟฟ้า (kWh)</h3>
       <div class="ph-sub">Belt Wagon 3 ตัวจะรวมเป็น Total อัตโนมัติ</div>
       <div class="formgrid cols2" style="margin-top:12px">
-        <div class="field"><label>BWE#1 หลัก</label><input type="number" class="mono" value="0"></div>
-        <div class="field"><label>BW#1</label><input type="number" class="mono" value="0"></div>
-        <div class="field"><label>BW#2</label><input type="number" class="mono" value="0"></div>
-        <div class="field"><label>BW#3</label><input type="number" class="mono" value="0"></div>
+        <div class="field"><label>BWE#1 หลัก</label><input type="number" class="mono" id="el_b1_main" value="0"></div>
+        <div class="field"><label>BW#1</label><input type="number" class="mono" id="el_b1_1" value="0"></div>
+        <div class="field"><label>BW#2</label><input type="number" class="mono" id="el_b1_2" value="0"></div>
+        <div class="field"><label>BW#3</label><input type="number" class="mono" id="el_b1_3" value="0"></div>
       </div>
       <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
-        <div class="kpi"><div class="lab">Total BWE 1 (auto-sum)</div><div class="val">0 <span class="u">kWh</span></div></div>
+        <div class="kpi"><div class="lab">Total BWE 1 (auto-sum)</div><div class="val"><span id="el_b1_total">0</span> <span class="u">kWh</span></div></div>
       </div>
     </div>
 
@@ -309,27 +308,29 @@
       <h3>🔵 BWE 2 · การใช้ไฟฟ้า (kWh)</h3>
       <div class="ph-sub">Belt Wagon 3 ตัวจะรวมเป็น Total อัตโนมัติ</div>
       <div class="formgrid cols2" style="margin-top:12px">
-        <div class="field"><label>BWE#2 หลัก</label><input type="number" class="mono" value="7000"></div>
-        <div class="field"><label>BW#1</label><input type="number" class="mono" value=""></div>
-        <div class="field"><label>BW#2</label><input type="number" class="mono" value="1000"></div>
-        <div class="field"><label>BW#3</label><input type="number" class="mono" value="1000"></div>
+        <div class="field"><label>BWE#2 หลัก</label><input type="number" class="mono" id="el_b2_main" value="7000"></div>
+        <div class="field"><label>BW#1</label><input type="number" class="mono" id="el_b2_1" value=""></div>
+        <div class="field"><label>BW#2</label><input type="number" class="mono" id="el_b2_2" value="1000"></div>
+        <div class="field"><label>BW#3</label><input type="number" class="mono" id="el_b2_3" value="1000"></div>
       </div>
       <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
-        <div class="kpi u"><div class="lab">Total BWE 2 (auto-sum)</div><div class="val" style="color:var(--uptime)">9,000 <span class="u">kWh</span></div></div>
+        <div class="kpi u"><div class="lab">Total BWE 2 (auto-sum)</div><div class="val" style="color:var(--uptime)"><span id="el_b2_total">9,000</span> <span class="u">kWh</span></div></div>
       </div>
     </div>
   </div>
 
   <div class="panel">
     <div class="kpirow">
-      <div class="kpi g"><div class="lab">รวมทั้งวัน</div><div class="val" style="color:var(--good)">9,000 <span class="u">kWh</span></div></div>
-      <div class="kpi"><div class="lab">Cost @ 4.72 ฿/kWh</div><div class="val">42,480 <span class="u">฿</span></div></div>
-      <div class="kpi u"><div class="lab">Consumption Ratio</div><div class="val" style="color:var(--uptime)">1.68 <span class="u">kWh/BCM</span></div><span class="hint" style="font-size:12px; color:var(--dim)">(ต้องมี Production ก่อน)</span></div>
-      <div class="kpi"><div class="lab">เทียบเป้าหมาย 0.72 kWh/BCM</div><div class="val" style="color:var(--wear)">+133%</div></div>
+      <div class="kpi g"><div class="lab">รวมทั้งวัน</div><div class="val" style="color:var(--good)"><span id="el_grand_total">9,000</span> <span class="u">kWh</span></div></div>
+      <div class="kpi"><div class="lab">Cost @ 4.72 ฿/kWh</div><div class="val"><span id="el_cost">42,480</span> <span class="u">฿</span></div></div>
+      <div class="kpi u"><div class="lab">Consumption Ratio</div><div class="val" style="color:var(--uptime)"><span id="el_ratio">1.68</span> <span class="u">kWh/BCM</span></div><span class="hint" style="font-size:12px; color:var(--dim)">(ต้องมี Production ก่อน)</span></div>
+      <div class="kpi"><div class="lab">เทียบเป้าหมาย 0.72 kWh/BCM</div><div class="val" style="color:var(--wear)"><span id="el_vs_target">+133%</span></div></div>
     </div>
     <div class="btnrow">
-      <button class="btn primary">+ บันทึกการใช้ไฟฟ้า</button>
-      <button class="btn ghost">ล้างฟอร์ม</button>
+      <button class="btn primary" id="el_btn_save">+ บันทึกการใช้ไฟฟ้า</button>
+      <button class="btn ghost" id="el_btn_clear">ล้างฟอร์ม</button>
+      <button class="btn" id="el_btn_edit" style="display:none">✎ แก้ไข</button>
+      <button class="btn ghost" id="el_btn_back" style="display:none">← กลับมาบันทึกวันนี้</button>
     </div>
   </div>
 </section>
@@ -341,7 +342,7 @@
   <div class="sec-head">
     <div class="title-block">
       <div class="eyebrow">Form 03 — Daily Production Report</div>
-      <h2>ฟอร์มบันทึกการผลิตประจำวัน · Day / Night Shift</h2>
+      <h2>ฟอร์มบันทึกการผลิตประจำวัน · Day / Night Shift <span class="tag status-view" id="pr-view-status" style="display:none">โหมดดู</span></h2>
     </div>
     <div class="datepicker-wrap">
       <button class="btn cal" onclick="togglePicker('pr-picker')">📅 ดูข้อมูลย้อนหลัง</button>
@@ -353,12 +354,12 @@
   <div class="panel">
     <h3>ข้อมูลทั่วไป</h3>
     <div class="formgrid cols3" style="margin-top:8px">
-      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" value="2025-09-15"></div>
-      <div class="field"><label>Blasting Pattern · Hour Diff</label><input type="number" step="0.01" class="mono" value="11.94"></div>
-      <div class="field"><label>SMU A9</label><input type="number" step="0.01" class="mono" value="11.94"></div>
-      <div class="field"><label>Avg. Step · BWE 1 (cm)</label><input type="number" step="0.01" class="mono" placeholder="—"></div>
-      <div class="field"><label>Avg. Step · BWE 2 (cm)</label><input type="number" step="0.01" class="mono" value="37.75"></div>
-      <div class="field"><label>ผู้บันทึก</label><input type="text" placeholder="ชื่อวิศวกร" value="Eng. K."></div>
+      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" id="pr_date" value="2025-09-15"></div>
+      <div class="field"><label>Blasting Pattern · Hour Diff</label><input type="number" step="0.01" class="mono" id="pr_blast" value="11.94"></div>
+      <div class="field"><label>SMU A9</label><input type="number" step="0.01" class="mono" id="pr_smu_a9" value="11.94"></div>
+      <div class="field"><label>Avg. Step · BWE 1 (cm)</label><input type="number" step="0.01" class="mono" id="pr_step1" placeholder="—"></div>
+      <div class="field"><label>Avg. Step · BWE 2 (cm)</label><input type="number" step="0.01" class="mono" id="pr_step2" value="37.75"></div>
+      <div class="field"><label>ผู้บันทึก</label><input type="text" id="pr_by" placeholder="ชื่อวิศวกร" value="Eng. K."></div>
     </div>
   </div>
 
@@ -372,25 +373,25 @@
         <div class="machine-block">
           <div class="mtitle b1"><span class="dot"></span>BWE 1</div>
           <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" placeholder="0.00"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" placeholder="0"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="—" readonly></div>
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_day_b1_lt" placeholder="0.00"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_day_b1_vol" placeholder="0"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_day_b1_prod" value="—" readonly></div>
           </div>
         </div>
 
         <div class="machine-block">
           <div class="mtitle b2"><span class="dot"></span>BWE 2</div>
           <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" value="2.95"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" value="1943.75"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="658.9 BCM/ชม." readonly></div>
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_day_b2_lt" value="2.95"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_day_b2_vol" value="1943.75"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_day_b2_prod" value="658.9 BCM/ชม." readonly>
           </div>
         </div>
       </div>
 
       <div class="formgrid cols2" style="margin-top:14px">
-        <div class="field"><label>A9 Day (ชม.)</label><input type="number" step="0.01" class="mono" value="3.41"></div>
-        <div class="field"><label>Lost Time Day (ชม.)</label><input type="number" step="0.01" class="mono" value="9.05"></div>
+        <div class="field"><label>A9 Day (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_a9_day" value="3.41"></div>
+        <div class="field"><label>Lost Time Day (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_lost_day" value="9.05"></div>
       </div>
     </div>
 
@@ -403,25 +404,25 @@
         <div class="machine-block">
           <div class="mtitle b1"><span class="dot"></span>BWE 1</div>
           <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" placeholder="0.00"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" placeholder="0"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="—" readonly></div>
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_night_b1_lt" placeholder="0.00"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_night_b1_vol" placeholder="0"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_night_b1_prod" value="—" readonly></div>
           </div>
         </div>
 
         <div class="machine-block">
           <div class="mtitle b2"><span class="dot"></span>BWE 2</div>
           <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" value="6.59"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" value="3998.75"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" value="606.8 BCM/ชม." readonly></div>
+            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_night_b2_lt" value="6.59"></div>
+            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_night_b2_vol" value="3998.75"></div>
+            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_night_b2_prod" value="606.8 BCM/ชม." readonly></div>
           </div>
         </div>
       </div>
 
       <div class="formgrid cols2" style="margin-top:14px">
-        <div class="field"><label>A9 Night (ชม.)</label><input type="number" step="0.01" class="mono" value="8.53"></div>
-        <div class="field"><label>Lost Time Night (ชม.)</label><input type="number" step="0.01" class="mono" value="5.41"></div>
+        <div class="field"><label>A9 Night (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_a9_night" value="8.53"></div>
+        <div class="field"><label>Lost Time Night (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_lost_night" value="5.41"></div>
       </div>
     </div>
   </div>
@@ -430,10 +431,10 @@
     <h3>สรุปทั้งวัน (Auto)</h3>
     <div class="ph-sub">คำนวณจากช่องข้างบน</div>
     <div class="kpirow">
-      <div class="kpi u"><div class="lab">Volume BWE 2 รวม</div><div class="val" style="color:var(--uptime)">5,942.5 <span class="u">BCM</span></div></div>
-      <div class="kpi u"><div class="lab">Load Time BWE 2 รวม</div><div class="val" style="color:var(--uptime)">9.54 <span class="u">ชม.</span></div></div>
-      <div class="kpi g"><div class="lab">Productivity BWE 2 เฉลี่ย</div><div class="val" style="color:var(--good)">622.9 <span class="u">BCM/ชม.</span></div></div>
-      <div class="kpi"><div class="lab">Total (BWE1+2)</div><div class="val">5,942.5 <span class="u">BCM</span></div></div>
+      <div class="kpi u"><div class="lab">Volume BWE 2 รวม</div><div class="val" style="color:var(--uptime)"><span id="pr_sum_b2_vol">5,942.5</span> <span class="u">BCM</span></div></div>
+      <div class="kpi u"><div class="lab">Load Time BWE 2 รวม</div><div class="val" style="color:var(--uptime)"><span id="pr_sum_b2_lt">9.54</span> <span class="u">ชม.</span></div></div>
+      <div class="kpi g"><div class="lab">Productivity BWE 2 เฉลี่ย</div><div class="val" style="color:var(--good)"><span id="pr_sum_b2_prod">622.9</span> <span class="u">BCM/ชม.</span></div></div>
+      <div class="kpi"><div class="lab">Total (BWE1+2)</div><div class="val"><span id="pr_sum_total">5,942.5</span> <span class="u">BCM</span></div></div>
     </div>
     <div class="formgrid cols2" style="margin-top:14px">
       <div class="field"><label>หมายเหตุ BWE 1</label><textarea placeholder="เช่น: อยู่ระหว่างย้ายเครื่อง"></textarea></div>
@@ -441,9 +442,11 @@
     </div>
 
     <div class="btnrow">
-      <button class="btn primary">+ บันทึกรายงานประจำวัน</button>
-      <button class="btn ghost">ล้างฟอร์ม</button>
-      <button class="btn">📋 คัดลอกจากเมื่อวาน</button>
+      <button class="btn primary" id="pr_btn_save">+ บันทึกรายงานประจำวัน</button>
+      <button class="btn ghost" id="pr_btn_clear">ล้างฟอร์ม</button>
+      <button class="btn" id="pr_btn_edit" style="display:none">✎ แก้ไข</button>
+      <button class="btn ghost" id="pr_btn_back" style="display:none">← กลับมาบันทึกวันนี้</button>
+      <button class="btn" id="pr_btn_copy">📋 คัดลอกจากเมื่อวาน</button>
     </div>
   </div>
 </section>
@@ -491,25 +494,43 @@
 </div>
 
 <script>
-/* ---- Toggle date picker popups ---- */
+/* ═══════════════════════════════════════════════════
+   REAL DEMO DATA (extracted from Sep 2025 workbook)
+   ═══════════════════════════════════════════════════ */
+const DOWNTIME_HISTORY = {"2025-09-01":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:00","end":"01:05","desc":"ย้าย floor ขุด","hr":0.08,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:05","end":"01:10","desc":"Clear track","hr":0.08,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:39","end":"01:45","desc":"ย้าย floor ขุด","hr":0.1,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"02:42","end":"02:55","desc":"Trip Belt Rip","hr":0.22,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"03:00","end":"03:15","desc":"Trip Belt Rip","hr":0.25,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"03:30","end":"03:58","desc":"Trip Belt Rip","hr":0.47,"freq":1}],"2025-09-02":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"00:10","end":"00:22","desc":"บิดแทรค","hr":0.2,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:51","end":"02:00","desc":"ย้าย floor ขุด","hr":0.15,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:32","end":"02:35","desc":"ย้าย floor ขุด","hr":0.05,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"02:35","end":"02:49","desc":"Trip Belt Rip","hr":0.23,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"03:24","end":"03:34","desc":"Trip Belt Rip","hr":0.17,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"04:15","end":"04:22","desc":"Clear track","hr":0.12,"freq":1}],"2025-09-03":[{"machine":"BWE2","shift":"Night","location":"A3","dept":"EE","cat":"CM","start":"02:08","end":"03:01","desc":"Trip Tension Min","hr":0.88,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:08","end":"02:52","desc":"ย้ายหน้าขุด","hr":0.73,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:52","end":"03:01","desc":"รอแทรคเตอร์","hr":0.15,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:07","end":"03:32","desc":"Clear track","hr":0.42,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:40","end":"03:47","desc":"Clear track","hr":0.12,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:54","end":"04:20","desc":"Clear track","hr":0.43,"freq":1}],"2025-09-04":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"System","cat":"Dust","start":"00:09","end":"00:15","desc":"หยุดฝุ่น","hr":0.1,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"00:45","end":"00:50","desc":"ย้าย floor ขุด","hr":0.08,"freq":1},{"machine":"BWE2","shift":"Night","location":"A7","dept":"CV","cat":"CM","start":"01:55","end":"02:33","desc":"เปลี่ยน Flat Return","hr":0.63,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:40","end":"02:49","desc":"ย้าย floor ขุด","hr":0.15,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:30","end":"03:43","desc":"ย้าย floor ขุด","hr":0.22,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:59","end":"04:30","desc":"ทำทางเดิน BW","hr":0.52,"freq":1}],"2025-09-05":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"System","cat":"Dust","start":"01:00","end":"02:00","desc":"หยุดฝุ่น","hr":1.0,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:00","end":"07:00","desc":"ทำทางเดิน BW","hr":5.0,"freq":1},{"machine":"BWE2","shift":"Day","location":"BWE2","dept":"System","cat":"Dust","start":"07:00","end":"08:00","desc":"หยุดฝุ่น","hr":1.0,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"07:00","end":"09:20","desc":"ทำทางเดิน BW","hr":2.33,"freq":1},{"machine":"BWE2","shift":"Day","location":"A9","dept":"CV","cat":"CM","start":"08:00","end":"08:34","desc":"เคลียร์ดินอัดสายพาน","hr":0.57,"freq":1},{"machine":"BWE2","shift":"Day","location":"BWE2","dept":"EE","cat":"CM","start":"09:10","end":"10:30","desc":"หยุดเช็คปั้มลม","hr":1.33,"freq":1}],"2025-09-06":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"00:50","end":"00:57","desc":"Clear track","hr":0.12,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9.1","dept":"CV","cat":"CM","start":"01:18","end":"01:30","desc":"เอา Carry ออกจากสายพาน","hr":0.2,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:30","end":"02:08","desc":"ย้ายหน้าขุด","hr":0.63,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:40","end":"03:47","desc":"Clear track","hr":0.12,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"EE","cat":"CM","start":"03:47","end":"04:34","desc":"สายพาน Wheel Boom สตาร์ไม่ผ่าน","hr":0.78,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"05:40","end":"05:45","desc":"ย้าย floor ขุด","hr":0.08,"freq":1}]};
+const ELEC_HISTORY = {"2025-09-01":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":6000,"b2_1":0,"b2_2":2000,"b2_3":1000},"2025-09-02":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":8000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-03":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":7000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-04":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":8000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-05":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":8000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-06":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":10000,"b2_1":0,"b2_2":2000,"b2_3":2000},"2025-09-07":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":7000,"b2_1":0,"b2_2":1000,"b2_3":0}};
+const PROD_HISTORY = {"2025-09-01":{"blast":null,"smu_a9":7.68,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":0.68,"b2_vol":163.75,"a9":1.26},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":5.4,"b2_vol":3668.13,"a9":6.42}},"2025-09-02":{"blast":null,"smu_a9":11.94,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":2.95,"b2_vol":1943.75,"a9":3.41},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":6.59,"b2_vol":3998.75,"a9":8.53}},"2025-09-03":{"blast":null,"smu_a9":11.79,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":4.34,"b2_vol":3309.38,"a9":5.39},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":3.9,"b2_vol":2503.75,"a9":6.4}},"2025-09-04":{"blast":null,"smu_a9":11.54,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":1.85,"b2_vol":920,"a9":2.16},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":6.88,"b2_vol":3361.25,"a9":9.38}},"2025-09-05":{"blast":null,"smu_a9":10.52,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":5,"b2_vol":2212.5,"a9":6.09},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":3.87,"b2_vol":1921.25,"a9":4.43}},"2025-09-06":{"blast":null,"smu_a9":15.84,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":7.08,"b2_vol":4442.5,"a9":8.55},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":6.01,"b2_vol":3150,"a9":7.29}},"2025-09-07":{"blast":null,"smu_a9":8.25,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":3.58,"b2_vol":1593.75,"a9":4.25},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":3.5,"b2_vol":1143.13,"a9":4}}};
+
+const TODAY = '2025-09-15';
+const DT_DEPT = {'ME':'ME · เครื่องกล','EE':'EE · ไฟฟ้า','CV':'CV · สายพาน','OPT':'OPT · ปฏิบัติการ','System':'System · ระบบ','Uncontrol':'Uncontrol · ควบคุมไม่ได้'};
+const DT_CAT  = {'CM':'CM · ซ่อมแซม','cm':'CM · ซ่อมแซม','PM':'PM · บำรุงรักษาตามแผน','Rain':'Rain · ฝนตก','Shift':'Shift · เปลี่ยนกะ/ย้ายสายพาน','Relocate':'Relocate · ย้ายเครื่อง','Dust':'Dust · ฝุ่น','Idle':'Idle · รอคอย','Other':'Other · อื่นๆ'};
+
 function togglePicker(id){
   const el = document.getElementById(id);
   const opening = !el.classList.contains('show');
   document.querySelectorAll('.datepicker-pop').forEach(p=>p.classList.remove('show'));
-  if(opening){ renderCalendar(el, 2025, 9); el.classList.add('show'); }
+  if(opening){
+    const which = id.split('-')[0];
+    renderCalendar(el, 2025, 9, which);
+    el.classList.add('show');
+  }
 }
 document.addEventListener('click', e=>{
   if(!e.target.closest('.datepicker-wrap')) document.querySelectorAll('.datepicker-pop').forEach(p=>p.classList.remove('show'));
 });
 
-/* ---- Calendar renderer (mock — has=days with green dot) ---- */
-const MOCK_HAS = new Set([1,2,3,4,5,6,7,8,9,10,11,12,13]);  // days that have data
-const TODAY = 15;
-const SELECTED = 10;
-function renderCalendar(container, year, month){
-  const first = new Date(year, month-1, 1).getDay();  // 0=Sun
+function daysWithData(which){
+  if(which==='dt') return new Set(Object.keys(DOWNTIME_HISTORY).map(d=>+d.split('-')[2]));
+  if(which==='el') return new Set(Object.keys(ELEC_HISTORY).map(d=>+d.split('-')[2]));
+  if(which==='pr') return new Set(Object.keys(PROD_HISTORY).map(d=>+d.split('-')[2]));
+  return new Set();
+}
+function renderCalendar(container, year, month, which){
+  const first = new Date(year, month-1, 1).getDay();
   const dim = new Date(year, month, 0).getDate();
   const thM = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
+  const HAS = daysWithData(which || 'dt');
+  const todayDay = +TODAY.split('-')[2];
   let html = `<div class="cal-head">
     <button class="cal-nav">‹</button>
     <b>${thM[month-1]} ${year+543}</b>
@@ -519,12 +540,12 @@ function renderCalendar(container, year, month){
   ['อา','จ','อ','พ','พฤ','ศ','ส'].forEach(d=>html+=`<div class="cal-dow">${d}</div>`);
   for(let i=0;i<first;i++) html+='<div></div>';
   for(let d=1; d<=dim; d++){
-    const cls = [];
-    if(MOCK_HAS.has(d)) cls.push('has');
-    if(d===TODAY) cls.push('today');
-    if(d===SELECTED) cls.push('selected');
-    if(d>TODAY) cls.push('off');
-    html += `<button class="cal-day ${cls.join(' ')}">${d}</button>`;
+    const cls=[];
+    if(HAS.has(d)) cls.push('has');
+    if(d===todayDay) cls.push('today');
+    if(d>todayDay && !HAS.has(d)) cls.push('off');
+    const dstr = `${year}-${String(month).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    html += `<button class="cal-day ${cls.join(' ')}" data-date="${dstr}" data-which="${which}">${d}</button>`;
   }
   html += `</div>
   <div class="cal-foot">
@@ -532,23 +553,300 @@ function renderCalendar(container, year, month){
     <span style="color:var(--heat)">● วันนี้</span>
   </div>`;
   container.innerHTML = html;
-  // click day → close + toggle status pill (demo)
-  container.querySelectorAll('.cal-day.has').forEach(b=>{
+  container.querySelectorAll('.cal-day').forEach(b=>{
     b.addEventListener('click',()=>{
+      if(!b.classList.contains('has') && !b.classList.contains('today')){
+        alert('ยังไม่มีข้อมูลบันทึกในวันที่ ' + b.dataset.date + '\n\n(กดวันที่จุดสีเขียวเพื่อดูข้อมูลย้อนหลัง)');
+        return;
+      }
+      const dstr = b.dataset.date;
+      const which = b.dataset.which;
       container.classList.remove('show');
-      const st = document.getElementById('dt-view-status');
-      if(st){ st.style.display='inline-block'; st.textContent='โหมดดู · 2025-09-'+String(b.textContent).padStart(2,'0'); }
+      if(which==='dt') viewDowntime(dstr);
+      else if(which==='el') viewElec(dstr);
+      else if(which==='pr') viewProd(dstr);
     });
   });
 }
 
-/* ---- Inline calendar demo ---- */
-renderCalendar(document.getElementById('cal-demo'), 2025, 9);
+function calcDur(start, end){
+  if(!start || !end) return null;
+  const [sh,sm]=start.split(':').map(Number);
+  const [eh,em]=end.split(':').map(Number);
+  let mins = (eh*60+em) - (sh*60+sm);
+  if(mins<0) mins+=24*60;
+  return mins/60;
+}
+function fmtDur(hr){
+  const H=Math.floor(hr), M=Math.round((hr-H)*60);
+  return `${H} ชั่วโมง ${M} นาที`;
+}
+
+function renderDowntimeTable(dstr){
+  const events = DOWNTIME_HISTORY[dstr] || [];
+  const total = events.reduce((s,e)=>s+e.hr, 0);
+  const isToday = dstr === TODAY;
+  document.getElementById('dt_hist_title').innerHTML =
+    (isToday ? 'เหตุการณ์ที่บันทึกไว้ วันนี้' : `เหตุการณ์ของวันที่ <span style="color:var(--uptime)">${dstr}</span>`) +
+    ` <span id="dt_hist_count" style="color:var(--dim); font-size:15px; font-family:'JetBrains Mono',monospace; margin-left:8px">(${events.length} รายการ · รวม ${total.toFixed(1)} ชม.)</span>`;
+  const body = document.getElementById('dt_hist_body');
+  body.innerHTML = events.map(e=>{
+    const mtag = e.machine==='BWE1'?'b1':'b2';
+    const mlabel = e.machine==='BWE1'?'BWE 1':'BWE 2';
+    const stag = e.shift==='Night'?'night':'day';
+    return `<tr>
+      <td class="mono">${e.start} – ${e.end}</td>
+      <td><span class="tag ${mtag}">${mlabel}</span></td>
+      <td><span class="tag ${stag}">${e.shift}</span></td>
+      <td>${e.dept}</td>
+      <td>${e.cat}</td>
+      <td>${e.desc}</td>
+      <td class="num">${e.hr.toFixed(2)}</td>
+      <td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="8" style="text-align:center;color:var(--dim);padding:30px">— ไม่มีเหตุการณ์ในวันนี้ —</td></tr>';
+}
+
+function fillDowntimeForm(ev, dateStr){
+  document.getElementById('dt_date').value = dateStr;
+  document.getElementById('dt_machine').value = ev.machine==='BWE1'?'BWE 1':'BWE 2';
+  document.getElementById('dt_shift').value = ev.shift;
+  document.getElementById('dt_location').value = ev.location;
+  const deptFull = DT_DEPT[ev.dept] || ev.dept;
+  const catFull = DT_CAT[ev.cat] || ev.cat;
+  document.getElementById('dt_dept').value = deptFull;
+  document.getElementById('dt_cat').value = catFull;
+  document.getElementById('dt_start').value = ev.start;
+  document.getElementById('dt_end').value = ev.end;
+  document.getElementById('dt_desc').value = ev.desc;
+  document.getElementById('dt_freq').value = ev.freq;
+  document.getElementById('dt_dur').value = ev.hr.toFixed(2) + ' ชม.';
+  document.getElementById('dt_dur_hint').innerHTML = '<b>= ' + fmtDur(ev.hr) + '</b>';
+}
+
+function setDowntimeReadonly(readonly){
+  ['dt_date','dt_machine','dt_shift','dt_location','dt_dept','dt_cat','dt_start','dt_end','dt_desc','dt_freq'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el.tagName==='SELECT') el.disabled=readonly;
+    else el.readOnly=readonly;
+  });
+}
+
+function viewDowntime(dstr){
+  const events = DOWNTIME_HISTORY[dstr] || [];
+  renderDowntimeTable(dstr);
+  const pill = document.getElementById('dt-view-status');
+  if(dstr === TODAY){
+    pill.style.display='none';
+    setDowntimeReadonly(false);
+    document.getElementById('dt_btn_save').style.display='';
+    document.getElementById('dt_btn_clear').style.display='';
+    document.getElementById('dt_btn_edit').style.display='none';
+    document.getElementById('dt_btn_back').style.display='none';
+    document.getElementById('dt_date').value = TODAY;
+    return;
+  }
+  if(events.length){
+    fillDowntimeForm(events[0], dstr);
+  }
+  setDowntimeReadonly(true);
+  pill.style.display='inline-block';
+  pill.textContent='โหมดดู · ' + dstr;
+  document.getElementById('dt_btn_save').style.display='none';
+  document.getElementById('dt_btn_clear').style.display='none';
+  document.getElementById('dt_btn_edit').style.display='';
+  document.getElementById('dt_btn_back').style.display='';
+}
+
+document.getElementById('dt_btn_edit').addEventListener('click', ()=>{
+  setDowntimeReadonly(false);
+  document.getElementById('dt-view-status').textContent='โหมดแก้ไข · ' + document.getElementById('dt_date').value;
+  document.getElementById('dt_btn_edit').style.display='none';
+  document.getElementById('dt_btn_save').style.display='';
+  document.getElementById('dt_btn_save').textContent='💾 บันทึกการแก้ไข';
+});
+document.getElementById('dt_btn_back').addEventListener('click', ()=>viewDowntime(TODAY));
+
+['dt_start','dt_end'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{
+  const dur = calcDur(document.getElementById('dt_start').value, document.getElementById('dt_end').value);
+  if(dur==null) return;
+  document.getElementById('dt_dur').value = dur.toFixed(2)+' ชม.';
+  document.getElementById('dt_dur_hint').innerHTML = '<b>= '+fmtDur(dur)+'</b>';
+}));
+
+/* ELECTRICITY */
+function fmtNum(n){ return Number(n||0).toLocaleString(); }
+function updateElecTotals(){
+  const g = id => Number(document.getElementById(id).value)||0;
+  const b1 = g('el_b1_main')+g('el_b1_1')+g('el_b1_2')+g('el_b1_3');
+  const b2 = g('el_b2_main')+g('el_b2_1')+g('el_b2_2')+g('el_b2_3');
+  const grand = b1+b2;
+  const cost = grand*4.72;
+  document.getElementById('el_b1_total').textContent = fmtNum(b1);
+  document.getElementById('el_b2_total').textContent = fmtNum(b2);
+  document.getElementById('el_grand_total').textContent = fmtNum(grand);
+  document.getElementById('el_cost').textContent = fmtNum(Math.round(cost));
+  const dstr = document.getElementById('el_date').value;
+  const prod = PROD_HISTORY[dstr];
+  if(prod){
+    const bcm = (prod.day.b2_vol||0) + (prod.night.b2_vol||0);
+    if(bcm>0){
+      const ratio = grand/bcm;
+      document.getElementById('el_ratio').textContent = ratio.toFixed(2);
+      document.getElementById('el_vs_target').textContent = ((ratio/0.72-1)*100>=0?'+':'')+((ratio/0.72-1)*100).toFixed(0)+'%';
+    }
+  }
+}
+function setElecReadonly(ro){
+  ['el_date','el_by','el_time','el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>{
+    document.getElementById(id).readOnly = ro;
+  });
+}
+function viewElec(dstr){
+  const d = ELEC_HISTORY[dstr];
+  const pill = document.getElementById('el-view-status');
+  if(dstr === TODAY){
+    ['el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>document.getElementById(id).value=0);
+    document.getElementById('el_date').value = TODAY;
+    setElecReadonly(false);
+    pill.style.display='none';
+    document.getElementById('el_btn_save').style.display='';
+    document.getElementById('el_btn_clear').style.display='';
+    document.getElementById('el_btn_edit').style.display='none';
+    document.getElementById('el_btn_back').style.display='none';
+    updateElecTotals();
+    return;
+  }
+  if(d){
+    document.getElementById('el_date').value = dstr;
+    document.getElementById('el_b1_main').value = d.b1_main;
+    document.getElementById('el_b1_1').value = d.b1_1;
+    document.getElementById('el_b1_2').value = d.b1_2;
+    document.getElementById('el_b1_3').value = d.b1_3;
+    document.getElementById('el_b2_main').value = d.b2_main;
+    document.getElementById('el_b2_1').value = d.b2_1;
+    document.getElementById('el_b2_2').value = d.b2_2;
+    document.getElementById('el_b2_3').value = d.b2_3;
+    updateElecTotals();
+  }
+  setElecReadonly(true);
+  pill.style.display='inline-block';
+  pill.textContent='โหมดดู · '+dstr;
+  document.getElementById('el_btn_save').style.display='none';
+  document.getElementById('el_btn_clear').style.display='none';
+  document.getElementById('el_btn_edit').style.display='';
+  document.getElementById('el_btn_back').style.display='';
+}
+document.getElementById('el_btn_edit').addEventListener('click', ()=>{
+  setElecReadonly(false);
+  document.getElementById('el-view-status').textContent='โหมดแก้ไข · '+document.getElementById('el_date').value;
+  document.getElementById('el_btn_edit').style.display='none';
+  document.getElementById('el_btn_save').style.display='';
+  document.getElementById('el_btn_save').textContent='💾 บันทึกการแก้ไข';
+});
+document.getElementById('el_btn_back').addEventListener('click', ()=>viewElec(TODAY));
+['el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', updateElecTotals);
+});
+
+/* PRODUCTION */
+function calcProdCell(ltId, volId, outId){
+  const lt = Number(document.getElementById(ltId).value)||0;
+  const vol = Number(document.getElementById(volId).value)||0;
+  const out = document.getElementById(outId);
+  out.value = (lt>0 && vol>0) ? (vol/lt).toFixed(1)+' BCM/ชม.' : '—';
+}
+function updateProdSummary(){
+  const g = id => Number(document.getElementById(id).value)||0;
+  const dayB2v=g('pr_day_b2_vol'), nightB2v=g('pr_night_b2_vol');
+  const dayB2l=g('pr_day_b2_lt'), nightB2l=g('pr_night_b2_lt');
+  const dayB1v=g('pr_day_b1_vol'), nightB1v=g('pr_night_b1_vol');
+  const b2vol = dayB2v+nightB2v, b2lt = dayB2l+nightB2l;
+  const total = dayB1v+nightB1v+dayB2v+nightB2v;
+  document.getElementById('pr_sum_b2_vol').textContent = fmtNum(Math.round(b2vol*10)/10);
+  document.getElementById('pr_sum_b2_lt').textContent = b2lt.toFixed(2);
+  document.getElementById('pr_sum_b2_prod').textContent = b2lt>0 ? (b2vol/b2lt).toFixed(1) : '—';
+  document.getElementById('pr_sum_total').textContent = fmtNum(Math.round(total*10)/10);
+}
+function setProdReadonly(ro){
+  ['pr_date','pr_blast','pr_smu_a9','pr_step1','pr_step2','pr_by',
+   'pr_day_b1_lt','pr_day_b1_vol','pr_day_b2_lt','pr_day_b2_vol','pr_a9_day','pr_lost_day',
+   'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night'
+  ].forEach(id=>{ document.getElementById(id).readOnly=ro; });
+}
+function viewProd(dstr){
+  const d = PROD_HISTORY[dstr];
+  const pill = document.getElementById('pr-view-status');
+  if(dstr === TODAY){
+    ['pr_day_b1_lt','pr_day_b1_vol','pr_day_b2_lt','pr_day_b2_vol','pr_a9_day','pr_lost_day',
+     'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night'
+    ].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('pr_date').value = TODAY;
+    setProdReadonly(false);
+    pill.style.display='none';
+    document.getElementById('pr_btn_save').style.display='';
+    document.getElementById('pr_btn_clear').style.display='';
+    document.getElementById('pr_btn_copy').style.display='';
+    document.getElementById('pr_btn_edit').style.display='none';
+    document.getElementById('pr_btn_back').style.display='none';
+    updateProdSummary();
+    ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>calcProdCell(p+'_lt', p+'_vol', p+'_prod'));
+    return;
+  }
+  if(d){
+    document.getElementById('pr_date').value = dstr;
+    document.getElementById('pr_blast').value = d.blast!=null?d.blast:'';
+    document.getElementById('pr_smu_a9').value = d.smu_a9!=null?d.smu_a9:'';
+    document.getElementById('pr_day_b1_lt').value = d.day.b1_lt||'';
+    document.getElementById('pr_day_b1_vol').value = d.day.b1_vol||'';
+    document.getElementById('pr_day_b2_lt').value = d.day.b2_lt||'';
+    document.getElementById('pr_day_b2_vol').value = d.day.b2_vol||'';
+    document.getElementById('pr_a9_day').value = d.day.a9||'';
+    document.getElementById('pr_night_b1_lt').value = d.night.b1_lt||'';
+    document.getElementById('pr_night_b1_vol').value = d.night.b1_vol||'';
+    document.getElementById('pr_night_b2_lt').value = d.night.b2_lt||'';
+    document.getElementById('pr_night_b2_vol').value = d.night.b2_vol||'';
+    document.getElementById('pr_a9_night').value = d.night.a9||'';
+    ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>calcProdCell(p+'_lt', p+'_vol', p+'_prod'));
+    updateProdSummary();
+  }
+  setProdReadonly(true);
+  pill.style.display='inline-block';
+  pill.textContent='โหมดดู · '+dstr;
+  document.getElementById('pr_btn_save').style.display='none';
+  document.getElementById('pr_btn_clear').style.display='none';
+  document.getElementById('pr_btn_copy').style.display='none';
+  document.getElementById('pr_btn_edit').style.display='';
+  document.getElementById('pr_btn_back').style.display='';
+}
+document.getElementById('pr_btn_edit').addEventListener('click', ()=>{
+  setProdReadonly(false);
+  document.getElementById('pr-view-status').textContent='โหมดแก้ไข · '+document.getElementById('pr_date').value;
+  document.getElementById('pr_btn_edit').style.display='none';
+  document.getElementById('pr_btn_save').style.display='';
+  document.getElementById('pr_btn_save').textContent='💾 บันทึกการแก้ไข';
+});
+document.getElementById('pr_btn_back').addEventListener('click', ()=>viewProd(TODAY));
+['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>{
+  document.getElementById(p+'_lt').addEventListener('input',()=>{calcProdCell(p+'_lt', p+'_vol', p+'_prod'); updateProdSummary();});
+  document.getElementById(p+'_vol').addEventListener('input',()=>{calcProdCell(p+'_lt', p+'_vol', p+'_prod'); updateProdSummary();});
+});
+
+/* inline demo calendar */
+renderCalendar(document.getElementById('cal-demo'), 2025, 9, 'dt');
 document.getElementById('cal-demo').style.display='block';
 document.getElementById('cal-demo').style.background='var(--panel2)';
 document.getElementById('cal-demo').style.padding='16px';
 document.getElementById('cal-demo').style.borderRadius='10px';
 document.getElementById('cal-demo').style.border='1px solid var(--line2)';
+
+/* INIT: preview Sep 1 (real data) so user immediately sees historical events working */
+setTimeout(()=>{
+  viewDowntime('2025-09-01');
+  viewElec('2025-09-01');
+  viewProd('2025-09-01');
+}, 100);
 </script>
+
 </body>
 </html>
