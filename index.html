@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Saira+Condensed:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="forms-history.js"></script>
 <style>
 :root{
   /* พื้นคูล + สีเน้นโทนร้อน · BWE1 ส้ม / BWE2 น้ำเงิน */
@@ -779,7 +780,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 <!-- DOWNTIME -->
 <section id="downtime">
   <div class="eyebrow">09 — Downtime Analysis</div>
-  <h2>วิเคราะห์เวลาหยุดเครื่อง</h2>
+  <h2>วิเคราะห์เวลาหยุดเครื่องจักร (Downtime)</h2>
   <p class="lead">สรุปจาก Downtime Log 1,723 เหตุการณ์ (พ.ค. – ก.ย. 2025) แยกตามสาเหตุ แผนกที่รับผิดชอบ และเครื่องจักร — ใช้ชี้จุดที่ควรแก้ไขเพื่อเพิ่มเวลาทำงาน</p>
   <div class="kpis" id="dtKpis"></div>
   <div class="grid2" style="margin-top:18px">
@@ -2245,9 +2246,18 @@ if(SHEET_CONFIG.refreshMs > 0){ setInterval(()=>refreshLiveData(true), SHEET_CON
    (one-time snapshot · จะต่อ Google Sheet / localStorage ในเฟสถัดไป)
    ═══════════════════════════════════════════════════ */
 (function(){
-const DOWNTIME_HISTORY = {"2025-09-01":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:00","end":"01:05","desc":"ย้าย floor ขุด","hr":0.08,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:05","end":"01:10","desc":"Clear track","hr":0.08,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:39","end":"01:45","desc":"ย้าย floor ขุด","hr":0.1,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"02:42","end":"02:55","desc":"Trip Belt Rip","hr":0.22,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"03:00","end":"03:15","desc":"Trip Belt Rip","hr":0.25,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"03:30","end":"03:58","desc":"Trip Belt Rip","hr":0.47,"freq":1}],"2025-09-02":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"00:10","end":"00:22","desc":"บิดแทรค","hr":0.2,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:51","end":"02:00","desc":"ย้าย floor ขุด","hr":0.15,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:32","end":"02:35","desc":"ย้าย floor ขุด","hr":0.05,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"02:35","end":"02:49","desc":"Trip Belt Rip","hr":0.23,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9","dept":"EE","cat":"CM","start":"03:24","end":"03:34","desc":"Trip Belt Rip","hr":0.17,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"04:15","end":"04:22","desc":"Clear track","hr":0.12,"freq":1}],"2025-09-03":[{"machine":"BWE2","shift":"Night","location":"A3","dept":"EE","cat":"CM","start":"02:08","end":"03:01","desc":"Trip Tension Min","hr":0.88,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:08","end":"02:52","desc":"ย้ายหน้าขุด","hr":0.73,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:52","end":"03:01","desc":"รอแทรคเตอร์","hr":0.15,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:07","end":"03:32","desc":"Clear track","hr":0.42,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:40","end":"03:47","desc":"Clear track","hr":0.12,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:54","end":"04:20","desc":"Clear track","hr":0.43,"freq":1}],"2025-09-04":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"System","cat":"Dust","start":"00:09","end":"00:15","desc":"หยุดฝุ่น","hr":0.1,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"00:45","end":"00:50","desc":"ย้าย floor ขุด","hr":0.08,"freq":1},{"machine":"BWE2","shift":"Night","location":"A7","dept":"CV","cat":"CM","start":"01:55","end":"02:33","desc":"เปลี่ยน Flat Return","hr":0.63,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:40","end":"02:49","desc":"ย้าย floor ขุด","hr":0.15,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:30","end":"03:43","desc":"ย้าย floor ขุด","hr":0.22,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:59","end":"04:30","desc":"ทำทางเดิน BW","hr":0.52,"freq":1}],"2025-09-05":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"System","cat":"Dust","start":"01:00","end":"02:00","desc":"หยุดฝุ่น","hr":1.0,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"02:00","end":"07:00","desc":"ทำทางเดิน BW","hr":5.0,"freq":1},{"machine":"BWE2","shift":"Day","location":"BWE2","dept":"System","cat":"Dust","start":"07:00","end":"08:00","desc":"หยุดฝุ่น","hr":1.0,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"07:00","end":"09:20","desc":"ทำทางเดิน BW","hr":2.33,"freq":1},{"machine":"BWE2","shift":"Day","location":"A9","dept":"CV","cat":"CM","start":"08:00","end":"08:34","desc":"เคลียร์ดินอัดสายพาน","hr":0.57,"freq":1},{"machine":"BWE2","shift":"Day","location":"BWE2","dept":"EE","cat":"CM","start":"09:10","end":"10:30","desc":"หยุดเช็คปั้มลม","hr":1.33,"freq":1}],"2025-09-06":[{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"00:50","end":"00:57","desc":"Clear track","hr":0.12,"freq":1},{"machine":"BWE2","shift":"Night","location":"A9.1","dept":"CV","cat":"CM","start":"01:18","end":"01:30","desc":"เอา Carry ออกจากสายพาน","hr":0.2,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"01:30","end":"02:08","desc":"ย้ายหน้าขุด","hr":0.63,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"03:40","end":"03:47","desc":"Clear track","hr":0.12,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"EE","cat":"CM","start":"03:47","end":"04:34","desc":"สายพาน Wheel Boom สตาร์ไม่ผ่าน","hr":0.78,"freq":1},{"machine":"BWE2","shift":"Night","location":"BWE2","dept":"OPT","cat":"Other","start":"05:40","end":"05:45","desc":"ย้าย floor ขุด","hr":0.08,"freq":1}]};
-const ELEC_HISTORY = {"2025-09-01":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":6000,"b2_1":0,"b2_2":2000,"b2_3":1000},"2025-09-02":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":8000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-03":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":7000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-04":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":8000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-05":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":8000,"b2_1":0,"b2_2":1000,"b2_3":1000},"2025-09-06":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":10000,"b2_1":0,"b2_2":2000,"b2_3":2000},"2025-09-07":{"b1_main":0,"b1_1":0,"b1_2":0,"b1_3":0,"b2_main":7000,"b2_1":0,"b2_2":1000,"b2_3":0}};
-const PROD_HISTORY = {"2025-09-01":{"blast":null,"smu_a9":7.68,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":0.68,"b2_vol":163.75,"a9":1.26},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":5.4,"b2_vol":3668.13,"a9":6.42}},"2025-09-02":{"blast":null,"smu_a9":11.94,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":2.95,"b2_vol":1943.75,"a9":3.41},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":6.59,"b2_vol":3998.75,"a9":8.53}},"2025-09-03":{"blast":null,"smu_a9":11.79,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":4.34,"b2_vol":3309.38,"a9":5.39},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":3.9,"b2_vol":2503.75,"a9":6.4}},"2025-09-04":{"blast":null,"smu_a9":11.54,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":1.85,"b2_vol":920,"a9":2.16},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":6.88,"b2_vol":3361.25,"a9":9.38}},"2025-09-05":{"blast":null,"smu_a9":10.52,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":5,"b2_vol":2212.5,"a9":6.09},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":3.87,"b2_vol":1921.25,"a9":4.43}},"2025-09-06":{"blast":null,"smu_a9":15.84,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":7.08,"b2_vol":4442.5,"a9":8.55},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":6.01,"b2_vol":3150,"a9":7.29}},"2025-09-07":{"blast":null,"smu_a9":8.25,"day":{"b1_lt":0,"b1_vol":0,"b2_lt":3.58,"b2_vol":1593.75,"a9":4.25},"night":{"b1_lt":0,"b1_vol":0,"b2_lt":3.5,"b2_vol":1143.13,"a9":4}}};
+/* ── ข้อมูลย้อนหลัง: ฐานจากไฟล์ Daily Report (forms-history.js) + ที่ผู้ใช้บันทึกเอง (localStorage) ── */
+const LS_DT='bwe:dt-log', LS_EL='bwe:el-log', LS_PR='bwe:pr-log';
+const BASE = window.BWE_HISTORY || {dt:{},el:{},pr:{},range:{}};
+function loadLS(k){ try{ return JSON.parse(localStorage.getItem(k)) || {}; }catch(e){ return {}; } }
+const DOWNTIME_HISTORY = Object.assign({}, BASE.dt||{}, loadLS(LS_DT));
+const ELEC_HISTORY     = Object.assign({}, BASE.el||{}, loadLS(LS_EL));
+const PROD_HISTORY     = Object.assign({}, BASE.pr||{}, loadLS(LS_PR));
+function persist(k, dateKey, val){
+  const store = loadLS(k); store[dateKey] = val;
+  try{ localStorage.setItem(k, JSON.stringify(store)); }catch(e){ console.warn('บันทึกไม่สำเร็จ', e); }
+}
+const CAL_MIN = (BASE.range && BASE.range.min) ? BASE.range.min.slice(0,7) : '2025-05';
 
 const TODAY = '2025-09-15';
 const DT_DEPT = {'ME':'ME · เครื่องกล','EE':'EE · ไฟฟ้า','CV':'CV · สายพาน','OPT':'OPT · ปฏิบัติการ','System':'System · ระบบ','Uncontrol':'Uncontrol · ควบคุมไม่ได้'};
@@ -2268,22 +2278,29 @@ document.addEventListener('click', e=>{
   if(!e.target.closest('.datepicker-wrap')) document.querySelectorAll('.datepicker-pop').forEach(p=>p.classList.remove('show'));
 });
 
-function daysWithData(which){
-  if(which==='dt') return new Set(Object.keys(DOWNTIME_HISTORY).map(d=>+d.split('-')[2]));
-  if(which==='el') return new Set(Object.keys(ELEC_HISTORY).map(d=>+d.split('-')[2]));
-  if(which==='pr') return new Set(Object.keys(PROD_HISTORY).map(d=>+d.split('-')[2]));
-  return new Set();
+function monthKey(y,m){ return `${y}-${String(m).padStart(2,'0')}`; }
+function daysWithData(which, year, month){
+  const src = which==='dt'?DOWNTIME_HISTORY : which==='el'?ELEC_HISTORY : PROD_HISTORY;
+  const pref = monthKey(year,month)+'-';
+  const set = new Set();
+  Object.keys(src).forEach(d=>{ if(d.indexOf(pref)===0) set.add(+d.split('-')[2]); });
+  return set;
 }
 function renderCalendar(container, year, month, which){
+  container._y=year; container._m=month; container._w=which;
   const first = new Date(year, month-1, 1).getDay();
   const dim = new Date(year, month, 0).getDate();
   const thM = ['ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.'];
-  const HAS = daysWithData(which || 'dt');
-  const todayDay = +TODAY.split('-')[2];
+  const HAS = daysWithData(which || 'dt', year, month);
+  const curKey = monthKey(year,month);
+  const thisMonth = curKey===TODAY.slice(0,7);
+  const todayDay = thisMonth ? +TODAY.split('-')[2] : -1;
+  const canPrev = curKey > CAL_MIN;
+  const canNext = curKey < TODAY.slice(0,7);
   let html = `<div class="cal-head">
-    <button class="cal-nav">‹</button>
+    <button class="cal-nav" data-dir="-1"${canPrev?'':' disabled style="opacity:.25;cursor:default"'}>‹</button>
     <b>${thM[month-1]} ${year+543}</b>
-    <button class="cal-nav">›</button>
+    <button class="cal-nav" data-dir="1"${canNext?'':' disabled style="opacity:.25;cursor:default"'}>›</button>
   </div>
   <div class="cal-grid">`;
   ['อา','จ','อ','พ','พฤ','ศ','ส'].forEach(d=>html+=`<div class="cal-dow">${d}</div>`);
@@ -2292,8 +2309,7 @@ function renderCalendar(container, year, month, which){
     const cls=[];
     if(HAS.has(d)) cls.push('has');
     if(d===todayDay) cls.push('today');
-    if(d>todayDay && !HAS.has(d)) cls.push('off');
-    const dstr = `${year}-${String(month).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+    const dstr = `${curKey}-${String(d).padStart(2,'0')}`;
     html += `<button class="cal-day ${cls.join(' ')}" data-date="${dstr}" data-which="${which}">${d}</button>`;
   }
   html += `</div>
@@ -2302,6 +2318,13 @@ function renderCalendar(container, year, month, which){
     <span style="color:var(--heat)">● วันนี้</span>
   </div>`;
   container.innerHTML = html;
+  container.querySelectorAll('.cal-nav').forEach(b=>b.addEventListener('click',e=>{
+    e.stopPropagation();
+    if(b.hasAttribute('disabled')) return;
+    let m=month+Number(b.dataset.dir), y=year;
+    if(m<1){m=12;y--;} if(m>12){m=1;y++;}
+    renderCalendar(container, y, m, which);
+  }));
   container.querySelectorAll('.cal-day').forEach(b=>{
     b.addEventListener('click',()=>{
       if(!b.classList.contains('has') && !b.classList.contains('today')){
@@ -2331,7 +2354,9 @@ function fmtDur(hr){
   return `${H} ชั่วโมง ${M} นาที`;
 }
 
+let dtCurDate=null, dtEditIdx=-1;
 function renderDowntimeTable(dstr){
+  dtCurDate = dstr;
   const events = DOWNTIME_HISTORY[dstr] || [];
   const total = events.reduce((s,e)=>s+e.hr, 0);
   const isToday = dstr === TODAY;
@@ -2339,7 +2364,7 @@ function renderDowntimeTable(dstr){
     (isToday ? 'เหตุการณ์ที่บันทึกไว้ วันนี้' : `เหตุการณ์ของวันที่ <span style="color:var(--uptime)">${dstr}</span>`) +
     ` <span id="dt_hist_count" style="color:var(--dim); font-size:15px; font-family:'JetBrains Mono',monospace; margin-left:8px">(${events.length} รายการ · รวม ${total.toFixed(1)} ชม.)</span>`;
   const body = $('dt_hist_body');
-  body.innerHTML = events.map(e=>{
+  body.innerHTML = events.map((e,i)=>{
     const mtag = e.machine==='BWE1'?'b1':'b2';
     const mlabel = e.machine==='BWE1'?'BWE 1':'BWE 2';
     const stag = e.shift==='Night'?'night':'day';
@@ -2351,9 +2376,11 @@ function renderDowntimeTable(dstr){
       <td>${e.cat}</td>
       <td>${e.desc}</td>
       <td class="num">${e.hr.toFixed(2)}</td>
-      <td class="actions"><button title="แก้ไข">✎</button><button class="del" title="ลบ">✕</button></td>
+      <td class="actions"><button class="dt-edit" data-i="${i}" title="แก้ไข">✎</button><button class="del dt-del" data-i="${i}" title="ลบ">✕</button></td>
     </tr>`;
   }).join('') || '<tr><td colspan="8" style="text-align:center;color:var(--dim);padding:30px">— ไม่มีเหตุการณ์ในวันนี้ —</td></tr>';
+  body.querySelectorAll('.dt-edit').forEach(b=>b.addEventListener('click',()=>editDowntimeRow(dstr, +b.dataset.i)));
+  body.querySelectorAll('.dt-del').forEach(b=>b.addEventListener('click',()=>deleteDowntimeRow(dstr, +b.dataset.i)));
 }
 
 function fillDowntimeForm(ev, dateStr){
@@ -2384,8 +2411,10 @@ function viewDowntime(dstr){
   renderDowntimeTable(dstr);
   const pill = $('dt-view-status');
   if(dstr === TODAY){
+    dtEditIdx=-1;
     pill.style.display='none';
     setDowntimeReadonly(false);
+    $('dt_btn_save').textContent='＋ บันทึกเหตุการณ์';
     $('dt_btn_save').style.display='';
     $('dt_btn_clear').style.display='';
     $('dt_btn_edit').style.display='none';
@@ -2404,15 +2433,73 @@ function viewDowntime(dstr){
 }
 window.viewDowntime = viewDowntime;
 
+function machineCode(v){ return (v||'').replace(/\s/g,''); }
+function codeOf(v){ return (v||'').split(' · ')[0].trim(); }
+function saveDowntime(){
+  const date = $('dt_date').value;
+  if(!date){ toast('⚠️ กรุณาเลือกวันที่'); return; }
+  if(!$('dt_start').value || !$('dt_end').value){ toast('⚠️ กรุณากรอกเวลาเริ่ม/สิ้นสุด'); return; }
+  if(!$('dt_desc').value.trim()){ toast('⚠️ กรุณากรอกคำอธิบาย'); return; }
+  const dur = calcDur($('dt_start').value, $('dt_end').value) || 0;
+  const ev = {
+    machine: machineCode($('dt_machine').value),
+    shift: $('dt_shift').value,
+    location: $('dt_location').value.trim(),
+    dept: codeOf($('dt_dept').value),
+    cat: codeOf($('dt_cat').value),
+    start: $('dt_start').value,
+    end: $('dt_end').value,
+    desc: $('dt_desc').value.trim(),
+    hr: Math.round(dur*100)/100,
+    freq: Number($('dt_freq').value)||1
+  };
+  const list = (DOWNTIME_HISTORY[date] || []).slice();
+  if(dtEditIdx>=0 && dtEditIdx<list.length) list[dtEditIdx]=ev; else list.push(ev);
+  list.sort((a,b)=>(a.start||'99').localeCompare(b.start||'99'));
+  DOWNTIME_HISTORY[date]=list;
+  persist(LS_DT, date, list);
+  const wasEdit = dtEditIdx>=0;
+  dtEditIdx=-1;
+  renderDowntimeTable(date);
+  $('dt_btn_save').textContent='＋ บันทึกเหตุการณ์';
+  $('dt_last').innerHTML='บันทึกล่าสุด: <b style="color:var(--txt)">'+ev.machine+' · '+ev.cat+' · '+ev.desc+' ('+ev.start+' น.)</b>';
+  toast((wasEdit?'💾 แก้ไข':'💾 บันทึก')+' Downtime แล้ว ('+date+' · '+list.length+' รายการ)');
+}
+function editDowntimeRow(date, i){
+  const ev = (DOWNTIME_HISTORY[date]||[])[i]; if(!ev) return;
+  fillDowntimeForm(ev, date);
+  setDowntimeReadonly(false);
+  dtEditIdx=i;
+  const pill=$('dt-view-status');
+  pill.style.display='inline-block';
+  pill.textContent='แก้ไขรายการ #'+(i+1)+' · '+date;
+  $('dt_btn_save').style.display=''; $('dt_btn_save').textContent='💾 บันทึกการแก้ไข';
+  $('dt_btn_clear').style.display='';
+  $('dt_btn_edit').style.display='none';
+  $('dt_btn_back').style.display='';
+  document.getElementById('dt-form').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function deleteDowntimeRow(date, i){
+  const list=(DOWNTIME_HISTORY[date]||[]).slice();
+  if(i<0||i>=list.length) return;
+  if(!confirm('ลบเหตุการณ์นี้?\n'+list[i].start+' – '+list[i].end+' · '+list[i].desc)) return;
+  list.splice(i,1);
+  DOWNTIME_HISTORY[date]=list;
+  persist(LS_DT, date, list);
+  renderDowntimeTable(date);
+  toast('🗑️ ลบรายการแล้ว');
+}
+
 $('dt_btn_edit').addEventListener('click', ()=>{
   setDowntimeReadonly(false);
+  dtEditIdx=0;
   $('dt-view-status').textContent='โหมดแก้ไข · ' + $('dt_date').value;
   $('dt_btn_edit').style.display='none';
   $('dt_btn_save').style.display='';
   $('dt_btn_save').textContent='💾 บันทึกการแก้ไข';
 });
 $('dt_btn_back').addEventListener('click', ()=>viewDowntime(TODAY));
-$('dt_btn_save').addEventListener('click', ()=>toast('บันทึก Downtime แล้ว (เดโม · จะต่อ Google Sheet ในเฟสถัดไป)'));
+$('dt_btn_save').addEventListener('click', saveDowntime);
 $('dt_btn_clear').addEventListener('click', ()=>viewDowntime(TODAY));
 
 ['dt_start','dt_end'].forEach(id=>$(id).addEventListener('input',()=>{
@@ -2484,7 +2571,18 @@ $('el_btn_edit').addEventListener('click', ()=>{
   $('el_btn_save').textContent='💾 บันทึกการแก้ไข';
 });
 $('el_btn_back').addEventListener('click', ()=>viewElec(TODAY));
-$('el_btn_save').addEventListener('click', ()=>toast('บันทึกการใช้ไฟฟ้าแล้ว (เดโม)'));
+function saveElec(){
+  const date=$('el_date').value;
+  if(!date){ toast('⚠️ กรุณาเลือกวันที่'); return; }
+  const g=id=>Number($(id).value)||0;
+  const rec={b1_main:g('el_b1_main'),b1_1:g('el_b1_1'),b1_2:g('el_b1_2'),b1_3:g('el_b1_3'),
+             b2_main:g('el_b2_main'),b2_1:g('el_b2_1'),b2_2:g('el_b2_2'),b2_3:g('el_b2_3')};
+  ELEC_HISTORY[date]=rec;
+  persist(LS_EL, date, rec);
+  updateElecTotals();
+  toast('💾 บันทึกการใช้ไฟฟ้าแล้ว ('+date+')');
+}
+$('el_btn_save').addEventListener('click', saveElec);
 $('el_btn_clear').addEventListener('click', ()=>viewElec(TODAY));
 ['el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>{
   $(id).addEventListener('input', updateElecTotals);
@@ -2562,9 +2660,39 @@ $('pr_btn_edit').addEventListener('click', ()=>{
   $('pr_btn_save').textContent='💾 บันทึกการแก้ไข';
 });
 $('pr_btn_back').addEventListener('click', ()=>viewProd(TODAY));
-$('pr_btn_save').addEventListener('click', ()=>toast('บันทึกรายงานประจำวันแล้ว (เดโม)'));
+function saveProd(){
+  const date=$('pr_date').value;
+  if(!date){ toast('⚠️ กรุณาเลือกวันที่'); return; }
+  const num=id=>{ const v=$(id).value; return v===''?0:(Number(v)||0); };
+  const rec={ blast: $('pr_blast').value===''?null:(Number($('pr_blast').value)||null),
+    smu_a9: $('pr_smu_a9').value===''?null:(Number($('pr_smu_a9').value)||0),
+    day:{b1_lt:num('pr_day_b1_lt'),b1_vol:num('pr_day_b1_vol'),b2_lt:num('pr_day_b2_lt'),b2_vol:num('pr_day_b2_vol'),a9:num('pr_a9_day')},
+    night:{b1_lt:num('pr_night_b1_lt'),b1_vol:num('pr_night_b1_vol'),b2_lt:num('pr_night_b2_lt'),b2_vol:num('pr_night_b2_vol'),a9:num('pr_a9_night')} };
+  PROD_HISTORY[date]=rec;
+  persist(LS_PR, date, rec);
+  updateProdSummary();
+  toast('💾 บันทึกรายงานการผลิตแล้ว ('+date+')');
+}
+function copyProd(){
+  const date=$('pr_date').value || TODAY;
+  const prior=Object.keys(PROD_HISTORY).filter(d=>d<date).sort().pop();
+  if(!prior){ toast('ไม่พบข้อมูลวันก่อนหน้า'); return; }
+  const d=PROD_HISTORY[prior];
+  $('pr_smu_a9').value=d.smu_a9!=null?d.smu_a9:'';
+  $('pr_blast').value=d.blast!=null?d.blast:'';
+  $('pr_day_b1_lt').value=d.day.b1_lt||''; $('pr_day_b1_vol').value=d.day.b1_vol||'';
+  $('pr_day_b2_lt').value=d.day.b2_lt||''; $('pr_day_b2_vol').value=d.day.b2_vol||'';
+  $('pr_a9_day').value=d.day.a9||'';
+  $('pr_night_b1_lt').value=d.night.b1_lt||''; $('pr_night_b1_vol').value=d.night.b1_vol||'';
+  $('pr_night_b2_lt').value=d.night.b2_lt||''; $('pr_night_b2_vol').value=d.night.b2_vol||'';
+  $('pr_a9_night').value=d.night.a9||'';
+  ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(pp=>calcProdCell(pp+'_lt', pp+'_vol', pp+'_prod'));
+  updateProdSummary();
+  toast('📋 คัดลอกจาก '+prior+' แล้ว');
+}
+$('pr_btn_save').addEventListener('click', saveProd);
 $('pr_btn_clear').addEventListener('click', ()=>viewProd(TODAY));
-$('pr_btn_copy').addEventListener('click', ()=>toast('คัดลอกจากเมื่อวานแล้ว (เดโม)'));
+$('pr_btn_copy').addEventListener('click', copyProd);
 ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>{
   $(p+'_lt').addEventListener('input',()=>{calcProdCell(p+'_lt', p+'_vol', p+'_prod'); updateProdSummary();});
   $(p+'_vol').addEventListener('input',()=>{calcProdCell(p+'_lt', p+'_vol', p+'_prod'); updateProdSummary();});
