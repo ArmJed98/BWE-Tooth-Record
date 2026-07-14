@@ -526,11 +526,11 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <div class="dock-sep"></div>
     <a href="#loss" class="dock-item hx-reveal"><div class="dock-icon">📉</div><span class="dock-label">Tooth<br>Loss</span></a>
     <div class="dock-sep"></div>
-    <a href="#avail" class="dock-item hx-reveal"><div class="dock-icon">✅</div><span class="dock-label">Availability<br>M/A</span></a>
-    <div class="dock-sep"></div>
     <a href="#store" class="dock-item hx-reveal"><div class="dock-icon">📦</div><span class="dock-label">Spare<br>Parts</span></a>
     <div class="dock-sep"></div>
     <a href="#wear" class="dock-item hx-reveal"><div class="dock-icon">📏</div><span class="dock-label">Tooth<br>Wear</span></a>
+    <div class="dock-sep"></div>
+    <a href="#avail" class="dock-item hx-reveal"><div class="dock-icon">✅</div><span class="dock-label">Availability<br>M/A</span></a>
     <div class="dock-sep"></div>
     <a href="#production" class="dock-item hx-reveal"><div class="dock-icon">⛏️</div><span class="dock-label">Production<br>&amp; Plan</span></a>
     <div class="dock-sep"></div>
@@ -572,9 +572,9 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <a href="#heatmap">แผนที่เชื่อมพอก</a>
     <a href="#position">วิเคราะห์ตำแหน่งฟัน</a>
     <a href="#loss">การสูญหาย BWE#2</a>
-    <a href="#avail">ความพร้อมใช้งาน</a>
     <a href="#store">คลังอะไหล่</a>
     <a href="#wear">อายุฟัน</a>
+    <a href="#avail">ความพร้อมใช้งาน</a>
     <a href="#production">การผลิต</a>
     <a href="#downtime">Downtime</a>
     <a href="#entry" style="color:var(--good)">+ บันทึกข้อมูล</a>
@@ -684,20 +684,9 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   </div>
 </section>
 
-<!-- AVAILABILITY -->
-<section id="avail">
-  <div class="eyebrow">05 — Availability</div>
-  <h2>ความพร้อมใช้งานของฟัน <span style="color:var(--uptime)">% M/A</span> — BWE#2</h2>
-  <p class="lead">Mechanical Availability ของฟันขุด = สัดส่วนฟันที่ติดตั้งครบจาก 234 ซี่ ค่าเข้าใกล้ 100% หมายถึงพร้อมขุดเต็มประสิทธิภาพ</p>
-  <div class="grid2">
-    <div class="panel"><h3>แนวโน้ม % M/A รายงวด</h3><div class="ph-sub">เป้าหมายอ้างอิง 95% · BWE#1 (อายุการใช้งาน) = 94.9%</div><div class="chartbox"><canvas id="maTrend"></canvas></div></div>
-    <div class="panel"><h3>ฟันติดตั้งจริง vs เต็มพิกัด (234)</h3><div class="ph-sub">ช่องว่าง = ฟันที่ขาด/รอเปลี่ยนในแต่ละงวด</div><div class="chartbox"><canvas id="installChart"></canvas></div></div>
-  </div>
-</section>
-
 <!-- STORE -->
 <section id="store">
-  <div class="eyebrow">06 — Spare Parts Store</div>
+  <div class="eyebrow">05 — Spare Parts Store</div>
   <h2>สถานะคลังอะไหล่ฟันขุด</h2>
   <p class="lead">ยอดรับเข้า (GR), เบิกใช้ (GI) และคงเหลือในคลัง — ฟันสำหรับ Bucket Wheel Excavator</p>
   <div class="grid3">
@@ -735,7 +724,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 
 <!-- TOOTH WEAR -->
 <section id="wear">
-  <div class="eyebrow">07 — Tooth Wear / อายุฟัน</div>
+  <div class="eyebrow">06 — Tooth Wear / อายุฟัน</div>
   <h2>การสึก &amp; อายุฟัน — <span style="color:var(--heat)">BWE 1</span></h2>
   <p class="lead">บันทึกความยาวฟันจริงจากการตรวจรายสัปดาห์ — ความยาวเฉลี่ยลดลง = ฟันสึก เกณฑ์ต้องเปลี่ยน <span style="color:var(--short)">ฟันสั้น 15.5 cm</span> · <span style="color:var(--long)">ฟันยาว 16.5 cm</span> (ความยาวเดิม สั้น 20 / ยาว 28 cm)</p>
   <div class="kpis" id="wearKpis"></div>
@@ -750,6 +739,17 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <div class="insights">
     <div class="ins" id="wearInsight"></div>
     <div class="ins u"><div class="t">📏 <span>อ่านกราฟอย่างไร</span></div><p>เส้นความยาวเฉลี่ยที่ <b>เข้าใกล้เส้นเกณฑ์</b> = ฟันใกล้ต้องเปลี่ยน · ค่าที่สูงขึ้นบางช่วงเกิดจากการเปลี่ยนฟันใหม่ (ความยาวเต็ม) เข้ามาเฉลี่ย</p></div>
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section id="avail">
+  <div class="eyebrow">07 — Availability</div>
+  <h2>ความพร้อมใช้งานของฟัน <span style="color:var(--uptime)">% M/A</span> — BWE#2</h2>
+  <p class="lead">Mechanical Availability ของฟันขุด = สัดส่วนฟันที่ติดตั้งครบจาก 234 ซี่ ค่าเข้าใกล้ 100% หมายถึงพร้อมขุดเต็มประสิทธิภาพ</p>
+  <div class="grid2">
+    <div class="panel"><h3>แนวโน้ม % M/A รายงวด</h3><div class="ph-sub">เป้าหมายอ้างอิง 95% · BWE#1 (อายุการใช้งาน) = 94.9%</div><div class="chartbox"><canvas id="maTrend"></canvas></div></div>
+    <div class="panel"><h3>ฟันติดตั้งจริง vs เต็มพิกัด (234)</h3><div class="ph-sub">ช่องว่าง = ฟันที่ขาด/รอเปลี่ยนในแต่ละงวด</div><div class="chartbox"><canvas id="installChart"></canvas></div></div>
   </div>
 </section>
 
@@ -2051,7 +2051,7 @@ async function refreshLiveData(silent){
 function recomputeDerived(){ SHORT = new Set(DATA.short_idx); }
 function renderDashboard(){
   recomputeDerived();
-  renderKPIs(); renderOverviewCharts(); renderHeat(); renderPosition(); renderLoss(); renderAvail(); renderStore(); renderWear();
+  renderKPIs(); renderOverviewCharts(); renderHeat(); renderPosition(); renderLoss(); renderStore(); renderWear(); renderAvail();
   renderProduction();
   renderDowntimeAnalysis();
 }
