@@ -534,13 +534,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <div class="dock-sep"></div>
     <a href="#production" class="dock-item hx-reveal"><div class="dock-icon">⛏️</div><span class="dock-label">Production<br>&amp; Plan</span></a>
     <div class="dock-sep"></div>
-    <a href="#downtime" class="dock-item hx-reveal"><div class="dock-icon">⏱️</div><span class="dock-label">Downtime<br>Analysis</span></a>
-    <div class="dock-sep"></div>
     <a href="#dt-form" class="dock-item hx-reveal"><div class="dock-icon">🛠️</div><span class="dock-label">Downtime<br>Log</span></a>
-    <div class="dock-sep"></div>
-    <a href="#el-form" class="dock-item hx-reveal"><div class="dock-icon">⚡</div><span class="dock-label">Electricity<br>Log</span></a>
-    <div class="dock-sep"></div>
-    <a href="#pr-form" class="dock-item hx-reveal"><div class="dock-icon">📋</div><span class="dock-label">Production<br>Log</span></a>
     <div class="dock-sep"></div>
     <a href="#entry" class="dock-item hx-reveal"><div class="dock-icon">✏️</div><span class="dock-label">Tooth<br>Entry</span></a>
     <div class="dock-sep"></div>
@@ -580,7 +574,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <a href="#store">คลังอะไหล่</a>
     <a href="#wear">อายุฟัน</a>
     <a href="#production">การผลิต</a>
-    <a href="#downtime">Downtime</a>
+    <a href="#dt-form">Downtime</a>
     <a href="#entry" style="color:var(--good)">+ บันทึกข้อมูล</a>
     <a href="#daily">สรุปรายวัน</a>
   </nav>
@@ -777,30 +771,13 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   </div>
 </section>
 
-<!-- DOWNTIME -->
-<section id="downtime">
-  <div class="eyebrow">09 — Downtime Analysis</div>
-  <h2>วิเคราะห์เวลาหยุดเครื่องจักร (Downtime)</h2>
-  <p class="lead">สรุปจาก Downtime Log 1,723 เหตุการณ์ (พ.ค. – ก.ย. 2025) แยกตามสาเหตุ แผนกที่รับผิดชอบ และเครื่องจักร — ใช้ชี้จุดที่ควรแก้ไขเพื่อเพิ่มเวลาทำงาน</p>
-  <div class="kpis" id="dtKpis"></div>
-  <div class="grid2" style="margin-top:18px">
-    <div class="panel"><h3>สาเหตุการหยุดเครื่อง (Pareto)</h3><div class="ph-sub">ชั่วโมงรวมแยกตามสาเหตุ เรียงจากมากไปน้อย</div><div class="chartbox tall"><canvas id="dtCatChart"></canvas></div></div>
-    <div class="panel"><h3>แยกตามแผนกที่รับผิดชอบ</h3><div class="ph-sub">CV = สายพาน · ME = เครื่องกล · EE = ไฟฟ้า · OPT = ปฏิบัติการ</div><div class="chartbox tall"><canvas id="dtDeptChart"></canvas></div></div>
-  </div>
-  <div class="panel" style="margin-top:18px"><h3>แนวโน้มรายเดือน แยกตามเครื่อง</h3><div class="ph-sub">ชั่วโมงหยุดต่อเดือน BWE1 vs BWE2</div><div class="chartbox"><canvas id="dtMonthChart"></canvas></div></div>
-  <div class="insights">
-    <div class="ins" id="dtInsight1"></div>
-    <div class="ins u" id="dtInsight2"></div>
-  </div>
-</section>
-
 <!-- ═══════════════ DAILY OPERATIONAL ENTRY FORMS ═══════════════ -->
 
 <!-- FORM: DOWNTIME -->
 <section id="dt-form">
   <div class="sec-head">
     <div class="title-block">
-      <div class="eyebrow" style="color:var(--good)">10 — Downtime Entry</div>
+      <div class="eyebrow" style="color:var(--good)">09 — Downtime Entry</div>
       <h2>ฟอร์มบันทึกเวลาหยุดเครื่องจักร <span class="tag status-view" id="dt-view-status" style="display:none">โหมดดู</span></h2>
     </div>
     <div class="datepicker-wrap">
@@ -873,181 +850,9 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   </div>
 </section>
 
-<!-- FORM: ELECTRICITY -->
-<section id="el-form">
-  <div class="sec-head">
-    <div class="title-block">
-      <div class="eyebrow" style="color:var(--good)">11 — Electricity Entry</div>
-      <h2>ฟอร์มบันทึกการใช้ไฟฟ้า <span class="tag status-view" id="el-view-status" style="display:none">โหมดดู</span></h2>
-    </div>
-    <div class="datepicker-wrap">
-      <button class="btn cal" onclick="togglePicker('el-picker')">📅 ดูข้อมูลย้อนหลัง</button>
-      <div class="datepicker-pop" id="el-picker"></div>
-    </div>
-  </div>
-  <p class="lead">บันทึกการใช้ไฟฟ้ารายวัน (kWh) แยกตามเครื่องและ Belt Wagon (BW#1/BW#2/BW#3) — ระบบจะรวมยอดต่อเครื่องให้อัตโนมัติ</p>
-
-  <div class="panel">
-    <h3>วันที่</h3>
-    <div class="formgrid cols3" style="margin-top:8px">
-      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" id="el_date" value="2025-09-15"></div>
-      <div class="field"><label>ผู้บันทึก</label><input type="text" id="el_by" placeholder="ชื่อผู้บันทึก" value="Eng. K."></div>
-      <div class="field"><label>เวลาที่อ่านมิเตอร์</label><input type="time" class="mono" id="el_time" value="06:00"></div>
-    </div>
-  </div>
-
-  <div class="grid2form">
-    <div class="panel" style="border-left:4px solid var(--heat)">
-      <h3>🟠 BWE 1 · การใช้ไฟฟ้า (kWh)</h3>
-      <div class="ph-sub">Belt Wagon 3 ตัวจะรวมเป็น Total อัตโนมัติ</div>
-      <div class="formgrid cols2" style="margin-top:12px">
-        <div class="field"><label>BWE#1 หลัก</label><input type="number" class="mono" id="el_b1_main" value="0"></div>
-        <div class="field"><label>BW#1</label><input type="number" class="mono" id="el_b1_1" value="0"></div>
-        <div class="field"><label>BW#2</label><input type="number" class="mono" id="el_b1_2" value="0"></div>
-        <div class="field"><label>BW#3</label><input type="number" class="mono" id="el_b1_3" value="0"></div>
-      </div>
-      <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
-        <div class="kpi"><div class="lab">Total BWE 1 (auto-sum)</div><div class="val"><span id="el_b1_total">0</span> <span class="u">kWh</span></div></div>
-      </div>
-    </div>
-    <div class="panel" style="border-left:4px solid var(--uptime)">
-      <h3>🔵 BWE 2 · การใช้ไฟฟ้า (kWh)</h3>
-      <div class="ph-sub">Belt Wagon 3 ตัวจะรวมเป็น Total อัตโนมัติ</div>
-      <div class="formgrid cols2" style="margin-top:12px">
-        <div class="field"><label>BWE#2 หลัก</label><input type="number" class="mono" id="el_b2_main" value="7000"></div>
-        <div class="field"><label>BW#1</label><input type="number" class="mono" id="el_b2_1" value=""></div>
-        <div class="field"><label>BW#2</label><input type="number" class="mono" id="el_b2_2" value="1000"></div>
-        <div class="field"><label>BW#3</label><input type="number" class="mono" id="el_b2_3" value="1000"></div>
-      </div>
-      <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
-        <div class="kpi u"><div class="lab">Total BWE 2 (auto-sum)</div><div class="val" style="color:var(--uptime)"><span id="el_b2_total">9,000</span> <span class="u">kWh</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <div class="kpirow">
-      <div class="kpi g"><div class="lab">รวมทั้งวัน</div><div class="val" style="color:var(--good)"><span id="el_grand_total">9,000</span> <span class="u">kWh</span></div></div>
-      <div class="kpi"><div class="lab">Cost @ 4.72 ฿/kWh</div><div class="val"><span id="el_cost">42,480</span> <span class="u">฿</span></div></div>
-      <div class="kpi u"><div class="lab">Consumption Ratio</div><div class="val" style="color:var(--uptime)"><span id="el_ratio">1.68</span> <span class="u">kWh/BCM</span></div><span class="hint" style="font-size:12px; color:var(--dim)">(ต้องมี Production ก่อน)</span></div>
-      <div class="kpi"><div class="lab">เทียบเป้าหมาย 0.72 kWh/BCM</div><div class="val" style="color:var(--wear)"><span id="el_vs_target">+133%</span></div></div>
-    </div>
-    <div class="btnrow">
-      <button class="btn primary" id="el_btn_save">＋ บันทึกการใช้ไฟฟ้า</button>
-      <button class="btn ghost" id="el_btn_clear">ล้างฟอร์ม</button>
-      <button class="btn" id="el_btn_edit" style="display:none">✎ แก้ไข</button>
-      <button class="btn ghost" id="el_btn_back" style="display:none">← กลับมาบันทึกวันนี้</button>
-    </div>
-  </div>
-</section>
-
-<!-- FORM: DAILY PRODUCTION -->
-<section id="pr-form">
-  <div class="sec-head">
-    <div class="title-block">
-      <div class="eyebrow" style="color:var(--good)">12 — Daily Production Entry</div>
-      <h2>ฟอร์มบันทึกการผลิตประจำวัน · Day / Night Shift <span class="tag status-view" id="pr-view-status" style="display:none">โหมดดู</span></h2>
-    </div>
-    <div class="datepicker-wrap">
-      <button class="btn cal" onclick="togglePicker('pr-picker')">📅 ดูข้อมูลย้อนหลัง</button>
-      <div class="datepicker-pop" id="pr-picker"></div>
-    </div>
-  </div>
-  <p class="lead">บันทึก Load Time, Volume, และ Productivity แยกตามกะ (Day/Night) และเครื่อง (BWE1/BWE2) — Productivity คำนวณอัตโนมัติจาก Volume ÷ Load Time</p>
-
-  <div class="panel">
-    <h3>ข้อมูลทั่วไป</h3>
-    <div class="formgrid cols3" style="margin-top:8px">
-      <div class="field"><label>วันที่ <span class="req">*</span></label><input type="date" id="pr_date" value="2025-09-15"></div>
-      <div class="field"><label>Blasting Pattern · Hour Diff</label><input type="number" step="0.01" class="mono" id="pr_blast" value="11.94"></div>
-      <div class="field"><label>SMU A9</label><input type="number" step="0.01" class="mono" id="pr_smu_a9" value="11.94"><span class="hint">* ค่านี้ยังต้องยืนยัน (แยก SMU เครื่อง/Line A9)</span></div>
-      <div class="field"><label>Avg. Step · BWE 1 (cm)</label><input type="number" step="0.01" class="mono" id="pr_step1" placeholder="—"></div>
-      <div class="field"><label>Avg. Step · BWE 2 (cm)</label><input type="number" step="0.01" class="mono" id="pr_step2" value="37.75"></div>
-      <div class="field"><label>ผู้บันทึก</label><input type="text" id="pr_by" placeholder="ชื่อวิศวกร" value="Eng. K."></div>
-    </div>
-  </div>
-
-  <div class="shift-grid">
-    <div class="shift-card day">
-      <h4>☀️ กะกลางวัน (Day) <span class="tag day" style="font-size:12px">06:00 – 18:00</span></h4>
-      <div class="ph-sub">Load Time · Volume · A9 hours</div>
-      <div class="machinegrid" style="margin-top:14px">
-        <div class="machine-block">
-          <div class="mtitle b1"><span class="dot"></span>BWE 1</div>
-          <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_day_b1_lt" placeholder="0.00"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_day_b1_vol" placeholder="0"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_day_b1_prod" value="—" readonly></div>
-          </div>
-        </div>
-        <div class="machine-block">
-          <div class="mtitle b2"><span class="dot"></span>BWE 2</div>
-          <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_day_b2_lt" value="2.95"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_day_b2_vol" value="1943.75"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_day_b2_prod" value="658.9 BCM/ชม." readonly></div>
-          </div>
-        </div>
-      </div>
-      <div class="formgrid cols2" style="margin-top:14px">
-        <div class="field"><label>A9 Day (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_a9_day" value="3.41"></div>
-        <div class="field"><label>Lost Time Day (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_lost_day" value="9.05"></div>
-      </div>
-    </div>
-    <div class="shift-card night">
-      <h4>🌙 กะกลางคืน (Night) <span class="tag night" style="font-size:12px">18:00 – 06:00</span></h4>
-      <div class="ph-sub">Load Time · Volume · A9 hours</div>
-      <div class="machinegrid" style="margin-top:14px">
-        <div class="machine-block">
-          <div class="mtitle b1"><span class="dot"></span>BWE 1</div>
-          <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_night_b1_lt" placeholder="0.00"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_night_b1_vol" placeholder="0"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_night_b1_prod" value="—" readonly></div>
-          </div>
-        </div>
-        <div class="machine-block">
-          <div class="mtitle b2"><span class="dot"></span>BWE 2</div>
-          <div class="row">
-            <div class="field"><label>Load Time (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_night_b2_lt" value="6.59"></div>
-            <div class="field"><label>Volume OB (BCM)</label><input type="number" class="mono" id="pr_night_b2_vol" value="3998.75"></div>
-            <div class="field"><label>Productivity (calc)</label><input class="mono calc" id="pr_night_b2_prod" value="606.8 BCM/ชม." readonly></div>
-          </div>
-        </div>
-      </div>
-      <div class="formgrid cols2" style="margin-top:14px">
-        <div class="field"><label>A9 Night (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_a9_night" value="8.53"></div>
-        <div class="field"><label>Lost Time Night (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_lost_night" value="5.41"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="panel">
-    <h3>สรุปทั้งวัน (Auto)</h3>
-    <div class="ph-sub">คำนวณจากช่องข้างบน</div>
-    <div class="kpirow">
-      <div class="kpi u"><div class="lab">Volume BWE 2 รวม</div><div class="val" style="color:var(--uptime)"><span id="pr_sum_b2_vol">5,942.5</span> <span class="u">BCM</span></div></div>
-      <div class="kpi u"><div class="lab">Load Time BWE 2 รวม</div><div class="val" style="color:var(--uptime)"><span id="pr_sum_b2_lt">9.54</span> <span class="u">ชม.</span></div></div>
-      <div class="kpi g"><div class="lab">Productivity BWE 2 เฉลี่ย</div><div class="val" style="color:var(--good)"><span id="pr_sum_b2_prod">622.9</span> <span class="u">BCM/ชม.</span></div></div>
-      <div class="kpi"><div class="lab">Total (BWE1+2)</div><div class="val"><span id="pr_sum_total">5,942.5</span> <span class="u">BCM</span></div></div>
-    </div>
-    <div class="formgrid cols2" style="margin-top:14px">
-      <div class="field"><label>หมายเหตุ BWE 1</label><textarea placeholder="เช่น: อยู่ระหว่างย้ายเครื่อง"></textarea></div>
-      <div class="field"><label>หมายเหตุ BWE 2</label><textarea placeholder="เช่น: A9 Shift สายพาน">—</textarea></div>
-    </div>
-    <div class="btnrow">
-      <button class="btn primary" id="pr_btn_save">＋ บันทึกรายงานประจำวัน</button>
-      <button class="btn ghost" id="pr_btn_clear">ล้างฟอร์ม</button>
-      <button class="btn" id="pr_btn_edit" style="display:none">✎ แก้ไข</button>
-      <button class="btn ghost" id="pr_btn_back" style="display:none">← กลับมาบันทึกวันนี้</button>
-      <button class="btn" id="pr_btn_copy">📋 คัดลอกจากเมื่อวาน</button>
-    </div>
-  </div>
-</section>
-
 <!-- ENTRY -->
 <section id="entry">
-  <div class="eyebrow" style="color:var(--good)">13 — Tooth Data Entry</div>
+  <div class="eyebrow" style="color:var(--good)">10 — Tooth Data Entry</div>
   <h2>บันทึกข้อมูลฟัน <span style="color:var(--good)">+</span></h2>
   <p class="lead">กรอกรายการเปลี่ยน/สูญหาย/เชื่อมพอกฟันแต่ละรายการ ระบบจะบันทึกไว้และนำไปสรุปในหน้า "สรุปรายวัน" โดยอัตโนมัติ — ข้อมูลจะถูกเก็บไว้ในเครื่องของคุณ (และสามารถสำรองเป็นไฟล์ได้)</p>
   <div class="panel" style="margin-bottom:18px">
@@ -1105,7 +910,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
       <div class="meta" id="reportMeta"></div>
     </div>
   </div>
-  <div class="eyebrow">14 — Daily Summary</div>
+  <div class="eyebrow">11 — Daily Summary</div>
   <h2>สรุปรายวัน</h2>
   <p class="lead">สรุปยอดบันทึกของแต่ละวัน เลือกวันที่เพื่อดูรายละเอียด แล้วกด "พิมพ์ / บันทึกเป็น PDF" เพื่อเก็บเป็นเอกสาร</p>
 
@@ -1584,53 +1389,6 @@ function renderProduction(){
   if(i2){
     i2.innerHTML=`<div class="t">📊 <span>อ่านกราฟอย่างไร</span></div><p>เส้น "แผนงาน" เริ่มมีตั้งแต่ปี 2566 (ก่อนหน้าไม่มีสัญญากำหนดแผนรายเดือน) · ช่วงที่เส้น Productivity/Consumption ขาดหาย = เครื่องไม่มีชั่วโมงเดินเครื่อง (SMU) ในเดือนนั้น</p>`;
   }
-}
-
-/* ---------- DOWNTIME ANALYSIS ---------- */
-const DT_CAT_LABEL = {CM:'ซ่อมแซม (CM)', Rain:'ฝนตก', Shift:'เปลี่ยนกะ/ย้ายสายพาน', Relocate:'ย้ายเครื่อง', PM:'บำรุงรักษา (PM)', Other:'อื่นๆ', Dust:'ฝุ่น', Idle:'รอคอย'};
-const DT_DEPT_LABEL = {CV:'สายพาน (CV)', ME:'เครื่องกล (ME)', EE:'ไฟฟ้า (EE)', OPT:'ปฏิบัติการ (OPT)', Uncontrol:'สภาพอากาศ/ควบคุมไม่ได้', System:'ระบบ'};
-function renderDowntime(){
-  const D = DATA.downtime;
-  if(!D) return;
-  const total = D.total_hr;
-  const b1 = D.by_machine.BWE1||0, b2 = D.by_machine.BWE2||0;
-  const cat0=D.by_category[0], cat1=D.by_category[1];
-  const dept0=D.by_dept[0];
-
-  const kp=document.getElementById('dtKpis');
-  if(kp){
-    const k=[
-      {l:'ชั่วโมงหยุดรวม', v:total.toLocaleString(), u:'ชม.', cls:'w', d:'พ.ค. – ก.ย. 2568 (1,723 เหตุการณ์)'},
-      {l:'BWE 2', v:b2.toLocaleString(), u:'ชม.', cls:'u', d:`${(b2/total*100).toFixed(0)}% ของหยุดทั้งหมด`},
-      {l:'BWE 1', v:b1.toLocaleString(), u:'ชม.', cls:'', d:`${(b1/total*100).toFixed(0)}% ของหยุดทั้งหมด`},
-      {l:`สาเหตุอันดับ 1 — ${DT_CAT_LABEL[cat0.cat]||cat0.cat}`, v:cat0.hr.toLocaleString(), u:'ชม.', cls:'w', d:`${(cat0.hr/total*100).toFixed(0)}% ของหยุดทั้งหมด`},
-      {l:`แผนกกระทบมากสุด — ${DT_DEPT_LABEL[dept0.dept]||dept0.dept}`, v:dept0.hr.toLocaleString(), u:'ชม.', cls:'g', d:`${(dept0.hr/total*100).toFixed(0)}% ของหยุดทั้งหมด`},
-    ];
-    kp.innerHTML=k.map(x=>`<div class="kpi ${x.cls}"><div class="lab">${x.l}</div><div class="val">${x.v} <span class="unit">${x.u}</span></div><div class="delta">${x.d}</div></div>`).join('');
-  }
-
-  mkChart('dtCatChart',{type:'bar',data:{labels:D.by_category.map(c=>DT_CAT_LABEL[c.cat]||c.cat),datasets:[
-    {data:D.by_category.map(c=>c.hr),backgroundColor:C.wear,borderRadius:3}]},
-    options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},
-      tooltip:{callbacks:{label:c=>`${c.parsed.x.toLocaleString()} ชม.`}}},
-      scales:{x:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'ชั่วโมง'}},y:{grid:{display:false}}}}});
-
-  mkChart('dtDeptChart',{type:'bar',data:{labels:D.by_dept.map(d=>DT_DEPT_LABEL[d.dept]||d.dept),datasets:[
-    {data:D.by_dept.map(d=>d.hr),backgroundColor:C.heat,borderRadius:3}]},
-    options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},
-      tooltip:{callbacks:{label:c=>`${c.parsed.x.toLocaleString()} ชม.`}}},
-      scales:{x:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'ชั่วโมง'}},y:{grid:{display:false}}}}});
-
-  mkChart('dtMonthChart',{type:'bar',data:{labels:D.monthly.labels.map(monthLabel),datasets:[
-    {label:'BWE 1',data:D.monthly.bwe1,backgroundColor:C.heat,borderRadius:3},
-    {label:'BWE 2',data:D.monthly.bwe2,backgroundColor:C.uptime,borderRadius:3},
-  ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{usePointStyle:true,boxHeight:7,font:{size:11}}},
-      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toLocaleString()} ชม.`}}},
-    scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'ชั่วโมง'}}}}});
-
-  const i1=document.getElementById('dtInsight1'), i2=document.getElementById('dtInsight2');
-  if(i1) i1.innerHTML=`<div class="t">🔧 <span>สาเหตุหลักคือซ่อมแซม (CM)</span></div><p><b style="color:var(--wear)">${cat0.hr.toLocaleString()} ชม.</b> (${(cat0.hr/total*100).toFixed(0)}%) เป็นการหยุดซ่อมแซมเชิงแก้ไข รองลงมาคือ <b>${DT_CAT_LABEL[cat1.cat]||cat1.cat}</b> ${cat1.hr.toLocaleString()} ชม. — ควรเพิ่มรอบ PM เชิงป้องกันเพื่อลดการซ่อมฉุกเฉิน</p>`;
-  if(i2) i2.innerHTML=`<div class="t">🔩 <span>แผนกสายพาน (CV) กระทบมากสุด</span></div><p>สายพานลำเลียง (CV) มีชั่วโมงหยุดสะสมสูงสุด <b>${dept0.hr.toLocaleString()} ชม.</b> — BWE2 มีชั่วโมงหยุดสูงกว่า BWE1 มาก (${(b2/total*100).toFixed(0)}% vs ${(b1/total*100).toFixed(0)}%) เพราะเป็นเครื่องที่ทำงานต่อเนื่องหลัง BWE1 ย้ายเครื่อง</p>`;
 }
 
 /* ---------- machine toggle (shared by header + hero) ---------- */
@@ -2216,7 +1974,7 @@ function recomputeDerived(){ SHORT = new Set(DATA.short_idx); }
 function renderDashboard(){
   recomputeDerived();
   renderKPIs(); renderOverviewCharts(); renderHeat(); renderPosition(); renderLoss(); renderAvail(); renderStore(); renderWear();
-  renderProduction(); renderDowntime();
+  renderProduction();
 }
 // ทำลายกราฟเดิมก่อนวาดใหม่ เพื่อให้รีเฟรชข้อมูลซ้ำได้
 function mkChart(id, cfg){ const ex = Chart.getChart(id); if(ex) ex.destroy(); return new Chart(id, cfg); }
@@ -2241,18 +1999,16 @@ if(SHEET_CONFIG.refreshMs > 0){ setInterval(()=>refreshLiveData(true), SHEET_CON
 (function(){ const ls = document.getElementById('liveStatus'); if(ls) ls.addEventListener('click', ()=>refreshLiveData()); })();
 
 /* ═══════════════════════════════════════════════════
-   DAILY OPERATIONAL ENTRY FORMS — Downtime / Electricity / Production
-   Historical browser wired with real Sep-2025 workbook data
-   (one-time snapshot · จะต่อ Google Sheet / localStorage ในเฟสถัดไป)
+   DAILY OPERATIONAL ENTRY FORM — Downtime
+   Historical browser wired with real May–Sep 2025 workbook data
+   (จะต่อ Google Sheet ในเฟสถัดไป)
    ═══════════════════════════════════════════════════ */
 (function(){
 /* ── ข้อมูลย้อนหลัง: ฐานจากไฟล์ Daily Report (forms-history.js) + ที่ผู้ใช้บันทึกเอง (localStorage) ── */
-const LS_DT='bwe:dt-log', LS_EL='bwe:el-log', LS_PR='bwe:pr-log';
-const BASE = window.BWE_HISTORY || {dt:{},el:{},pr:{},range:{}};
+const LS_DT='bwe:dt-log';
+const BASE = window.BWE_HISTORY || {dt:{},range:{}};
 function loadLS(k){ try{ return JSON.parse(localStorage.getItem(k)) || {}; }catch(e){ return {}; } }
 const DOWNTIME_HISTORY = Object.assign({}, BASE.dt||{}, loadLS(LS_DT));
-const ELEC_HISTORY     = Object.assign({}, BASE.el||{}, loadLS(LS_EL));
-const PROD_HISTORY     = Object.assign({}, BASE.pr||{}, loadLS(LS_PR));
 function persist(k, dateKey, val){
   const store = loadLS(k); store[dateKey] = val;
   try{ localStorage.setItem(k, JSON.stringify(store)); }catch(e){ console.warn('บันทึกไม่สำเร็จ', e); }
@@ -2280,10 +2036,9 @@ document.addEventListener('click', e=>{
 
 function monthKey(y,m){ return `${y}-${String(m).padStart(2,'0')}`; }
 function daysWithData(which, year, month){
-  const src = which==='dt'?DOWNTIME_HISTORY : which==='el'?ELEC_HISTORY : PROD_HISTORY;
   const pref = monthKey(year,month)+'-';
   const set = new Set();
-  Object.keys(src).forEach(d=>{ if(d.indexOf(pref)===0) set.add(+d.split('-')[2]); });
+  Object.keys(DOWNTIME_HISTORY).forEach(d=>{ if(d.indexOf(pref)===0) set.add(+d.split('-')[2]); });
   return set;
 }
 function renderCalendar(container, year, month, which){
@@ -2332,11 +2087,8 @@ function renderCalendar(container, year, month, which){
         return;
       }
       const dstr = b.dataset.date;
-      const which = b.dataset.which;
       container.classList.remove('show');
-      if(which==='dt') viewDowntime(dstr);
-      else if(which==='el') viewElec(dstr);
-      else if(which==='pr') viewProd(dstr);
+      viewDowntime(dstr);
     });
   });
 }
@@ -2509,199 +2261,8 @@ $('dt_btn_clear').addEventListener('click', ()=>viewDowntime(TODAY));
   $('dt_dur_hint').innerHTML = '<b>= '+fmtDur(dur)+'</b>';
 }));
 
-/* ELECTRICITY */
-function fmtNum(n){ return Number(n||0).toLocaleString(); }
-function updateElecTotals(){
-  const g = id => Number($(id).value)||0;
-  const b1 = g('el_b1_main')+g('el_b1_1')+g('el_b1_2')+g('el_b1_3');
-  const b2 = g('el_b2_main')+g('el_b2_1')+g('el_b2_2')+g('el_b2_3');
-  const grand = b1+b2;
-  $('el_b1_total').textContent = fmtNum(b1);
-  $('el_b2_total').textContent = fmtNum(b2);
-  $('el_grand_total').textContent = fmtNum(grand);
-  $('el_cost').textContent = fmtNum(Math.round(grand*4.72));
-  const prod = PROD_HISTORY[$('el_date').value];
-  if(prod){
-    const bcm = (prod.day.b2_vol||0) + (prod.night.b2_vol||0);
-    if(bcm>0){
-      const ratio = grand/bcm;
-      $('el_ratio').textContent = ratio.toFixed(2);
-      $('el_vs_target').textContent = ((ratio/0.72-1)*100>=0?'+':'')+((ratio/0.72-1)*100).toFixed(0)+'%';
-    }
-  }
-}
-function setElecReadonly(ro){
-  ['el_date','el_by','el_time','el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>{ $(id).readOnly = ro; });
-}
-function viewElec(dstr){
-  const d = ELEC_HISTORY[dstr];
-  const pill = $('el-view-status');
-  if(dstr === TODAY){
-    ['el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>$(id).value=0);
-    $('el_date').value = TODAY;
-    setElecReadonly(false);
-    pill.style.display='none';
-    $('el_btn_save').style.display='';
-    $('el_btn_clear').style.display='';
-    $('el_btn_edit').style.display='none';
-    $('el_btn_back').style.display='none';
-    updateElecTotals();
-    return;
-  }
-  if(d){
-    $('el_date').value = dstr;
-    $('el_b1_main').value = d.b1_main; $('el_b1_1').value = d.b1_1; $('el_b1_2').value = d.b1_2; $('el_b1_3').value = d.b1_3;
-    $('el_b2_main').value = d.b2_main; $('el_b2_1').value = d.b2_1; $('el_b2_2').value = d.b2_2; $('el_b2_3').value = d.b2_3;
-    updateElecTotals();
-  }
-  setElecReadonly(true);
-  pill.style.display='inline-block';
-  pill.textContent='โหมดดู · '+dstr;
-  $('el_btn_save').style.display='none';
-  $('el_btn_clear').style.display='none';
-  $('el_btn_edit').style.display='';
-  $('el_btn_back').style.display='';
-}
-window.viewElec = viewElec;
-$('el_btn_edit').addEventListener('click', ()=>{
-  setElecReadonly(false);
-  $('el-view-status').textContent='โหมดแก้ไข · '+$('el_date').value;
-  $('el_btn_edit').style.display='none';
-  $('el_btn_save').style.display='';
-  $('el_btn_save').textContent='💾 บันทึกการแก้ไข';
-});
-$('el_btn_back').addEventListener('click', ()=>viewElec(TODAY));
-function saveElec(){
-  const date=$('el_date').value;
-  if(!date){ toast('⚠️ กรุณาเลือกวันที่'); return; }
-  const g=id=>Number($(id).value)||0;
-  const rec={b1_main:g('el_b1_main'),b1_1:g('el_b1_1'),b1_2:g('el_b1_2'),b1_3:g('el_b1_3'),
-             b2_main:g('el_b2_main'),b2_1:g('el_b2_1'),b2_2:g('el_b2_2'),b2_3:g('el_b2_3')};
-  ELEC_HISTORY[date]=rec;
-  persist(LS_EL, date, rec);
-  updateElecTotals();
-  toast('💾 บันทึกการใช้ไฟฟ้าแล้ว ('+date+')');
-}
-$('el_btn_save').addEventListener('click', saveElec);
-$('el_btn_clear').addEventListener('click', ()=>viewElec(TODAY));
-['el_b1_main','el_b1_1','el_b1_2','el_b1_3','el_b2_main','el_b2_1','el_b2_2','el_b2_3'].forEach(id=>{
-  $(id).addEventListener('input', updateElecTotals);
-});
-
-/* PRODUCTION */
-function calcProdCell(ltId, volId, outId){
-  const lt = Number($(ltId).value)||0;
-  const vol = Number($(volId).value)||0;
-  $(outId).value = (lt>0 && vol>0) ? (vol/lt).toFixed(1)+' BCM/ชม.' : '—';
-}
-function updateProdSummary(){
-  const g = id => Number($(id).value)||0;
-  const b2vol = g('pr_day_b2_vol')+g('pr_night_b2_vol');
-  const b2lt = g('pr_day_b2_lt')+g('pr_night_b2_lt');
-  const total = g('pr_day_b1_vol')+g('pr_night_b1_vol')+b2vol;
-  $('pr_sum_b2_vol').textContent = fmtNum(Math.round(b2vol*10)/10);
-  $('pr_sum_b2_lt').textContent = b2lt.toFixed(2);
-  $('pr_sum_b2_prod').textContent = b2lt>0 ? (b2vol/b2lt).toFixed(1) : '—';
-  $('pr_sum_total').textContent = fmtNum(Math.round(total*10)/10);
-}
-function setProdReadonly(ro){
-  ['pr_date','pr_blast','pr_smu_a9','pr_step1','pr_step2','pr_by',
-   'pr_day_b1_lt','pr_day_b1_vol','pr_day_b2_lt','pr_day_b2_vol','pr_a9_day','pr_lost_day',
-   'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night'
-  ].forEach(id=>{ $(id).readOnly=ro; });
-}
-function viewProd(dstr){
-  const d = PROD_HISTORY[dstr];
-  const pill = $('pr-view-status');
-  if(dstr === TODAY){
-    ['pr_day_b1_lt','pr_day_b1_vol','pr_day_b2_lt','pr_day_b2_vol','pr_a9_day','pr_lost_day',
-     'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night'
-    ].forEach(id=>$(id).value='');
-    $('pr_date').value = TODAY;
-    setProdReadonly(false);
-    pill.style.display='none';
-    $('pr_btn_save').style.display='';
-    $('pr_btn_clear').style.display='';
-    $('pr_btn_copy').style.display='';
-    $('pr_btn_edit').style.display='none';
-    $('pr_btn_back').style.display='none';
-    updateProdSummary();
-    ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>calcProdCell(p+'_lt', p+'_vol', p+'_prod'));
-    return;
-  }
-  if(d){
-    $('pr_date').value = dstr;
-    $('pr_blast').value = d.blast!=null?d.blast:'';
-    $('pr_smu_a9').value = d.smu_a9!=null?d.smu_a9:'';
-    $('pr_day_b1_lt').value = d.day.b1_lt||''; $('pr_day_b1_vol').value = d.day.b1_vol||'';
-    $('pr_day_b2_lt').value = d.day.b2_lt||''; $('pr_day_b2_vol').value = d.day.b2_vol||'';
-    $('pr_a9_day').value = d.day.a9||'';
-    $('pr_night_b1_lt').value = d.night.b1_lt||''; $('pr_night_b1_vol').value = d.night.b1_vol||'';
-    $('pr_night_b2_lt').value = d.night.b2_lt||''; $('pr_night_b2_vol').value = d.night.b2_vol||'';
-    $('pr_a9_night').value = d.night.a9||'';
-    ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>calcProdCell(p+'_lt', p+'_vol', p+'_prod'));
-    updateProdSummary();
-  }
-  setProdReadonly(true);
-  pill.style.display='inline-block';
-  pill.textContent='โหมดดู · '+dstr;
-  $('pr_btn_save').style.display='none';
-  $('pr_btn_clear').style.display='none';
-  $('pr_btn_copy').style.display='none';
-  $('pr_btn_edit').style.display='';
-  $('pr_btn_back').style.display='';
-}
-window.viewProd = viewProd;
-$('pr_btn_edit').addEventListener('click', ()=>{
-  setProdReadonly(false);
-  $('pr-view-status').textContent='โหมดแก้ไข · '+$('pr_date').value;
-  $('pr_btn_edit').style.display='none';
-  $('pr_btn_save').style.display='';
-  $('pr_btn_save').textContent='💾 บันทึกการแก้ไข';
-});
-$('pr_btn_back').addEventListener('click', ()=>viewProd(TODAY));
-function saveProd(){
-  const date=$('pr_date').value;
-  if(!date){ toast('⚠️ กรุณาเลือกวันที่'); return; }
-  const num=id=>{ const v=$(id).value; return v===''?0:(Number(v)||0); };
-  const rec={ blast: $('pr_blast').value===''?null:(Number($('pr_blast').value)||null),
-    smu_a9: $('pr_smu_a9').value===''?null:(Number($('pr_smu_a9').value)||0),
-    day:{b1_lt:num('pr_day_b1_lt'),b1_vol:num('pr_day_b1_vol'),b2_lt:num('pr_day_b2_lt'),b2_vol:num('pr_day_b2_vol'),a9:num('pr_a9_day')},
-    night:{b1_lt:num('pr_night_b1_lt'),b1_vol:num('pr_night_b1_vol'),b2_lt:num('pr_night_b2_lt'),b2_vol:num('pr_night_b2_vol'),a9:num('pr_a9_night')} };
-  PROD_HISTORY[date]=rec;
-  persist(LS_PR, date, rec);
-  updateProdSummary();
-  toast('💾 บันทึกรายงานการผลิตแล้ว ('+date+')');
-}
-function copyProd(){
-  const date=$('pr_date').value || TODAY;
-  const prior=Object.keys(PROD_HISTORY).filter(d=>d<date).sort().pop();
-  if(!prior){ toast('ไม่พบข้อมูลวันก่อนหน้า'); return; }
-  const d=PROD_HISTORY[prior];
-  $('pr_smu_a9').value=d.smu_a9!=null?d.smu_a9:'';
-  $('pr_blast').value=d.blast!=null?d.blast:'';
-  $('pr_day_b1_lt').value=d.day.b1_lt||''; $('pr_day_b1_vol').value=d.day.b1_vol||'';
-  $('pr_day_b2_lt').value=d.day.b2_lt||''; $('pr_day_b2_vol').value=d.day.b2_vol||'';
-  $('pr_a9_day').value=d.day.a9||'';
-  $('pr_night_b1_lt').value=d.night.b1_lt||''; $('pr_night_b1_vol').value=d.night.b1_vol||'';
-  $('pr_night_b2_lt').value=d.night.b2_lt||''; $('pr_night_b2_vol').value=d.night.b2_vol||'';
-  $('pr_a9_night').value=d.night.a9||'';
-  ['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(pp=>calcProdCell(pp+'_lt', pp+'_vol', pp+'_prod'));
-  updateProdSummary();
-  toast('📋 คัดลอกจาก '+prior+' แล้ว');
-}
-$('pr_btn_save').addEventListener('click', saveProd);
-$('pr_btn_clear').addEventListener('click', ()=>viewProd(TODAY));
-$('pr_btn_copy').addEventListener('click', copyProd);
-['pr_day_b1','pr_day_b2','pr_night_b1','pr_night_b2'].forEach(p=>{
-  $(p+'_lt').addEventListener('input',()=>{calcProdCell(p+'_lt', p+'_vol', p+'_prod'); updateProdSummary();});
-  $(p+'_vol').addEventListener('input',()=>{calcProdCell(p+'_lt', p+'_vol', p+'_prod'); updateProdSummary();});
-});
-
 /* INIT: preview Sep 1 (real data) so ผู้ใช้เห็นฟีเจอร์ดูย้อนหลังทำงานทันที */
 viewDowntime('2025-09-01');
-viewElec('2025-09-01');
-viewProd('2025-09-01');
 })();
 </script>
 </body>
