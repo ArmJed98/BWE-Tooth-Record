@@ -1186,13 +1186,54 @@ function renderPosition(){
 }
 
 /* ---------- LOSS (BWE#2 only) ---------- */
+const MON_ABBR = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function daysInMonth(y,m){ return new Date(y, m, 0).getDate(); }
+function pad2(n){ return String(n).padStart(2,'0'); }
+function parseWeekLabel(label, year){
+  const m = /^(\d{1,2})-(\d{1,2})\s+([A-Za-z]{3})$/.exec(label);
+  if(!m) return null;
+  const monIdx = MON_ABBR.indexOf(m[3]);
+  if(monIdx<0) return null;
+  return { startDay:+m[1], endDay:+m[2], month:monIdx+1, year };
+}
+function sumDailyRange(daily, y1,m1,d1, y2,m2,d2){
+  const start = `${y1}-${pad2(m1)}-${pad2(d1)}`, end = `${y2}-${pad2(m2)}-${pad2(d2)}`;
+  return daily.filter(d=>d.date>=start && d.date<=end).reduce((s,d)=>s+d.total,0);
+}
+// งวดรายสัปดาห์บางงวดคาบเกี่ยว 2 เดือน (เช่น "29-2 Nov" = ปลาย ต.ค.–ต้น พ.ย.) — แยกเป็นแท่งของแต่ละเดือน
+// โดยคำนวณ "สูญหาย" ใหม่จากข้อมูลรายวัน (แม่นยำกว่า) และใช้วันสิ้นสุดของงวดก่อนหน้า+1 เป็นวันเริ่มจริง กันกรณีวันเริ่มที่พิมพ์ในชีทคลาดเคลื่อน
+function splitCrossMonthPeriods(periods, lostArr, giArr, daily, year){
+  const labels=[...periods], lost=[...lostArr], gi=[...giArr];
+  for(let i=labels.length-1;i>=1;i--){
+    const cur = parseWeekLabel(labels[i], year);
+    if(!cur) continue;
+    const prev = parseWeekLabel(labels[i-1], year);
+    let sy=year, sm=cur.month, sd=cur.startDay;
+    if(prev){
+      sm = prev.month; sd = prev.endDay+1;
+      if(sd > daysInMonth(sy,sm)){ sd=1; sm+=1; if(sm>12){sm=1; sy++;} }
+    }
+    const ey=year, em=cur.month, ed=cur.endDay;
+    if(sm === em) continue;
+    const splitDay = daysInMonth(sy,sm);
+    const lostA = sumDailyRange(daily, sy,sm,sd, sy,sm,splitDay);
+    const lostB = sumDailyRange(daily, ey,em,1, ey,em,ed);
+    labels.splice(i,1, `${sd}-${splitDay} ${MON_ABBR[sm-1]}`, `1-${ed} ${MON_ABBR[em-1]}`);
+    lost.splice(i,1, lostA, lostB);
+    gi.splice(i,1, gi[i], 0);
+  }
+  return {labels, lost, gi};
+}
 function renderLoss(){
   const octLost = DATA.daily.filter(d=>d.date.startsWith('2025-10')).reduce((a,b)=>a+b.total,0);
   document.getElementById('octLost').textContent = octLost;
 
-  mkChart('lossTrend',{type:'bar',data:{labels:DATA.periods,datasets:[
-    {type:'line',label:'สูญหาย (ซี่)',data:DATA.lost_m,borderColor:C.wear,backgroundColor:C.wear,tension:.3,pointRadius:4,yAxisID:'y'},
-    {label:'เบิกใช้ GI',data:DATA.gi,backgroundColor:'rgba(242,161,60,.55)',borderRadius:3,yAxisID:'y'}]},
+  const trendYear = DATA.daily.length ? +DATA.daily[0].date.slice(0,4) : new Date().getFullYear();
+  const split = splitCrossMonthPeriods(DATA.periods, DATA.lost_m, DATA.gi, DATA.daily, trendYear);
+
+  mkChart('lossTrend',{type:'bar',data:{labels:split.labels,datasets:[
+    {type:'line',label:'สูญหาย (ซี่)',data:split.lost,borderColor:C.wear,backgroundColor:C.wear,tension:.3,pointRadius:4,yAxisID:'y'},
+    {label:'เบิกใช้ GI',data:split.gi,backgroundColor:'rgba(242,161,60,.55)',borderRadius:3,yAxisID:'y'}]},
     options:{maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{usePointStyle:true}}},
       scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true}}}});
 
