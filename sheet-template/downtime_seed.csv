@@ -1,0 +1,1717 @@
+﻿id,date,shift,machine,location,loctype,dept,category,description,start,end,duration_hr,freq
+d20250501-01,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,00:00,00:06,0.1,1
+d20250501-02,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,Clear track,01:16,01:25,0.15,1
+d20250501-03,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,02:26,02:31,0.08,1
+d20250501-04,2025-05-01,Night,BWE1,BWE1,machine,EE,CM,ติดสัญญาณ HOS reset ไม่หาย,03:44,04:15,0.52,1
+d20250501-05,2025-05-01,Night,BWE1,BWE1,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,04:54,05:06,0.2,1
+d20250501-06,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,05:06,05:12,0.1,1
+d20250501-07,2025-05-01,Night,BWE1,A2.1,line,CV,CM,Belt rip trip,05:12,05:36,0.4,1
+d20250501-08,2025-05-01,Day,BWE1,Line A,line,EE,CM,ไฟฟ้าแรงสูงแก้ไขสายไฟ,07:00,08:27,1.45,1
+d20250501-09,2025-05-01,Day,BWE1,BWE1,machine,ME,CM,หยุดแก้ไข Slew Discharge,09:12,10:15,1.05,1
+d20250501-10,2025-05-01,Day,BWE1,BWE1,machine,ME,CM,อัดจาระบี Slew Discharge,10:15,11:22,1.12,1
+d20250501-11,2025-05-01,Day,BWE1,BWE1,machine,ME,CM,เชื่อมการ์ด,11:22,11:39,0.28,1
+d20250501-12,2025-05-01,Day,BWE1,BWE1,machine,OPT,Idle,ย้ายหน้าขุด,11:39,12:03,0.4,1
+d20250501-13,2025-05-01,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,13:00,13:17,0.28,1
+d20250501-14,2025-05-01,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,15:15,15:27,0.2,1
+d20250501-15,2025-05-01,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,16:26,16:30,0.07,1
+d20250501-16,2025-05-01,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,16:56,17:04,0.13,1
+d20250501-17,2025-05-01,Day,BWE1,BWE1,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,17:47,18:04,0.28,1
+d20250501-18,2025-05-01,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,18:30,18:36,0.1,1
+d20250501-19,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,19:24,19:34,0.17,1
+d20250501-20,2025-05-01,Night,BWE1,A9.1,line,EE,CM,Communication Fail,19:34,19:49,0.25,1
+d20250501-21,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,21:56,22:02,0.1,1
+d20250501-22,2025-05-01,Night,BWE1,BWE1,machine,OPT,Other,Clear track,23:12,23:19,0.12,1
+d20250502-01,2025-05-02,Night,BWE1,BWE1,machine,OPT,Other,Clear track,02:36,02:42,0.1,1
+d20250502-02,2025-05-02,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,03:20,03:24,0.07,1
+d20250502-03,2025-05-02,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,03:48,03:58,0.17,1
+d20250502-04,2025-05-02,Night,BWE1,BWE1,machine,OPT,Other,บิดแทรค,04:52,04:58,0.1,1
+d20250502-05,2025-05-02,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,05:50,06:07,0.28,1
+d20250502-06,2025-05-02,Day,BWE1,BWE1,machine,CV,PM,PM Line A,07:00,14:57,7.95,1
+d20250502-07,2025-05-02,Day,BWE1,BWE1,machine,ME,CM,แก้ไข cross plate slew discharge,14:57,17:18,2.35,1
+d20250502-08,2025-05-02,Day,BWE1,BWE1,machine,OPT,Other,ปรับระดับ track,17:24,17:37,0.22,1
+d20250502-09,2025-05-02,Day,BWE1,BWE1,machine,OPT,Other,รอน้ำตามไลน์,17:50,19:40,1.83,1
+d20250502-10,2025-05-02,Night,BWE1,BWE1,machine,Uncontrol,Rain,ฝนตก,20:05,01:40,5.58,1
+d20250503-01,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,00:40,00:46,0.1,1
+d20250503-02,2025-05-03,Night,BWE1,BWE1,machine,EE,CM,ติดระบบไฟฟ้า,00:54,01:13,0.32,1
+d20250503-03,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,Clear track,02:05,02:13,0.13,1
+d20250503-04,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,Clear track,03:15,03:21,0.1,1
+d20250503-05,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,04:32,04:43,0.18,1
+d20250503-06,2025-05-03,Day,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,07:00,07:20,0.33,1
+d20250503-07,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,รอน้ำตามไลน์,07:20,08:14,0.9,1
+d20250503-08,2025-05-03,Day,BWE1,A9,line,CV,CM,ตัดสลิงสายพาน,08:14,08:29,0.25,1
+d20250503-09,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,Clear track,08:36,08:39,0.05,1
+d20250503-10,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,Clear track,09:18,09:21,0.05,1
+d20250503-11,2025-05-03,Day,BWE1,A6,line,CV,CM,เคลียร์ดินท้ายไลน์,09:35,10:18,0.72,1
+d20250503-12,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,10:56,11:00,0.07,1
+d20250503-13,2025-05-03,Day,BWE1,A9,line,CV,CM,ตัดสลิงสายพาน,11:31,11:51,0.33,1
+d20250503-14,2025-05-03,Day,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,12:00,13:08,1.13,1
+d20250503-15,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,Clear track,13:22,13:25,0.05,1
+d20250503-16,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,14:05,14:09,0.07,1
+d20250503-17,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,Clear track,14:17,14:20,0.05,1
+d20250503-18,2025-05-03,Day,BWE1,SPD.A,spreader,CV,CM,สายพาน Discharge สไลด์,14:40,15:25,0.75,1
+d20250503-19,2025-05-03,Day,BWE1,A2,line,CV,CM,Belt rip trip,15:25,16:09,0.73,1
+d20250503-20,2025-05-03,Day,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,16:25,17:28,1.05,1
+d20250503-21,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,Clear track,17:53,18:00,0.12,1
+d20250503-22,2025-05-03,Day,BWE1,BWE1,machine,OPT,Other,Clear track,18:18,18:30,0.2,1
+d20250503-23,2025-05-03,Night,BWE1,BWE1,machine,Uncontrol,Rain,ฝนตก,19:02,19:14,0.2,1
+d20250503-24,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,19:28,19:40,0.2,1
+d20250503-25,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,Clear track,19:40,19:56,0.27,1
+d20250503-26,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,Clear track,20:40,20:48,0.13,1
+d20250503-27,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,21:00,21:09,0.15,1
+d20250503-28,2025-05-03,Night,BWE1,SPD.A,spreader,System,CM,สายพาน Discharge สไลด์,21:35,22:36,1.02,1
+d20250503-29,2025-05-03,Night,BWE1,BWE1,machine,OPT,Other,Clear track,23:37,23:45,0.13,1
+d20250504-01,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,01:05,01:17,0.2,1
+d20250504-02,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,02:05,02:14,0.15,1
+d20250504-03,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,02:40,02:53,0.22,1
+d20250504-04,2025-05-04,Night,BWE1,SPD.A,spreader,System,Other,SPD เดินอ้อมหัว,03:10,04:30,1.33,1
+d20250504-05,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,05:29,05:32,0.05,1
+d20250504-06,2025-05-04,Night,BWE1,BWE1,machine,EE,CM,ติดระบบไฟฟ้า,05:43,06:26,0.72,1
+d20250504-07,2025-05-04,Day,BWE1,BWE1,machine,OPT,Other,ปรับระดับ track,07:00,07:27,0.45,1
+d20250504-08,2025-05-04,Day,BWE1,BWE1,machine,OPT,Other,Clear track,07:40,07:42,0.03,1
+d20250504-09,2025-05-04,Day,BWE1,A9,line,CV,CM,ซ่อมร้อนสายพาน,07:45,16:45,9.0,1
+d20250504-10,2025-05-04,Day,BWE1,BWE1,machine,OPT,Other,Clear track,17:02,17:06,0.07,1
+d20250504-11,2025-05-04,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,17:47,17:49,0.03,1
+d20250504-12,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,20:09,20:11,0.03,1
+d20250504-13,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,20:50,20:52,0.03,1
+d20250504-14,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,Clear track,21:29,21:37,0.13,1
+d20250504-15,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,22:20,22:24,0.07,1
+d20250504-16,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,22:53,22:56,0.05,1
+d20250504-17,2025-05-04,Night,BWE1,A9,line,EE,CM,Trip emergency,23:10,23:23,0.22,1
+d20250504-18,2025-05-04,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,23:59,00:10,0.18,1
+d20250505-01,2025-05-05,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,08:51,08:55,0.07,1
+d20250505-02,2025-05-05,Day,BWE1,A2,line,CV,CM,Belt head trip,09:52,10:35,0.72,1
+d20250505-03,2025-05-05,Day,BWE1,BWE1,machine,OPT,Other,ย้ายหน้าขุด,10:55,12:05,1.17,1
+d20250505-04,2025-05-05,Day,BWE1,BWE1,machine,OPT,Other,Clear track,14:56,15:01,0.08,1
+d20250505-05,2025-05-05,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,15:49,15:53,0.07,1
+d20250505-06,2025-05-05,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,18:01,18:08,0.12,1
+d20250505-07,2025-05-05,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,19:24,19:52,0.47,1
+d20250505-08,2025-05-05,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,20:31,20:57,0.43,1
+d20250505-09,2025-05-05,Night,BWE1,BWE1,machine,ME,CM,Slew discharge trip,20:57,21:03,0.1,1
+d20250505-10,2025-05-05,Night,BWE1,BWE1,machine,ME,CM,เช็คท่อน้ำปลาย Discharge,21:21,21:28,0.12,1
+d20250505-11,2025-05-05,Night,BWE1,BWE1,machine,ME,CM,แก้ไข Guard เอว Slew,21:28,07:00,9.53,1
+d20250506-01,2025-05-06,Day,BWE1,A1,line,CV,Shift,A1 Extend สายพาน,07:00,19:00,12.0,1
+d20250506-02,2025-05-06,Night,BWE1,A1,line,CV,Shift,A1 Extend สายพาน,19:00,07:00,12.0,1
+d20250507-01,2025-05-07,Day,BWE1,BWE1,machine,ME,CM,หยุดแก้ไข Slew Discharge,07:00,19:00,12.0,1
+d20250507-02,2025-05-07,Night,BWE1,BWE1,machine,ME,CM,หยุดแก้ไข Slew Discharge,19:00,07:00,12.0,1
+d20250508-01,2025-05-08,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,00:48,00:51,0.05,1
+d20250508-02,2025-05-08,Night,BWE1,BWE1,machine,OPT,Other,Clear track,01:30,01:45,0.25,1
+d20250508-03,2025-05-08,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,03:13,03:23,0.17,1
+d20250508-04,2025-05-08,Night,BWE1,A7,line,CV,CM,Trip Bake Faulf Limit Switch,04:04,04:58,0.9,1
+d20250508-05,2025-05-08,Night,BWE1,BWE1,machine,ME,CM,ติดระบบไฟฟ้า,05:47,06:11,0.4,1
+d20250508-06,2025-05-08,Night,BWE1,BWE1,machine,OPT,Idle,เปลี่ยนกะ,06:40,07:00,0.33,1
+d20250508-07,2025-05-08,Day,BWE1,BWE1,machine,ME,CM,หยุดแก้ไข Slew Discharge,07:00,19:00,12.0,1
+d20250508-08,2025-05-08,Night,BWE1,A2,line,CV,CM,Trip Belt Rip,19:58,21:28,1.5,1
+d20250508-09,2025-05-08,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,21:55,21:57,0.03,1
+d20250508-10,2025-05-08,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,23:17,23:22,0.08,1
+d20250508-11,2025-05-08,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,23:45,23:48,0.05,1
+d20250509-01,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,00:28,00:40,0.2,1
+d20250509-02,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,01:01,01:05,0.07,1
+d20250509-03,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,01:28,01:33,0.08,1
+d20250509-04,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,02:32,02:37,0.08,1
+d20250509-05,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,03:27,03:33,0.1,1
+d20250509-06,2025-05-09,Night,BWE1,BWE1,machine,ME,CM,ถอดอิมแพค Discharge,04:34,04:52,0.3,1
+d20250509-07,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,บิดแทรค,04:52,05:12,0.33,1
+d20250509-08,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,บิดแทรค,05:16,05:30,0.23,1
+d20250509-09,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,05:45,05:52,0.12,1
+d20250509-10,2025-05-09,Night,BWE1,BWE1,machine,CV,CM,Belt rip trip,06:00,06:10,0.17,1
+d20250509-11,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,Clear track,07:45,07:50,0.08,1
+d20250509-12,2025-05-09,Day,BWE1,BWE1,machine,CV,CM,เช็คสายพาน A9,07:50,08:00,0.17,1
+d20250509-13,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,Clear track,08:15,08:18,0.05,1
+d20250509-14,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,09:31,09:36,0.08,1
+d20250509-15,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,Clear track,10:02,10:12,0.17,1
+d20250509-16,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,Clear track,11:03,11:11,0.13,1
+d20250509-17,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,11:48,11:50,0.03,1
+d20250509-18,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,Clear track,12:20,12:25,0.08,1
+d20250509-19,2025-05-09,Day,BWE1,BWE1,machine,CV,PM,PM Line A,13:00,18:00,5.0,1
+d20250509-20,2025-05-09,Day,BWE1,BWE1,machine,OPT,Other,Clear track,18:12,18:16,0.07,1
+d20250509-21,2025-05-09,Night,BWE1,BWE1,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:17,0.62,1
+d20250509-22,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,20:12,20:17,0.08,1
+d20250509-23,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,20:53,21:00,0.12,1
+d20250509-24,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,21:52,22:16,0.4,1
+d20250509-25,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,22:54,22:58,0.07,1
+d20250509-26,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,23:20,23:30,0.17,1
+d20250509-27,2025-05-09,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,23:50,23:56,0.1,1
+d20250510-01,2025-05-10,Night,BWE1,BWE1,machine,CV,CM,A9 Trip Emergency,00:22,00:38,0.27,1
+d20250510-02,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,Clear track,01:35,01:44,0.15,1
+d20250510-03,2025-05-10,Night,BWE1,BWE1,machine,CV,CM,ซ่อมเย็นสายพาน,01:55,03:18,1.38,1
+d20250510-04,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,04:00,04:10,0.17,1
+d20250510-05,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,04:35,04:40,0.08,1
+d20250510-06,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,05:15,05:21,0.1,1
+d20250510-07,2025-05-10,Night,BWE1,BWE1,machine,CV,CM,เปลี่ยน Return,05:21,05:52,0.52,1
+d20250510-08,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,06:16,06:20,0.07,1
+d20250510-09,2025-05-10,Day,BWE1,BWE1,machine,OPT,CM,หยุดฝุ่น,07:00,07:30,0.5,1
+d20250510-10,2025-05-10,Day,BWE1,BWE1,machine,CV,CM,ตัด Sling,08:00,08:15,0.25,1
+d20250510-11,2025-05-10,Day,BWE1,BWE1,machine,ME,CM,แก้ไข Spocket Bwe1,08:15,15:05,6.83,1
+d20250510-12,2025-05-10,Day,BWE1,BWE1,machine,OPT,Other,ย้ายหน้าขุด,15:05,15:48,0.72,1
+d20250510-13,2025-05-10,Day,BWE1,BWE1,machine,CV,CM,ตัด Sling,16:05,16:19,0.23,1
+d20250510-14,2025-05-10,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,17:15,17:20,0.08,1
+d20250510-15,2025-05-10,Day,BWE1,BWE1,machine,OPT,Other,Clear track,17:25,17:27,0.03,1
+d20250510-16,2025-05-10,Day,BWE1,BWE1,machine,OPT,Other,Clear track,17:35,17:36,0.02,1
+d20250510-17,2025-05-10,Day,BWE1,BWE1,machine,OPT,Other,Clear track,18:14,18:17,0.05,1
+d20250510-18,2025-05-10,Day,BWE1,BWE1,machine,OPT,Other,Clear track,18:30,18:32,0.03,1
+d20250510-19,2025-05-10,Day,BWE1,BWE1,machine,OPT,Idle,เปลี่ยนกะ,18:45,19:05,0.33,1
+d20250510-20,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,19:28,19:33,0.08,1
+d20250510-21,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,เช็คเครื่องจักร,19:40,20:01,0.35,1
+d20250510-22,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,20:21,20:26,0.08,1
+d20250510-23,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,เช็คเครื่องจักร,20:26,21:38,1.2,1
+d20250510-24,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,22:08,22:12,0.07,1
+d20250510-25,2025-05-10,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,23:02,23:13,0.18,1
+d20250511-01,2025-05-11,Night,BWE1,BWE1,machine,OPT,Other,Clear track,01:58,02:06,0.13,1
+d20250511-02,2025-05-11,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,02:33,02:39,0.1,1
+d20250511-03,2025-05-11,Night,BWE1,BWE1,machine,OPT,CM,ดินถมสาย,03:05,03:13,0.13,1
+d20250511-04,2025-05-11,Night,BWE1,BWE1,machine,OPT,Other,Clear track,03:50,03:59,0.15,1
+d20250511-05,2025-05-11,Night,BWE1,BWE1,machine,OPT,Other,Clear track,04:45,04:53,0.13,1
+d20250511-06,2025-05-11,Night,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,05:58,07:00,1.03,1
+d20250511-07,2025-05-11,Day,BWE1,BWE1,machine,OPT,Idle,เปลี่ยนกะ,06:20,07:00,0.67,1
+d20250511-08,2025-05-11,Day,BWE1,BWE1,machine,ME,CM,ใส่ Bolt Sprocket Crawler Track,07:00,11:22,4.37,1
+d20250511-09,2025-05-11,Day,BWE1,BWE1,machine,OPT,Other,Clear track,11:34,11:36,0.03,1
+d20250511-10,2025-05-11,Day,BWE1,BWE1,machine,OPT,Other,จัดจุดตก BW,11:40,11:43,0.05,1
+d20250511-11,2025-05-11,Day,BWE1,BWE1,machine,EE,CM,สัญญาณ Sequence หาย,12:03,13:03,1.0,1
+d20250511-12,2025-05-11,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,13:40,13:45,0.08,1
+d20250511-13,2025-05-11,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,15:08,15:13,0.08,1
+d20250511-14,2025-05-11,Day,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,16:17,16:28,0.18,1
+d20250511-15,2025-05-11,Day,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,16:35,17:25,0.83,1
+d20250511-16,2025-05-11,Day,BWE1,BWE1,machine,Uncontrol,Rain,ฝนตก,17:25,19:00,1.58,1
+d20250511-17,2025-05-11,Night,BWE1,BWE1,machine,System,Rain,รอเคลียร์หน้างาน,19:00,20:35,1.58,1
+d20250511-18,2025-05-11,Night,BWE1,BWE1,machine,CV,Idle,โหลดไล่น้ำ,20:35,21:05,0.5,1
+d20250511-19,2025-05-11,Night,BWE1,BWE1,machine,CV,CM,ตัดสลิงสายพาน,21:05,21:45,0.67,1
+d20250511-20,2025-05-11,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,22:00,22:08,0.13,1
+d20250512-01,2025-05-12,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,00:06,00:13,0.12,1
+d20250512-02,2025-05-12,Night,BWE1,BWE1,machine,ME,CM,แก้ไข inverted สายพาน,00:42,03:16,2.57,1
+d20250512-03,2025-05-12,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,04:15,04:20,0.08,1
+d20250512-04,2025-05-12,Night,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,05:01,05:14,0.22,1
+d20250512-05,2025-05-12,Night,BWE1,BWE1,machine,ME,CM,Discharge Slew ไม่ได้,05:30,07:00,1.5,1
+d20250512-06,2025-05-12,Day,BWE1,BWE1,machine,CV,PM,PM Line A,07:00,10:25,3.42,1
+d20250512-07,2025-05-12,Day,BWE1,BWE1,machine,ME,CM,เชื่อมปลอกฟัน,10:25,12:44,2.32,1
+d20250512-08,2025-05-12,Day,BWE1,BWE1,machine,OPT,Other,Clear track,13:17,13:19,0.03,1
+d20250512-09,2025-05-12,Day,BWE1,BWE1,machine,System,Dust,หยุดฝุ่น,13:25,14:02,0.62,1
+d20250512-10,2025-05-12,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,14:32,14:36,0.07,1
+d20250512-11,2025-05-12,Day,BWE1,BWE1,machine,ME,CM,แก้ไข Return,14:48,15:18,0.5,1
+d20250512-12,2025-05-12,Day,BWE1,BWE1,machine,OPT,Other,ย้าย floor ขุด,16:48,16:52,0.07,1
+d20250512-13,2025-05-12,Day,BWE1,BWE1,machine,OPT,Other,ย้ายหน้าขุด,17:42,19:16,1.57,1
+d20250512-14,2025-05-12,Night,BWE1,BWE1,machine,ME,CM,แก้ไข Spocket,19:34,19:50,0.27,1
+d20250512-15,2025-05-12,Night,BWE1,BWE1,machine,ME,CM,แก้ไข Spocket Bwe1,21:00,21:09,0.15,1
+d20250512-16,2025-05-12,Night,BWE1,BWE1,machine,CV,CM,Belt rip trip,22:15,23:05,0.83,1
+d20250513-01,2025-05-13,Day,BWE1,BWE1,machine,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250513-02,2025-05-13,Night,BWE1,A1,line,CV,Shift,Shift สายพาน,19:00,20:17,1.28,1
+d20250513-03,2025-05-13,Night,BWE1,BWE1,machine,ME,CM,แก้ไข Slew Discharge,20:17,07:00,10.72,1
+d20250514-01,2025-05-14,Day,BWE1,BWE1,machine,ME,CM,แก้ไข Slew Discharge,07:00,19:00,12.0,1
+d20250514-02,2025-05-14,Night,BWE1,BWE1,machine,ME,CM,แก้ไข Slew Discharge,19:00,07:00,12.0,1
+d20250515-01,2025-05-15,Day,BWE1,BWE1,machine,ME,CM,แก้ไข Slew Discharge,07:00,19:00,12.0,1
+d20250515-02,2025-05-15,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250516-01,2025-05-16,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250516-02,2025-05-16,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250517-01,2025-05-17,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250517-02,2025-05-17,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250518-01,2025-05-18,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250518-02,2025-05-18,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250519-01,2025-05-19,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250519-02,2025-05-19,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250520-01,2025-05-20,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250520-02,2025-05-20,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250521-01,2025-05-21,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250521-02,2025-05-21,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250522-01,2025-05-22,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250522-02,2025-05-22,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250523-01,2025-05-23,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250523-02,2025-05-23,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250524-01,2025-05-24,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250524-02,2025-05-24,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250525-01,2025-05-25,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250525-02,2025-05-25,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250526-01,2025-05-26,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250526-02,2025-05-26,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,07:00,12.0,1
+d20250527-01,2025-05-27,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,03:10,03:45,0.58,1
+d20250527-02,2025-05-27,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,03:45,07:00,3.25,1
+d20250527-03,2025-05-27,Day,BWE1,BWE1,machine,CV,Relocate,Relocate,07:00,19:00,12.0,1
+d20250527-04,2025-05-27,Night,BWE1,BWE1,machine,CV,Relocate,Relocate,19:00,03:10,8.17,1
+d20250528-01,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:57,01:17,0.33,1
+d20250528-02,2025-05-28,Night,BWE2,BWE2,machine,EE,CM,track trip,01:17,01:56,0.65,1
+d20250528-03,2025-05-28,Night,BWE2,BWE2,machine,EE,CM,track trip,02:14,02:56,0.7,1
+d20250528-04,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,03:30,03:36,0.1,1
+d20250528-05,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:01,04:09,0.13,1
+d20250528-06,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:40,04:48,0.13,1
+d20250528-07,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:32,05:40,0.13,1
+d20250528-08,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,เปลี่ยนกะ,06:30,07:00,0.5,1
+d20250528-09,2025-05-28,Day,BWE2,BWE2,machine,EE,CM,Start ไม่ผ่าน,07:00,12:03,5.05,1
+d20250528-10,2025-05-28,Day,BWE2,BWE2,machine,CV,CM,A9 ดินอัดท้าย,13:30,13:35,0.08,1
+d20250528-11,2025-05-28,Day,BWE2,BWE2,machine,EE,CM,สัญญาณ Wheel ไม่พร้อม,14:14,14:40,0.43,1
+d20250528-12,2025-05-28,Day,BWE2,BWE2,machine,ME,CM,แก้ไขท่อจาระบี,15:08,16:00,0.87,1
+d20250528-13,2025-05-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:40,16:45,0.08,1
+d20250528-14,2025-05-28,Day,BWE2,BWE2,machine,CV,CM,เช็ค Tension Discharge,18:06,19:10,1.07,1
+d20250528-15,2025-05-28,Night,BWE2,BWE2,machine,CV,CM,เอา Carry ออกจากสายพาน,19:39,19:50,0.18,1
+d20250528-16,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,19:58,20:02,0.07,1
+d20250528-17,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,แก้ไขทางรถน้ำ,20:20,20:55,0.58,1
+d20250528-18,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:15,21:23,0.13,1
+d20250528-19,2025-05-28,Night,BWE2,BWE2,machine,CV,CM,A9 ดินอัดท้าย,22:28,22:44,0.27,1
+d20250528-20,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,23:04,23:10,0.1,1
+d20250528-21,2025-05-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:12,23:23,0.18,1
+d20250529-01,2025-05-29,Night,BWE2,BWE2,machine,CV,CM,เอา สเปร์บาร์ ออกจากสายพาน,01:00,01:12,0.2,1
+d20250529-02,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,01:37,01:58,0.35,1
+d20250529-03,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:41,02:50,0.15,1
+d20250529-04,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:22,03:28,0.1,1
+d20250529-05,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:16,04:22,0.1,1
+d20250529-06,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:25,05:30,0.08,1
+d20250529-07,2025-05-29,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:05,07:00,0.92,1
+d20250529-08,2025-05-29,Day,BWE2,BWE2,machine,OPT,Other,เช็คเครื่องจักร,07:00,07:26,0.43,1
+d20250529-09,2025-05-29,Day,BWE2,BWE2,machine,CV,CM,Belt rip trip,08:00,08:32,0.53,1
+d20250529-10,2025-05-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:05,11:10,0.08,1
+d20250529-11,2025-05-29,Day,BWE2,BWE2,machine,ME,CM,แก้ไขการ์ดสายพาน Wheel Boom,11:13,11:46,0.55,1
+d20250529-12,2025-05-29,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:34,12:40,0.1,1
+d20250529-13,2025-05-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:39,13:42,0.05,1
+d20250529-14,2025-05-29,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,14:20,15:00,0.67,1
+d20250529-15,2025-05-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:48,15:52,0.07,1
+d20250529-16,2025-05-29,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,16:02,16:30,0.47,1
+d20250529-17,2025-05-29,Day,BWE2,BWE2,machine,System,Rain,รอเคลียร์หน้างาน,17:30,19:40,2.17,1
+d20250529-18,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:20,20:25,0.08,1
+d20250529-19,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:54,21:00,0.1,1
+d20250529-20,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:07,22:14,0.12,1
+d20250529-21,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,22:40,22:54,0.23,1
+d20250529-22,2025-05-29,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:59,23:04,0.08,1
+d20250529-23,2025-05-29,Night,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,23:31,23:37,0.1,1
+d20250529-24,2025-05-29,Night,BWE2,BWE2,machine,CV,CM,Belt rip trip,23:54,00:38,0.73,1
+d20250530-01,2025-05-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:09,00:24,0.25,1
+d20250530-02,2025-05-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:34,00:37,0.05,1
+d20250530-03,2025-05-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:16,01:46,0.5,1
+d20250530-04,2025-05-30,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:30,02:37,0.12,1
+d20250530-05,2025-05-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:39,03:44,0.08,1
+d20250530-06,2025-05-30,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,03:54,11:25,7.52,1
+d20250530-07,2025-05-30,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,16:10,9.17,1
+d20250530-08,2025-05-30,Day,BWE2,BWE2,machine,ME,CM,แก้ไขสาย Hose Gear Wheel,16:10,19:00,2.83,1
+d20250530-09,2025-05-30,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,19:00,23:08,4.13,1
+d20250530-10,2025-05-30,Night,BWE2,BWE2,machine,CV,Idle,โหลดไล่น้ำ,23:08,00:09,1.02,1
+d20250531-01,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:58,02:04,0.1,1
+d20250531-02,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:44,02:52,0.13,1
+d20250531-03,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:30,03:37,0.12,1
+d20250531-04,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:20,04:28,0.13,1
+d20250531-05,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:18,06:05,0.78,1
+d20250531-06,2025-05-31,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:05,07:00,0.92,1
+d20250531-07,2025-05-31,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,11:25,11:46,0.35,1
+d20250531-08,2025-05-31,Day,BWE2,BWE2,machine,ME,CM,หยุดแก้ไข Slew Discharge,12:40,13:00,0.33,1
+d20250531-09,2025-05-31,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Impact,13:00,13:12,0.2,1
+d20250531-10,2025-05-31,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:02,15:06,0.07,1
+d20250531-11,2025-05-31,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:23,15:26,0.05,1
+d20250531-12,2025-05-31,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:05,17:12,0.12,1
+d20250531-13,2025-05-31,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:12,17:25,0.22,1
+d20250531-14,2025-05-31,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:07,0.45,1
+d20250531-15,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:25,20:30,0.08,1
+d20250531-16,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:58,21:04,0.1,1
+d20250531-17,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:57,23:04,0.12,1
+d20250531-18,2025-05-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:34,23:46,0.2,1
+d20250531-19,2025-05-31,Night,BWE2,BWE2,machine,CV,CM,Belt rip trip,23:51,01:20,1.48,1
+d20250601-01,2025-06-01,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,01:40,03:58,2.3,1
+d20250601-02,2025-06-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:38,04:39,0.02,1
+d20250601-03,2025-06-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:41,05:46,0.08,1
+d20250601-04,2025-06-01,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250601-05,2025-06-01,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,07:00,07:12,0.2,1
+d20250601-06,2025-06-01,Day,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,07:22,07:40,0.3,1
+d20250601-07,2025-06-01,Day,BWE2,A9,line,ME,CM,แก้ไขปุ่ม ตึง/หย่อน Tension,07:40,08:15,0.58,1
+d20250601-08,2025-06-01,Day,BWE2,A9.1,line,ME,CM,เปลี่ยน Return,08:15,08:50,0.58,1
+d20250601-09,2025-06-01,Day,BWE2,BWE2,machine,OPT,CM,เคลียร์ดินใต้ Discharge,08:50,09:35,0.75,1
+d20250601-10,2025-06-01,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,10:00,10:21,0.35,1
+d20250601-11,2025-06-01,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,10:42,11:00,0.3,1
+d20250601-12,2025-06-01,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:04,12:07,0.05,1
+d20250601-13,2025-06-01,Day,BWE2,SPD.A,spreader,Uncontrol,Rain,ดูท่าทีฝน,12:42,13:12,0.5,1
+d20250601-14,2025-06-01,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Impact,14:40,14:44,0.07,1
+d20250601-15,2025-06-01,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:20,15:25,0.08,1
+d20250601-16,2025-06-01,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Impact,15:30,16:20,0.83,1
+d20250601-17,2025-06-01,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:39,19:11,0.53,1
+d20250601-18,2025-06-01,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,20:07,20:18,0.18,1
+d20250601-19,2025-06-01,Night,BWE2,A2,line,ME,CM,เปลียน Carry,22:04,22:48,0.73,1
+d20250601-20,2025-06-01,Night,BWE2,A8,line,EE,CM,trip RTD NPE MD2,23:46,00:38,0.87,1
+d20250602-01,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:50,00:52,0.03,1
+d20250602-02,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:31,01:37,0.1,1
+d20250602-03,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:15,02:21,0.1,1
+d20250602-04,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:28,02:34,0.1,1
+d20250602-05,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:15,03:19,0.07,1
+d20250602-06,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:05,04:10,0.08,1
+d20250602-07,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:45,04:55,0.17,1
+d20250602-08,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:32,05:40,0.13,1
+d20250602-09,2025-06-02,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250602-10,2025-06-02,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,19:00,12.0,1
+d20250602-11,2025-06-02,Night,BWE2,Line A,line,OPT,Idle,เปลี่ยนกะ,19:00,20:08,1.13,1
+d20250602-12,2025-06-02,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,20:22,21:04,0.7,1
+d20250602-13,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:31,21:37,0.1,1
+d20250602-14,2025-06-02,Night,BWE2,A9.1,line,CV,CM,ตัดยางแผลเปิด,22:16,22:33,0.28,1
+d20250602-15,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:14,23:17,0.05,1
+d20250602-16,2025-06-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:40,23:50,0.17,1
+d20250603-01,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,02:05,02:45,0.67,1
+d20250603-02,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:00,04:08,0.13,1
+d20250603-03,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:07,05:14,0.12,1
+d20250603-04,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:40,05:46,0.1,1
+d20250603-05,2025-06-03,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,08:00,1.0,1
+d20250603-06,2025-06-03,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,08:00,08:45,0.75,1
+d20250603-07,2025-06-03,Day,BWE2,BWE2,machine,ME,CM,ติด Oil Tank Limit,08:49,08:57,0.13,1
+d20250603-08,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,09:28,09:37,0.15,1
+d20250603-09,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:53,09:56,0.05,1
+d20250603-10,2025-06-03,Day,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,10:11,10:28,0.28,1
+d20250603-11,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:48,11:52,0.07,1
+d20250603-12,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:30,13:36,0.1,1
+d20250603-13,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:20,14:30,0.17,1
+d20250603-14,2025-06-03,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,14:30,16:32,2.03,1
+d20250603-15,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:24,17:26,0.03,1
+d20250603-16,2025-06-03,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,17:45,18:08,0.38,1
+d20250603-17,2025-06-03,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:30,19:00,0.5,1
+d20250603-18,2025-06-03,Night,BWE2,A7,line,ME,CM,เปลี่ยน Return,19:00,19:45,0.75,1
+d20250603-19,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,19:45,20:10,0.42,1
+d20250603-20,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:51,21:02,0.18,1
+d20250603-21,2025-06-03,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,23:45,23:52,0.12,1
+d20250604-01,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,00:24,00:32,0.13,1
+d20250604-02,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,01:00,01:28,0.47,1
+d20250604-03,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:33,02:43,0.17,1
+d20250604-04,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:50,03:59,0.15,1
+d20250604-05,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:44,04:52,0.13,1
+d20250604-06,2025-06-04,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:57,07:00,1.05,1
+d20250604-07,2025-06-04,Day,BWE2,SPD.A,spreader,CV,CM,ตัดสลิงสายพาน,07:00,07:50,0.83,1
+d20250604-08,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,07:50,08:11,0.35,1
+d20250604-09,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:38,09:56,0.3,1
+d20250604-10,2025-06-04,Day,BWE2,SPD.A,spreader,CV,CM,ซ่อมเย็นสายพาน,10:44,12:24,1.67,1
+d20250604-11,2025-06-04,Day,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,12:24,12:43,0.32,1
+d20250604-12,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,Clear track,13:20,13:24,0.07,1
+d20250604-13,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:01,14:07,0.1,1
+d20250604-14,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,14:35,14:37,0.03,1
+d20250604-15,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:37,15:02,0.42,1
+d20250604-16,2025-06-04,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:36,15:39,0.05,1
+d20250604-17,2025-06-04,Day,BWE2,SPD.A,spreader,ME,CM,Tripper Car เดินไม่ได้,16:30,16:54,0.4,1
+d20250604-18,2025-06-04,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:36,20:09,2.55,1
+d20250604-19,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,21:00,21:08,0.13,1
+d20250604-20,2025-06-04,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:00,22:10,0.17,1
+d20250604-21,2025-06-04,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,22:40,23:49,1.15,1
+d20250605-01,2025-06-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:37,00:44,0.12,1
+d20250605-02,2025-06-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:02,02:12,0.17,1
+d20250605-03,2025-06-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:40,02:50,0.17,1
+d20250605-04,2025-06-05,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,03:08,03:18,0.17,1
+d20250605-05,2025-06-05,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:20,04:32,0.2,1
+d20250605-06,2025-06-05,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,04:58,05:05,0.12,1
+d20250605-07,2025-06-05,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:30,07:00,0.5,1
+d20250605-08,2025-06-05,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,16:34,9.57,1
+d20250605-09,2025-06-05,Day,BWE2,A7,line,EE,CM,Trip belt rip,16:35,16:53,0.3,1
+d20250605-10,2025-06-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:42,17:52,0.17,1
+d20250605-11,2025-06-05,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:58,19:00,1.03,1
+d20250605-12,2025-06-05,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,19:00,19:12,0.2,1
+d20250605-13,2025-06-05,Night,BWE2,A9,line,CV,CM,เอาเหล็กโต๊ะออกจากหน้าขุด,20:14,20:28,0.23,1
+d20250605-14,2025-06-05,Night,BWE2,A9,line,CV,CM,เคลียร์ดินอัดสายพาน,22:47,23:58,1.18,1
+d20250606-01,2025-06-06,Night,BWE2,BWE2,machine,ME,CM,track trip,01:20,01:32,0.2,1
+d20250606-02,2025-06-06,Night,BWE2,BWE2,machine,ME,CM,track trip,01:35,01:38,0.05,1
+d20250606-03,2025-06-06,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:15,02:20,0.08,1
+d20250606-04,2025-06-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:10,03:16,0.1,1
+d20250606-05,2025-06-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:55,04:01,0.1,1
+d20250606-06,2025-06-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:06,05:45,0.65,1
+d20250606-07,2025-06-06,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:30,07:00,0.5,1
+d20250606-08,2025-06-06,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,07:00,07:30,0.5,1
+d20250606-09,2025-06-06,Day,BWE2,BWE2,machine,OPT,Other,ทำทางเดิน BW,07:30,08:45,1.25,1
+d20250606-10,2025-06-06,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,08:45,09:00,0.25,1
+d20250606-11,2025-06-06,Day,BWE2,BWE2,machine,ME,CM,เปลี่ยนยาง V-Scapper Wheel Boom,09:00,13:20,4.33,1
+d20250606-12,2025-06-06,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:52,14:00,0.13,1
+d20250606-13,2025-06-06,Day,BWE2,SPD.A,spreader,CV,Idle,SPD.A เดินอ้อมหัว,14:00,15:40,1.67,1
+d20250606-14,2025-06-06,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,15:43,15:51,0.13,1
+d20250606-15,2025-06-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:04,16:07,0.05,1
+d20250606-16,2025-06-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:19,16:20,0.02,1
+d20250606-17,2025-06-06,Day,BWE2,A9,line,CV,CM,สายพาน Slide,16:33,16:46,0.22,1
+d20250606-18,2025-06-06,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,17:51,19:00,1.15,1
+d20250606-19,2025-06-06,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,19:00,19:18,0.3,1
+d20250606-20,2025-06-06,Night,BWE2,SPD.A,spreader,ME,CM,ย้ายสาย Sequener,19:55,21:11,1.27,1
+d20250606-21,2025-06-06,Night,BWE2,BWE2,machine,ME,CM,Track เดินไม่ได้,23:26,01:14,1.8,1
+d20250607-01,2025-06-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:11,01:15,0.07,1
+d20250607-02,2025-06-07,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,01:26,01:48,0.37,1
+d20250607-03,2025-06-07,Night,BWE2,A3,line,ME,CM,เปลี่ยน Return,01:48,02:33,0.75,1
+d20250607-04,2025-06-07,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,03:24,03:30,0.1,1
+d20250607-05,2025-06-07,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:16,05:30,0.23,1
+d20250607-06,2025-06-07,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:40,07:00,0.33,1
+d20250607-07,2025-06-07,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,16:06,9.1,1
+d20250607-08,2025-06-07,Day,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,17:06,17:13,0.12,1
+d20250607-09,2025-06-07,Day,BWE2,BWE2,machine,ME,CM,track trip,17:39,17:46,0.12,1
+d20250607-10,2025-06-07,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:16,0.6,1
+d20250607-11,2025-06-07,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,19:20,00:38,5.3,1
+d20250608-01,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:27,00:35,0.13,1
+d20250608-02,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,กู้รถน้ำออกจากหน้าขุด,01:17,01:47,0.5,1
+d20250608-03,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:40,02:45,0.08,1
+d20250608-04,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:06,03:09,0.05,1
+d20250608-05,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:30,03:32,0.03,1
+d20250608-06,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:58,04:03,0.08,1
+d20250608-07,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:30,04:34,0.07,1
+d20250608-08,2025-06-08,Night,BWE2,A3,line,CV,CM,เช็คสายพาน,04:39,05:31,0.87,1
+d20250608-09,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,06:00,06:03,0.05,1
+d20250608-10,2025-06-08,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:32,07:00,0.47,1
+d20250608-11,2025-06-08,Day,BWE2,BWE2,machine,OPT,Idle,ตรวจเช็คเครื่องจักร,07:00,07:37,0.62,1
+d20250608-12,2025-06-08,Day,BWE2,A9,line,CV,CM,เอา Carry ออกจากสายพาน,08:15,08:20,0.08,1
+d20250608-13,2025-06-08,Day,BWE2,A9,line,CV,CM,แก้ไข Bracing,08:20,08:40,0.33,1
+d20250608-14,2025-06-08,Day,BWE2,BWE2,machine,ME,CM,แก้ไข การ์ด Wheel Boom,08:40,16:20,7.67,1
+d20250608-15,2025-06-08,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:58,18:01,0.05,1
+d20250608-16,2025-06-08,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:37,19:15,0.63,1
+d20250608-17,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,21:27,21:44,0.28,1
+d20250608-18,2025-06-08,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,22:02,22:27,0.42,1
+d20250609-01,2025-06-09,Night,BWE2,A2,line,EE,CM,Trip Belt Rip,01:46,02:47,1.02,1
+d20250609-02,2025-06-09,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:35,03:42,0.12,1
+d20250609-03,2025-06-09,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,04:19,04:30,0.18,1
+d20250609-04,2025-06-09,Night,BWE2,BWE2,machine,OPT,Other,เอา casing drill rig ออกจากหน้างาน,05:00,05:16,0.27,1
+d20250609-05,2025-06-09,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250609-06,2025-06-09,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,19:00,12.0,1
+d20250609-07,2025-06-09,Night,BWE2,A3,line,CV,PM,Resplice สายพาน,19:00,01:46,6.77,1
+d20250610-01,2025-06-10,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,00:24,00:28,0.07,1
+d20250610-02,2025-06-10,Night,BWE2,A3,line,EE,CM,Trip Belt Rip,01:47,02:08,0.35,1
+d20250610-03,2025-06-10,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,02:08,07:00,4.87,1
+d20250610-04,2025-06-10,Day,BWE2,BWE2,machine,ME,CM,เช็ค Gear Box Pulley สายพาน Wheel Boom,07:00,12:09,5.15,1
+d20250610-05,2025-06-10,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,12:09,13:30,1.35,1
+d20250610-06,2025-06-10,Day,BWE2,A11,line,CV,CM,เปลี่ยน Flat Return,13:30,14:50,1.33,1
+d20250610-07,2025-06-10,Day,BWE2,BWE2,machine,CV,Idle,โหลดไล่น้ำ,14:50,15:34,0.73,1
+d20250610-08,2025-06-10,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,15:56,16:00,0.07,1
+d20250610-09,2025-06-10,Day,BWE2,BWE2,machine,ME,CM,เเก้ไข Bolt หน้า Flange Pulley Wheel Boom,16:00,17:23,1.38,1
+d20250610-10,2025-06-10,Day,BWE2,BWE2,machine,ME,CM,เช็ค Gear Box Pulley สายพาน Wheel Boom,17:30,17:50,0.33,1
+d20250610-11,2025-06-10,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:16,0.6,1
+d20250610-12,2025-06-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:17,21:22,0.08,1
+d20250611-01,2025-06-11,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,07:00,11:17,4.28,1
+d20250611-02,2025-06-11,Day,BWE2,BWE2,machine,OPT,Other,Clear track,11:30,11:36,0.1,1
+d20250611-03,2025-06-11,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,11:36,12:15,0.65,1
+d20250611-04,2025-06-11,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:05,14:07,0.03,1
+d20250611-05,2025-06-11,Day,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,14:53,15:05,0.2,1
+d20250611-06,2025-06-11,Day,BWE2,A2,line,EE,CM,Trip cross bar,15:06,15:35,0.48,1
+d20250611-07,2025-06-11,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:49,15:50,0.02,1
+d20250611-08,2025-06-11,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,15:58,16:05,0.12,1
+d20250611-09,2025-06-11,Day,BWE2,BWE2,machine,ME,CM,ออยเลอร์ เข้าเช็คน้ำมันรั่วหน้า Wheel Boom,16:27,16:41,0.23,1
+d20250611-10,2025-06-11,Day,BWE2,A3,line,EE,CM,Trip cross bar,17:14,17:30,0.27,1
+d20250611-11,2025-06-11,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,17:30,19:00,1.5,1
+d20250611-12,2025-06-11,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,19:00,23:15,4.25,1
+d20250611-13,2025-06-11,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,23:15,07:00,7.75,1
+d20250612-01,2025-06-12,Night,BWE2,BWE2,machine,OPT,Other,ดินถมสาย,01:41,01:47,0.1,1
+d20250612-02,2025-06-12,Night,BWE2,BWE2,machine,ME,CM,แก้ไขท่อน้ำ,01:47,02:23,0.6,1
+d20250612-03,2025-06-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:55,03:02,0.12,1
+d20250612-04,2025-06-12,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,04:18,04:28,0.17,1
+d20250612-05,2025-06-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:06,05:14,0.13,1
+d20250612-06,2025-06-12,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:50,07:00,1.17,1
+d20250612-07,2025-06-12,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,07:00,07:55,0.92,1
+d20250612-08,2025-06-12,Day,BWE2,BWE2,machine,OPT,Other,Clear track,07:55,09:05,1.17,1
+d20250612-09,2025-06-12,Day,BWE2,BWE2,machine,ME,CM,แก้ไขตลับจาระบี,09:05,09:45,0.67,1
+d20250612-10,2025-06-12,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์เส้นทางระเบิด,09:45,13:58,4.22,1
+d20250612-11,2025-06-12,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:18,14:20,0.03,1
+d20250612-12,2025-06-12,Day,BWE2,A8,line,EE,CM,Trip oil pump,14:20,14:30,0.17,1
+d20250612-13,2025-06-12,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:28,15:40,0.2,1
+d20250612-14,2025-06-12,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,16:42,18:18,1.6,1
+d20250612-15,2025-06-12,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:18,0.63,1
+d20250612-16,2025-06-12,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,20:19,20:29,0.17,1
+d20250612-17,2025-06-12,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:10,23:25,0.25,1
+d20250613-01,2025-06-13,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,00:10,01:00,0.83,1
+d20250613-02,2025-06-13,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:15,01:26,0.18,1
+d20250613-03,2025-06-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:51,01:56,0.08,1
+d20250613-04,2025-06-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:23,02:25,0.03,1
+d20250613-05,2025-06-13,Night,BWE2,BWE2,machine,ME,CM,เช็ค Carry สายพาน,02:37,04:07,1.5,1
+d20250613-06,2025-06-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:00,05:02,0.03,1
+d20250613-07,2025-06-13,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250613-08,2025-06-13,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,07:25,0.42,1
+d20250613-09,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,Clear track,08:02,08:10,0.13,1
+d20250613-10,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:00,10:17,0.28,1
+d20250613-11,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:36,11:40,0.07,1
+d20250613-12,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:39,13:44,0.08,1
+d20250613-13,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:16,14:26,0.17,1
+d20250613-14,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,14:39,14:44,0.08,1
+d20250613-15,2025-06-13,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,14:44,14:57,0.22,1
+d20250613-16,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:33,15:36,0.05,1
+d20250613-17,2025-06-13,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:11,17:15,0.07,1
+d20250613-18,2025-06-13,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,17:40,21:48,4.13,1
+d20250613-19,2025-06-13,Night,BWE2,BWE2,machine,CV,Idle,โหลดไล่น้ำ,21:52,22:33,0.68,1
+d20250613-20,2025-06-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:10,23:16,0.1,1
+d20250614-01,2025-06-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:26,00:31,0.08,1
+d20250614-02,2025-06-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:48,01:50,0.03,1
+d20250614-03,2025-06-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:16,02:22,0.1,1
+d20250614-04,2025-06-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:45,03:56,0.18,1
+d20250614-05,2025-06-14,Night,BWE2,A5,line,EE,CM,Trip Belt Rip,04:27,04:57,0.5,1
+d20250614-06,2025-06-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:30,05:39,0.15,1
+d20250614-07,2025-06-14,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,14:40,7.67,1
+d20250614-08,2025-06-14,Day,BWE2,BWE2,machine,ME,CM,เช็ค Gear Box Pulley สายพาน Wheel Boom,14:40,15:31,0.85,1
+d20250614-09,2025-06-14,Day,BWE2,A1,line,EE,CM,Trip Temperature Winding,15:31,17:25,1.9,1
+d20250614-10,2025-06-14,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,17:25,23:54,6.48,1
+d20250615-01,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:49,01:55,0.1,1
+d20250615-02,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:35,02:41,0.1,1
+d20250615-03,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:21,03:26,0.08,1
+d20250615-04,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:44,05:14,0.5,1
+d20250615-05,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:51,05:54,0.05,1
+d20250615-06,2025-06-15,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250615-07,2025-06-15,Day,BWE2,A1,line,CV,CM,เปลี่ยน Flat Return,07:00,08:14,1.23,1
+d20250615-08,2025-06-15,Day,BWE2,BWE2,machine,ME,CM,รอเเก้ไข รถ Tractor,09:00,16:20,7.33,1
+d20250615-09,2025-06-15,Day,BWE2,A4,line,CV,CM,A4 ดิน Block Chute,16:20,17:19,0.98,1
+d20250615-10,2025-06-15,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:41,19:07,0.43,1
+d20250615-11,2025-06-15,Night,BWE2,A2,line,CV,CM,เปลี่ยน Flat Return,19:09,20:24,1.25,1
+d20250615-12,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:57,22:05,0.13,1
+d20250615-13,2025-06-15,Night,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,23:24,23:30,0.1,1
+d20250616-01,2025-06-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:47,00:50,0.05,1
+d20250616-02,2025-06-16,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:56,01:00,0.07,1
+d20250616-03,2025-06-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:17,03:22,0.08,1
+d20250616-04,2025-06-16,Night,BWE2,BWE2,machine,ME,CM,track trip,03:48,03:54,0.1,1
+d20250616-05,2025-06-16,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:48,04:50,0.03,1
+d20250616-06,2025-06-16,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:00,07:00,2.0,1
+d20250616-07,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:40,08:49,0.15,1
+d20250616-08,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:14,09:17,0.05,1
+d20250616-09,2025-06-16,Day,BWE2,A6,line,EE,CM,Trip Belt Rip,10:26,11:00,0.57,1
+d20250616-10,2025-06-16,Day,BWE2,BWE2,machine,OPT,Idle,ตรวจเช็คเครื่องจักร,11:00,13:00,2.0,1
+d20250616-11,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,OPT.รอรถบริการลงหน้างาน (รถเสีย),13:00,13:30,0.5,1
+d20250616-12,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,13:30,14:12,0.7,1
+d20250616-13,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,ย้ายสาย 6.6 kv.,14:12,14:50,0.63,1
+d20250616-14,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,เดินเข้าหน้าขุด,14:50,15:09,0.32,1
+d20250616-15,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:49,16:51,0.03,1
+d20250616-16,2025-06-16,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์ดินอัดใต้ Discharge,17:30,18:43,1.22,1
+d20250616-17,2025-06-16,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,20:00,21:55,1.92,1
+d20250616-18,2025-06-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:29,22:33,0.07,1
+d20250617-01,2025-06-17,Night,BWE2,A5,line,EE,CM,Trip Belt Rip,01:14,01:33,0.32,1
+d20250617-02,2025-06-17,Night,BWE2,BWE2,machine,EE,CM,ติด Crawler Brake,01:54,02:00,0.1,1
+d20250617-03,2025-06-17,Night,BWE2,A9,line,CV,CM,ดินไหลกลับท้าย,02:05,02:26,0.35,1
+d20250617-04,2025-06-17,Night,BWE2,BWE2,machine,EE,CM,ติด Crawler Brake,02:38,02:46,0.13,1
+d20250617-05,2025-06-17,Night,BWE2,A9,line,CV,CM,ปลี่ยน Flat Return,03:28,03:47,0.32,1
+d20250617-06,2025-06-17,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:00,04:02,0.03,1
+d20250617-07,2025-06-17,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:12,04:19,0.12,1
+d20250617-08,2025-06-17,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:58,07:00,1.03,1
+d20250617-09,2025-06-17,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,15:00,8.0,1
+d20250617-10,2025-06-17,Day,BWE2,BWE2,machine,ME,CM,เชื่อมปลอกฟัน,15:00,15:37,0.62,1
+d20250617-11,2025-06-17,Day,BWE2,Line A,line,OPT,Idle,Stand By,15:37,16:16,0.65,1
+d20250617-12,2025-06-17,Day,BWE2,Line A,line,Uncontrol,Rain,ดูท่าทีฝน,18:03,18:16,0.22,1
+d20250617-13,2025-06-17,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:05,0.42,1
+d20250617-14,2025-06-17,Night,BWE2,A8,line,EE,CM,Trip Coss Bar,19:32,19:51,0.32,1
+d20250617-15,2025-06-17,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:18,21:23,0.08,1
+d20250617-16,2025-06-17,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:16,22:23,0.12,1
+d20250617-17,2025-06-17,Night,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,22:38,22:42,0.07,1
+d20250617-18,2025-06-17,Night,BWE2,BWE2,machine,EE,CM,ติด Crawler Brake,23:18,23:24,0.1,1
+d20250617-19,2025-06-17,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,23:50,01:14,1.4,1
+d20250618-01,2025-06-18,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:58,01:05,0.12,1
+d20250618-02,2025-06-18,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:42,02:48,0.1,1
+d20250618-03,2025-06-18,Night,BWE2,BWE2,machine,ME,CM,ติด Slewing Discharge limit right,03:40,03:50,0.17,1
+d20250618-04,2025-06-18,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:35,04:40,0.08,1
+d20250618-05,2025-06-18,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250618-06,2025-06-18,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,07:15,0.25,1
+d20250618-07,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้า,07:15,08:40,1.42,1
+d20250618-08,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:52,08:57,0.08,1
+d20250618-09,2025-06-18,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,09:14,09:25,0.18,1
+d20250618-10,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:45,09:50,0.08,1
+d20250618-11,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้า,09:50,10:01,0.18,1
+d20250618-12,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,10:07,11:42,1.58,1
+d20250618-13,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:07,12:12,0.08,1
+d20250618-14,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:48,13:51,0.05,1
+d20250618-15,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:56,14:59,0.05,1
+d20250618-16,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:45,15:53,0.13,1
+d20250618-17,2025-06-18,Day,BWE2,BWE2,machine,ME,CM,เช็คสายพาน Wheel Boom,16:23,16:26,0.05,1
+d20250618-18,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:57,17:01,0.07,1
+d20250618-19,2025-06-18,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:40,17:50,0.17,1
+d20250618-20,2025-06-18,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:40,19:17,0.62,1
+d20250618-21,2025-06-18,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,20:30,21:33,1.05,1
+d20250618-22,2025-06-18,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:00,22:02,0.03,1
+d20250618-23,2025-06-18,Night,BWE2,SPD.A,spreader,CV,CM,ตัดยางซ่อมร้อน,23:22,00:37,1.25,1
+d20250619-01,2025-06-19,Night,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,00:30,00:35,0.08,1
+d20250619-02,2025-06-19,Night,BWE2,BWE2,machine,OPT,CM,เคลียร์ดินอัด Scraper Wheel Boom,00:35,00:52,0.28,1
+d20250619-03,2025-06-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:50,01:57,0.12,1
+d20250619-04,2025-06-19,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Impact Hopper Car,02:10,02:20,0.17,1
+d20250619-05,2025-06-19,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:43,02:47,0.07,1
+d20250619-06,2025-06-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:03,04:08,0.08,1
+d20250619-07,2025-06-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:41,05:45,0.07,1
+d20250619-08,2025-06-19,Day,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,07:00,09:00,2.0,1
+d20250619-09,2025-06-19,Day,BWE2,Line A,line,CV,PM,PM Line A,09:00,16:51,7.85,1
+d20250619-10,2025-06-19,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:37,17:40,0.05,1
+d20250619-11,2025-06-19,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:55,18:02,0.12,1
+d20250619-12,2025-06-19,Day,BWE2,BWE2,machine,OPT,Idle,ตรวจเช็คเครื่องจักร,18:30,19:14,0.73,1
+d20250619-13,2025-06-19,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Impact Discharge,19:51,20:38,0.78,1
+d20250619-14,2025-06-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:00,22:05,0.08,1
+d20250619-15,2025-06-19,Night,BWE2,A1,line,ME,CM,เปลี่ยน Return,22:12,23:34,1.37,1
+d20250619-16,2025-06-19,Night,BWE2,BWE2,machine,ME,CM,เช็คอุณหภูมิ Gearbox,23:51,00:05,0.23,1
+d20250620-01,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:10,01:14,0.07,1
+d20250620-02,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:20,02:24,0.07,1
+d20250620-03,2025-06-20,Night,BWE2,SPD.A,spreader,EE,CM,"SPD.A Trip ค่า X,Y",04:05,04:34,0.48,1
+d20250620-04,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:19,05:22,0.05,1
+d20250620-05,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,Clear track,06:20,06:30,0.17,1
+d20250620-06,2025-06-20,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:40,07:00,0.33,1
+d20250620-07,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,07:00,08:00,1.0,1
+d20250620-08,2025-06-20,Day,BWE2,SPD.A,spreader,EE,Other,ย้ายสาย 6.6 kv.,08:00,09:40,1.67,1
+d20250620-09,2025-06-20,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,10:11,10:19,0.13,1
+d20250620-10,2025-06-20,Day,BWE2,A9,line,ME,CM,เปลียน Carry,10:50,11:04,0.23,1
+d20250620-11,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:43,11:47,0.07,1
+d20250620-12,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,12:40,12:49,0.15,1
+d20250620-13,2025-06-20,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,12:57,13:31,0.57,1
+d20250620-14,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:48,14:00,0.2,1
+d20250620-15,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,14:30,15:01,0.52,1
+d20250620-16,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:47,15:51,0.07,1
+d20250620-17,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:20,16:29,0.15,1
+d20250620-18,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:12,17:20,0.13,1
+d20250620-19,2025-06-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,18:22,18:35,0.22,1
+d20250620-20,2025-06-20,Day,BWE2,BWE2,machine,OPT,Idle,ตรวจเช็คเครื่องจักร,18:35,19:16,0.68,1
+d20250620-21,2025-06-20,Night,BWE2,BWE2,machine,CV,CM,ตัดสลิงสายพาน,20:03,20:13,0.17,1
+d20250620-22,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:22,20:25,0.05,1
+d20250620-23,2025-06-20,Night,BWE2,BWE2,machine,OPT,CM,เคลียร์ดินอัด Snup Pulley Wheel Boom,21:00,21:41,0.68,1
+d20250620-24,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:17,22:21,0.07,1
+d20250620-25,2025-06-20,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,23:40,00:29,0.82,1
+d20250621-01,2025-06-21,Day,BWE2,Line A,line,CV,CM,Extend สายพาน A1,07:00,19:00,12.0,1
+d20250621-02,2025-06-21,Night,BWE2,Line A,line,CV,CM,Extend สายพาน A1,19:00,07:00,12.0,1
+d20250622-01,2025-06-22,Night,BWE2,BWE2,machine,CV,CM,Impact Hopper Car Link ขาด,00:52,01:38,0.77,1
+d20250622-02,2025-06-22,Night,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,01:38,01:55,0.28,1
+d20250622-03,2025-06-22,Night,BWE2,Line A,line,Uncontrol,Rain,ดูท่าทีฝน,02:30,02:55,0.42,1
+d20250622-04,2025-06-22,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:40,03:51,0.18,1
+d20250622-05,2025-06-22,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:03,05:08,0.08,1
+d20250622-06,2025-06-22,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:58,07:00,1.03,1
+d20250622-07,2025-06-22,Day,BWE2,Line A,line,CV,CM,Extend สายพาน A1,07:00,10:30,3.5,1
+d20250622-08,2025-06-22,Day,BWE2,Line A,line,EE,CM,ไฟดับ,10:30,11:30,1.0,1
+d20250622-09,2025-06-22,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,11:30,12:08,0.63,1
+d20250622-10,2025-06-22,Day,BWE2,A9,line,EE,CM,Trip Belt Rip,12:08,12:25,0.28,1
+d20250622-11,2025-06-22,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Bracing Wheel Boom,13:07,17:23,4.27,1
+d20250622-12,2025-06-22,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:45,17:47,0.03,1
+d20250622-13,2025-06-22,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,18:12,18:19,0.12,1
+d20250622-14,2025-06-22,Night,BWE2,BWE2,machine,ME,CM,เช็ค Track มีเสียงดังผิดปกติ,19:00,19:30,0.5,1
+d20250622-15,2025-06-22,Night,BWE2,A9,line,CV,CM,สายพาน Slide,21:02,21:05,0.05,1
+d20250622-16,2025-06-22,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:21,21:25,0.07,1
+d20250622-17,2025-06-22,Night,BWE2,BWE2,machine,OPT,CM,ดินอัด Snup Pulley Wheel Boom,22:10,22:34,0.4,1
+d20250622-18,2025-06-22,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:25,23:29,0.07,1
+d20250623-01,2025-06-23,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:24,00:27,0.05,1
+d20250623-02,2025-06-23,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,01:45,07:00,5.25,1
+d20250623-03,2025-06-23,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,07:17,0.28,1
+d20250623-04,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้า,07:17,08:46,1.48,1
+d20250623-05,2025-06-23,Day,BWE2,BWE2,machine,OPT,CM,เคลียร์ดินอัดสายพาน Wheel Boom,09:30,09:36,0.1,1
+d20250623-06,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:45,09:50,0.08,1
+d20250623-07,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,10:42,10:50,0.13,1
+d20250623-08,2025-06-23,Day,BWE2,A3,line,EE,CM,trip Block Chute,11:00,11:30,0.5,1
+d20250623-09,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:20,12:27,0.12,1
+d20250623-10,2025-06-23,Day,BWE2,BWE2,machine,ME,CM,เชื่อมสลัดแทรค,13:34,14:07,0.55,1
+d20250623-11,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,14:07,14:50,0.72,1
+d20250623-12,2025-06-23,Day,BWE2,BWE2,machine,ME,CM,เช็คฟันบุ้งกี๋,16:01,16:16,0.25,1
+d20250623-13,2025-06-23,Day,BWE2,A9,line,EE,CM,Trip Belt Rip,16:20,16:27,0.12,1
+d20250623-14,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,16:41,16:51,0.17,1
+d20250623-15,2025-06-23,Day,BWE2,A6,line,CV,CM,A6 ตัดสลิงสายพาน,17:16,17:52,0.6,1
+d20250623-16,2025-06-23,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:17,17:21,0.07,1
+d20250623-17,2025-06-23,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:30,19:14,0.73,1
+d20250623-18,2025-06-23,Night,BWE2,A9,line,CV,CM,เคลียร์ดินอัดสายพาน,19:30,19:52,0.37,1
+d20250623-19,2025-06-23,Night,BWE2,BWE2,machine,ME,CM,แก้ไขผนัง Hopper Car,19:52,22:20,2.47,1
+d20250623-20,2025-06-23,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:49,22:53,0.07,1
+d20250624-01,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:13,00:15,0.03,1
+d20250624-02,2025-06-24,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,00:58,01:08,0.17,1
+d20250624-03,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:55,01:58,0.05,1
+d20250624-04,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:15,04:21,0.1,1
+d20250624-05,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:01,05:05,0.07,1
+d20250624-06,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,รอรถน้า,05:32,05:40,0.13,1
+d20250624-07,2025-06-24,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Impact,06:15,07:00,0.75,1
+d20250624-08,2025-06-24,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,16:57,9.95,1
+d20250624-09,2025-06-24,Day,BWE2,BWE2,machine,ME,CM,เปลี่ยน Pump Gaer Wheel Boom,16:57,19:00,2.05,1
+d20250624-10,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,ย้ายสาย 6.6 kv.,19:00,21:10,2.17,1
+d20250624-11,2025-06-24,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:15,22:18,0.05,1
+d20250624-12,2025-06-24,Night,BWE2,BWE2,machine,OPT,CM,เคลียร์ดินอัด Skirt Plate Hopper Car,22:26,23:08,0.7,1
+d20250625-01,2025-06-25,Night,BWE2,A5,line,EE,CM,Trip Belt Rip,00:14,00:36,0.37,1
+d20250625-02,2025-06-25,Night,BWE2,A5,line,EE,CM,Trip Belt Rip,01:25,01:54,0.48,1
+d20250625-03,2025-06-25,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์ดินอัดสายไฟ,02:03,02:11,0.13,1
+d20250625-04,2025-06-25,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,02:11,03:52,1.68,1
+d20250625-05,2025-06-25,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับหน้าขุด,04:50,05:03,0.22,1
+d20250625-06,2025-06-25,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:20,05:27,0.12,1
+d20250625-07,2025-06-25,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250625-08,2025-06-25,Day,BWE2,BWE2,machine,ME,CM,เปลี่ยน Impact,07:00,09:05,2.08,1
+d20250625-09,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:37,09:41,0.07,1
+d20250625-10,2025-06-25,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,10:10,10:34,0.4,1
+d20250625-11,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,10:53,11:16,0.38,1
+d20250625-12,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:50,11:59,0.15,1
+d20250625-13,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:13,13:18,0.08,1
+d20250625-14,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:50,13:54,0.07,1
+d20250625-15,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,13:54,13:58,0.07,1
+d20250625-16,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:29,14:32,0.05,1
+d20250625-17,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:00,15:05,0.08,1
+d20250625-18,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:25,15:27,0.03,1
+d20250625-19,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:08,16:13,0.08,1
+d20250625-20,2025-06-25,Day,BWE2,BWE2,machine,ME,CM,แก้ไข สเปย์น้ำข้าง wheel หลุด,16:22,16:36,0.23,1
+d20250625-21,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:54,16:59,0.08,1
+d20250625-22,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:13,17:16,0.05,1
+d20250625-23,2025-06-25,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,17:37,19:15,1.63,1
+d20250625-24,2025-06-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:50,17:59,0.15,1
+d20250625-25,2025-06-25,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์ดินอัด Snup pulley,19:32,19:55,0.38,1
+d20250625-26,2025-06-25,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์ดินอัด Snup pulley,20:32,21:04,0.53,1
+d20250625-27,2025-06-25,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip ไม่โชว์ Messenger,21:33,21:44,0.18,1
+d20250625-28,2025-06-25,Night,BWE2,A7,line,CV,CM,A7 เเก้ไข Flat Return ท้ายล็อก,22:02,22:33,0.52,1
+d20250625-29,2025-06-25,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:42,23:47,0.08,1
+d20250626-01,2025-06-26,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,07:20,0.33,1
+d20250626-02,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,07:40,07:45,0.08,1
+d20250626-03,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,08:00,08:09,0.15,1
+d20250626-04,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:54,09:03,0.15,1
+d20250626-05,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,10:27,10:32,0.08,1
+d20250626-06,2025-06-26,Day,BWE2,A9,line,ME,CM,แก้ไข Carry,10:40,10:51,0.18,1
+d20250626-07,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,11:50,12:01,0.18,1
+d20250626-08,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:18,12:24,0.1,1
+d20250626-09,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,12:25,12:32,0.12,1
+d20250626-10,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,12:37,12:45,0.13,1
+d20250626-11,2025-06-26,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,14:11,14:50,0.65,1
+d20250626-12,2025-06-26,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,16:47,17:38,0.85,1
+d20250626-13,2025-06-26,Day,BWE2,BWE2,machine,CV,CM,A3 Resplice สายพาน,17:38,19:00,1.37,1
+d20250626-14,2025-06-26,Night,BWE2,BWE2,machine,CV,CM,A3 Resplice สายพาน,19:00,07:00,12.0,1
+d20250627-01,2025-06-27,Night,BWE2,A9,line,CV,CM,สายพาน Slide,03:35,03:40,0.08,1
+d20250627-02,2025-06-27,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:03,04:06,0.05,1
+d20250627-03,2025-06-27,Night,BWE2,A3,line,EE,CM,Trip Tension Min,04:14,04:24,0.17,1
+d20250627-04,2025-06-27,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,05:00,05:04,0.07,1
+d20250627-05,2025-06-27,Night,BWE2,BWE2,machine,EE,CM,Trip Temp Motor Bearing Discharge,05:06,05:13,0.12,1
+d20250627-06,2025-06-27,Night,BWE2,A3,line,EE,CM,Trip Brake#1 Fault CB MD#1,06:10,06:33,0.38,1
+d20250627-07,2025-06-27,Night,BWE2,A8,line,EE,CM,Trip Belt Rip,06:42,07:00,0.3,1
+d20250627-08,2025-06-27,Day,BWE2,A3,line,CV,CM,A3 Resplice สายพาน,07:00,19:00,12.0,1
+d20250627-09,2025-06-27,Night,BWE2,A3,line,CV,CM,A3 Resplice สายพาน,19:00,03:30,8.5,1
+d20250628-01,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:03,00:05,0.03,1
+d20250628-02,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,00:35,00:38,0.05,1
+d20250628-03,2025-06-28,Night,BWE2,A5,line,EE,CM,Trip Belt Rip,00:50,02:11,1.35,1
+d20250628-04,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:36,03:40,0.07,1
+d20250628-05,2025-06-28,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip Collision,04:36,05:53,1.28,1
+d20250628-06,2025-06-28,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250628-07,2025-06-28,Day,BWE2,A8,line,EE,CM,Trip Belt Rip,07:00,07:21,0.35,1
+d20250628-08,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,07:35,07:40,0.08,1
+d20250628-09,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:21,08:26,0.08,1
+d20250628-10,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:10,09:17,0.12,1
+d20250628-11,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:42,09:49,0.12,1
+d20250628-12,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,10:29,10:35,0.1,1
+d20250628-13,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:05,11:10,0.08,1
+d20250628-14,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:01,12:05,0.07,1
+d20250628-15,2025-06-28,Day,BWE2,A7,line,EE,CM,Trip Tension Min,12:25,14:58,2.55,1
+d20250628-16,2025-06-28,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,15:50,16:16,0.43,1
+d20250628-17,2025-06-28,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,16:45,17:19,0.57,1
+d20250628-18,2025-06-28,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:50,17:58,0.13,1
+d20250628-19,2025-06-28,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:40,19:08,0.47,1
+d20250628-20,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,19:25,19:37,0.2,1
+d20250628-21,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:25,20:28,0.05,1
+d20250628-22,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:45,20:47,0.03,1
+d20250628-23,2025-06-28,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:29,21:31,0.03,1
+d20250628-24,2025-06-28,Night,BWE2,SPD.A,spreader,CV,CM,SPD.A ตัดยางซ่อมร้อนรอย Splice สายพาน Discharge,22:33,23:51,1.3,1
+d20250629-01,2025-06-29,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,00:24,01:09,0.75,1
+d20250629-02,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:43,01:46,0.05,1
+d20250629-03,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,02:01,02:13,0.2,1
+d20250629-04,2025-06-29,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,02:31,03:40,1.15,1
+d20250629-05,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,04:03,04:23,0.33,1
+d20250629-06,2025-06-29,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:33,07:00,1.45,1
+d20250629-07,2025-06-29,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,08:11,1.18,1
+d20250629-08,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:24,09:30,0.1,1
+d20250629-09,2025-06-29,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,09:58,10:20,0.37,1
+d20250629-10,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:30,11:33,0.05,1
+d20250629-11,2025-06-29,Day,BWE2,A1,line,CV,CM,A1 หยุดแก้ไข Carry,11:43,12:50,1.12,1
+d20250629-12,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:07,13:13,0.1,1
+d20250629-13,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:07,14:10,0.05,1
+d20250629-14,2025-06-29,Day,BWE2,A3,line,CV,CM,A3 หยุดแก้ไข Carry,14:30,15:15,0.75,1
+d20250629-15,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:25,15:33,0.13,1
+d20250629-16,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:14,16:16,0.03,1
+d20250629-17,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:36,16:41,0.08,1
+d20250629-18,2025-06-29,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:14,17:31,0.28,1
+d20250629-19,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:31,17:34,0.05,1
+d20250629-20,2025-06-29,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,18:05,18:17,0.2,1
+d20250629-21,2025-06-29,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:30,19:00,0.5,1
+d20250629-22,2025-06-29,Night,BWE2,A9,line,OPT,Other,ย้ายสายน้ำข้างไลน์,19:00,21:14,2.23,1
+d20250629-23,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:23,22:29,0.1,1
+d20250629-24,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:35,22:37,0.03,1
+d20250629-25,2025-06-29,Night,BWE2,BWE2,machine,EE,CM,slewing Discharge Boom limit right,22:55,23:10,0.25,1
+d20250629-26,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,23:21,23:27,0.1,1
+d20250629-27,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:37,23:42,0.08,1
+d20250629-28,2025-06-29,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:48,23:49,0.02,1
+d20250630-01,2025-06-30,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,00:33,01:20,0.78,1
+d20250630-02,2025-06-30,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,02:10,03:27,1.28,1
+d20250630-03,2025-06-30,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:30,07:00,1.5,1
+d20250630-04,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,07:00,08:15,1.25,1
+d20250630-05,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,Clear track,08:40,08:48,0.13,1
+d20250630-06,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:44,09:58,0.23,1
+d20250630-07,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,แก้ไขสายน้ำ Bw3,10:15,10:39,0.4,1
+d20250630-08,2025-06-30,Day,BWE2,A1,line,EE,CM,trip emer,10:55,11:22,0.45,1
+d20250630-09,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,Clear track,11:48,11:55,0.12,1
+d20250630-10,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,12:32,12:44,0.2,1
+d20250630-11,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,12:48,13:14,0.43,1
+d20250630-12,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,13:30,13:47,0.28,1
+d20250630-13,2025-06-30,Day,BWE2,A9,line,OPT,Other,แก้ไขท่อน้ำข้างไลน์,14:30,17:33,3.05,1
+d20250630-14,2025-06-30,Day,BWE2,BWE2,machine,OPT,Other,Clear track,18:15,18:25,0.17,1
+d20250630-15,2025-06-30,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:40,19:18,0.63,1
+d20250630-16,2025-06-30,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,20:38,20:46,0.13,1
+d20250630-17,2025-06-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:38,21:45,0.12,1
+d20250630-18,2025-06-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:48,22:55,0.12,1
+d20250630-19,2025-06-30,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,23:05,00:10,1.08,1
+d20250701-01,2025-07-01,Day,BWE2,A1,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250701-02,2025-07-01,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,1
+d20250702-01,2025-07-02,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250702-02,2025-07-02,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,1
+d20250703-01,2025-07-03,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250703-02,2025-07-03,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,1
+d20250704-01,2025-07-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:26,00:30,0.07,1
+d20250704-02,2025-07-04,Night,BWE2,A7,line,EE,CM,Trip Belt Rip,02:38,03:08,0.5,1
+d20250704-03,2025-07-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:09,04:14,0.08,1
+d20250704-04,2025-07-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:39,04:46,0.12,1
+d20250704-05,2025-07-04,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:35,07:00,1.42,1
+d20250704-06,2025-07-04,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,17:15,10.25,1
+d20250704-07,2025-07-04,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,19:00,19:20,0.33,1
+d20250704-08,2025-07-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:30,20:35,0.08,1
+d20250704-09,2025-07-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:08,22:18,0.17,1
+d20250704-10,2025-07-04,Night,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,22:40,22:45,0.08,1
+d20250704-11,2025-07-04,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,23:16,00:09,0.88,1
+d20250705-01,2025-07-05,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,00:25,04:38,4.22,1
+d20250705-02,2025-07-05,Night,BWE2,Line A,line,EE,CM,ไฟดับ,05:07,07:00,1.88,1
+d20250705-03,2025-07-05,Day,BWE2,BWE2,machine,ME,CM,แก้ไขท่อสเปย์บาร์,07:00,09:24,2.4,1
+d20250705-04,2025-07-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:31,10:33,0.03,1
+d20250705-05,2025-07-05,Day,BWE2,BWE2,machine,ME,CM,แก้ไขท่อจาระบี,10:33,11:49,1.27,1
+d20250705-06,2025-07-05,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:20,14:24,0.07,1
+d20250705-07,2025-07-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:42,14:46,0.07,1
+d20250705-08,2025-07-05,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Impact,14:55,15:26,0.52,1
+d20250705-09,2025-07-05,Day,BWE2,BWE2,machine,OPT,Other,ปรับระดับหน้าขุด,15:55,15:59,0.07,1
+d20250705-10,2025-07-05,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:30,16:34,0.07,1
+d20250705-11,2025-07-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:59,17:03,0.07,1
+d20250705-12,2025-07-05,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,17:15,19:00,1.75,1
+d20250705-13,2025-07-05,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,19:00,23:46,4.77,1
+d20250706-01,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:01,00:04,0.05,1
+d20250706-02,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:40,00:43,0.05,1
+d20250706-03,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:04,01:07,0.05,1
+d20250706-04,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:39,01:42,0.05,1
+d20250706-05,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:05,02:12,0.12,1
+d20250706-06,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:50,02:57,0.12,1
+d20250706-07,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:51,03:59,0.13,1
+d20250706-08,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:40,04:50,0.17,1
+d20250706-09,2025-07-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:58,07:00,1.03,1
+d20250706-10,2025-07-06,Day,BWE2,Line A,line,EE,CM,ไฟดับ,07:00,08:17,1.28,1
+d20250706-11,2025-07-06,Day,BWE2,Line A,line,CV,PM,PM Line A,08:17,10:47,2.5,1
+d20250706-12,2025-07-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,11:05,11:07,0.03,1
+d20250706-13,2025-07-06,Day,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,11:20,11:33,0.22,1
+d20250706-14,2025-07-06,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:25,12:30,0.08,1
+d20250706-15,2025-07-06,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Carry,12:30,12:37,0.12,1
+d20250706-16,2025-07-06,Day,BWE2,SPD.A,spreader,Uncontrol,Rain,ดูท่าทีฝน,12:50,13:02,0.2,1
+d20250706-17,2025-07-06,Day,BWE2,SPD.A,spreader,Uncontrol,Rain,ดูท่าทีฝน,13:42,13:55,0.22,1
+d20250706-18,2025-07-06,Day,BWE2,BWE2,machine,OPT,Other,ดินถมสาย,14:00,14:14,0.23,1
+d20250706-19,2025-07-06,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:30,15:34,0.07,1
+d20250706-20,2025-07-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:41,16:50,0.15,1
+d20250706-21,2025-07-06,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:25,19:00,1.58,1
+d20250706-22,2025-07-06,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,19:00,19:24,0.4,1
+d20250706-23,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,19:24,20:18,0.9,1
+d20250706-24,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:04,21:06,0.03,1
+d20250706-25,2025-07-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,21:54,22:01,0.12,1
+d20250706-26,2025-07-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,22:15,22:20,0.08,1
+d20250706-27,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:25,22:27,0.03,1
+d20250706-28,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:04,23:06,0.03,1
+d20250706-29,2025-07-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:21,23:23,0.03,1
+d20250707-01,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:00,01:06,0.1,1
+d20250707-02,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:59,02:12,0.22,1
+d20250707-03,2025-07-07,Night,BWE2,SPD.A,spreader,System,Other,SPD เดินอ้อมหัว,03:00,03:20,0.33,1
+d20250707-04,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:40,03:50,0.17,1
+d20250707-05,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:47,04:54,0.12,1
+d20250707-06,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:50,06:07,0.28,1
+d20250707-07,2025-07-07,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:35,07:00,0.42,1
+d20250707-08,2025-07-07,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,17:01,10.02,1
+d20250707-09,2025-07-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:21,17:25,0.07,1
+d20250707-10,2025-07-07,Day,BWE2,A6,line,CV,CM,สายพาน Slide,17:25,18:11,0.77,1
+d20250707-11,2025-07-07,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:42,19:00,0.3,1
+d20250707-12,2025-07-07,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,19:00,19:22,0.37,1
+d20250707-13,2025-07-07,Night,BWE2,BWE2,machine,CV,CM,เคลียร์ดินอัดสายพาน Discharge,19:50,20:00,0.17,1
+d20250707-14,2025-07-07,Night,BWE2,BWE2,machine,EE,CM,Misalingmen lift,20:07,21:22,1.25,1
+d20250707-15,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:55,21:59,0.07,1
+d20250707-16,2025-07-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:30,22:36,0.1,1
+d20250708-01,2025-07-08,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,01:01,01:31,0.5,1
+d20250708-02,2025-07-08,Night,BWE2,BWE2,machine,ME,CM,หยุดใส่ฝาครอบมอเตอร์เอวสลู,01:41,01:55,0.23,1
+d20250708-03,2025-07-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:24,02:27,0.05,1
+d20250708-04,2025-07-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:38,03:40,0.03,1
+d20250708-05,2025-07-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:43,04:50,0.12,1
+d20250708-06,2025-07-08,Night,BWE2,A9,line,EE,CM,ติด EM2 สายไฟขาด,04:50,06:13,1.38,1
+d20250708-07,2025-07-08,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:35,07:00,0.42,1
+d20250708-08,2025-07-08,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,07:00,07:08,0.13,1
+d20250708-09,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:00,08:16,0.27,1
+d20250708-10,2025-07-08,Day,BWE2,A7,line,CV,CM,เปลี่ยน Flat Return,09:00,09:46,0.77,1
+d20250708-11,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,Clear track,09:58,10:01,0.05,1
+d20250708-12,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,10:35,10:40,0.08,1
+d20250708-13,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:10,12:17,0.12,1
+d20250708-14,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:29,12:31,0.03,1
+d20250708-15,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:50,12:52,0.03,1
+d20250708-16,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,ย้ายสาย 6.6 kv.,13:30,14:14,0.73,1
+d20250708-17,2025-07-08,Day,BWE2,SPD.A,spreader,CV,Idle,SPD.A เดินอ้อม Drive Station A1,14:14,16:05,1.85,1
+d20250708-18,2025-07-08,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:22,16:26,0.07,1
+d20250708-19,2025-07-08,Day,BWE2,SPD.A,spreader,Uncontrol,Rain,ดูท่าทีฝน,17:17,17:50,0.55,1
+d20250708-20,2025-07-08,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,18:35,19:05,0.5,1
+d20250708-21,2025-07-08,Night,BWE2,A2,line,EE,CM,Trip Pull Wire Right,19:16,20:22,1.1,1
+d20250708-22,2025-07-08,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,20:25,20:32,0.12,1
+d20250708-23,2025-07-08,Night,BWE2,BWE2,machine,EE,CM,Slew trip,22:08,22:11,0.05,1
+d20250708-24,2025-07-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:49,22:53,0.07,1
+d20250708-25,2025-07-08,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,23:09,00:38,1.48,1
+d20250709-01,2025-07-09,Day,BWE2,A1,line,CV,Shift,A1 Extend สายพาน,07:00,19:00,12.0,1
+d20250709-02,2025-07-09,Night,BWE2,A1,line,CV,Shift,A1 Extend สายพาน,19:00,07:00,12.0,1
+d20250710-01,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,00:20,00:25,0.08,1
+d20250710-02,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:48,00:52,0.07,1
+d20250710-03,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:25,01:29,0.07,1
+d20250710-04,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:15,02:22,0.12,1
+d20250710-05,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:15,03:30,0.25,1
+d20250710-06,2025-07-10,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,03:50,05:15,1.42,1
+d20250710-07,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:55,06:15,0.33,1
+d20250710-08,2025-07-10,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:32,07:00,0.47,1
+d20250710-09,2025-07-10,Day,BWE2,A1,line,CV,Shift,A1 Extend สายพาน,07:00,09:10,2.17,1
+d20250710-10,2025-07-10,Day,BWE2,BWE2,machine,ME,CM,ตั้ง Alignment Gear Slew,09:10,14:37,5.45,1
+d20250710-11,2025-07-10,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,14:59,15:17,0.3,1
+d20250710-12,2025-07-10,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:00,16:14,0.23,1
+d20250710-13,2025-07-10,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,16:26,16:50,0.4,1
+d20250710-14,2025-07-10,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,17:02,17:10,0.13,1
+d20250710-15,2025-07-10,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,17:14,19:23,2.15,1
+d20250710-16,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:20,20:25,0.08,1
+d20250710-17,2025-07-10,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,20:45,20:53,0.13,1
+d20250710-18,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,21:03,22:50,1.78,1
+d20250710-19,2025-07-10,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,23:47,23:52,0.08,1
+d20250711-01,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:46,00:48,0.03,1
+d20250711-02,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:10,01:15,0.08,1
+d20250711-03,2025-07-11,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,02:28,07:00,4.53,1
+d20250711-04,2025-07-11,Day,BWE2,A9.1,line,CV,CM,ซ่อมร้อนสายพาน,07:00,12:30,5.5,1
+d20250711-05,2025-07-11,Day,BWE2,A9,line,OPT,Other,แก้ไขท่อน้ำข้างไลน์,12:30,14:43,2.22,1
+d20250711-06,2025-07-11,Day,BWE2,A9,line,CV,CM,ตัดสลิงกลางสายพาน,15:25,15:50,0.42,1
+d20250711-07,2025-07-11,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:26,16:31,0.08,1
+d20250711-08,2025-07-11,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:30,17:50,0.33,1
+d20250711-09,2025-07-11,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:00,19:00,1.0,1
+d20250711-10,2025-07-11,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,19:00,19:10,0.17,1
+d20250711-11,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,19:10,19:55,0.75,1
+d20250711-12,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:56,20:59,0.05,1
+d20250711-13,2025-07-11,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,21:10,21:22,0.2,1
+d20250711-14,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:44,21:47,0.05,1
+d20250711-15,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:48,23:07,0.32,1
+d20250711-16,2025-07-11,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,23:01,23:05,0.07,1
+d20250711-17,2025-07-11,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:29,23:35,0.1,1
+d20250712-01,2025-07-12,Night,BWE2,A1,line,EE,CM,A1 แก้ไข Subport Box ไฟ 6.6 KV,00:28,01:40,1.2,1
+d20250712-02,2025-07-12,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,02:28,03:40,1.2,1
+d20250712-03,2025-07-12,Night,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,03:40,04:06,0.43,1
+d20250712-04,2025-07-12,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:28,07:00,1.53,1
+d20250712-05,2025-07-12,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,07:00,10:55,3.92,1
+d20250712-06,2025-07-12,Day,BWE2,BWE2,machine,CV,Idle,โหลดไล่น้ำ,11:20,12:06,0.77,1
+d20250712-07,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,รอแทรคเตอร์,12:31,12:56,0.42,1
+d20250712-08,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,13:10,13:19,0.15,1
+d20250712-09,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:15,14:20,0.08,1
+d20250712-10,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,14:38,14:44,0.1,1
+d20250712-11,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,14:56,15:00,0.07,1
+d20250712-12,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:03,16:06,0.05,1
+d20250712-13,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,16:23,16:25,0.03,1
+d20250712-14,2025-07-12,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,17:19,17:23,0.07,1
+d20250712-15,2025-07-12,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,17:25,17:46,0.35,1
+d20250712-16,2025-07-12,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,18:26,19:00,0.57,1
+d20250712-17,2025-07-12,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,19:00,19:14,0.23,1
+d20250712-18,2025-07-12,Night,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,19:14,20:12,0.97,1
+d20250712-19,2025-07-12,Night,BWE2,SPD.A,spreader,CV,CM,SPD.ตัดแต่งแผลสายพาน,20:12,20:36,0.4,1
+d20250712-20,2025-07-12,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,20:36,22:02,1.43,1
+d20250712-21,2025-07-12,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,23:38,23:46,0.13,1
+d20250713-01,2025-07-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:45,01:53,0.13,1
+d20250713-02,2025-07-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:15,03:20,0.08,1
+d20250713-03,2025-07-13,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,03:42,03:45,0.05,1
+d20250713-04,2025-07-13,Night,BWE2,A8,line,EE,CM,Trip Belt Rip,03:45,04:16,0.52,1
+d20250713-05,2025-07-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:15,05:22,0.12,1
+d20250713-06,2025-07-13,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:55,06:03,0.13,1
+d20250713-07,2025-07-13,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:25,07:00,0.58,1
+d20250713-08,2025-07-13,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,19:00,12.0,1
+d20250713-09,2025-07-13,Night,BWE2,SPD.A,spreader,CV,CM,ซ่อมร้อนสายพาน,19:00,01:17,6.28,1
+d20250714-01,2025-07-14,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,07:30,0.5,1
+d20250714-02,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,Clear track,07:49,07:54,0.08,1
+d20250714-03,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,08:30,08:42,0.2,1
+d20250714-04,2025-07-14,Day,BWE2,BWE2,machine,ME,CM,เเก้ไข Air ตู้ E-Horse Belt,08:42,09:04,0.37,1
+d20250714-05,2025-07-14,Day,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,10:15,13:40,3.42,1
+d20250714-06,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,13:54,13:59,0.08,1
+d20250714-07,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:17,14:22,0.08,1
+d20250714-08,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:53,15:00,0.12,1
+d20250714-09,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,15:00,15:06,0.1,1
+d20250714-10,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:56,16:03,0.12,1
+d20250714-11,2025-07-14,Day,BWE2,A9,line,ME,CM,แก้ไขท่อน้ำ,16:22,18:24,2.03,1
+d20250714-12,2025-07-14,Day,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,18:40,19:44,1.07,1
+d20250714-13,2025-07-14,Night,BWE2,SPD.A,spreader,Uncontrol,Rain,ดูท่าทีฝน,20:12,20:39,0.45,1
+d20250714-14,2025-07-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:40,21:50,0.17,1
+d20250714-15,2025-07-14,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,22:11,07:00,8.82,1
+d20250715-01,2025-07-15,Night,BWE2,Line A,line,CV,Other,Empty Load,04:53,07:00,2.12,1
+d20250715-02,2025-07-15,Day,BWE2,BWE2,machine,ME,CM,เเก้ไขสาย Hose กระบอก Hydraulic,07:00,12:17,5.28,1
+d20250715-03,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:35,12:36,0.02,1
+d20250715-04,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,13:17,13:20,0.05,1
+d20250715-05,2025-07-15,Day,BWE2,BWE2,machine,CV,CM,ตัด Sling,13:37,13:50,0.22,1
+d20250715-06,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:05,14:07,0.03,1
+d20250715-07,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:31,14:32,0.02,1
+d20250715-08,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:09,15:15,0.1,1
+d20250715-09,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:04,16:06,0.03,1
+d20250715-10,2025-07-15,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,16:06,16:32,0.43,1
+d20250715-11,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:00,17:23,0.38,1
+d20250715-12,2025-07-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:30,17:44,0.23,1
+d20250715-13,2025-07-15,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:40,19:00,0.33,1
+d20250715-14,2025-07-15,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,04:53,9.88,1
+d20250716-01,2025-07-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:52,01:57,0.08,1
+d20250716-02,2025-07-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:43,03:48,0.08,1
+d20250716-03,2025-07-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:45,05:50,0.08,1
+d20250716-04,2025-07-16,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,05:50,07:00,1.17,1
+d20250716-05,2025-07-16,Day,BWE2,BWE2,machine,CV,Other,Empty Load,07:00,07:54,0.9,1
+d20250716-06,2025-07-16,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,07:54,15:48,7.9,1
+d20250716-07,2025-07-16,Day,BWE2,A8,line,EE,CM,Trip Oil Pump,15:48,16:35,0.78,1
+d20250716-08,2025-07-16,Day,BWE2,BWE2,machine,CV,Idle,โหลดไล่น้ำ,16:35,17:00,0.42,1
+d20250716-09,2025-07-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:29,17:34,0.08,1
+d20250716-10,2025-07-16,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Impact,17:56,19:57,2.02,1
+d20250716-11,2025-07-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:19,21:24,0.08,1
+d20250716-12,2025-07-16,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:54,22:04,0.17,1
+d20250716-13,2025-07-16,Night,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,22:11,22:24,0.22,1
+d20250716-14,2025-07-16,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:35,23:38,0.05,1
+d20250717-01,2025-07-17,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,06:22,07:00,0.63,1
+d20250717-02,2025-07-17,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,07:00,08:56,1.93,1
+d20250717-03,2025-07-17,Day,BWE2,A5,line,EE,CM,Trip Belt Rip,09:11,09:31,0.33,1
+d20250717-04,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:37,09:39,0.03,1
+d20250717-05,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:09,10:25,0.27,1
+d20250717-06,2025-07-17,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,10:46,10:49,0.05,1
+d20250717-07,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:02,11:05,0.05,1
+d20250717-08,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:33,11:37,0.07,1
+d20250717-09,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:02,12:16,0.23,1
+d20250717-10,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:30,13:36,0.1,1
+d20250717-11,2025-07-17,Day,BWE2,BWE2,machine,EE,CM,Slew limit,13:46,13:53,0.12,1
+d20250717-12,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:12,14:22,0.17,1
+d20250717-13,2025-07-17,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,15:12,15:26,0.23,1
+d20250717-14,2025-07-17,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:12,16:22,0.17,1
+d20250717-15,2025-07-17,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:02,19:00,1.97,1
+d20250717-16,2025-07-17,Night,BWE2,A9,line,CV,CM,เคลียร์ดินท้ายไลน์,19:00,20:30,1.5,1
+d20250717-17,2025-07-17,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:05,21:11,0.1,1
+d20250717-18,2025-07-17,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,21:15,04:48,7.55,1
+d20250718-01,2025-07-18,Night,BWE2,A9,line,CV,CM,ตัดสลิงขอบข้างสายพาน,02:20,02:37,0.28,1
+d20250718-02,2025-07-18,Night,BWE2,BWE2,machine,OPT,Other,รถแทรคเตอร์น้ำมันหมด,04:12,07:00,2.8,1
+d20250718-03,2025-07-18,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,17:03,10.05,1
+d20250718-04,2025-07-18,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,17:03,18:10,1.12,1
+d20250718-05,2025-07-18,Day,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,18:10,19:00,0.83,1
+d20250718-06,2025-07-18,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,19:00,20:32,1.53,1
+d20250718-07,2025-07-18,Night,BWE2,A9.1,line,CV,CM,ตัดสลิงขอบข้างสายพาน,20:32,20:52,0.33,1
+d20250718-08,2025-07-18,Night,BWE2,A9,line,CV,CM,ตัดสลิงกลางสายพาน,21:01,21:21,0.33,1
+d20250718-09,2025-07-18,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,21:46,23:30,1.73,1
+d20250719-01,2025-07-19,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,00:15,00:18,0.05,1
+d20250719-02,2025-07-19,Night,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,00:47,01:22,0.58,1
+d20250719-03,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:23,02:26,0.05,1
+d20250719-04,2025-07-19,Night,BWE2,BWE2,machine,ME,CM,เช็คสายพาน Wheel Boom,02:33,02:55,0.37,1
+d20250719-05,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:02,04:06,0.07,1
+d20250719-06,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:34,05:38,0.07,1
+d20250719-07,2025-07-19,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:21,07:00,0.65,1
+d20250719-08,2025-07-19,Day,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,07:00,09:00,2.0,1
+d20250719-09,2025-07-19,Day,BWE2,A9,line,CV,CM,ซ่อมร้อนสายพาน,09:00,16:48,7.8,1
+d20250719-10,2025-07-19,Day,BWE2,A3,line,EE,CM,Trip Block Chute,16:50,17:21,0.52,1
+d20250719-11,2025-07-19,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,17:32,19:00,1.47,1
+d20250719-12,2025-07-19,Night,BWE2,BWE2,machine,Uncontrol,Rain,ฝนตก,19:00,19:55,0.92,1
+d20250719-13,2025-07-19,Night,BWE2,BWE2,machine,CV,Idle,โหลดไล่น้ำ,19:55,20:08,0.22,1
+d20250719-14,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,20:08,21:14,1.1,1
+d20250719-15,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:30,21:38,0.13,1
+d20250719-16,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับหน้าขุด,21:42,22:18,0.6,1
+d20250719-17,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:40,22:48,0.13,1
+d20250719-18,2025-07-19,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:10,23:13,0.05,1
+d20250720-01,2025-07-20,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,07:23,0.38,1
+d20250720-02,2025-07-20,Day,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,07:23,12:05,4.7,1
+d20250720-03,2025-07-20,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,12:39,12:56,0.28,1
+d20250720-04,2025-07-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:42,13:49,0.12,1
+d20250720-05,2025-07-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:24,14:30,0.1,1
+d20250720-06,2025-07-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:40,15:46,0.1,1
+d20250720-07,2025-07-20,Day,BWE2,BWE2,machine,ME,CM,หยุดแก้ไขคานล็อคโซ่บุ้งกี๋หลุด,16:05,16:44,0.65,1
+d20250720-08,2025-07-20,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:35,17:40,0.08,1
+d20250720-09,2025-07-20,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:59,18:06,0.12,1
+d20250720-10,2025-07-20,Night,BWE2,BWE2,machine,ME,CM,เเก้ไขสาย Hose กระบอก Hydraulic Wheel Boom,18:30,07:00,12.5,1
+d20250721-01,2025-07-21,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:08,00:12,0.07,1
+d20250721-02,2025-07-21,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:03,02:09,0.1,1
+d20250721-03,2025-07-21,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:00,04:12,0.2,1
+d20250721-04,2025-07-21,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,05:50,07:00,1.17,1
+d20250721-05,2025-07-21,Day,BWE2,BWE2,machine,ME,CM,เเก้ไขสาย Hose กระบอก Hydraulic Wheel Boom,07:00,12:30,5.5,1
+d20250721-06,2025-07-21,Day,BWE2,BWE2,machine,ME,CM,แก้ไข สเปย์น้ำข้าง wheel หลุด,12:30,15:00,2.5,1
+d20250721-07,2025-07-21,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์ดิน Crawler Track,15:00,19:00,4.0,1
+d20250721-08,2025-07-21,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์ดิน Crawler Track,19:00,21:22,2.37,1
+d20250721-09,2025-07-21,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,21:56,22:11,0.25,1
+d20250721-10,2025-07-21,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:32,22:38,0.1,1
+d20250722-01,2025-07-22,Day,BWE2,A1,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250722-02,2025-07-22,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,07:00,12.0,1
+d20250723-01,2025-07-23,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,07:00,19:00,12.0,1
+d20250723-02,2025-07-23,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,07:00,12.0,1
+d20250724-01,2025-07-24,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,07:00,12:30,5.5,1
+d20250724-02,2025-07-24,Day,BWE2,Line A,line,CV,Idle,โหลดไล่น้ำ,12:30,13:15,0.75,1
+d20250724-03,2025-07-24,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,13:15,19:00,5.75,1
+d20250724-04,2025-07-24,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,07:00,12.0,1
+d20250725-01,2025-07-25,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,07:00,13:15,6.25,1
+d20250725-02,2025-07-25,Day,BWE2,A2,line,EE,CM,Trip Tension Min,13:20,13:53,0.55,1
+d20250725-03,2025-07-25,Day,BWE2,BWE2,machine,ME,CM,แก้ไข (Air รถ tractor),13:53,16:20,2.45,1
+d20250725-04,2025-07-25,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,16:20,19:00,2.67,1
+d20250725-05,2025-07-25,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,07:00,12.0,1
+d20250726-01,2025-07-26,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,07:00,19:00,12.0,1
+d20250726-02,2025-07-26,Night,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,19:00,19:45,0.75,1
+d20250726-03,2025-07-26,Night,BWE2,Line A,line,CV,Idle,โหลดไล่น้ำ,19:45,20:23,0.63,1
+d20250726-04,2025-07-26,Night,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,20:23,20:43,0.33,1
+d20250726-05,2025-07-26,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,21:06,07:00,9.9,1
+d20250727-01,2025-07-27,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,07:00,19:00,12.0,0
+d20250727-02,2025-07-27,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,19:00,07:00,12.0,0
+d20250728-01,2025-07-28,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,07:00,19:00,12.0,0
+d20250728-02,2025-07-28,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,19:00,07:00,12.0,0
+d20250729-01,2025-07-29,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,07:00,19:00,12.0,0
+d20250729-02,2025-07-29,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,19:00,07:00,12.0,0
+d20250730-01,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:15,01:19,0.07,1
+d20250730-02,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:48,01:50,0.03,1
+d20250730-03,2025-07-30,Night,BWE2,BWE2,machine,ME,CM,เติมน้ำมันเกียร์ Wheel Boom,02:21,02:31,0.17,1
+d20250730-04,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:59,03:02,0.05,1
+d20250730-05,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:15,03:19,0.07,1
+d20250730-06,2025-07-30,Night,BWE2,BWE2,machine,EE,CM,ติด Oil Level Min Alarm,03:55,05:00,1.08,1
+d20250730-07,2025-07-30,Night,BWE2,BWE2,machine,EE,CM,ติด Oil Level Min Alarm,06:15,07:00,0.75,1
+d20250730-08,2025-07-30,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Safety Coupling Wheel Boom,07:00,12:30,5.5,0
+d20250730-09,2025-07-30,Day,BWE2,BWE2,machine,OPT,Other,รอแทรคเตอร์ เคลียร์ทางรถน้ำ,12:30,16:37,4.12,1
+d20250730-10,2025-07-30,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:12,17:18,0.1,1
+d20250730-11,2025-07-30,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:48,17:57,0.15,1
+d20250730-12,2025-07-30,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:32,19:00,0.47,1
+d20250730-13,2025-07-30,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:22,0.37,1
+d20250730-14,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,Clear track,19:55,20:03,0.13,1
+d20250730-15,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,20:36,20:42,0.1,1
+d20250730-16,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:07,21:14,0.12,1
+d20250730-17,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:55,22:00,0.08,1
+d20250730-18,2025-07-30,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:54,23:03,0.15,1
+d20250730-19,2025-07-30,Night,BWE2,BWE2,machine,EE,CM,สัญญาณ Wheel ไม่มา ติด Oil Level Min Alarm,23:47,01:00,1.22,1
+d20250731-01,2025-07-31,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:00,03:08,0.13,1
+d20250731-02,2025-07-31,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,04:08,05:20,1.2,1
+d20250731-03,2025-07-31,Night,BWE2,A8,line,System,Dust,หยุดฝุ่น,05:20,07:00,1.67,1
+d20250731-04,2025-07-31,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,15:02,8.03,1
+d20250731-05,2025-07-31,Day,BWE2,BWE2,machine,ME,CM,แก้ไขโซ่บุ้งกี๋,15:02,16:00,0.97,1
+d20250731-06,2025-07-31,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,16:00,16:57,0.95,1
+d20250731-07,2025-07-31,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:45,17:50,0.08,1
+d20250731-08,2025-07-31,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:40,19:19,0.65,1
+d20250731-09,2025-07-31,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,20:00,20:12,0.2,1
+d20250731-10,2025-07-31,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:34,20:37,0.05,1
+d20250731-11,2025-07-31,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:10,21:14,0.07,1
+d20250731-12,2025-07-31,Night,BWE2,A10,line,EE,CM,Trip Communication Fail,21:42,02:24,4.7,1
+d20250801-01,2025-08-01,Day,BWE2,A8,line,ME,CM,แก้ไขท่อน้ำข้างไลน์,07:00,13:53,6.88,1
+d20250801-02,2025-08-01,Day,BWE2,A3,line,EE,CM,Trip Emer Block chute หัว,14:20,14:47,0.45,1
+d20250801-03,2025-08-01,Day,BWE2,A4,line,EE,CM,trip Tension Min,14:47,15:18,0.52,1
+d20250801-04,2025-08-01,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:01,16:07,0.1,1
+d20250801-05,2025-08-01,Day,BWE2,A9,line,EE,CM,Trip Belt Rip,17:25,18:17,0.87,1
+d20250801-06,2025-08-01,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:30,19:00,0.5,1
+d20250801-07,2025-08-01,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:30,0.5,1
+d20250801-08,2025-08-01,Night,BWE2,A8,line,ME,CM,แก้ไขท่อน้ำข้างไลน์,19:30,20:23,0.88,1
+d20250801-09,2025-08-01,Night,BWE2,BWE2,machine,EE,CM,สตาร์ทสายพานวิวบูมไม่ผ่าน,21:11,21:17,0.1,1
+d20250801-10,2025-08-01,Night,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,21:23,21:36,0.22,1
+d20250801-11,2025-08-01,Night,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,21:36,22:10,0.57,1
+d20250801-12,2025-08-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:19,22:26,0.12,1
+d20250801-13,2025-08-01,Night,BWE2,BWE2,machine,ME,CM,Hydraulic Wheel Boom รั่ว,23:53,07:00,7.12,1
+d20250802-01,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:29,00:32,0.05,1
+d20250802-02,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:56,01:08,0.2,1
+d20250802-03,2025-08-02,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,01:20,01:33,0.22,1
+d20250802-04,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:14,02:18,0.07,1
+d20250802-05,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:01,03:06,0.08,1
+d20250802-06,2025-08-02,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,03:22,03:51,0.48,1
+d20250802-07,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:41,04:49,0.13,1
+d20250802-08,2025-08-02,Night,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,05:06,05:35,0.48,1
+d20250802-09,2025-08-02,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:12,07:00,0.8,1
+d20250802-10,2025-08-02,Day,BWE2,BWE2,machine,ME,CM,Hydraulic Wheel Boom รั่ว,07:00,11:15,4.25,1
+d20250802-11,2025-08-02,Day,BWE2,A9,line,CV,CM,ซ่อมร้อนสายพาน,11:15,15:00,3.75,1
+d20250802-12,2025-08-02,Day,BWE2,A3,line,CV,CM,A3 หยุดใส่ Return หลุด Support,15:00,15:29,0.48,1
+d20250802-13,2025-08-02,Day,BWE2,A6,line,EE,CM,Trip Pull Wire Left,16:31,16:37,0.1,1
+d20250802-14,2025-08-02,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:00,19:33,1.55,1
+d20250802-15,2025-08-02,Night,BWE2,A3,line,CV,CM,เปลี่ยน Flat Return,20:24,21:13,0.82,1
+d20250802-16,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:24,22:31,0.12,1
+d20250802-17,2025-08-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:04,23:15,0.18,1
+d20250803-01,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:47,00:56,0.15,1
+d20250803-02,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:40,01:43,0.05,1
+d20250803-03,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:29,02:37,0.13,1
+d20250803-04,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:22,03:27,0.08,1
+d20250803-05,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,04:24,05:08,0.73,1
+d20250803-06,2025-08-03,Night,BWE2,A7,line,EE,CM,Trip Belt Rip,05:41,06:00,0.32,1
+d20250803-07,2025-08-03,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250803-08,2025-08-03,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,10:00,3.0,1
+d20250803-09,2025-08-03,Day,BWE2,A9,line,CV,CM,ซ่อมร้อนสายพาน,10:00,14:29,4.48,1
+d20250803-10,2025-08-03,Day,BWE2,BWE2,machine,ME,CM,เช็คสายพาน Discharge,14:42,14:49,0.12,1
+d20250803-11,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:00,15:15,0.25,1
+d20250803-12,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:21,15:25,0.07,1
+d20250803-13,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:40,15:45,0.08,1
+d20250803-14,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:16,16:22,0.1,1
+d20250803-15,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:35,16:38,0.05,1
+d20250803-16,2025-08-03,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:08,17:40,0.53,1
+d20250803-17,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:53,17:55,0.03,1
+d20250803-18,2025-08-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,18:20,18:23,0.05,1
+d20250803-19,2025-08-03,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:35,19:20,0.75,1
+d20250803-20,2025-08-03,Night,BWE2,BWE2,machine,EE,CM,ติดระบบไฟฟ้า,19:20,20:10,0.83,1
+d20250803-21,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:28,20:37,0.15,1
+d20250803-22,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:32,21:35,0.05,1
+d20250803-23,2025-08-03,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,22:10,22:54,0.73,1
+d20250803-24,2025-08-03,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:43,23:47,0.07,1
+d20250803-25,2025-08-03,Night,BWE2,A9,line,CV,CM,A9 ดินอัดท้าย,23:47,00:06,0.32,1
+d20250804-01,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:24,01:30,0.1,1
+d20250804-02,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:20,02:28,0.13,1
+d20250804-03,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:18,03:25,0.12,1
+d20250804-04,2025-08-04,Night,BWE2,BWE2,machine,ME,CM,เอาเหล็กออกจากหน้าขุด,03:39,03:52,0.22,1
+d20250804-05,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:30,04:35,0.08,1
+d20250804-06,2025-08-04,Night,BWE2,A5,line,EE,CM,Trip Belt Rip,05:00,05:22,0.37,1
+d20250804-07,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,06:14,06:17,0.05,1
+d20250804-08,2025-08-04,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,06:32,07:00,0.47,1
+d20250804-09,2025-08-04,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,15:00,8.0,1
+d20250804-10,2025-08-04,Day,BWE2,BWE2,machine,ME,CM,สัญญาณ HOS ไม่พร้อมยกกระบอก Hyd ไม่ได้,15:00,17:19,2.32,1
+d20250804-11,2025-08-04,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:30,19:14,0.73,1
+d20250804-12,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,19:45,19:49,0.07,1
+d20250804-13,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:40,20:46,0.1,1
+d20250804-14,2025-08-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:00,22:10,0.17,1
+d20250804-15,2025-08-04,Night,BWE2,SPD.A,spreader,CV,CM,ตัดยางแผลเปิด Discharge,23:49,00:51,1.03,1
+d20250805-01,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:35,01:43,0.13,1
+d20250805-02,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:50,02:55,0.08,1
+d20250805-03,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:19,03:25,0.1,1
+d20250805-04,2025-08-05,Night,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,04:05,04:16,0.18,1
+d20250805-05,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,04:16,04:44,0.47,1
+d20250805-06,2025-08-05,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250805-07,2025-08-05,Day,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,07:00,08:50,1.83,1
+d20250805-08,2025-08-05,Day,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,08:50,09:27,0.62,1
+d20250805-09,2025-08-05,Day,BWE2,A9,line,EE,CM,A9.1 Trip Temperatuer Winding,09:38,14:12,4.57,1
+d20250805-10,2025-08-05,Day,BWE2,SPD.A,spreader,Uncontrol,Rain,ดูท่าทีฝน,14:15,14:40,0.42,1
+d20250805-11,2025-08-05,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,14:40,15:38,0.97,1
+d20250805-12,2025-08-05,Day,BWE2,BWE2,machine,OPT,Other,หลบหน้างานระเบิด,16:04,16:19,0.25,1
+d20250805-13,2025-08-05,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,16:44,17:26,0.7,1
+d20250805-14,2025-08-05,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:55,19:00,1.08,1
+d20250805-15,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,19:00,20:08,1.13,1
+d20250805-16,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:05,22:10,0.08,1
+d20250805-17,2025-08-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:50,23:57,1.12,1
+d20250806-01,2025-08-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:00,01:07,0.12,1
+d20250806-02,2025-08-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:44,01:49,0.08,1
+d20250806-03,2025-08-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:30,02:40,0.17,1
+d20250806-04,2025-08-06,Night,BWE2,A9,line,EE,CM,A9 Trip Belt Rip ท้าย (Hopper Car เกี่ยวสายไฟอุปกรณ์ขาด),02:49,03:46,0.95,1
+d20250806-05,2025-08-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:05,04:10,0.08,1
+d20250806-06,2025-08-06,Night,BWE2,A9.1,line,ME,CM,แก้ไข Skirt Plate ที่ท้าย,04:10,05:30,1.33,1
+d20250806-07,2025-08-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250806-08,2025-08-06,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,07:00,16:00,9.0,1
+d20250806-09,2025-08-06,Day,BWE2,Line A,line,OPT,Idle,Stand By,16:00,19:00,3.0,1
+d20250806-10,2025-08-06,Night,BWE2,Line A,line,OPT,Idle,Stand By,19:00,19:26,0.43,1
+d20250806-11,2025-08-06,Night,BWE2,BWE2,machine,OPT,Other,รอรถน้ำ,19:26,21:54,2.47,1
+d20250806-12,2025-08-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:14,22:17,0.05,1
+d20250806-13,2025-08-06,Night,BWE2,A8,line,EE,CM,Trip Tension Min,22:24,22:48,0.4,1
+d20250806-14,2025-08-06,Night,BWE2,BWE2,machine,EE,CM,แก้ไขระบบไฟฟ้า Hydraulic,22:48,23:35,0.78,1
+d20250807-01,2025-08-07,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,10:30,3.5,1
+d20250807-02,2025-08-07,Day,BWE2,A9.1,line,ME,CM,แก้ไข Skirt Plate ที่ท้าย,10:30,15:26,4.93,1
+d20250807-03,2025-08-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:36,16:57,0.35,1
+d20250807-04,2025-08-07,Day,BWE2,BWE2,machine,OPT,Other,ทำทางเดิน BW,17:26,17:34,0.13,1
+d20250807-05,2025-08-07,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:38,07:00,11.37,1
+d20250808-01,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,00:21,00:32,0.18,1
+d20250808-02,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:15,02:25,0.17,1
+d20250808-03,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:29,03:37,0.13,1
+d20250808-04,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ขึ้นบน + เคลียร์หน้าแทรค,04:18,04:29,0.18,1
+d20250808-05,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:40,05:47,0.12,1
+d20250808-06,2025-08-08,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250808-07,2025-08-08,Day,BWE2,Line A,line,OPT,Idle,Stand By,07:00,07:35,0.58,1
+d20250808-08,2025-08-08,Day,BWE2,Line A,line,CV,Idle,Line A Empty Load Hopper Crusher,07:35,09:18,1.72,1
+d20250808-09,2025-08-08,Day,BWE2,Line A,line,CV,PM,PM Line A,09:18,17:14,7.93,1
+d20250808-10,2025-08-08,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,17:50,18:30,0.67,1
+d20250808-11,2025-08-08,Night,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,19:00,19:12,0.2,1
+d20250808-12,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:04,20:10,0.1,1
+d20250808-13,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:30,20:39,0.15,1
+d20250808-14,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,22:07,22:17,0.17,1
+d20250808-15,2025-08-08,Night,BWE2,BWE2,machine,EE,CM,แก้ไขระบบไฟฟ้า Hydraulic,22:26,23:27,1.02,1
+d20250808-16,2025-08-08,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:50,23:57,0.12,1
+d20250809-01,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,00:01,00:11,0.17,1
+d20250809-02,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:20,00:32,0.2,1
+d20250809-03,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:25,02:35,0.17,1
+d20250809-04,2025-08-09,Night,BWE2,BWE2,machine,EE,CM,Crawler Trip,03:24,05:02,1.63,1
+d20250809-05,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,06:00,06:30,0.5,1
+d20250809-06,2025-08-09,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:30,07:15,0.75,1
+d20250809-07,2025-08-09,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค + ปรับระดับ track,07:00,07:32,0.53,1
+d20250809-08,2025-08-09,Day,BWE2,BWE2,machine,ME,CM,เชื่อม Skirte Plate ของ Hopper Car,07:50,16:50,9.0,1
+d20250809-09,2025-08-09,Day,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,16:50,19:00,2.17,1
+d20250809-10,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,19:00,20:16,1.27,1
+d20250809-11,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,20:42,21:33,0.85,1
+d20250809-12,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,21:57,22:06,0.15,1
+d20250809-13,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,22:11,22:23,0.2,1
+d20250809-14,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,22:30,22:40,0.17,1
+d20250809-15,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,เช็คสายพาน BW 3,22:40,22:45,0.08,1
+d20250809-16,2025-08-09,Night,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,23:33,23:40,0.12,1
+d20250810-01,2025-08-10,Night,BWE2,A9,line,CV,CM,สายพาน Slide,00:14,00:18,0.07,1
+d20250810-02,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:24,00:30,0.1,1
+d20250810-03,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:37,01:43,0.1,1
+d20250810-04,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:03,02:11,0.13,1
+d20250810-05,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:42,02:46,0.07,1
+d20250810-06,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:13,03:17,0.07,1
+d20250810-07,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:33,03:45,0.2,1
+d20250810-08,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:07,04:09,0.03,1
+d20250810-09,2025-08-10,Night,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,04:25,04:43,0.3,1
+d20250810-10,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:53,05:08,0.25,1
+d20250810-11,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:30,05:40,0.17,1
+d20250810-12,2025-08-10,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250810-13,2025-08-10,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,07:30,07:34,0.07,1
+d20250810-14,2025-08-10,Day,BWE2,A9,line,CV,CM,ตัดสลิงสายพาน,07:45,08:07,0.37,1
+d20250810-15,2025-08-10,Day,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,09:28,14:48,5.33,1
+d20250810-16,2025-08-10,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,16:14,16:30,0.27,1
+d20250810-17,2025-08-10,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:00,17:05,0.08,1
+d20250810-18,2025-08-10,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:05,17:17,0.2,1
+d20250810-19,2025-08-10,Day,BWE2,BWE2,machine,OPT,Other,กลับลำ,17:39,19:28,1.82,1
+d20250810-20,2025-08-10,Night,BWE2,SPD.A,spreader,OPT,Idle,เช็คเครื่องจักร,19:28,20:55,1.45,1
+d20250810-21,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,21:12,21:24,0.2,1
+d20250810-22,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,21:15,22:27,1.2,1
+d20250810-23,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:37,21:44,0.12,1
+d20250810-24,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:57,22:04,0.12,1
+d20250810-25,2025-08-10,Night,BWE2,SPD.A,spreader,OPT,Idle,เช็คเครื่องจักร,22:29,23:29,1.0,1
+d20250810-26,2025-08-10,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:42,23:47,0.08,1
+d20250811-01,2025-08-11,Night,BWE2,Line A,line,CV,Idle,โหลดไล่น้ำ,03:32,04:02,0.5,1
+d20250811-02,2025-08-11,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:10,04:18,0.13,1
+d20250811-03,2025-08-11,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:24,04:32,0.13,1
+d20250811-04,2025-08-11,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:48,05:12,0.4,1
+d20250811-05,2025-08-11,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:23,05:42,0.32,1
+d20250811-06,2025-08-11,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:15,07:00,0.75,1
+d20250811-07,2025-08-11,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,07:00,07:24,0.4,1
+d20250811-08,2025-08-11,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,07:47,07:55,0.13,1
+d20250811-09,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,09:03,09:17,0.23,1
+d20250811-10,2025-08-11,Day,BWE2,BWE2,machine,CV,CM,ตัดสลิงขอบข้างสายพาน Wheel Boom,09:21,09:53,0.53,1
+d20250811-11,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:35,10:41,0.1,1
+d20250811-12,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:50,10:55,0.08,1
+d20250811-13,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:28,11:34,0.1,1
+d20250811-14,2025-08-11,Day,BWE2,BWE2,machine,EE,CM,ติด Slew Dischange limit left,11:47,11:54,0.12,1
+d20250811-15,2025-08-11,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,11:54,12:08,0.23,1
+d20250811-16,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,รอน้ำตามไลน์,12:30,14:08,1.63,1
+d20250811-17,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:28,14:32,0.07,1
+d20250811-18,2025-08-11,Day,BWE2,A6,line,CV,CM,เปลี่ยน Flat Return บน Secondary + A5 หยุดตัดสลิงกลางสายพาน J5,15:08,15:38,0.5,1
+d20250811-19,2025-08-11,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:01,16:05,0.07,1
+d20250811-20,2025-08-11,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,16:26,19:00,2.57,1
+d20250811-21,2025-08-11,Night,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,19:00,19:25,0.42,1
+d20250811-22,2025-08-11,Night,BWE2,Line A,line,CV,Idle,โหลดไล่น้ำ,20:46,21:05,0.32,1
+d20250811-23,2025-08-11,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,21:54,22:04,0.17,1
+d20250811-24,2025-08-11,Night,BWE2,BWE2,machine,OPT,Other,รอรถ Tractor,22:10,22:17,0.12,1
+d20250811-25,2025-08-11,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,22:17,03:32,5.25,1
+d20250812-01,2025-08-12,Day,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,07:00,19:00,12.0,1
+d20250812-02,2025-08-12,Night,BWE2,BWE2,machine,OPT,Other,รอแทรคเตอร์,19:57,20:03,0.1,1
+d20250812-03,2025-08-12,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,20:11,20:30,0.32,1
+d20250812-04,2025-08-12,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,20:30,22:39,2.15,1
+d20250812-05,2025-08-12,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,22:39,23:20,0.68,1
+d20250812-06,2025-08-12,Night,BWE2,Line A,line,OPT,Idle,Stand By,23:20,07:00,7.67,1
+d20250813-01,2025-08-13,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,11:00,4.0,1
+d20250813-02,2025-08-13,Day,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,11:00,19:00,8.0,1
+d20250813-03,2025-08-13,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,19:00,07:00,12.0,1
+d20250814-01,2025-08-14,Day,BWE2,A1,line,CV,Shift,A1 Extend สายพาน,07:00,19:00,12.0,1
+d20250814-02,2025-08-14,Night,BWE2,A1,line,CV,Shift,A1 Extend สายพาน,19:00,07:00,12.0,1
+d20250815-01,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:26,00:34,0.13,1
+d20250815-02,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:54,00:57,0.05,1
+d20250815-03,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:18,01:22,0.07,1
+d20250815-04,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:44,01:49,0.08,1
+d20250815-05,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:05,02:19,0.23,1
+d20250815-06,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:42,02:45,0.05,1
+d20250815-07,2025-08-15,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,03:00,06:27,3.45,1
+d20250815-08,2025-08-15,Day,BWE2,A2,line,CV,Shift,A1 Extend สายพาน,07:00,08:25,1.42,1
+d20250815-09,2025-08-15,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,08:25,12:00,3.58,1
+d20250815-10,2025-08-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:08,12:11,0.05,1
+d20250815-11,2025-08-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:23,12:25,0.03,1
+d20250815-12,2025-08-15,Day,BWE2,A9,line,CV,CM,ดินไหลกลับท้าย,12:27,12:34,0.12,1
+d20250815-13,2025-08-15,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:35,13:40,0.08,1
+d20250815-14,2025-08-15,Day,BWE2,BWE2,machine,ME,Other,แก้ไข crawler หน้าขวามีเสียงดังผิกปกติ,14:04,15:03,0.98,1
+d20250815-15,2025-08-15,Day,BWE2,BWE2,machine,ME,CM,อัดจาระบี Crawler Track,15:16,16:05,0.82,1
+d20250815-16,2025-08-15,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:00,17:04,0.07,1
+d20250815-17,2025-08-15,Day,BWE2,A8,line,ME,CM,หยุดใส่ Temp Bearing pulley secondary ด้านขวา,17:24,17:59,0.58,1
+d20250815-18,2025-08-15,Day,BWE2,SPD.A,spreader,OPT,Other,สายพาน Dischange Slip,18:30,19:00,0.5,1
+d20250815-19,2025-08-15,Night,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,19:00,21:52,2.87,1
+d20250815-20,2025-08-15,Night,BWE2,Line A,line,Uncontrol,Rain,ดูท่าทีฝน,21:52,22:16,0.4,1
+d20250815-21,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:50,22:54,0.07,1
+d20250815-22,2025-08-15,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,23:29,23:41,0.2,1
+d20250816-01,2025-08-16,Day,BWE2,A9,line,CV,CM,ตัดสลิงขอบข้างสายพาน,07:07,07:27,0.33,1
+d20250816-02,2025-08-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,07:58,08:02,0.07,1
+d20250816-03,2025-08-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:16,08:21,0.08,1
+d20250816-04,2025-08-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:50,08:59,0.15,1
+d20250816-05,2025-08-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,09:18,09:28,0.17,1
+d20250816-06,2025-08-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,10:07,10:27,0.33,1
+d20250816-07,2025-08-16,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,10:42,10:47,0.08,1
+d20250816-08,2025-08-16,Day,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,11:09,19:00,7.85,1
+d20250816-09,2025-08-16,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,19:00,07:00,12.0,0
+d20250817-01,2025-08-17,Day,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,07:00,19:00,12.0,0
+d20250817-02,2025-08-17,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,19:00,07:00,12.0,0
+d20250818-01,2025-08-18,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,19:00,12.0,1
+d20250818-02,2025-08-18,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,19:00,07:00,12.0,0
+d20250819-01,2025-08-19,Day,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,07:00,19:00,12.0,0
+d20250819-02,2025-08-19,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,19:00,07:00,12.0,0
+d20250820-01,2025-08-20,Day,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,07:00,19:00,12.0,0
+d20250820-02,2025-08-20,Night,BWE2,BWE2,machine,ME,CM,รถแทรคเตอร์เสีย,19:00,07:00,12.0,0
+d20250821-01,2025-08-21,Day,BWE2,A1,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250821-02,2025-08-21,Night,BWE2,A1,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,0
+d20250822-01,2025-08-22,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,05:01,05:07,0.1,1
+d20250822-02,2025-08-22,Night,BWE2,BWE2,machine,OPT,Other,Clear track,06:04,06:09,0.08,1
+d20250822-03,2025-08-22,Day,BWE2,A1,line,CV,Shift,Shift สายพาน,07:00,11:34,4.57,0
+d20250822-04,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:09,12:25,0.27,1
+d20250822-05,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:28,12:30,0.03,1
+d20250822-06,2025-08-22,Day,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,12:30,12:45,0.25,1
+d20250822-07,2025-08-22,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,13:50,14:48,0.97,1
+d20250822-08,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:58,15:04,0.1,1
+d20250822-09,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,Clear track,15:16,15:43,0.45,1
+d20250822-10,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,15:43,16:10,0.45,1
+d20250822-11,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:18,17:32,0.23,1
+d20250822-12,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:32,17:46,0.23,1
+d20250822-13,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,18:01,18:05,0.07,1
+d20250822-14,2025-08-22,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,18:05,18:09,0.07,1
+d20250822-15,2025-08-22,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:30,19:00,0.5,1
+d20250822-16,2025-08-22,Night,BWE2,BWE2,machine,OPT,Other,OPT.รอรถบริการลงหน้างาน (รถเสีย),19:00,19:35,0.58,1
+d20250822-17,2025-08-22,Night,BWE2,A9,line,ME,CM,แก้ไข Return,19:35,20:47,1.2,1
+d20250822-18,2025-08-22,Night,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,21:00,21:47,0.78,1
+d20250822-19,2025-08-22,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,21:47,03:10,5.38,1
+d20250823-01,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:00,00:03,0.05,1
+d20250823-02,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:00,01:25,0.42,1
+d20250823-03,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,02:22,02:34,0.2,1
+d20250823-04,2025-08-23,Night,BWE2,SPD.A,spreader,OPT,Other,สายพาน Dischange Slip,03:17,03:30,0.22,1
+d20250823-05,2025-08-23,Night,BWE2,SPD.A,spreader,EE,CM,Disccharge Trip Temperature Bearing MD.2,04:54,05:05,0.18,1
+d20250823-06,2025-08-23,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,05:05,05:50,0.75,1
+d20250823-07,2025-08-23,Day,BWE2,A9,line,CV,CM,ซ่อมร้อนสายพาน,07:00,16:00,9.0,1
+d20250823-08,2025-08-23,Day,BWE2,A9,line,CV,CM,เคลียร์ดินอัดสายพาน,16:00,19:00,3.0,1
+d20250823-09,2025-08-23,Night,BWE2,A9,line,CV,CM,เคลียร์ดินอัดสายพาน,19:00,19:35,0.58,1
+d20250823-10,2025-08-23,Night,BWE2,A9,line,ME,CM,แก้ไข Return (ปลอกแตก),19:35,20:43,1.13,1
+d20250823-11,2025-08-23,Night,BWE2,A5,line,ME,CM,เปลี่ยน Return (แบริ่งแตก),20:43,20:48,0.08,1
+d20250823-12,2025-08-23,Night,BWE2,SPD.A,spreader,CV,CM,ตัดยางแผลเปิด Discharge,20:48,21:32,0.73,1
+d20250823-13,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:00,22:03,0.05,1
+d20250823-14,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:10,22:13,0.05,1
+d20250823-15,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:21,22:25,0.07,1
+d20250823-16,2025-08-23,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,22:42,22:58,0.27,1
+d20250823-17,2025-08-23,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:08,23:12,0.07,1
+d20250824-01,2025-08-24,Night,BWE2,BWE2,machine,EE,CM,Crawler Trip,01:05,02:00,0.92,1
+d20250824-02,2025-08-24,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:25,02:32,0.12,1
+d20250824-03,2025-08-24,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip Collision,02:52,03:21,0.48,1
+d20250824-04,2025-08-24,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:12,05:18,0.1,1
+d20250824-05,2025-08-24,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250824-06,2025-08-24,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,07:00,08:20,1.33,1
+d20250824-07,2025-08-24,Day,BWE2,BWE2,machine,EE,CM,ไฟดับ,08:23,10:27,2.07,1
+d20250824-08,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,10:51,10:56,0.08,1
+d20250824-09,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,11:39,11:44,0.08,1
+d20250824-10,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:17,12:22,0.08,1
+d20250824-11,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,12:22,12:27,0.08,1
+d20250824-12,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,Clear track,13:42,13:46,0.07,1
+d20250824-13,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,14:32,14:41,0.15,1
+d20250824-14,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:41,14:50,0.15,1
+d20250824-15,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:07,16:14,0.12,1
+d20250824-16,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:40,16:45,0.08,1
+d20250824-17,2025-08-24,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:40,17:54,0.23,1
+d20250824-18,2025-08-24,Night,BWE2,BWE2,machine,OPT,Other,ปรับระดับ track,19:00,19:25,0.42,1
+d20250824-19,2025-08-24,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,20:12,21:15,1.05,1
+d20250824-20,2025-08-24,Night,BWE2,A1,line,EE,CM,Trip Communication Fail,22:41,23:50,1.15,1
+d20250824-21,2025-08-24,Night,BWE2,A3,line,EE,CM,Trip Tension Min,23:55,00:30,0.58,1
+d20250825-01,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:14,00:23,0.15,1
+d20250825-02,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:42,00:53,0.18,1
+d20250825-03,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:08,01:16,0.13,1
+d20250825-04,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:16,02:23,0.12,1
+d20250825-05,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:33,02:38,0.08,1
+d20250825-06,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:45,02:52,0.12,1
+d20250825-07,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:11,03:15,0.07,1
+d20250825-08,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:35,03:40,0.08,1
+d20250825-09,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,04:31,04:35,0.07,1
+d20250825-10,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:44,04:49,0.08,1
+d20250825-11,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:12,05:17,0.08,1
+d20250825-12,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:41,05:45,0.07,1
+d20250825-13,2025-08-25,Night,BWE2,Line A,line,OPT,Idle,Stand By (รอรถแทรคเตอร์ เติมน้ำมัน),05:45,07:00,1.25,1
+d20250825-14,2025-08-25,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,16:52,9.87,1
+d20250825-15,2025-08-25,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,16:52,17:32,0.67,1
+d20250825-16,2025-08-25,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:53,17:59,0.1,1
+d20250825-17,2025-08-25,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:08,19:00,0.87,1
+d20250825-18,2025-08-25,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:13,0.22,0
+d20250825-19,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,19:42,19:50,0.13,1
+d20250825-20,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:00,20:08,0.13,1
+d20250825-21,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:20,20:25,0.08,1
+d20250825-22,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:33,20:41,0.13,1
+d20250825-23,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:10,21:17,0.12,1
+d20250825-24,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:27,21:34,0.12,1
+d20250825-25,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:02,22:07,0.08,1
+d20250825-26,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:20,22:26,0.1,1
+d20250825-27,2025-08-25,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:48,22:52,0.07,1
+d20250825-28,2025-08-25,Night,BWE2,SPD.A,spreader,OPT,Other,สายพาน Dischange Slip,23:00,23:12,0.2,1
+d20250825-29,2025-08-25,Night,BWE2,A4,line,EE,CM,Trip Tension Min,23:12,23:39,0.45,1
+d20250826-01,2025-08-26,Day,BWE2,BWE2,machine,OPT,Idle,Stand By (รอรถแทรคเตอร์ เติมน้ำมัน),07:00,08:00,1.0,0
+d20250826-02,2025-08-26,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,08:00,19:00,11.0,1
+d20250826-03,2025-08-26,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,07:00,12.0,1
+d20250827-01,2025-08-27,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,07:00,12:07,5.12,1
+d20250827-02,2025-08-27,Day,BWE2,Line A,line,CV,Idle,โหลดไล่น้ำ,12:07,12:45,0.63,1
+d20250827-03,2025-08-27,Day,BWE2,BWE2,machine,ME,CM,แก้ไข การ์ด Wheel Boom,12:45,15:00,2.25,1
+d20250827-04,2025-08-27,Day,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้างาน,15:00,16:05,1.08,1
+d20250827-05,2025-08-27,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,16:05,19:00,2.92,1
+d20250827-06,2025-08-27,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,07:00,12.0,1
+d20250828-01,2025-08-28,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,07:00,09:53,2.88,1
+d20250828-02,2025-08-28,Day,BWE2,A2,line,EE,CM,Trip Oil Pump,10:10,10:16,0.1,1
+d20250828-03,2025-08-28,Day,BWE2,A9,line,CV,CM,เคลียร์ดินตามไลน์สายพาน,10:36,11:32,0.93,1
+d20250828-04,2025-08-28,Day,BWE2,A1,line,CV,CM,แก้ไข Flat return หลุด Support ที่ท้าย,11:32,12:28,0.93,1
+d20250828-05,2025-08-28,Day,BWE2,BWE2,machine,OPT,Other,Clear track,13:03,13:19,0.27,1
+d20250828-06,2025-08-28,Day,BWE2,BWE2,machine,OPT,Other,Clear track,13:37,13:53,0.27,1
+d20250828-07,2025-08-28,Day,BWE2,A9,line,EE,CM,Trip belt speed,14:13,14:47,0.57,1
+d20250828-08,2025-08-28,Day,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,14:53,16:06,1.22,1
+d20250828-09,2025-08-28,Day,BWE2,BWE2,machine,ME,CM,Slew ไหลเอง,16:06,18:06,2.0,1
+d20250828-10,2025-08-28,Day,BWE2,BWE2,machine,EE,CM,แก้ไข Motor Track BWE,18:06,19:00,0.9,1
+d20250828-11,2025-08-28,Night,BWE2,BWE2,machine,EE,CM,แก้ไข Motor Track BWE,19:00,07:00,12.0,0
+d20250829-01,2025-08-29,Day,BWE2,BWE2,machine,EE,CM,แก้ไข Motor Track BWE,07:00,19:00,12.0,0
+d20250829-02,2025-08-29,Night,BWE2,BWE2,machine,EE,CM,แก้ไข Motor Track BWE,19:00,07:00,12.0,0
+d20250830-01,2025-08-30,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,13:00,6.0,1
+d20250830-02,2025-08-30,Day,BWE2,A6,line,CV,PM,Resplice สายพาน,13:00,19:00,6.0,1
+d20250830-03,2025-08-30,Night,BWE2,A6,line,CV,PM,Resplice สายพาน,19:00,07:00,12.0,0
+d20250831-01,2025-08-31,Night,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,02:10,07:00,4.83,1
+d20250831-02,2025-08-31,Day,BWE2,A6,line,CV,PM,Resplice สายพาน,07:00,13:00,6.0,0
+d20250831-03,2025-08-31,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,13:00,16:00,3.0,1
+d20250831-04,2025-08-31,Day,BWE2,Line A,line,System,Rain,รอเคลียร์หน้างาน,16:00,19:00,3.0,1
+d20250831-05,2025-08-31,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,19:00,02:10,7.17,1
+d20250901-01,2025-09-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:00,01:05,0.08,1
+d20250901-02,2025-09-01,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:05,01:10,0.08,1
+d20250901-03,2025-09-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:39,01:45,0.1,1
+d20250901-04,2025-09-01,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,02:42,02:55,0.22,1
+d20250901-05,2025-09-01,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,03:00,03:15,0.25,1
+d20250901-06,2025-09-01,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,03:30,03:58,0.47,1
+d20250901-07,2025-09-01,Night,BWE2,SPD.A,spreader,CV,Other,SPD.A เดินออก Hight Dump ไปโปรยที่หัว,05:44,07:00,1.27,1
+d20250901-08,2025-09-01,Day,BWE2,A2.1,line,CV,CM,ซ่อมร้อนสายพาน,07:00,15:03,8.05,1
+d20250901-09,2025-09-01,Day,BWE2,Line A,line,CV,Idle,โหลดไล่น้ำ,15:03,15:50,0.78,1
+d20250901-10,2025-09-01,Day,BWE2,BWE2,machine,EE,CM,Slew trip,15:58,16:50,0.87,1
+d20250901-11,2025-09-01,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,17:14,17:19,0.08,1
+d20250901-12,2025-09-01,Day,BWE2,A4,line,EE,CM,Trip Oil Pump,17:23,18:06,0.72,1
+d20250901-13,2025-09-01,Day,BWE2,BWE2,machine,ME,CM,สาย Hose Hydraulic แตก,18:22,19:00,0.63,1
+d20250901-14,2025-09-01,Night,BWE2,BWE2,machine,ME,CM,สาย Hose Hydraulic แตก,19:00,21:06,2.1,0
+d20250901-15,2025-09-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:19,21:27,0.13,1
+d20250901-16,2025-09-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:43,21:48,0.08,1
+d20250901-17,2025-09-01,Night,BWE2,A3,line,EE,CM,Trip Tension Min,21:53,22:02,0.15,1
+d20250901-18,2025-09-01,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:04,23:20,0.27,1
+d20250901-19,2025-09-01,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,23:20,23:34,0.23,1
+d20250901-20,2025-09-01,Night,BWE2,SPD.A,spreader,OPT,Other,สายพาน Dischange Slip,23:39,00:11,0.53,1
+d20250902-01,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,00:10,00:22,0.2,1
+d20250902-02,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:51,02:00,0.15,1
+d20250902-03,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:32,02:35,0.05,1
+d20250902-04,2025-09-02,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,02:35,02:49,0.23,1
+d20250902-05,2025-09-02,Night,BWE2,A9,line,EE,CM,Trip Belt Rip,03:24,03:34,0.17,1
+d20250902-06,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:15,04:22,0.12,1
+d20250902-07,2025-09-02,Night,BWE2,A7,line,ME,CM,แก้ไขผนัง Hopper ท้าย,05:07,07:00,1.88,1
+d20250902-08,2025-09-02,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,07:00,07:20,0.33,1
+d20250902-09,2025-09-02,Day,BWE2,A9,line,EE,CM,Trip Belt Rip,07:38,08:02,0.4,1
+d20250902-10,2025-09-02,Day,BWE2,SPD.A,spreader,CV,Other,SPD.A เดินอ้อม Drive Station A1 มาโปรยฝั่ง (time) Low Dump,08:35,09:40,1.08,1
+d20250902-11,2025-09-02,Day,BWE2,A9,line,CV,CM,เคลียร์ดินอัดสายพาน,09:40,10:00,0.33,1
+d20250902-12,2025-09-02,Day,BWE2,BWE2,machine,ME,CM,แทรคเตอร์แทรคหลุด,10:00,14:16,4.27,1
+d20250902-13,2025-09-02,Day,BWE2,A7,line,EE,CM,Trip Belt Rip,15:09,15:20,0.18,1
+d20250902-14,2025-09-02,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:02,16:10,0.13,1
+d20250902-15,2025-09-02,Day,BWE2,BWE2,machine,OPT,Other,บิดแทรค,16:10,16:30,0.33,1
+d20250902-16,2025-09-02,Day,BWE2,BWE2,machine,OPT,Other,รอแทรคเตอร์,17:00,19:00,2.0,1
+d20250902-17,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,รอแทรคเตอร์,19:00,20:03,1.05,0
+d20250902-18,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,20:30,20:37,0.12,1
+d20250902-19,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:07,21:13,0.1,1
+d20250902-20,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,21:41,22:03,0.37,1
+d20250902-21,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:17,22:30,0.22,1
+d20250902-22,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:53,23:00,0.12,1
+d20250902-23,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:00,23:24,0.4,1
+d20250902-24,2025-09-02,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:42,23:53,0.18,1
+d20250903-01,2025-09-03,Night,BWE2,A3,line,EE,CM,Trip Tension Min,02:08,03:01,0.88,1
+d20250903-02,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,02:08,02:52,0.73,1
+d20250903-03,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,รอแทรคเตอร์,02:52,03:01,0.15,1
+d20250903-04,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:07,03:32,0.42,1
+d20250903-05,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:40,03:47,0.12,1
+d20250903-06,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:54,04:20,0.43,1
+d20250903-07,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,04:32,04:41,0.15,1
+d20250903-08,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:47,05:14,0.45,1
+d20250903-09,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:19,05:28,0.15,1
+d20250903-10,2025-09-03,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:45,06:03,0.3,1
+d20250903-11,2025-09-03,Night,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,06:26,07:00,0.57,1
+d20250903-12,2025-09-03,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,12:16,5.27,1
+d20250903-13,2025-09-03,Day,BWE2,BWE2,machine,OPT,Other,Clear track,12:27,12:28,0.02,1
+d20250903-14,2025-09-03,Day,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,13:23,13:50,0.45,1
+d20250903-15,2025-09-03,Day,BWE2,BWE2,machine,CV,Other,เช็คแผลสายพาน A9,14:33,14:38,0.08,1
+d20250903-16,2025-09-03,Day,BWE2,BWE2,machine,CV,CM,Impact Hopper Car Link ขาด,14:55,15:22,0.45,1
+d20250903-17,2025-09-03,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,15:32,15:37,0.08,1
+d20250903-18,2025-09-03,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:15,19:00,0.75,1
+d20250903-19,2025-09-03,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:46,0.77,0
+d20250903-20,2025-09-03,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip ไม่โชว์ Messenger,19:58,20:44,0.77,1
+d20250903-21,2025-09-03,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip ไม่โชว์ Messenger,20:46,21:54,1.13,1
+d20250903-22,2025-09-03,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip ไม่โชว์ Messenger,21:54,22:18,0.4,1
+d20250903-23,2025-09-03,Night,BWE2,SPD.A,spreader,EE,CM,SPD.A Trip ไม่โชว์ Messenger,23:07,00:09,1.03,1
+d20250904-01,2025-09-04,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,00:09,00:15,0.1,1
+d20250904-02,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:45,00:50,0.08,1
+d20250904-03,2025-09-04,Night,BWE2,A7,line,CV,CM,เปลี่ยน Flat Return,01:55,02:33,0.63,1
+d20250904-04,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:40,02:49,0.15,1
+d20250904-05,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:30,03:43,0.22,1
+d20250904-06,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,ทำทางเดิน BW,03:59,04:30,0.52,1
+d20250904-07,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:02,05:11,0.15,1
+d20250904-08,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,05:11,05:20,0.15,1
+d20250904-09,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:53,05:57,0.07,1
+d20250904-10,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:57,06:02,0.08,1
+d20250904-11,2025-09-04,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:15,07:00,0.75,1
+d20250904-12,2025-09-04,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,07:00,07:20,0.33,0
+d20250904-13,2025-09-04,Day,BWE2,Line A,line,CV,PM,PM Line A,07:20,15:22,8.03,1
+d20250904-14,2025-09-04,Day,BWE2,A9.1,line,EE,CM,Trip Pull wire Left,15:28,15:40,0.2,1
+d20250904-15,2025-09-04,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:22,16:26,0.07,1
+d20250904-16,2025-09-04,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:47,16:53,0.1,1
+d20250904-17,2025-09-04,Day,BWE2,A9,line,EE,CM,Trip Belt Rip,17:05,17:20,0.25,1
+d20250904-18,2025-09-04,Day,BWE2,SPD.A,spreader,EE,CM,"SPD.A Trip ค่า X,Y",17:48,17:53,0.08,1
+d20250904-19,2025-09-04,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:25,19:00,0.58,1
+d20250904-20,2025-09-04,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,19:00,19:49,0.82,0
+d20250904-21,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:39,20:55,0.27,1
+d20250904-22,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,21:30,21:40,0.17,1
+d20250904-23,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,21:40,21:50,0.17,1
+d20250904-24,2025-09-04,Night,BWE2,BWE2,machine,EE,CM,Track Trip,22:26,22:33,0.12,1
+d20250904-25,2025-09-04,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,22:33,22:49,0.27,1
+d20250905-01,2025-09-05,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,01:00,02:00,1.0,1
+d20250905-02,2025-09-05,Night,BWE2,BWE2,machine,OPT,Other,ทำทางเดิน BW,02:00,07:00,5.0,1
+d20250905-03,2025-09-05,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,07:00,08:00,1.0,0
+d20250905-04,2025-09-05,Night,BWE2,BWE2,machine,OPT,Other,ทำทางเดิน BW,07:00,09:20,2.33,0
+d20250905-05,2025-09-05,Day,BWE2,A9,line,CV,CM,เคลียร์ดินอัดสายพาน,08:00,08:34,0.57,1
+d20250905-06,2025-09-05,Day,BWE2,BWE2,machine,EE,CM,หยุดเช็คปั้มลม,09:10,10:30,1.33,1
+d20250905-07,2025-09-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:44,10:48,0.07,1
+d20250905-08,2025-09-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,11:07,11:12,0.08,1
+d20250905-09,2025-09-05,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:49,12:55,0.1,1
+d20250905-10,2025-09-05,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:37,14:45,0.13,1
+d20250905-11,2025-09-05,Day,BWE2,BWE2,machine,EE,CM,ติด Oil Level Min Alarm,14:50,16:05,1.25,1
+d20250905-12,2025-09-05,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,16:30,17:51,1.35,1
+d20250905-13,2025-09-05,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,18:01,18:06,0.08,1
+d20250905-14,2025-09-05,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:25,19:00,0.58,1
+d20250905-15,2025-09-05,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:40,0.67,0
+d20250905-16,2025-09-05,Night,BWE2,A2,line,CV,CM,เปลี่ยน Flat Return,19:40,20:22,0.7,1
+d20250905-17,2025-09-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,21:35,21:41,0.1,1
+d20250905-18,2025-09-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:53,22:57,0.07,1
+d20250905-19,2025-09-05,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:29,23:36,0.12,1
+d20250905-20,2025-09-05,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:36,23:43,0.12,1
+d20250906-01,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,Clear track,00:50,00:57,0.12,1
+d20250906-02,2025-09-06,Night,BWE2,A9.1,line,CV,CM,เอา Carry ออกจากสายพาน,01:18,01:30,0.2,1
+d20250906-03,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,ย้ายหน้าขุด,01:30,02:08,0.63,1
+d20250906-04,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:40,03:47,0.12,1
+d20250906-05,2025-09-06,Night,BWE2,BWE2,machine,EE,CM,สายพาน Wheel Boom สตาร์ไม่ผ่าน,03:47,04:34,0.78,1
+d20250906-06,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:40,05:45,0.08,1
+d20250906-07,2025-09-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,06:00,07:00,1.0,1
+d20250906-08,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,11:02,11:14,0.2,1
+d20250906-09,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,11:27,11:32,0.08,1
+d20250906-10,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,12:00,12:05,0.08,1
+d20250906-11,2025-09-06,Day,BWE2,A9,line,CV,CM,ตัดสลิงกลางสายพาน,12:05,12:15,0.17,1
+d20250906-12,2025-09-06,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,13:30,13:34,0.07,1
+d20250906-13,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,13:59,14:03,0.07,1
+d20250906-14,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,14:42,14:47,0.08,1
+d20250906-15,2025-09-06,Day,BWE2,A9,line,CV,CM,ตัดสลิงกลางสายพาน,14:59,15:07,0.13,1
+d20250906-16,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,15:25,15:42,0.28,1
+d20250906-17,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:18,16:26,0.13,1
+d20250906-18,2025-09-06,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:38,17:43,0.08,1
+d20250906-19,2025-09-06,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:20,19:00,0.67,1
+d20250906-20,2025-09-06,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:58,0.97,0
+d20250906-21,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,ย้ายสาย 6.6 kv.,19:58,21:16,1.3,1
+d20250906-22,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,Clear track,22:23,22:50,0.45,1
+d20250906-23,2025-09-06,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:55,00:13,0.3,1
+d20250907-01,2025-09-07,Day,BWE2,BWE2,machine,OPT,Idle,เปลี่ยนกะ,07:00,07:55,0.92,1
+d20250907-02,2025-09-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,08:05,08:10,0.08,1
+d20250907-03,2025-09-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,08:28,08:30,0.03,1
+d20250907-04,2025-09-07,Day,BWE2,BWE2,machine,OPT,Other,ย้ายสาย 6.6 kv.,08:33,10:00,1.45,1
+d20250907-05,2025-09-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,10:18,10:22,0.07,1
+d20250907-06,2025-09-07,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,11:00,11:04,0.07,1
+d20250907-07,2025-09-07,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,11:33,11:35,0.03,1
+d20250907-08,2025-09-07,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,11:44,15:20,3.6,1
+d20250907-09,2025-09-07,Day,BWE2,A9.1,line,CV,CM,ซ่อมเย็นสายพาน,15:20,16:16,0.93,1
+d20250907-10,2025-09-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:29,16:39,0.17,1
+d20250907-11,2025-09-07,Day,BWE2,BWE2,machine,OPT,Other,Clear track,17:19,17:25,0.1,1
+d20250907-12,2025-09-07,Day,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,18:00,19:00,1.0,1
+d20250907-13,2025-09-07,Night,BWE2,BWE2,machine,System,Dust,หยุดฝุ่น,19:00,19:24,0.4,0
+d20250907-14,2025-09-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:18,20:20,0.03,1
+d20250907-15,2025-09-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:56,21:07,0.18,1
+d20250907-16,2025-09-07,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:41,22:45,0.07,1
+d20250907-17,2025-09-07,Night,BWE2,BWE2,machine,OPT,Other,หน้าขุดหมด,23:17,07:00,7.72,1
+d20250908-01,2025-09-08,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,1
+d20250908-02,2025-09-08,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,0
+d20250909-01,2025-09-09,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,0
+d20250909-02,2025-09-09,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,0
+d20250910-01,2025-09-10,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,0
+d20250910-02,2025-09-10,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,0
+d20250911-01,2025-09-11,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,0
+d20250911-02,2025-09-11,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,07:00,12.0,0
+d20250912-01,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,00:46,00:49,0.05,1
+d20250912-02,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,01:34,01:40,0.1,1
+d20250912-03,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:40,01:46,0.1,1
+d20250912-04,2025-09-12,Night,BWE2,SPD.A,spreader,EE,CM,"SPD.A Trip ค่า X,Y",02:06,02:30,0.4,1
+d20250912-05,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,02:57,03:02,0.08,1
+d20250912-06,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:37,03:46,0.15,1
+d20250912-07,2025-09-12,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Gearbox MD.2 BW.1 (Coupling แตก),04:19,07:00,2.68,1
+d20250912-08,2025-09-12,Day,BWE2,A9,line,CV,Shift,Shift สายพาน,07:00,19:00,12.0,0
+d20250912-09,2025-09-12,Night,BWE2,A9,line,CV,Shift,Shift สายพาน,19:00,22:38,3.63,0
+d20250912-10,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:13,23:18,0.08,1
+d20250912-11,2025-09-12,Night,BWE2,BWE2,machine,OPT,Other,Clear track,23:18,23:23,0.08,1
+d20250912-12,2025-09-12,Night,BWE2,A9,line,CV,CM,แต่งสายพาน A9,23:32,00:05,0.55,1
+d20250913-01,2025-09-13,Night,BWE2,BWE2,machine,ME,CM,แทรคเตอร์แทรคขาด,01:03,02:20,1.28,1
+d20250913-02,2025-09-13,Night,BWE2,BWE2,machine,OPT,Other,บิดแทรค,02:33,02:47,0.23,1
+d20250913-03,2025-09-13,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:28,04:36,0.13,1
+d20250913-04,2025-09-13,Night,BWE2,BWE2,machine,OPT,Other,Clear track,05:18,07:00,1.7,1
+d20250913-05,2025-09-13,Day,BWE2,BWE2,machine,ME,CM,แก้ไข Gearbox MD.2 BW.1 (Coupling แตก),07:00,19:00,12.0,0
+d20250913-06,2025-09-13,Night,BWE2,BWE2,machine,ME,CM,แก้ไข Gearbox MD.2 BW.1 (Coupling แตก),19:00,19:25,0.42,0
+d20250913-07,2025-09-13,Night,BWE2,BWE2,machine,OPT,Other,Clear track,19:47,20:07,0.33,1
+d20250913-08,2025-09-13,Night,BWE2,BWE2,machine,ME,CM,แก้ไขสลักบุ้งกี๋,20:07,22:32,2.42,1
+d20250914-01,2025-09-14,Night,BWE2,A7,line,EE,CM,Trip Belt Rip,00:01,00:21,0.33,1
+d20250914-02,2025-09-14,Night,BWE2,A7,line,EE,CM,Trip Belt Rip,00:26,00:45,0.32,1
+d20250914-03,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,01:20,02:03,0.72,1
+d20250914-04,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,02:37,02:43,0.1,1
+d20250914-05,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,03:05,03:10,0.08,1
+d20250914-06,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,03:24,03:30,0.1,1
+d20250914-07,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,04:16,04:42,0.43,1
+d20250914-08,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,05:28,05:34,0.1,1
+d20250914-09,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,06:16,06:20,0.07,1
+d20250914-10,2025-09-14,Day,BWE2,Line A,line,CV,PM,PM Line A,07:00,16:25,9.42,1
+d20250914-11,2025-09-14,Day,BWE2,BWE2,machine,ME,CM,แทรคเตอร์แทรคขาด,16:25,17:38,1.22,1
+d20250914-12,2025-09-14,Day,BWE2,A9,line,CV,CM,ตัดสลิงกลางสายพาน,17:48,18:00,0.2,1
+d20250914-13,2025-09-14,Day,BWE2,BWE2,machine,OPT,Other,Clear track,18:10,18:12,0.03,1
+d20250914-14,2025-09-14,Day,BWE2,BWE2,machine,OPT,Idle,เช็คเครื่องจักร,18:27,19:00,0.55,1
+d20250914-15,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,เคลียร์หน้าขุด,19:00,19:36,0.6,1
+d20250914-16,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,19:56,20:05,0.15,1
+d20250914-17,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:20,21:04,0.73,1
+d20250914-18,2025-09-14,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:57,22:52,0.92,1
+d20250914-19,2025-09-14,Night,BWE2,A7,line,EE,CM,Trip Belt Rip,23:33,23:56,0.38,1
+d20250915-01,2025-09-15,Night,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,00:11,07:00,6.82,1
+d20250915-02,2025-09-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,07:00,07:30,0.5,1
+d20250915-03,2025-09-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,07:39,07:50,0.18,1
+d20250915-04,2025-09-15,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,08:33,08:35,0.03,1
+d20250915-05,2025-09-15,Day,BWE2,Line A,line,EE,CM,ไฟดับ,09:36,10:55,1.32,1
+d20250915-06,2025-09-15,Day,BWE2,Line A,line,Uncontrol,Rain,ฝนตก,10:55,12:00,1.08,1
+d20250915-07,2025-09-15,Day,BWE2,Line A,line,System,Rain,เคลียร์หน้างาน,12:00,14:07,2.12,1
+d20250915-08,2025-09-15,Day,BWE2,A5,line,CV,CM,ตัดสลิงกลางสายพาน,14:46,15:09,0.38,1
+d20250915-09,2025-09-15,Day,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,16:00,16:04,0.07,1
+d20250915-10,2025-09-15,Day,BWE2,BWE2,machine,OPT,Other,Clear track,16:10,16:11,0.02,1
+d20250915-11,2025-09-15,Day,BWE2,BWE2,machine,OPT,Other,จัดจุดตก BW,17:15,17:30,0.25,1
+d20250915-12,2025-09-15,Day,BWE2,A9,line,CV,CM,ซ่อมเย็นสายพาน,17:35,19:00,1.42,1
+d20250915-13,2025-09-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,20:12,20:17,0.08,1
+d20250915-14,2025-09-15,Night,BWE2,BWE2,machine,OPT,Other,Clear track,20:28,20:45,0.28,1
+d20250915-15,2025-09-15,Night,BWE2,BWE2,machine,OPT,Other,Clear track,21:04,21:25,0.35,1
+d20250915-16,2025-09-15,Night,BWE2,BWE2,machine,Uncontrol,Rain,ดูท่าทีฝน,21:25,21:57,0.53,1
+d20250915-17,2025-09-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,22:55,23:16,0.35,1
+d20250915-18,2025-09-15,Night,BWE2,BWE2,machine,EE,CM,สายพาน Wheel Boom สตาร์ไม่ผ่าน,23:16,23:29,0.22,1
+d20250915-19,2025-09-15,Night,BWE2,BWE2,machine,OPT,Other,ย้าย floor ขุด,23:40,23:54,0.23,1

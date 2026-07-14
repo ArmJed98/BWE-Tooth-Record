@@ -776,7 +776,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 <!-- DOWNTIME ANALYSIS -->
 <section id="downtime">
   <div class="eyebrow">09 — Downtime Analysis</div>
-  <h2>วิเคราะห์เวลาหยุดเครื่องจักร (Downtime) <span class="tag status-view" style="display:inline-block;background:var(--panel2);color:var(--muted)">Draft</span></h2>
+  <h2>วิเคราะห์เวลาหยุดเครื่องจักร (Downtime)</h2>
   <p class="lead">สรุปจาก Downtime Log 1,716 เหตุการณ์ (1 พ.ค. – 15 ก.ย. 2568) จำแนกตามตำแหน่งที่เกิดการหยุด — <b style="color:var(--txt)">ตัวเครื่องจักร (BWE1/BWE2)</b> · <b style="color:var(--txt)">สายพานลำเลียง Line A1–A11</b> · <b style="color:var(--txt)">เครื่องโปรยดิน (SPD.A)</b> — เพื่อชี้จุดที่ควรแก้ไขเพื่อเพิ่มเวลาทำงาน</p>
   <div class="kpis" id="dtKpis"></div>
   <div class="grid2" style="margin-top:18px">
@@ -1459,7 +1459,7 @@ const DT_CAT_LABEL = {CM:'ซ่อมแซม (CM)', Rain:'ฝนตก', Shif
 const DT_LOCTYPE_LABEL = {machine:'ตัวเครื่องจักร (BWE1/BWE2)', line:'สายพานลำเลียง (Line A1–A11)', spreader:'เครื่องโปรยดิน (SPD.A)'};
 const DT_LOCTYPE_COLOR = {machine:C.wear, line:C.uptime, spreader:C.good};
 function renderDowntimeAnalysis(){
-  const D = DT_AGG;
+  const D = (DATA && DATA.downtime_agg) || DT_AGG;
   if(!D) return;
   const total = D.total_hr;
   const b1 = D.by_machine.find(x=>x.k==='BWE1'), b2 = D.by_machine.find(x=>x.k==='BWE2');
@@ -1953,7 +1953,7 @@ const SHEET_CONFIG = {
   // URL ของ Google Apps Script Web App สำหรับ "เขียน" ข้อมูลกลับเข้า Sheet
   // วางลิงก์ที่ได้จากการ Deploy (ดูคู่มือใน apps-script/README.md). เว้นว่าง = ปิดการบันทึกเข้า Sheet
   writeUrl: 'https://script.google.com/macros/s/AKfycbzlPDvquPMGf21CvLogp0G9HtyY_DGD3RAO0UEUgv6vRod0DRFL2eTGvJdQHFIEJJEj/exec',
-  tabs: { summary:'summary', hf1:'hf1', hf2:'hf2', tooth:'tooth', periods:'periods', daily:'daily', life:'life', wear:'wear' }
+  tabs: { summary:'summary', hf1:'hf1', hf2:'hf2', tooth:'tooth', periods:'periods', daily:'daily', life:'life', wear:'wear', downtime:'downtime' }
 };
 
 // ── เขียนรายการบันทึกกลับเข้า Google Sheet (ผ่าน Apps Script Web App) ──
@@ -2002,13 +2002,42 @@ function gvizDate(v){
 }
 const gNum  = v => (v==null || v==='') ? 0 : (typeof v==='number' ? v : (parseFloat(String(v).replace(/,/g,'')) || 0));
 const gFrac = v => { const n = gNum(v); return n > 1.5 ? n/100 : n; };  // รับได้ทั้ง 94.9 และ 0.949
+// gviz คืนเวลาเป็น "Date(1899,11,30,2,42,0)" หรือ "2:42" -> แปลงเป็น 'HH:MM'
+function gvizTime(v){
+  if(v==null || v==='') return '';
+  const s = String(v);
+  const m = s.match(/Date\(\d+,\d+,\d+,(\d+),(\d+)/);
+  let hh, mm;
+  if(m){ hh=+m[1]; mm=+m[2]; }
+  else { const p = s.split(':'); if(p.length<2) return s; hh=+p[0]; mm=+p[1]; }
+  return String(hh).padStart(2,'0')+':'+String(mm).padStart(2,'0');
+}
+// รวมยอด Downtime จาก event log (จัดกลุ่มตามวันที่) → โครงสร้างเดียวกับ forms-history.js agg
+function computeDowntimeAgg(byDate){
+  const all=[]; Object.keys(byDate).forEach(d=>byDate[d].forEach(e=>all.push(e)));
+  if(!all.length) return null;
+  const byM={}, byLT={}, byCat={}, byDept={}, byLoc={}; let total=0;
+  all.forEach(e=>{ const hr=e.hr||0; total+=hr;
+    byM[e.machine]=(byM[e.machine]||0)+hr; byLT[e.loctype]=(byLT[e.loctype]||0)+hr;
+    byCat[e.cat]=(byCat[e.cat]||0)+hr; byDept[e.dept]=(byDept[e.dept]||0)+hr;
+    byLoc[e.location]=(byLoc[e.location]||0)+hr; });
+  const dates=Object.keys(byDate).sort(); const months=[]; const mmap={};
+  dates.forEach(d=>{ const mo=d.slice(0,7); if(!mmap[mo]){mmap[mo]={BWE1:0,BWE2:0}; months.push(mo);}
+    byDate[d].forEach(e=>{ mmap[mo][e.machine]=(mmap[mo][e.machine]||0)+(e.hr||0); }); });
+  const top=(o,n)=>{ const a=Object.keys(o).map(k=>({k, hr:Math.round(o[k]*10)/10})).sort((x,y)=>y.hr-x.hr); return n?a.slice(0,n):a; };
+  return { total_hr:Math.round(total*10)/10, event_count:all.length,
+    range:{min:dates[0], max:dates[dates.length-1]},
+    by_machine:top(byM), by_loctype:top(byLT), by_category:top(byCat), by_dept:top(byDept), top_locations:top(byLoc,10),
+    monthly:{labels:months, bwe1:months.map(m=>Math.round(mmap[m].BWE1*10)/10), bwe2:months.map(m=>Math.round(mmap[m].BWE2*10)/10)} };
+}
 
 async function buildLiveData(){
   const T = SHEET_CONFIG.tabs;
-  const [summary, hf1, hf2, tooth, periods, daily, life, wear] = await Promise.all([
+  const [summary, hf1, hf2, tooth, periods, daily, life, wear, downtime] = await Promise.all([
     gvizFetch(T.summary, 1), gvizFetch(T.hf1, 0), gvizFetch(T.hf2, 0),
     gvizFetch(T.tooth, 1), gvizFetch(T.periods, 1), gvizFetch(T.daily, 1), gvizFetch(T.life, 1),
-    gvizFetch(T.wear, 1).catch(()=>[])
+    gvizFetch(T.wear, 1).catch(()=>[]),
+    gvizFetch(T.downtime, 1).catch(()=>null)
   ]);
   const d = {};
   // summary: eq | smu | install | replace | lost | hardface
@@ -2054,6 +2083,20 @@ async function buildLiveData(){
     }
     // ไม่ตั้ง d.wear_orig จาก live (ใช้ค่าฝังในไฟล์ short21/long28 เสมอ)
   }
+  // downtime: id | date | shift | machine | location | loctype | dept | category | description | start | end | duration_hr | freq
+  if(downtime && downtime.length){
+    const byDate={};
+    downtime.filter(r=>r[1]!=null && r[1]!=='').forEach(r=>{
+      const date=gvizDate(r[1]); if(!/^\d{4}-\d{2}-\d{2}/.test(date)) return;
+      const ev={ id:String(r[0]||''), shift:String(r[2]||'Day').trim(), machine:String(r[3]||'').trim(),
+        location:String(r[4]||'').trim(), loctype:String(r[5]||'machine').trim(),
+        dept:String(r[6]||'OPT').trim(), cat:String(r[7]||'Other').trim(), desc:String(r[8]||'').trim(),
+        start:gvizTime(r[9]), end:gvizTime(r[10]), hr:gNum(r[11]), freq:gNum(r[12])||1 };
+      (byDate[date]=byDate[date]||[]).push(ev);
+    });
+    Object.keys(byDate).forEach(dt=>byDate[dt].sort((a,b)=>(a.start||'99').localeCompare(b.start||'99')));
+    if(Object.keys(byDate).length){ d.downtime_events = byDate; d.downtime_agg = computeDowntimeAgg(byDate); }
+  }
   return d;
 }
 
@@ -2077,6 +2120,7 @@ async function refreshLiveData(silent){
     const live = await buildLiveData();
     DATA = Object.assign({}, FALLBACK_DATA, live);
     renderDashboard();
+    if(window.__applyDowntimeLive && live.downtime_events) window.__applyDowntimeLive(live.downtime_events);
     setLiveStatus('live');
   }catch(e){
     console.warn('Live data failed:', e);
@@ -2115,20 +2159,22 @@ if(SHEET_CONFIG.refreshMs > 0){ setInterval(()=>refreshLiveData(true), SHEET_CON
 
 /* ═══════════════════════════════════════════════════
    DAILY OPERATIONAL ENTRY FORM — Downtime
-   Historical browser wired with real May–Sep 2025 workbook data
-   (จะต่อ Google Sheet ในเฟสถัดไป)
+   ข้อมูลมาจาก Google Sheet แท็บ `downtime` (real-time) — เขียนกลับผ่าน Apps Script Web App
+   เพิ่ม/แก้/ลบ ได้ครบ · forms-history.js เก็บเฉพาะยอดสรุปไว้เป็น fallback
    ═══════════════════════════════════════════════════ */
 (function(){
-/* ── ข้อมูลย้อนหลัง: ฐานจากไฟล์ Daily Report (forms-history.js) + ที่ผู้ใช้บันทึกเอง (localStorage) ── */
-const LS_DT='bwe:dt-log';
-const BASE = window.BWE_HISTORY || {dt:{},range:{}};
-function loadLS(k){ try{ return JSON.parse(localStorage.getItem(k)) || {}; }catch(e){ return {}; } }
-const DOWNTIME_HISTORY = Object.assign({}, BASE.dt||{}, loadLS(LS_DT));
-function persist(k, dateKey, val){
-  const store = loadLS(k); store[dateKey] = val;
-  try{ localStorage.setItem(k, JSON.stringify(store)); }catch(e){ console.warn('บันทึกไม่สำเร็จ', e); }
-}
-const CAL_MIN = (BASE.range && BASE.range.min) ? BASE.range.min.slice(0,7) : '2025-05';
+// event log จัดกลุ่มตามวันที่: { 'YYYY-MM-DD': [ {id,shift,machine,location,loctype,dept,cat,desc,start,end,hr,freq}, ... ] }
+let DOWNTIME_HISTORY = {};
+let CAL_MIN = (window.BWE_HISTORY && window.BWE_HISTORY.range && window.BWE_HISTORY.range.min) ? window.BWE_HISTORY.range.min.slice(0,7) : '2025-05';
+function recalcCalMin(){ const ks=Object.keys(DOWNTIME_HISTORY).sort(); if(ks.length) CAL_MIN=ks[0].slice(0,7); }
+function latestDataDate(){ const ks=Object.keys(DOWNTIME_HISTORY).sort(); return ks.length?ks[ks.length-1]:null; }
+// รับข้อมูลสดจาก Google Sheet (เรียกโดย refreshLiveData) แล้ววาดใหม่
+window.__applyDowntimeLive = function(byDate){
+  DOWNTIME_HISTORY = byDate || {};
+  recalcCalMin();
+  const cur = (dtCurDate && DOWNTIME_HISTORY[dtCurDate]) ? dtCurDate : latestDataDate();
+  if(cur) viewDowntime(cur); else renderDowntimeTable(TODAY);
+};
 
 const TODAY = '2025-09-15';
 const DT_DEPT = {'ME':'ME · เครื่องกล','EE':'EE · ไฟฟ้า','CV':'CV · สายพาน','OPT':'OPT · ปฏิบัติการ','System':'System · ระบบ','Uncontrol':'Uncontrol · ควบคุมไม่ได้'};
@@ -2302,16 +2348,44 @@ window.viewDowntime = viewDowntime;
 
 function machineCode(v){ return (v||'').replace(/\s/g,''); }
 function codeOf(v){ return (v||'').split(' · ')[0].trim(); }
+// จัดกลุ่มตำแหน่ง: เครื่องจักร (BWE1/2) · สายพาน Line A1–A11 · เครื่องโปรยดิน SPD.A
+function dtLocType(loc){
+  const L=(loc||'').trim();
+  if(L==='SPD.A') return 'spreader';
+  if(L==='Line A' || /^A(\d|1[01])(\.\d+)?$/.test(L)) return 'line';
+  return 'machine';
+}
+function newDtId(date){ return 'd'+date.replace(/-/g,'')+'-'+Math.random().toString(36).slice(2,7); }
+// สร้าง row ตามคอลัมน์ในแท็บ Google Sheet (13 คอลัมน์)
+function toSheetRow(date, ev){
+  return { id:ev.id, date:date, shift:ev.shift, machine:ev.machine, location:ev.location,
+    loctype:ev.loctype, dept:ev.dept, category:ev.cat, description:ev.desc,
+    start:ev.start, end:ev.end, duration_hr:ev.hr, freq:ev.freq };
+}
+// เขียนกลับเข้า Google Sheet ผ่าน Apps Script Web App (no-cors: อ่าน response ไม่ได้ จึงอัปเดตหน้าจอแบบ optimistic)
+function sendDowntime(action, row){
+  if(!(typeof SHEET_CONFIG!=='undefined' && SHEET_CONFIG.writeUrl)) return Promise.resolve(false);
+  return fetch(SHEET_CONFIG.writeUrl, {
+    method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify({ kind:'downtime', action:action, row:row })
+  }).then(()=>true).catch(()=>false);
+}
+function sheetLinked(){ return typeof SHEET_CONFIG!=='undefined' && !!SHEET_CONFIG.writeUrl; }
 function saveDowntime(){
   const date = $('dt_date').value;
   if(!date){ toast('⚠️ กรุณาเลือกวันที่'); return; }
   if(!$('dt_start').value || !$('dt_end').value){ toast('⚠️ กรุณากรอกเวลาเริ่ม/สิ้นสุด'); return; }
   if(!$('dt_desc').value.trim()){ toast('⚠️ กรุณากรอกคำอธิบาย'); return; }
   const dur = calcDur($('dt_start').value, $('dt_end').value) || 0;
+  const loc = $('dt_location').value.trim();
+  const editing = dtEditIdx>=0;
+  const existing = editing ? (DOWNTIME_HISTORY[date]||[])[dtEditIdx] : null;
   const ev = {
+    id: (existing && existing.id) ? existing.id : newDtId(date),
     machine: machineCode($('dt_machine').value),
     shift: $('dt_shift').value,
-    location: $('dt_location').value.trim(),
+    location: loc,
+    loctype: dtLocType(loc),
     dept: codeOf($('dt_dept').value),
     cat: codeOf($('dt_cat').value),
     start: $('dt_start').value,
@@ -2320,17 +2394,19 @@ function saveDowntime(){
     hr: Math.round(dur*100)/100,
     freq: Number($('dt_freq').value)||1
   };
+  // อัปเดตหน้าจอทันที (optimistic)
   const list = (DOWNTIME_HISTORY[date] || []).slice();
-  if(dtEditIdx>=0 && dtEditIdx<list.length) list[dtEditIdx]=ev; else list.push(ev);
+  if(editing && dtEditIdx<list.length) list[dtEditIdx]=ev; else list.push(ev);
   list.sort((a,b)=>(a.start||'99').localeCompare(b.start||'99'));
   DOWNTIME_HISTORY[date]=list;
-  persist(LS_DT, date, list);
-  const wasEdit = dtEditIdx>=0;
+  recalcCalMin();
+  // ส่งเข้า Google Sheet
+  sendDowntime(editing?'update':'add', toSheetRow(date, ev));
   dtEditIdx=-1;
   renderDowntimeTable(date);
   $('dt_btn_save').textContent='＋ บันทึกเหตุการณ์';
   $('dt_last').innerHTML='บันทึกล่าสุด: <b style="color:var(--txt)">'+ev.machine+' · '+ev.cat+' · '+ev.desc+' ('+ev.start+' น.)</b>';
-  toast((wasEdit?'💾 แก้ไข':'💾 บันทึก')+' Downtime แล้ว ('+date+' · '+list.length+' รายการ)');
+  toast((editing?'💾 แก้ไข':'💾 บันทึก')+' Downtime '+(sheetLinked()?'→ ส่งเข้า Google Sheet แล้ว':'(ยังไม่เชื่อม Sheet)')+' · '+date);
 }
 function editDowntimeRow(date, i){
   const ev = (DOWNTIME_HISTORY[date]||[])[i]; if(!ev) return;
@@ -2349,12 +2425,13 @@ function editDowntimeRow(date, i){
 function deleteDowntimeRow(date, i){
   const list=(DOWNTIME_HISTORY[date]||[]).slice();
   if(i<0||i>=list.length) return;
-  if(!confirm('ลบเหตุการณ์นี้?\n'+list[i].start+' – '+list[i].end+' · '+list[i].desc)) return;
+  const ev=list[i];
+  if(!confirm('ลบเหตุการณ์นี้?\n'+ev.start+' – '+ev.end+' · '+ev.desc)) return;
+  sendDowntime('delete', { id: ev.id });
   list.splice(i,1);
   DOWNTIME_HISTORY[date]=list;
-  persist(LS_DT, date, list);
   renderDowntimeTable(date);
-  toast('🗑️ ลบรายการแล้ว');
+  toast('🗑️ ลบรายการ '+(sheetLinked()?'→ ส่งคำสั่งลบเข้า Google Sheet แล้ว':'(ยังไม่เชื่อม Sheet)'));
 }
 
 $('dt_btn_edit').addEventListener('click', ()=>{
@@ -2376,8 +2453,8 @@ $('dt_btn_clear').addEventListener('click', ()=>viewDowntime(TODAY));
   $('dt_dur_hint').innerHTML = '<b>= '+fmtDur(dur)+'</b>';
 }));
 
-/* INIT: preview Sep 1 (real data) so ผู้ใช้เห็นฟีเจอร์ดูย้อนหลังทำงานทันที */
-viewDowntime('2025-09-01');
+/* INIT: เริ่มที่โหมดบันทึกใหม่ · ข้อมูลย้อนหลังจะโหลดจาก Google Sheet (__applyDowntimeLive) เมื่อพร้อม */
+viewDowntime(TODAY);
 })();
 </script>
 </body>
