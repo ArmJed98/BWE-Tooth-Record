@@ -534,6 +534,8 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <div class="dock-sep"></div>
     <a href="#production" class="dock-item hx-reveal"><div class="dock-icon">⛏️</div><span class="dock-label">Production<br>&amp; Plan</span></a>
     <div class="dock-sep"></div>
+    <a href="#downtime" class="dock-item hx-reveal"><div class="dock-icon">⏱️</div><span class="dock-label">Downtime<br>Analysis</span></a>
+    <div class="dock-sep"></div>
     <a href="#dt-form" class="dock-item hx-reveal"><div class="dock-icon">🛠️</div><span class="dock-label">Downtime<br>Log</span></a>
     <div class="dock-sep"></div>
     <a href="#entry" class="dock-item hx-reveal"><div class="dock-icon">✏️</div><span class="dock-label">Tooth<br>Entry</span></a>
@@ -574,7 +576,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
     <a href="#store">คลังอะไหล่</a>
     <a href="#wear">อายุฟัน</a>
     <a href="#production">การผลิต</a>
-    <a href="#dt-form">Downtime</a>
+    <a href="#downtime">Downtime</a>
     <a href="#entry" style="color:var(--good)">+ บันทึกข้อมูล</a>
     <a href="#daily">สรุปรายวัน</a>
   </nav>
@@ -771,13 +773,37 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   </div>
 </section>
 
+<!-- DOWNTIME ANALYSIS -->
+<section id="downtime">
+  <div class="eyebrow">09 — Downtime Analysis</div>
+  <h2>วิเคราะห์เวลาหยุดเครื่องจักร (Downtime) <span class="tag status-view" style="display:inline-block;background:var(--panel2);color:var(--muted)">Draft</span></h2>
+  <p class="lead">สรุปจาก Downtime Log 1,716 เหตุการณ์ (1 พ.ค. – 15 ก.ย. 2568) จำแนกตามตำแหน่งที่เกิดการหยุด — <b style="color:var(--txt)">ตัวเครื่องจักร (BWE1/BWE2)</b> · <b style="color:var(--txt)">สายพานลำเลียง Line A1–A11</b> · <b style="color:var(--txt)">เครื่องโปรยดิน (SPD.A)</b> — เพื่อชี้จุดที่ควรแก้ไขเพื่อเพิ่มเวลาทำงาน</p>
+  <div class="kpis" id="dtKpis"></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="panel"><h3>สาเหตุการหยุดเครื่อง (Pareto)</h3><div class="ph-sub">ชั่วโมงรวมแยกตามสาเหตุ เรียงจากมากไปน้อย</div><div class="chartbox tall"><canvas id="dtCatChart"></canvas></div></div>
+    <div class="panel"><h3>แยกตามตำแหน่งที่หยุด</h3><div class="ph-sub">ตัวเครื่องจักร · สายพานลำเลียง (Line) · เครื่องโปรยดิน (Spreader)</div><div class="chartbox tall"><canvas id="dtLocTypeChart"></canvas></div></div>
+  </div>
+  <div class="panel" style="margin-top:18px"><h3>แนวโน้มรายเดือน แยกตามเครื่อง</h3><div class="ph-sub">ชั่วโมงหยุดต่อเดือน BWE1 vs BWE2</div><div class="chartbox"><canvas id="dtMonthChart"></canvas></div></div>
+  <div class="panel" style="margin-top:18px">
+    <h3>ตำแหน่งที่หยุดสะสมสูงสุด (Top 10)</h3>
+    <div class="ph-sub">รวมชั่วโมงหยุดต่อตำแหน่ง (BWE1+BWE2)</div>
+    <div style="overflow-x:auto; margin-top:10px">
+      <table class="rtbl"><thead><tr><th>ตำแหน่ง</th><th class="num">ชั่วโมงหยุดรวม</th><th class="num">% ของทั้งหมด</th></tr></thead><tbody id="dtLocBody"></tbody></table>
+    </div>
+  </div>
+  <div class="insights">
+    <div class="ins" id="dtInsight1"></div>
+    <div class="ins u" id="dtInsight2"></div>
+  </div>
+</section>
+
 <!-- ═══════════════ DAILY OPERATIONAL ENTRY FORMS ═══════════════ -->
 
 <!-- FORM: DOWNTIME -->
 <section id="dt-form">
   <div class="sec-head">
     <div class="title-block">
-      <div class="eyebrow" style="color:var(--good)">09 — Downtime Entry</div>
+      <div class="eyebrow" style="color:var(--good)">10 — Downtime Entry</div>
       <h2>ฟอร์มบันทึกเวลาหยุดเครื่องจักร <span class="tag status-view" id="dt-view-status" style="display:none">โหมดดู</span></h2>
     </div>
     <div class="datepicker-wrap">
@@ -852,7 +878,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
 
 <!-- ENTRY -->
 <section id="entry">
-  <div class="eyebrow" style="color:var(--good)">10 — Tooth Data Entry</div>
+  <div class="eyebrow" style="color:var(--good)">11 — Tooth Data Entry</div>
   <h2>บันทึกข้อมูลฟัน <span style="color:var(--good)">+</span></h2>
   <p class="lead">กรอกรายการเปลี่ยน/สูญหาย/เชื่อมพอกฟันแต่ละรายการ ระบบจะบันทึกไว้และนำไปสรุปในหน้า "สรุปรายวัน" โดยอัตโนมัติ — ข้อมูลจะถูกเก็บไว้ในเครื่องของคุณ (และสามารถสำรองเป็นไฟล์ได้)</p>
   <div class="panel" style="margin-bottom:18px">
@@ -910,7 +936,7 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
       <div class="meta" id="reportMeta"></div>
     </div>
   </div>
-  <div class="eyebrow">11 — Daily Summary</div>
+  <div class="eyebrow">12 — Daily Summary</div>
   <h2>สรุปรายวัน</h2>
   <p class="lead">สรุปยอดบันทึกของแต่ละวัน เลือกวันที่เพื่อดูรายละเอียด แล้วกด "พิมพ์ / บันทึกเป็น PDF" เพื่อเก็บเป็นเอกสาร</p>
 
@@ -997,6 +1023,7 @@ Chart.defaults.color = '#566a73';
 Chart.defaults.font.size = 13;
 const GRID = 'rgba(140,180,220,.09)';
 const C = {heat:'#e6934a', wear:'#e5624a', uptime:'#4c9de0', good:'#4bd47c', short:'#e6934a', long:'#4c9de0', dim:'#6a7787', empty:'#26324a'};
+const DT_AGG = (window.BWE_HISTORY && window.BWE_HISTORY.agg) || null;
 // พื้นคูลเข้ม · label/legend สีฟ้าเทาอ่อน
 if(typeof Chart!=='undefined'){ Chart.defaults.color='#c0cddc'; Chart.defaults.borderColor=GRID; }
 
@@ -1389,6 +1416,57 @@ function renderProduction(){
   if(i2){
     i2.innerHTML=`<div class="t">📊 <span>อ่านกราฟอย่างไร</span></div><p>เส้น "แผนงาน" เริ่มมีตั้งแต่ปี 2566 (ก่อนหน้าไม่มีสัญญากำหนดแผนรายเดือน) · ช่วงที่เส้น Productivity/Consumption ขาดหาย = เครื่องไม่มีชั่วโมงเดินเครื่อง (SMU) ในเดือนนั้น</p>`;
   }
+}
+
+/* ---------- DOWNTIME ANALYSIS ---------- */
+const DT_CAT_LABEL = {CM:'ซ่อมแซม (CM)', Rain:'ฝนตก', Shift:'เปลี่ยนกะ/ย้ายสายพาน', Relocate:'ย้ายเครื่อง', PM:'บำรุงรักษา (PM)', Other:'อื่นๆ', Dust:'ฝุ่น', Idle:'รอคอย'};
+const DT_LOCTYPE_LABEL = {machine:'ตัวเครื่องจักร (BWE1/BWE2)', line:'สายพานลำเลียง (Line A1–A11)', spreader:'เครื่องโปรยดิน (SPD.A)'};
+const DT_LOCTYPE_COLOR = {machine:C.wear, line:C.uptime, spreader:C.good};
+function renderDowntimeAnalysis(){
+  const D = DT_AGG;
+  if(!D) return;
+  const total = D.total_hr;
+  const b1 = D.by_machine.find(x=>x.k==='BWE1'), b2 = D.by_machine.find(x=>x.k==='BWE2');
+  const cat0 = D.by_category[0], loc0 = D.by_loctype[0];
+
+  const kp=document.getElementById('dtKpis');
+  if(kp){
+    const k=[
+      {l:'ชั่วโมงหยุดรวม', v:total.toLocaleString(), u:'ชม.', cls:'w', d:`${D.range.min} – ${D.range.max} (${D.event_count.toLocaleString()} เหตุการณ์)`},
+      {l:'BWE 2', v:(b2?b2.hr:0).toLocaleString(), u:'ชม.', cls:'u', d:`${b2?(b2.hr/total*100).toFixed(0):0}% ของหยุดทั้งหมด`},
+      {l:'BWE 1', v:(b1?b1.hr:0).toLocaleString(), u:'ชม.', cls:'', d:'ส่วนใหญ่ พ.ค. 2568 ก่อนย้ายเครื่อง'},
+      {l:`สาเหตุอันดับ 1 — ${DT_CAT_LABEL[cat0.k]||cat0.k}`, v:cat0.hr.toLocaleString(), u:'ชม.', cls:'w', d:`${(cat0.hr/total*100).toFixed(0)}% ของหยุดทั้งหมด`},
+      {l:`ตำแหน่งหยุดมากสุด — ${DT_LOCTYPE_LABEL[loc0.k]||loc0.k}`, v:loc0.hr.toLocaleString(), u:'ชม.', cls:'g', d:`${(loc0.hr/total*100).toFixed(0)}% ของหยุดทั้งหมด`},
+    ];
+    kp.innerHTML=k.map(x=>`<div class="kpi ${x.cls}"><div class="lab">${x.l}</div><div class="val">${x.v} <span class="unit">${x.u}</span></div><div class="delta">${x.d}</div></div>`).join('');
+  }
+
+  mkChart('dtCatChart',{type:'bar',data:{labels:D.by_category.map(c=>DT_CAT_LABEL[c.k]||c.k),datasets:[
+    {data:D.by_category.map(c=>c.hr),backgroundColor:C.wear,borderRadius:3}]},
+    options:{maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false},
+      tooltip:{callbacks:{label:c=>`${c.parsed.x.toLocaleString()} ชม.`}}},
+      scales:{x:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'ชั่วโมง'}},y:{grid:{display:false}}}}});
+
+  mkChart('dtLocTypeChart',{type:'doughnut',data:{labels:D.by_loctype.map(x=>DT_LOCTYPE_LABEL[x.k]||x.k),datasets:[
+    {data:D.by_loctype.map(x=>x.hr),backgroundColor:D.by_loctype.map(x=>DT_LOCTYPE_COLOR[x.k]||C.dim),borderWidth:0}]},
+    options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{usePointStyle:true,boxHeight:7,font:{size:11}}},
+      tooltip:{callbacks:{label:c=>`${c.label}: ${c.parsed.toLocaleString()} ชม. (${(c.parsed/total*100).toFixed(0)}%)`}}}}});
+
+  mkChart('dtMonthChart',{type:'bar',data:{labels:D.monthly.labels.map(monthLabel),datasets:[
+    {label:'BWE 1',data:D.monthly.bwe1,backgroundColor:C.heat,borderRadius:3},
+    {label:'BWE 2',data:D.monthly.bwe2,backgroundColor:C.uptime,borderRadius:3},
+  ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'top',labels:{usePointStyle:true,boxHeight:7,font:{size:11}}},
+      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toLocaleString()} ชม.`}}},
+    scales:{x:{grid:{display:false}},y:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'ชั่วโมง'}}}}});
+
+  const locBody = document.getElementById('dtLocBody');
+  if(locBody){
+    locBody.innerHTML = D.top_locations.map(x=>`<tr><td>${x.k}</td><td class="num">${x.hr.toLocaleString()}</td><td class="num">${(x.hr/total*100).toFixed(1)}%</td></tr>`).join('');
+  }
+
+  const i1=document.getElementById('dtInsight1'), i2=document.getElementById('dtInsight2');
+  if(i1) i1.innerHTML=`<div class="t">🔧 <span>สาเหตุหลักคือซ่อมแซม (CM)</span></div><p><b style="color:var(--wear)">${cat0.hr.toLocaleString()} ชม.</b> (${(cat0.hr/total*100).toFixed(0)}%) เป็นการหยุดซ่อมแซมเชิงแก้ไข — ควรเพิ่มรอบ PM เชิงป้องกันเพื่อลดการซ่อมฉุกเฉิน</p>`;
+  if(i2) i2.innerHTML=`<div class="t">🔩 <span>หยุดที่ตัวเครื่องจักรมากกว่าสายพาน</span></div><p>หยุดที่ <b>${DT_LOCTYPE_LABEL.machine}</b> สูงสุด <b style="color:var(--wear)">${(D.by_loctype.find(x=>x.k==='machine')||{hr:0}).hr.toLocaleString()} ชม.</b> รองลงมาคือสายพาน Line A ${( D.by_loctype.find(x=>x.k==='line')||{hr:0}).hr.toLocaleString()} ชม. — BWE2 แบกรับชั่วโมงหยุดสูงกว่า BWE1 มาก เพราะเป็นเครื่องที่ทำงานต่อเนื่องหลัง BWE1 ย้ายเครื่อง</p>`;
 }
 
 /* ---------- machine toggle (shared by header + hero) ---------- */
@@ -1975,6 +2053,7 @@ function renderDashboard(){
   recomputeDerived();
   renderKPIs(); renderOverviewCharts(); renderHeat(); renderPosition(); renderLoss(); renderAvail(); renderStore(); renderWear();
   renderProduction();
+  renderDowntimeAnalysis();
 }
 // ทำลายกราฟเดิมก่อนวาดใหม่ เพื่อให้รีเฟรชข้อมูลซ้ำได้
 function mkChart(id, cfg){ const ex = Chart.getChart(id); if(ex) ex.destroy(); return new Chart(id, cfg); }
