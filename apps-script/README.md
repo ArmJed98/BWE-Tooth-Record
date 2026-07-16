@@ -110,3 +110,35 @@ id · date · shift · machine · location · loctype · dept · category · des
 
 > หน้าจออัปเดตทันที (optimistic) และรีเฟรชข้อมูลจริงจาก Sheet ทุก 5 นาที
 > ถ้ายังไม่ตั้งค่าแท็บ ฟอร์มยังกรอกได้ (เขียนเข้า Sheet เมื่อเชื่อมแล้ว) และกราฟหัวข้อ 09 ใช้ยอดสรุปสำรองจาก `forms-history.js`
+
+---
+
+## 📋 โมดูล Production (แท็บ `production`)
+
+หัวข้อ **11 ฟอร์มบันทึกการผลิตประจำวัน** — ใช้ **แท็บ `production` เป็นแหล่งข้อมูลหลัก** เช่นกัน
+**1 แถวต่อ 1 วัน** (ไม่ใช่ event-based แบบ Downtime) — บันทึกซ้ำวันเดิมจะ *แก้ไขแถวเดิม* ให้อัตโนมัติ (upsert)
+
+### ตั้งค่าครั้งเดียว
+
+1. อัปเดต `Code.gs` เวอร์ชันล่าสุด (มี handler `production` แล้ว) → Deploy เวอร์ชันใหม่ (ขั้นตอนเดียวกับ Downtime)
+2. Import [`sheet-template/production_seed.csv`](../sheet-template/production_seed.csv)
+   (10 วันที่มีข้อมูลจริงจากไฟล์ Excel — ก.ย. 2568) → **Insert new sheet(s)** → เปลี่ยนชื่อแท็บเป็น **`production`**
+
+### คอลัมน์แท็บ `production` (17 คอลัมน์)
+
+```
+date · by · blast_pattern · step_b1 · step_b2 ·
+day_b1_lt · day_b1_vol · day_b2_lt · day_b2_vol · day_a9 · day_lost ·
+night_b1_lt · night_b1_vol · night_b2_lt · night_b2_vol · night_a9 · night_lost
+```
+
+### เรื่อง SMU ที่เคยสับสน — แก้แล้ว
+
+ก่อนหน้านี้ฟอร์มมีช่อง "SMU A9" ช่องเดียวที่ไม่ชัดว่าเป็น SMU ของอะไร ตรวจสอบกับไฟล์ Excel ต้นทาง (sheet `Plan Presentation`) แล้วพบว่าจริงๆ มี **2 ค่าคนละความหมาย**:
+
+| | สูตรคำนวณ | ตัวอย่าง (1 ก.ย. 68) |
+|---|---|---|
+| **SMU เครื่องจักร** (ตัว BWE เอง) | Load Time Day + Night ของเครื่องนั้น | BWE2 = 0.68+5.4 = **6.08 ชม.** |
+| **SMU สายพาน Line A9** | A9 Day + Night (คนละอุปกรณ์กับตัวเครื่อง) | 1.26+6.42 = **7.68 ชม.** (ตรงกับคอลัมน์ "SMU : A9" ในไฟล์ต้นฉบับเป๊ะ) |
+
+ฟอร์มใหม่เลยแยกเป็น **3 ช่องอัตโนมัติชัดเจน** ในกรอบ "สรุป SMU": `SMU เครื่องจักร BWE1` / `BWE2` / `SMU สายพาน Line A9` — คำนวณจากช่อง Load Time และ A9 ที่กรอกอยู่แล้ว ไม่ต้องกรอกซ้ำ
