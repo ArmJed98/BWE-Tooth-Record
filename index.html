@@ -2167,16 +2167,16 @@ if(SHEET_CONFIG.refreshMs > 0){ setInterval(()=>refreshLiveData(true), SHEET_CON
 let DOWNTIME_HISTORY = {};
 let CAL_MIN = (window.BWE_HISTORY && window.BWE_HISTORY.range && window.BWE_HISTORY.range.min) ? window.BWE_HISTORY.range.min.slice(0,7) : '2025-05';
 function recalcCalMin(){ const ks=Object.keys(DOWNTIME_HISTORY).sort(); if(ks.length) CAL_MIN=ks[0].slice(0,7); }
-function latestDataDate(){ const ks=Object.keys(DOWNTIME_HISTORY).sort(); return ks.length?ks[ks.length-1]:null; }
-// รับข้อมูลสดจาก Google Sheet (เรียกโดย refreshLiveData) แล้ววาดใหม่
+// รับข้อมูลสดจาก Google Sheet (เรียกโดย refreshLiveData) แล้ววาดใหม่ — คงวันที่ที่กำลังดู/กรอกอยู่เสมอ
+// (ห้ามเด้งไปวันที่ล่าสุดที่มีข้อมูลอัตโนมัติ ไม่งั้นฟอร์มจะสลับเป็นโหมด "ดูอย่างเดียว" ของข้อมูลเก่าทับฟอร์มที่ผู้ใช้กำลังกรอกวันนี้)
 window.__applyDowntimeLive = function(byDate){
   DOWNTIME_HISTORY = byDate || {};
   recalcCalMin();
-  const cur = (dtCurDate && DOWNTIME_HISTORY[dtCurDate]) ? dtCurDate : latestDataDate();
-  if(cur) viewDowntime(cur); else renderDowntimeTable(TODAY);
+  viewDowntime(dtCurDate || TODAY);
 };
 
-const TODAY = '2025-09-15';
+function todayStr(){ const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; }
+const TODAY = todayStr();
 const DT_DEPT = {'ME':'ME · เครื่องกล','EE':'EE · ไฟฟ้า','CV':'CV · สายพาน','OPT':'OPT · ปฏิบัติการ','System':'System · ระบบ','Uncontrol':'Uncontrol · ควบคุมไม่ได้'};
 const DT_CAT  = {'CM':'CM · ซ่อมแซม','cm':'CM · ซ่อมแซม','PM':'PM · บำรุงรักษาตามแผน','Rain':'Rain · ฝนตก','Shift':'Shift · เปลี่ยนกะ/ย้ายสายพาน','Relocate':'Relocate · ย้ายเครื่อง','Dust':'Dust · ฝุ่น','Idle':'Idle · รอคอย','Other':'Other · อื่นๆ'};
 const $ = id => document.getElementById(id);
@@ -2187,7 +2187,8 @@ window.togglePicker = function(id){
   document.querySelectorAll('.datepicker-pop').forEach(p=>p.classList.remove('show'));
   if(opening){
     const which = id.split('-')[0];
-    renderCalendar(el, 2025, 9, which);
+    const base = (dtCurDate || TODAY).split('-');
+    renderCalendar(el, +base[0], +base[1], which);
     el.classList.add('show');
   }
 };
@@ -2400,13 +2401,21 @@ function saveDowntime(){
   list.sort((a,b)=>(a.start||'99').localeCompare(b.start||'99'));
   DOWNTIME_HISTORY[date]=list;
   recalcCalMin();
-  // ส่งเข้า Google Sheet
-  sendDowntime(editing?'update':'add', toSheetRow(date, ev));
   dtEditIdx=-1;
   renderDowntimeTable(date);
   $('dt_btn_save').textContent='＋ บันทึกเหตุการณ์';
   $('dt_last').innerHTML='บันทึกล่าสุด: <b style="color:var(--txt)">'+ev.machine+' · '+ev.cat+' · '+ev.desc+' ('+ev.start+' น.)</b>';
-  toast((editing?'💾 แก้ไข':'💾 บันทึก')+' Downtime '+(sheetLinked()?'→ ส่งเข้า Google Sheet แล้ว':'(ยังไม่เชื่อม Sheet)')+' · '+date);
+  // ส่งเข้า Google Sheet — mode:'no-cors' อ่าน response จริงไม่ได้ (ข้อจำกัดของ Apps Script Web App)
+  // จึงยืนยันได้แค่ระดับ "ส่งคำขอออกไปสำเร็จ" เท่านั้น ไม่ใช่ "Apps Script บันทึกลง Sheet สำเร็จแน่นอน"
+  if(!sheetLinked()){
+    toast((editing?'💾 แก้ไข':'💾 บันทึก')+' Downtime แล้ว (ยังไม่เชื่อม Google Sheet — บันทึกไว้ในเครื่องนี้เท่านั้น) · '+date);
+    return;
+  }
+  sendDowntime(editing?'update':'add', toSheetRow(date, ev)).then(sent=>{
+    toast(sent
+      ? '💾 ส่งคำขอ'+(editing?'แก้ไข':'บันทึก')+'เข้า Google Sheet แล้ว · '+date+' (เปิด Sheet เพื่อยืนยัน)'
+      : '⚠️ ส่งเข้า Google Sheet ไม่สำเร็จ (เช็คอินเทอร์เน็ต/URL) · '+date);
+  });
 }
 function editDowntimeRow(date, i){
   const ev = (DOWNTIME_HISTORY[date]||[])[i]; if(!ev) return;
@@ -2427,11 +2436,13 @@ function deleteDowntimeRow(date, i){
   if(i<0||i>=list.length) return;
   const ev=list[i];
   if(!confirm('ลบเหตุการณ์นี้?\n'+ev.start+' – '+ev.end+' · '+ev.desc)) return;
-  sendDowntime('delete', { id: ev.id });
   list.splice(i,1);
   DOWNTIME_HISTORY[date]=list;
   renderDowntimeTable(date);
-  toast('🗑️ ลบรายการ '+(sheetLinked()?'→ ส่งคำสั่งลบเข้า Google Sheet แล้ว':'(ยังไม่เชื่อม Sheet)'));
+  if(!sheetLinked()){ toast('🗑️ ลบรายการแล้ว (ยังไม่เชื่อม Google Sheet — ลบเฉพาะในเครื่องนี้)'); return; }
+  sendDowntime('delete', { id: ev.id }).then(sent=>{
+    toast(sent ? '🗑️ ส่งคำสั่งลบเข้า Google Sheet แล้ว (เปิด Sheet เพื่อยืนยัน)' : '⚠️ ส่งคำสั่งลบไม่สำเร็จ (เช็คอินเทอร์เน็ต/URL)');
+  });
 }
 
 $('dt_btn_edit').addEventListener('click', ()=>{
