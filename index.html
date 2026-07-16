@@ -974,12 +974,14 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   </div>
 
   <div class="panel" style="margin-top:18px; border-left:4px solid var(--good)">
-    <h3>⏱️ สรุป SMU (Auto) <span class="hint" style="font-size:12.5px; color:var(--dim); font-weight:400">— แยกของเครื่องจักรกับของสายพาน Line A9 ให้ชัดเจน ไม่ปนกัน</span></h3>
-    <div class="ph-sub">SMU เครื่องจักร = Load Time Day + Night ของเครื่องนั้น · SMU Line A9 = A9 Day + Night (คนละอุปกรณ์กับตัวเครื่อง)</div>
-    <div class="kpirow" style="grid-template-columns:repeat(3,1fr); margin-top:12px">
-      <div class="kpi"><div class="lab">SMU เครื่องจักร · BWE 1</div><div class="val"><span id="pr_smu_b1">0.00</span> <span class="u">ชม.</span></div></div>
-      <div class="kpi u"><div class="lab">SMU เครื่องจักร · BWE 2</div><div class="val" style="color:var(--uptime)"><span id="pr_smu_b2">0.00</span> <span class="u">ชม.</span></div></div>
-      <div class="kpi g"><div class="lab">SMU สายพาน · Line A9</div><div class="val" style="color:var(--good)"><span id="pr_smu_a9">0.00</span> <span class="u">ชม.</span></div></div>
+    <h3>⏱️ สรุป SMU <span class="hint" style="font-size:12.5px; color:var(--dim); font-weight:400">— แยกของเครื่องจักรกับของสายพาน Line A9 ให้ชัดเจน ไม่ปนกัน</span></h3>
+    <div class="ph-sub">SMU เครื่องจักร กรอกจากมิเตอร์จริงได้เลย (มีทศนิยม ไม่ต้องบวกเอง) — อาจไม่ตรงกับ Load Time เป๊ะๆ ก็ได้ตามจริง · SMU Line A9 คำนวณอัตโนมัติจาก A9 Day + Night</div>
+    <div class="formgrid cols2" style="margin-top:12px">
+      <div class="field"><label>SMU เครื่องจักร · BWE 1 (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_smu_b1" placeholder="กรอกจากมิเตอร์เครื่อง"><span class="hint" id="pr_smu_b1_ref" style="font-size:12px; color:var(--dim)"></span></div>
+      <div class="field"><label>SMU เครื่องจักร · BWE 2 (ชม.)</label><input type="number" step="0.01" class="mono" id="pr_smu_b2" placeholder="กรอกจากมิเตอร์เครื่อง"><span class="hint" id="pr_smu_b2_ref" style="font-size:12px; color:var(--dim)"></span></div>
+    </div>
+    <div class="kpirow" style="grid-template-columns:1fr; margin-top:14px">
+      <div class="kpi g"><div class="lab">SMU สายพาน · Line A9 (auto)</div><div class="val" style="color:var(--good)"><span id="pr_smu_a9">0.00</span> <span class="u">ชม.</span></div></div>
     </div>
   </div>
 
@@ -2224,15 +2226,16 @@ async function buildLiveData(){
     Object.keys(byDate).forEach(dt=>byDate[dt].sort((a,b)=>(a.start||'99').localeCompare(b.start||'99')));
     if(Object.keys(byDate).length){ d.downtime_events = byDate; d.downtime_agg = computeDowntimeAgg(byDate); }
   }
-  // production: date | by | blast_pattern | step_b1 | step_b2 | day_b1_lt | day_b1_vol | day_b2_lt | day_b2_vol | day_a9 | day_lost | night_b1_lt | night_b1_vol | night_b2_lt | night_b2_vol | night_a9 | night_lost
+  // production: date | by | blast_pattern | step_b1 | step_b2 | smu_b1 | smu_b2 | day_b1_lt | day_b1_vol | day_b2_lt | day_b2_vol | day_a9 | day_lost | night_b1_lt | night_b1_vol | night_b2_lt | night_b2_vol | night_a9 | night_lost
   if(production && production.length){
     const byDay={};
     production.filter(r=>r[0]!=null && r[0]!=='').forEach(r=>{
       const date=gvizDate(r[0]); if(!/^\d{4}-\d{2}-\d{2}/.test(date)) return;
       byDay[date] = { by:String(r[1]||''), blast: r[2]==null||r[2]===''?null:r[2],
         step1: r[3]==null||r[3]===''?null:gNum(r[3]), step2: r[4]==null||r[4]===''?null:gNum(r[4]),
-        day:{ b1_lt:gNum(r[5]), b1_vol:gNum(r[6]), b2_lt:gNum(r[7]), b2_vol:gNum(r[8]), a9:gNum(r[9]), lost:gNum(r[10]) },
-        night:{ b1_lt:gNum(r[11]), b1_vol:gNum(r[12]), b2_lt:gNum(r[13]), b2_vol:gNum(r[14]), a9:gNum(r[15]), lost:gNum(r[16]) } };
+        smu_b1: r[5]==null||r[5]===''?null:gNum(r[5]), smu_b2: r[6]==null||r[6]===''?null:gNum(r[6]),
+        day:{ b1_lt:gNum(r[7]), b1_vol:gNum(r[8]), b2_lt:gNum(r[9]), b2_vol:gNum(r[10]), a9:gNum(r[11]), lost:gNum(r[12]) },
+        night:{ b1_lt:gNum(r[13]), b1_vol:gNum(r[14]), b2_lt:gNum(r[15]), b2_vol:gNum(r[16]), a9:gNum(r[17]), lost:gNum(r[18]) } };
     });
     if(Object.keys(byDay).length) d.production_events = byDay;
   }
@@ -2312,10 +2315,19 @@ if(SHEET_CONFIG.refreshMs > 0){ setInterval(()=>refreshLiveData(true), SHEET_CON
    เพิ่ม/แก้/ลบ ได้ครบ · forms-history.js เก็บเฉพาะยอดสรุปไว้เป็น fallback
    ═══════════════════════════════════════════════════ */
 (function(){
+// กันเหตุการณ์ "กรอกแล้วหาย" เวลา Google Sheet เขียนไม่ติด (เช่น ยังไม่ deploy Code.gs เวอร์ชันใหม่/ตั้งชื่อแท็บผิด)
+// เก็บสำเนาไว้ในเครื่องเสมอ แล้ว merge กับข้อมูลสดจาก Sheet ตอนโหลด — Sheet มาทีหลังจะทับของเดิมต่อวันที่ (ถือเป็นค่าที่ถูกต้องกว่า)
+// แต่ถ้า Sheet ยังไม่มีข้อมูลของวันนั้น (เพราะเขียนไม่ติด) ของที่กรอกไว้ในเครื่องจะยังอยู่ให้ดูย้อนหลังได้เสมอ
+const LS_DT='bwe:dt-log', LS_PR='bwe:pr-log';
+function loadLS(k){ try{ return JSON.parse(localStorage.getItem(k)) || {}; }catch(e){ return {}; } }
+function persistLS(k, date, val){
+  const store = loadLS(k); store[date]=val;
+  try{ localStorage.setItem(k, JSON.stringify(store)); }catch(e){ console.warn('บันทึกสำรองในเครื่องไม่สำเร็จ', e); }
+}
 // event log จัดกลุ่มตามวันที่: { 'YYYY-MM-DD': [ {id,shift,machine,location,loctype,dept,cat,desc,start,end,hr,freq}, ... ] }
-let DOWNTIME_HISTORY = {};
-// การผลิต: 1 record ต่อวัน { 'YYYY-MM-DD': {blast,step1,step2,by,day:{b1_lt,b1_vol,b2_lt,b2_vol,a9,lost},night:{...}} }
-let PROD_HISTORY = {};
+let DOWNTIME_HISTORY = loadLS(LS_DT);
+// การผลิต: 1 record ต่อวัน { 'YYYY-MM-DD': {blast,step1,step2,by,smu_b1,smu_b2,day:{b1_lt,b1_vol,b2_lt,b2_vol,a9,lost},night:{...}} }
+let PROD_HISTORY = loadLS(LS_PR);
 let CAL_MIN = (window.BWE_HISTORY && window.BWE_HISTORY.range && window.BWE_HISTORY.range.min) ? window.BWE_HISTORY.range.min.slice(0,7) : '2025-05';
 function recalcCalMin(){
   const ks=[...Object.keys(DOWNTIME_HISTORY), ...Object.keys(PROD_HISTORY)].sort();
@@ -2324,12 +2336,12 @@ function recalcCalMin(){
 // รับข้อมูลสดจาก Google Sheet (เรียกโดย refreshLiveData) แล้ววาดใหม่ — คงวันที่ที่กำลังดู/กรอกอยู่เสมอ
 // (ห้ามเด้งไปวันที่ล่าสุดที่มีข้อมูลอัตโนมัติ ไม่งั้นฟอร์มจะสลับเป็นโหมด "ดูอย่างเดียว" ของข้อมูลเก่าทับฟอร์มที่ผู้ใช้กำลังกรอกวันนี้)
 window.__applyDowntimeLive = function(byDate){
-  DOWNTIME_HISTORY = byDate || {};
+  DOWNTIME_HISTORY = Object.assign({}, loadLS(LS_DT), byDate||{});
   recalcCalMin();
   viewDowntime(dtCurDate || TODAY);
 };
 window.__applyProductionLive = function(byDate){
-  PROD_HISTORY = byDate || {};
+  PROD_HISTORY = Object.assign({}, loadLS(LS_PR), byDate||{});
   recalcCalMin();
   viewProd(prCurDate || TODAY);
 };
@@ -2562,6 +2574,7 @@ function saveDowntime(){
   if(editing && dtEditIdx<list.length) list[dtEditIdx]=ev; else list.push(ev);
   list.sort((a,b)=>(a.start||'99').localeCompare(b.start||'99'));
   DOWNTIME_HISTORY[date]=list;
+  persistLS(LS_DT, date, list);
   recalcCalMin();
   dtEditIdx=-1;
   renderDowntimeTable(date);
@@ -2600,6 +2613,7 @@ function deleteDowntimeRow(date, i){
   if(!confirm('ลบเหตุการณ์นี้?\n'+ev.start+' – '+ev.end+' · '+ev.desc)) return;
   list.splice(i,1);
   DOWNTIME_HISTORY[date]=list;
+  persistLS(LS_DT, date, list);
   renderDowntimeTable(date);
   if(!sheetLinked()){ toast('🗑️ ลบรายการแล้ว (ยังไม่เชื่อม Google Sheet — ลบเฉพาะในเครื่องนี้)'); return; }
   sendDowntime('delete', { id: ev.id }).then(sent=>{
@@ -2633,11 +2647,14 @@ function calcProdCell(ltId, volId, outId){
   const vol = Number($(volId).value)||0;
   $(outId).value = (lt>0 && vol>0) ? (vol/lt).toFixed(1)+' BCM/ชม.' : '—';
 }
-// SMU เครื่องจักร = Load Time Day+Night ต่อเครื่อง · SMU Line A9 = A9 Day+Night (คนละอุปกรณ์กับตัวเครื่อง — ไม่ปนกัน)
+// SMU เครื่องจักร = กรอกจากมิเตอร์จริง (อาจไม่ตรงกับ Load Time) · SMU Line A9 = A9 Day+Night (คนละอุปกรณ์กับตัวเครื่อง — ไม่ปนกัน)
+// ช่อง "ref" แสดงผลรวม Load Time ไว้เทียบเฉยๆ ไม่ได้บังคับให้ตรงกับ SMU ที่กรอก
 function updateSMU(){
   const g = id => Number($(id).value)||0;
-  $('pr_smu_b1').textContent = (g('pr_day_b1_lt')+g('pr_night_b1_lt')).toFixed(2);
-  $('pr_smu_b2').textContent = (g('pr_day_b2_lt')+g('pr_night_b2_lt')).toFixed(2);
+  const ltB1 = g('pr_day_b1_lt')+g('pr_night_b1_lt');
+  const ltB2 = g('pr_day_b2_lt')+g('pr_night_b2_lt');
+  $('pr_smu_b1_ref').textContent = 'Load Time รวม '+ltB1.toFixed(2)+' ชม.';
+  $('pr_smu_b2_ref').textContent = 'Load Time รวม '+ltB2.toFixed(2)+' ชม.';
   $('pr_smu_a9').textContent = (g('pr_a9_day')+g('pr_a9_night')).toFixed(2);
 }
 function updateProdSummary(){
@@ -2652,19 +2669,22 @@ function updateProdSummary(){
   updateSMU();
 }
 function setProdReadonly(ro){
-  ['pr_date','pr_blast','pr_step1','pr_step2','pr_by',
+  ['pr_date','pr_blast','pr_step1','pr_step2','pr_by','pr_smu_b1','pr_smu_b2',
    'pr_day_b1_lt','pr_day_b1_vol','pr_day_b2_lt','pr_day_b2_vol','pr_a9_day','pr_lost_day',
    'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night'
   ].forEach(id=>{ $(id).readOnly=ro; });
 }
 const PROD_FIELDS = ['pr_day_b1_lt','pr_day_b1_vol','pr_day_b2_lt','pr_day_b2_vol','pr_a9_day','pr_lost_day',
-  'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night'];
+  'pr_night_b1_lt','pr_night_b1_vol','pr_night_b2_lt','pr_night_b2_vol','pr_a9_night','pr_lost_night',
+  'pr_smu_b1','pr_smu_b2'];
 function fillProdForm(rec, dateStr){
   $('pr_date').value = dateStr;
   $('pr_blast').value = rec.blast!=null ? rec.blast : '';
   $('pr_step1').value = rec.step1!=null ? rec.step1 : '';
   $('pr_step2').value = rec.step2!=null ? rec.step2 : '';
   $('pr_by').value = rec.by || '';
+  $('pr_smu_b1').value = rec.smu_b1!=null ? rec.smu_b1 : '';
+  $('pr_smu_b2').value = rec.smu_b2!=null ? rec.smu_b2 : '';
   $('pr_day_b1_lt').value = rec.day.b1_lt||''; $('pr_day_b1_vol').value = rec.day.b1_vol||'';
   $('pr_day_b2_lt').value = rec.day.b2_lt||''; $('pr_day_b2_vol').value = rec.day.b2_vol||'';
   $('pr_a9_day').value = rec.day.a9||''; $('pr_lost_day').value = rec.day.lost||'';
@@ -2711,6 +2731,7 @@ window.viewProd = viewProd;
 function toSheetRowPr(date, rec){
   return { date:date, by:rec.by||'', blast_pattern:rec.blast!=null?rec.blast:'',
     step_b1:rec.step1!=null?rec.step1:'', step_b2:rec.step2!=null?rec.step2:'',
+    smu_b1:rec.smu_b1!=null?rec.smu_b1:'', smu_b2:rec.smu_b2!=null?rec.smu_b2:'',
     day_b1_lt:rec.day.b1_lt, day_b1_vol:rec.day.b1_vol, day_b2_lt:rec.day.b2_lt, day_b2_vol:rec.day.b2_vol,
     day_a9:rec.day.a9, day_lost:rec.day.lost,
     night_b1_lt:rec.night.b1_lt, night_b1_vol:rec.night.b1_vol, night_b2_lt:rec.night.b2_lt, night_b2_vol:rec.night.b2_vol,
@@ -2732,11 +2753,14 @@ function saveProd(){
     step1: $('pr_step1').value===''?null:Number($('pr_step1').value),
     step2: $('pr_step2').value===''?null:Number($('pr_step2').value),
     by: $('pr_by').value.trim(),
+    smu_b1: $('pr_smu_b1').value===''?null:Number($('pr_smu_b1').value),
+    smu_b2: $('pr_smu_b2').value===''?null:Number($('pr_smu_b2').value),
     day:{ b1_lt:num('pr_day_b1_lt'), b1_vol:num('pr_day_b1_vol'), b2_lt:num('pr_day_b2_lt'), b2_vol:num('pr_day_b2_vol'), a9:num('pr_a9_day'), lost:num('pr_lost_day') },
     night:{ b1_lt:num('pr_night_b1_lt'), b1_vol:num('pr_night_b1_vol'), b2_lt:num('pr_night_b2_lt'), b2_vol:num('pr_night_b2_vol'), a9:num('pr_a9_night'), lost:num('pr_lost_night') }
   };
   const wasEdit = prEditing;
   PROD_HISTORY[date] = rec;
+  persistLS(LS_PR, date, rec);
   recalcCalMin();
   prEditing = false;
   updateProdSummary();

@@ -24,9 +24,9 @@ var TOOTH_HEADERS = ['timestamp', 'id', 'date', 'machine', 'type', 'bucket', 'to
 var DT_SHEET   = 'downtime';
 var DT_HEADERS = ['id','date','shift','machine','location','loctype','dept','category','description','start','end','duration_hr','freq'];
 
-// การผลิต: 1 แถวต่อวัน (key = date) · SMU เครื่องจักร = day_b*_lt + night_b*_lt ต่อเครื่อง · SMU Line A9 = day_a9 + night_a9
+// การผลิต: 1 แถวต่อวัน (key = date) · smu_b1/smu_b2 = SMU เครื่องจักรกรอกจากมิเตอร์จริง (อาจไม่ตรงกับ Load Time) · SMU Line A9 = day_a9 + night_a9 (คำนวณฝั่ง Dashboard)
 var PR_SHEET   = 'production';
-var PR_HEADERS = ['date','by','blast_pattern','step_b1','step_b2',
+var PR_HEADERS = ['date','by','blast_pattern','step_b1','step_b2','smu_b1','smu_b2',
   'day_b1_lt','day_b1_vol','day_b2_lt','day_b2_vol','day_a9','day_lost',
   'night_b1_lt','night_b1_vol','night_b2_lt','night_b2_vol','night_a9','night_lost'];
 
