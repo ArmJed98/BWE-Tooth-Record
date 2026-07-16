@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BWE Seed Data Import</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Tahoma,sans-serif;background:#131a25;color:#e0e6ed;display:flex;justify-content:center;padding:2rem}
+  .card{background:#1e2836;border-radius:12px;padding:2rem;max-width:600px;width:100%}
+  h1{font-size:1.3rem;margin-bottom:.5rem;color:#4c9de0}
+  .sub{font-size:.85rem;color:#8899aa;margin-bottom:1.5rem}
+  .section{margin-bottom:1.5rem;border:1px solid #2a3a4a;border-radius:8px;padding:1rem}
+  .section h2{font-size:1rem;margin-bottom:.5rem}
+  .section .info{font-size:.8rem;color:#8899aa;margin-bottom:.8rem}
+  button{padding:.6rem 1.2rem;border:none;border-radius:6px;font-size:.9rem;cursor:pointer;font-weight:600;transition:opacity .2s}
+  button:disabled{opacity:.4;cursor:not-allowed}
+  .btn-pr{background:#4bd47c;color:#111}
+  .btn-dt{background:#e6934a;color:#111}
+  .progress{margin-top:.5rem;font-size:.8rem;color:#8899aa}
+  .bar{height:6px;background:#2a3a4a;border-radius:3px;margin-top:.3rem;overflow:hidden}
+  .bar-fill{height:100%;border-radius:3px;width:0;transition:width .3s}
+  .bar-fill.pr{background:#4bd47c}
+  .bar-fill.dt{background:#e6934a}
+  .status{margin-top:.3rem;font-size:.8rem}
+  .status.ok{color:#4bd47c}
+  .status.err{color:#e5624a}
+  .status.working{color:#e6934a}
+  .url-box{margin-bottom:1rem}
+  .url-box label{font-size:.85rem;display:block;margin-bottom:.3rem}
+  .url-box input{width:100%;padding:.5rem;border-radius:4px;border:1px solid #2a3a4a;background:#131a25;color:#e0e6ed;font-size:.8rem}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>BWE Seed Data Import</h1>
+  <p class="sub">นำเข้าข้อมูลตั้งต้น (Production 10 แถว + Downtime 1,716 แถว) เข้า Google Sheet<br>ผ่าน Apps Script endpoint เดียวกับที่ Dashboard ใช้</p>
+
+  <div class="url-box">
+    <label>Apps Script Web App URL</label>
+    <input type="text" id="url" placeholder="https://script.google.com/macros/s/AKfycb..../exec">
+  </div>
+
+  <div class="section">
+    <h2>1. Production (10 แถว · ก.ย. 2568)</h2>
+    <p class="info">upsert ตามวันที่ — ถ้ามีอยู่แล้วจะอัปเดต ไม่ซ้ำ</p>
+    <button class="btn-pr" id="btn_pr" onclick="importData('production')">Import Production</button>
+    <div class="progress" id="prog_pr" style="display:none">
+      <span id="txt_pr"></span>
+      <div class="bar"><div class="bar-fill pr" id="bar_pr"></div></div>
+    </div>
+    <div class="status" id="st_pr"></div>
+  </div>
+
+  <div class="section">
+    <h2>2. Downtime (1,716 แถว · พ.ค.–ก.ย. 2568)</h2>
+    <p class="info">ส่งทีละ 3 รายการ เพื่อไม่ให้ Apps Script ล้น — ใช้เวลาราว 10-15 นาที</p>
+    <button class="btn-dt" id="btn_dt" onclick="importData('downtime')">Import Downtime</button>
+    <div class="progress" id="prog_dt" style="display:none">
+      <span id="txt_dt"></span>
+      <div class="bar"><div class="bar-fill dt" id="bar_dt"></div></div>
+    </div>
+    <div class="status" id="st_dt"></div>
+  </div>
+</div>
+
+<script>
+var WRITE_URL = '';
+var PR_HEADERS = ['date','by','blast_pattern','step_b1','step_b2','smu_b1','smu_b2',
+  'day_b1_lt','day_b1_vol','day_b2_lt','day_b2_vol','day_a9','day_lost',
+  'night_b1_lt','night_b1_vol','night_b2_lt','night_b2_vol','night_a9','night_lost'];
+var DT_HEADERS = ['id','date','shift','machine','location','loctype','dept','category',
+  'description','start','end','duration_hr','freq'];
+
+document.getElementById('url').value =
+  'https://script.google.com/macros/s/AKfycbzlPDvquPMGf21CvLogp0G9HtyY_DGD3RAO0UEUgv6vRod0DRFL2eTGvJdQHFIEJJEj/exec';
+
+function parseCSV(text, headers) {
+  var lines = text.replace(/^﻿/, '').trim().split('\n');
+  return lines.slice(1).filter(function(l){ return l.trim(); }).map(function(line) {
+    var vals = line.split(',');
+    var obj = {};
+    headers.forEach(function(h, i) { obj[h] = (vals[i] || '').trim(); });
+    return obj;
+  });
+}
+
+function sleep(ms) { return new Promise(function(r){ setTimeout(r, ms); }); }
+
+async function postRow(kind, row) {
+  var body = JSON.stringify({ kind: kind, action: 'add', row: row });
+  return fetch(WRITE_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: body
+  }).then(function(){ return true; }).catch(function(){ return false; });
+}
+
+async function importData(kind) {
+  WRITE_URL = document.getElementById('url').value.trim();
+  if (!WRITE_URL) { alert('กรุณาใส่ Apps Script URL ก่อน'); return; }
+
+  var btn = document.getElementById('btn_' + (kind === 'production' ? 'pr' : 'dt'));
+  var prog = document.getElementById('prog_' + (kind === 'production' ? 'pr' : 'dt'));
+  var txt = document.getElementById('txt_' + (kind === 'production' ? 'pr' : 'dt'));
+  var bar = document.getElementById('bar_' + (kind === 'production' ? 'pr' : 'dt'));
+  var st = document.getElementById('st_' + (kind === 'production' ? 'pr' : 'dt'));
+
+  btn.disabled = true;
+  prog.style.display = 'block';
+  st.className = 'status working';
+  st.textContent = 'กำลังโหลด CSV...';
+
+  var csvFile = kind === 'production' ? 'production_seed.csv' : 'downtime_seed.csv';
+  var headers = kind === 'production' ? PR_HEADERS : DT_HEADERS;
+  var rows;
+
+  try {
+    var resp = await fetch(csvFile);
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    var csvText = await resp.text();
+    rows = parseCSV(csvText, headers);
+  } catch (err) {
+    st.className = 'status err';
+    st.textContent = 'โหลด CSV ไม่ได้: ' + err.message + ' — ลองเปิดหน้านี้จาก GitHub Pages หรือ Live Server';
+    btn.disabled = false;
+    return;
+  }
+
+  st.textContent = 'เริ่ม import ' + rows.length + ' แถว...';
+  var ok = 0, fail = 0;
+  var BATCH = kind === 'production' ? 1 : 3;
+  var DELAY = kind === 'production' ? 500 : 800;
+
+  for (var i = 0; i < rows.length; i += BATCH) {
+    var batch = rows.slice(i, i + BATCH);
+    var results = await Promise.all(batch.map(function(r){ return postRow(kind, r); }));
+    results.forEach(function(r){ if(r) ok++; else fail++; });
+    var done = Math.min(i + BATCH, rows.length);
+    var pct = Math.round(done / rows.length * 100);
+    txt.textContent = done + ' / ' + rows.length + ' (' + pct + '%)';
+    bar.style.width = pct + '%';
+    st.className = 'status working';
+    st.textContent = 'ok: ' + ok + (fail ? ' · fail: ' + fail : '');
+    if (done < rows.length) await sleep(DELAY);
+  }
+
+  st.className = fail ? 'status err' : 'status ok';
+  st.textContent = 'เสร็จ! ok: ' + ok + (fail ? ' · fail: ' + fail : '') + ' · รวม ' + rows.length + ' แถว';
+  btn.disabled = false;
+  btn.textContent = 'Import อีกครั้ง';
+}
+</script>
+</body>
+</html>
