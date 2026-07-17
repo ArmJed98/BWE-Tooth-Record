@@ -1192,11 +1192,28 @@ function adjSummaryRow(eq){
   const d = recordAgg()[eq] || {lost:0,replace:0,hardface:0};
   return {...base, smu:currentSmu(eq), lost:base.lost+d.lost, replace:base.replace+d.replace, hardface:base.hardface+d.hardface};
 }
+// ครั้งเชื่อมพอกจากฟอร์มบันทึกฟัน แยกเป็นกริดบุ้งกี๋×ตำแหน่งฟัน (18×13) — ใช้ทับบนกริดฐานจาก Sheet
+// เพื่อให้ Heatmap (02) และกราฟตำแหน่ง (03) ตรงกับตัวเลข "เชื่อมพอกสะสม" ใน KPI เสมอ
+function hardfaceOverlayGrid(eq){
+  const g = Array.from({length:18},()=>Array(13).fill(0));
+  (records||[]).forEach(r=>{
+    if(r.machine!==eq || r.type!=='hardface') return;
+    const bi = (parseInt(r.bucket)||0) - 1;
+    const ti = TEETH.indexOf(r.tooth);
+    if(bi>=0 && bi<18 && ti>=0) g[bi][ti]++;
+  });
+  return g;
+}
+function addGrid(base, overlay){
+  return (base||[]).map((row,i)=>row.map((v,j)=>v+(overlay[i]?overlay[i][j]||0:0)));
+}
 // เรียกหลังบันทึก/ลบรายการ — อัปเดตตัวเลขคลัง + KPI (แยก try กันพังต่อเนื่อง)
 function refreshDerived(){
   try{ renderStore(); }catch(e){}
   try{ renderKPIs(); }catch(e){}
   try{ renderOverviewCharts(); }catch(e){}
+  try{ renderHeat(); }catch(e){}
+  try{ renderPosition(); }catch(e){}
   try{ fillSmuField(); }catch(e){}
 }
 
@@ -1245,7 +1262,8 @@ function renderOverviewCharts(){
 
 /* ---------- HEATMAP ---------- */
 function renderHeat(){
-  const m = machine==='BWE1'?DATA.hf1:DATA.hf2;
+  const base = machine==='BWE1'?DATA.hf1:DATA.hf2;
+  const m = addGrid(base, hardfaceOverlayGrid(machine));
   const max = Math.max(...m.flat());
   const tbl = document.getElementById('heat');
   let html = '<tr><th class="rh">บุ้งกี๋ \\ ฟัน</th>';
@@ -1281,7 +1299,9 @@ function hex2rgb(h){h=h.replace('#','');return [parseInt(h.substr(0,2),16),parse
 
 /* ---------- POSITION ---------- */
 function renderPosition(){
-  const t = machine==='BWE1'?DATA.hf1_tooth:DATA.hf2_tooth;
+  const baseT = machine==='BWE1'?DATA.hf1_tooth:DATA.hf2_tooth;
+  const overlayGrid = hardfaceOverlayGrid(machine);
+  const t = baseT.map((v,i)=> v + overlayGrid.reduce((a,row)=>a+row[i],0));
   const cols = TEETH.map((_,i)=>SHORT.has(i)?C.short:C.long);
   if(posChart) posChart.destroy();
   posChart = mkChart('posChart',{type:'bar',data:{labels:TEETH,datasets:[{data:t,backgroundColor:cols,borderRadius:3}]},
