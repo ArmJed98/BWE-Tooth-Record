@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dust Suppression Check List Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --petrol:#0E3A46;
+  --petrol-2:#123f4d;
+  --water:#1CA0BE;
+  --water-soft:#e3f4f8;
+  --ink:#12242b;
+  --ink-2:#4a5f67;
+  --line:#d6e0e3;
+  --line-2:#e8eef0;
+  --bg:#eef3f5;
+  --surface:#ffffff;
+  --ok:#128a4f;
+  --ok-soft:#e6f4ec;
+  --bad:#d6392f;
+  --bad-soft:#fceceb;
+  --na:#8a9aa0;
+  --na-soft:#eef1f2;
+  --amber:#c98a12;
+  --shadow:0 1px 2px rgba(14,58,70,.06),0 6px 20px rgba(14,58,70,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'IBM Plex Sans Thai',system-ui,sans-serif;
+  background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.45;
+}
+.mono{font-family:'IBM Plex Mono',monospace;font-feature-settings:"tnum"}
+
+/* ---------- Header ---------- */
+header.app{
+  background:linear-gradient(105deg,var(--petrol),var(--petrol-2));
+  color:#eafaff;position:sticky;top:0;z-index:40;
+  box-shadow:0 2px 14px rgba(14,58,70,.28);
+}
+.hwrap{max-width:1180px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.drop{width:34px;height:34px;flex:none}
+.brand h1{font-size:16px;font-weight:700;margin:0;letter-spacing:.2px}
+.brand p{margin:0;font-size:11.5px;color:#9fd4e0;letter-spacing:.4px;text-transform:uppercase}
+nav.tabs{display:flex;gap:4px;background:rgba(255,255,255,.08);padding:4px;border-radius:11px}
+nav.tabs button{
+  font-family:inherit;font-size:13.5px;font-weight:600;color:#bfe4ec;
+  background:transparent;border:0;padding:8px 16px;border-radius:8px;cursor:pointer;
+  display:flex;align-items:center;gap:7px;transition:.15s;white-space:nowrap;
+}
+nav.tabs button:hover{color:#fff}
+nav.tabs button.active{background:#eafaff;color:var(--petrol)}
+nav.tabs button .badge{background:var(--bad);color:#fff;font-size:10.5px;font-weight:700;padding:1px 6px;border-radius:20px;font-family:'IBM Plex Mono',monospace}
+nav.tabs button.active .badge{background:var(--bad)}
+
+/* ---------- Layout ---------- */
+main{max-width:1180px;margin:0 auto;padding:22px 20px 60px}
+.page{display:none;animation:fade .25s ease}
+.page.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+h2.sec{font-size:15px;font-weight:700;margin:0 0 2px;letter-spacing:.2px}
+.sub{color:var(--ink-2);font-size:12.5px;margin:0 0 16px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.pad{padding:18px 20px}
+
+/* ---------- Form ---------- */
+.formhead{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.field{display:flex;flex-direction:column;gap:5px}
+.field.span2{grid-column:span 2}
+label{font-size:11.5px;font-weight:600;color:var(--ink-2);letter-spacing:.2px}
+input[type=text],input[type=date],input[type=number],select,textarea{
+  font-family:inherit;font-size:13.5px;color:var(--ink);
+  background:#fbfdfe;border:1px solid var(--line);border-radius:9px;padding:9px 11px;width:100%;transition:.12s;
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--water);box-shadow:0 0 0 3px var(--water-soft);background:#fff}
+select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a5f67' stroke-width='3'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 11px center;padding-right:30px}
+
+.seg{display:inline-flex;background:#eef3f5;border:1px solid var(--line);border-radius:9px;padding:3px;gap:3px}
+.seg button{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink-2);background:transparent;border:0;padding:7px 14px;border-radius:7px;cursor:pointer;transition:.12s}
+.seg button.on{background:var(--petrol);color:#fff;box-shadow:0 1px 3px rgba(14,58,70,.25)}
+.seg.line button.on{background:var(--water)}
+
+.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:18px 0 10px}
+.toolbar .grow{margin-left:auto}
+.btn{font-family:inherit;font-size:13px;font-weight:600;border-radius:9px;padding:9px 16px;cursor:pointer;border:1px solid transparent;display:inline-flex;align-items:center;gap:7px;transition:.14s;white-space:nowrap}
+.btn.primary{background:var(--water);color:#fff}
+.btn.primary:hover{background:#178ba5}
+.btn.dark{background:var(--petrol);color:#fff}
+.btn.dark:hover{background:#0a2c36}
+.btn.ghost{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--water);color:var(--water)}
+.btn.danger{background:#fff;border-color:var(--bad-soft);color:var(--bad)}
+.btn.danger:hover{background:var(--bad-soft)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.sm{padding:6px 11px;font-size:12px}
+
+/* ---------- Checklist ---------- */
+.catgroup{margin-top:14px;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff}
+.cathead{display:flex;align-items:center;gap:12px;padding:12px 16px;background:linear-gradient(90deg,#f4f9fa,#fff);border-bottom:1px solid var(--line-2);cursor:pointer;user-select:none}
+.cathead .cno{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;color:#fff;background:var(--petrol);width:24px;height:24px;border-radius:7px;display:grid;place-items:center;flex:none}
+.cathead .ctitle{font-weight:700;font-size:13.5px;flex:1}
+.cathead .cstat{display:flex;gap:6px}
+.pill{font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px;font-family:'IBM Plex Mono',monospace}
+.pill.ok{background:var(--ok-soft);color:var(--ok)}
+.pill.bad{background:var(--bad-soft);color:var(--bad)}
+.pill.na{background:var(--na-soft);color:var(--na)}
+.chev{transition:.2s;color:var(--ink-2)}
+.catgroup.collapsed .chev{transform:rotate(-90deg)}
+.catgroup.collapsed .items{display:none}
+
+.itemrow{display:grid;grid-template-columns:74px 1fr 250px;gap:14px;padding:13px 16px;border-top:1px solid var(--line-2);align-items:start}
+.itemrow:first-child{border-top:0}
+.icode{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;color:var(--petrol);background:#f0f5f6;border:1px solid var(--line-2);border-radius:6px;padding:5px 0;text-align:center}
+.iname{font-weight:600;font-size:13.5px}
+.idesc{font-size:11.5px;color:var(--ink-2);margin-top:1px}
+.istatus{display:flex;flex-direction:column;gap:7px}
+.stbtns{display:flex;gap:5px}
+.stbtn{flex:1;font-family:inherit;font-size:11.5px;font-weight:600;padding:7px 4px;border-radius:8px;border:1px solid var(--line);background:#fbfdfe;color:var(--ink-2);cursor:pointer;transition:.12s;text-align:center}
+.stbtn:hover{border-color:var(--na)}
+.stbtn.on-ok{background:var(--ok);border-color:var(--ok);color:#fff}
+.stbtn.on-bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.stbtn.on-na{background:var(--na);border-color:var(--na);color:#fff}
+.iextra{display:none;flex-direction:column;gap:7px}
+.iextra.show{display:flex}
+.iextra textarea{min-height:38px;resize:vertical;font-size:12.5px}
+.fixrow{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-2);cursor:pointer}
+.fixrow input{width:16px;height:16px;accent-color:var(--ok)}
+
+/* ---------- KPI ---------- */
+.kgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:16px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 17px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.kpi .klabel{font-size:11.5px;color:var(--ink-2);font-weight:600;letter-spacing:.2px}
+.kpi .kval{font-family:'IBM Plex Mono',monospace;font-size:30px;font-weight:600;line-height:1.1;margin-top:6px}
+.kpi .ksub{font-size:11px;color:var(--na);margin-top:2px}
+.kpi .kbar{position:absolute;left:0;top:0;bottom:0;width:4px}
+.kpi.b-water .kbar{background:var(--water)} .kpi.b-water .kval{color:var(--petrol)}
+.kpi.b-ok .kbar{background:var(--ok)} .kpi.b-ok .kval{color:var(--ok)}
+.kpi.b-bad .kbar{background:var(--bad)} .kpi.b-bad .kval{color:var(--bad)}
+.kpi.b-amber .kbar{background:var(--amber)} .kpi.b-amber .kval{color:var(--amber)}
+
+/* readiness gauge */
+.gauge{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.tank{width:120px;height:120px;border-radius:50%;flex:none;position:relative;background:conic-gradient(var(--ok) var(--deg,0deg),#eef1f2 0deg);display:grid;place-items:center}
+.tank::after{content:"";position:absolute;inset:12px;border-radius:50%;background:#fff}
+.tank .tnum{position:relative;z-index:1;text-align:center}
+.tank .tnum b{font-family:'IBM Plex Mono',monospace;font-size:26px;color:var(--petrol);display:block;line-height:1}
+.tank .tnum span{font-size:10.5px;color:var(--ink-2)}
+.glegend{font-size:12.5px;color:var(--ink-2);line-height:1.9}
+.glegend b{color:var(--ink)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+
+/* charts */
+.chartrow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.bar{display:grid;grid-template-columns:150px 1fr 52px;gap:10px;align-items:center;margin:9px 0;font-size:12.5px}
+.bar .blabel{color:var(--ink);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btrack{background:#eef1f2;border-radius:6px;height:20px;overflow:hidden;position:relative}
+.bfill{height:100%;border-radius:6px;transition:width .5s cubic-bezier(.2,.8,.2,1);min-width:2px}
+.bval{font-family:'IBM Plex Mono',monospace;font-size:12px;text-align:right;color:var(--ink-2)}
+.rank{display:flex;align-items:center;gap:11px;padding:9px 0;border-top:1px solid var(--line-2)}
+.rank:first-child{border-top:0}
+.rank .rno{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--na);width:20px}
+.rank .rcode{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:12px;color:var(--petrol);background:#f0f5f6;padding:3px 7px;border-radius:6px}
+.rank .rname{flex:1;font-size:12.5px;font-weight:500}
+.rank .rcount{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--bad);background:var(--bad-soft);padding:2px 9px;border-radius:20px;font-size:12px}
+
+/* ---------- Filter bar ---------- */
+.filters{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:16px}
+.filters .field{gap:4px}
+.filters .field label{font-size:10.5px}
+.filters select,.filters input{padding:7px 10px;font-size:12.5px}
+
+/* ---------- Table ---------- */
+table.recs{width:100%;border-collapse:collapse;font-size:12.5px}
+table.recs th{text-align:left;font-size:11px;color:var(--ink-2);font-weight:600;letter-spacing:.3px;padding:10px 12px;border-bottom:2px solid var(--line);text-transform:uppercase}
+table.recs td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:middle}
+table.recs tr:hover td{background:#f7fbfc}
+.tag{font-size:11px;font-weight:600;padding:2px 9px;border-radius:6px;font-family:'IBM Plex Mono',monospace;display:inline-block}
+.tag.line{background:var(--water-soft);color:var(--water)}
+.tag.day{background:#fff5e0;color:var(--amber)}
+.tag.night{background:#e9ecf5;color:#4a5490}
+.mini{display:inline-flex;gap:5px;align-items:center}
+.mini b{font-family:'IBM Plex Mono',monospace}
+.iconbtn{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;display:inline-grid;place-items:center;transition:.12s}
+.iconbtn:hover{border-color:var(--water);color:var(--water)}
+.iconbtn.del:hover{border-color:var(--bad);color:var(--bad)}
+
+/* ---------- Empty ---------- */
+.empty{text-align:center;padding:52px 20px;color:var(--ink-2)}
+.empty svg{opacity:.4;margin-bottom:12px}
+.empty h3{margin:0 0 4px;font-size:15px;color:var(--ink)}
+.empty p{margin:0;font-size:13px}
+
+/* ---------- Modal ---------- */
+.overlay{position:fixed;inset:0;background:rgba(14,58,70,.42);backdrop-filter:blur(2px);z-index:60;display:none;align-items:flex-start;justify-content:center;padding:34px 16px;overflow:auto}
+.overlay.show{display:flex}
+.modal{background:#fff;border-radius:16px;max-width:760px;width:100%;box-shadow:0 20px 60px rgba(14,58,70,.3);overflow:hidden}
+.mhead{display:flex;align-items:center;gap:14px;padding:18px 22px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:1}
+.mhead h3{margin:0;font-size:15px;flex:1}
+.mbody{padding:20px 22px}
+.mmeta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.mmeta .mm{background:#f7fbfc;border:1px solid var(--line-2);border-radius:10px;padding:9px 12px}
+.mmeta .mm span{font-size:10.5px;color:var(--ink-2);display:block;font-weight:600}
+.mmeta .mm b{font-size:13.5px}
+.detitem{display:grid;grid-template-columns:66px 1fr auto;gap:12px;padding:9px 0;border-top:1px solid var(--line-2);align-items:center;font-size:12.5px}
+.detcat{font-weight:700;font-size:12px;color:var(--petrol);margin-top:14px;padding-bottom:2px}
+.close{width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--ink-2)}
+.close:hover{border-color:var(--bad);color:var(--bad)}
+
+/* toast */
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--petrol);color:#eafaff;padding:12px 20px;border-radius:11px;font-size:13.5px;font-weight:500;box-shadow:0 10px 30px rgba(14,58,70,.35);opacity:0;pointer-events:none;transition:.3s;z-index:90;display:flex;align-items:center;gap:9px}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#toast.ok .ti{color:#4fd88a}
+#toast.err{background:var(--bad)}
+
+.hint{font-size:11.5px;color:var(--na);background:#f7fbfc;border:1px dashed var(--line);border-radius:9px;padding:9px 13px;display:flex;gap:8px;align-items:center}
+
+@media (max-width:820px){
+  .formhead,.kgrid,.mmeta{grid-template-columns:repeat(2,1fr)}
+  .chartrow{grid-template-columns:1fr}
+  .itemrow{grid-template-columns:60px 1fr;gap:10px}
+  .istatus{grid-column:1/-1}
+  .bar{grid-template-columns:110px 1fr 44px}
+  .brand p{display:none}
+  .hwrap{padding:12px 14px}
+  main{padding:18px 14px 50px}
+}
+@media print{
+  header.app,nav.tabs,.toolbar,.filters,.iconbtn,.btn{display:none!important}
+  body{background:#fff}
+  .overlay{position:static;background:none;padding:0;display:block!important}
+  .modal{box-shadow:none;max-width:100%}
+  .mhead .close,.mhead .btn{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="app">
+  <div class="hwrap">
+    <div class="brand">
+      <svg class="drop" viewBox="0 0 24 24" fill="none"><path d="M12 2s7 7.5 7 12a7 7 0 1 1-14 0c0-4.5 7-12 7-12z" fill="#1CA0BE"/><path d="M9 13.5a3 3 0 0 0 3 3" stroke="#eafaff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div>
+        <h1>Dust Suppression Check List</h1>
+        <p>Water Spray System · Line A / B / N</p>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button data-tab="entry" class="active">➕ บันทึกการตรวจ</button>
+      <button data-tab="dash">📊 แดชบอร์ด</button>
+      <button data-tab="history">🗂️ ประวัติ <span class="badge" id="histBadge" style="display:none">0</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- ============ ENTRY ============ -->
+  <section class="page active" id="page-entry">
+    <div class="card pad">
+      <h2 class="sec" id="entryTitle">บันทึกใบตรวจเช็คใหม่</h2>
+      <p class="sub">กรอกข้อมูลผู้ตรวจ แล้วเลือกสถานะแต่ละจุด — <b>ตรวจเช็คเฉพาะเครื่องจักรที่เกี่ยวข้องกับผู้ตรวจ</b> (จุดที่ไม่เกี่ยวให้เลือก “อื่นๆ” หรือปล่อยว่างได้)</p>
+
+      <div class="formhead">
+        <div class="field span2">
+          <label>ชื่อ – นามสกุล ผู้ตรวจ</label>
+          <input type="text" id="f_name" placeholder="เช่น สมชาย ใจดี">
+        </div>
+        <div class="field">
+          <label>หมายเลขประจำตัว</label>
+          <input type="text" id="f_empid" placeholder="รหัสพนักงาน" class="mono">
+        </div>
+        <div class="field">
+          <label>วันที่ตรวจ</label>
+          <input type="date" id="f_date">
+        </div>
+        <div class="field">
+          <label>หมายเลขเครื่องจักร</label>
+          <input type="text" id="f_machine" placeholder="เช่น BWE-101" class="mono">
+        </div>
+        <div class="field">
+          <label>SMU (ชั่วโมงเครื่อง)</label>
+          <input type="number" id="f_smu" placeholder="0" class="mono">
+        </div>
+        <div class="field">
+          <label>Line</label>
+          <div class="seg line" id="f_line">
+            <button data-v="A" class="on">A</button>
+            <button data-v="B">B</button>
+            <button data-v="N">N</button>
+          </div>
+        </div>
+        <div class="field">
+          <label>กะการทำงาน</label>
+          <div class="seg" id="f_shift">
+            <button data-v="day" class="on">☀️ Day Shift</button>
+            <button data-v="night">🌙 Night Shift</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn ghost sm" id="setAllOk">✓ ทำเครื่องหมาย “ปกติ” ทั้งหมด</button>
+        <button class="btn ghost sm" id="clearAll">↺ ล้างสถานะทั้งหมด</button>
+        <button class="btn ghost sm" id="toggleAll">⇕ ยุบ/ขยายทุกหมวด</button>
+        <span class="grow"></span>
+        <span class="hint" id="liveCount">ยังไม่ได้เลือกจุดตรวจ</span>
+      </div>
+
+      <div id="checklist"></div>
+
+      <div class="formhead" style="margin-top:20px">
+        <div class="field">
+          <label>ผู้ตรวจเช็ค (ลงชื่อ)</label>
+          <input type="text" id="f_checker" placeholder="ชื่อผู้ตรวจ">
+        </div>
+        <div class="field">
+          <label>EN</label>
+          <input type="text" id="f_en" placeholder="วิศวกร / EN" class="mono">
+        </div>
+        <div class="field span2">
+          <label>Approved By</label>
+          <input type="text" id="f_approved" placeholder="ผู้อนุมัติ">
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <button class="btn danger" id="cancelEdit" style="display:none">ยกเลิกการแก้ไข</button>
+        <span class="grow"></span>
+        <button class="btn dark" id="saveBtn">💾 บันทึกใบตรวจ</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DASHBOARD ============ -->
+  <section class="page" id="page-dash">
+    <div class="filters" id="dashFilters"></div>
+
+    <div class="kgrid" id="kpis"></div>
+
+    <div class="chartrow">
+      <div class="card pad">
+        <h2 class="sec">ความพร้อมของระบบ</h2>
+        <p class="sub">สัดส่วนจุดที่ “ปกติ” จากจุดที่ตรวจทั้งหมด</p>
+        <div class="gauge">
+          <div class="tank" id="gaugeTank"><div class="tnum"><b id="gaugePct">0%</b><span>พร้อมใช้งาน</span></div></div>
+          <div class="glegend" id="gaugeLegend"></div>
+        </div>
+      </div>
+      <div class="card pad">
+        <h2 class="sec">จุดผิดปกติแยกตามหมวด</h2>
+        <p class="sub">นับจำนวนจุดที่สถานะ “ไม่ปกติ”</p>
+        <div id="chartCat"></div>
+      </div>
+    </div>
+
+    <div class="chartrow">
+      <div class="card pad">
+        <h2 class="sec">จุดผิดปกติแยกตาม Line</h2>
+        <p class="sub">เปรียบเทียบ Line A / B / N</p>
+        <div id="chartLine"></div>
+      </div>
+      <div class="card pad">
+        <h2 class="sec">อุปกรณ์ที่พบปัญหาบ่อย</h2>
+        <p class="sub">5 อันดับจุดที่ “ไม่ปกติ” มากที่สุด</p>
+        <div id="topProblems"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HISTORY ============ -->
+  <section class="page" id="page-history">
+    <div class="filters" id="histFilters"></div>
+    <div class="toolbar" style="margin-top:0">
+      <h2 class="sec" style="margin:0" id="histCount">ประวัติการตรวจ</h2>
+      <span class="grow"></span>
+      <button class="btn ghost sm" id="exportBtn">⬇ Export CSV</button>
+      <button class="btn danger sm" id="wipeBtn">🗑 ล้างข้อมูลทั้งหมด</button>
+    </div>
+    <div class="card" style="overflow:hidden">
+      <div id="histTable"></div>
+    </div>
+  </section>
+</main>
+
+<!-- detail modal -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal"></div>
+</div>
+
+<div id="toast"><span class="ti">●</span><span id="toastMsg"></span></div>
+
+<script>
+/* ================= DATA ================= */
+const CHECKLIST = [
+  { no:1, title:"Head Station & Tail End", key:"HS", items:[
+    {code:"HS.01", name:"Water Tank", desc:"ตรวจเช็คน้ำในแทงค์น้ำ"},
+    {code:"HS.02", name:"Water Pump", desc:"ตรวจเช็คการทำงานของปั๊มน้ำ"},
+    {code:"HS.03", name:"Head Station Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"HS.04", name:"Tail End Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"HS.05", name:"Main Valve", desc:"เช็ควาล์วน้ำว่าเปิด/ปิด"},
+    {code:"HS.06", name:"Intermediate Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+  ]},
+  { no:2, title:"Crusher", key:"CR", items:[
+    {code:"CR.01", name:"Water Tank", desc:"ตรวจเช็คน้ำในแทงค์น้ำ"},
+    {code:"CR.02", name:"Water Pump", desc:"ตรวจเช็คการทำงานของปั๊มน้ำ"},
+    {code:"CR.03", name:"Main Valve", desc:"เช็ควาล์วน้ำว่าเปิด/ปิด"},
+    {code:"CR.04", name:"Fog Cannon", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"CR.05", name:"Hopper Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"CR.06", name:"Discharge Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"CR.07", name:"Intermediate Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+  ]},
+  { no:3, title:"Spreader", key:"SPD", items:[
+    {code:"SPD.01", name:"Main Valve", desc:"เช็ควาล์วน้ำว่าเปิด/ปิด"},
+    {code:"SPD.02", name:"Air / Water Hose", desc:"เช็คสายท่อน้ำ เช็ครอยแตก"},
+    {code:"SPD.03", name:"Tripper Car Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"SPD.04", name:"Discharge Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"SPD.05", name:"Water Tank", desc:"ตรวจเช็คน้ำในแทงค์น้ำ"},
+    {code:"SPD.06", name:"Water Pump", desc:"ตรวจเช็คการทำงานของปั๊มน้ำ"},
+  ]},
+  { no:4, title:"Bucket Wheel", key:"BWE", items:[
+    {code:"BWE.01", name:"Main Valve", desc:"เช็ควาล์วน้ำว่าเปิด/ปิด"},
+    {code:"BWE.02", name:"Air / Water Hose", desc:"เช็คสายท่อน้ำ เช็ครอยแตก"},
+    {code:"BWE.03", name:"Wheel Water Spray LH", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"BWE.04", name:"Wheel Water Spray RH", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"BWE.05", name:"Wheel Water Spray Top", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"BWE.06", name:"Discharge Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"BWE.07", name:"E-House2 Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+  ]},
+  { no:5, title:"Belt Wagon", key:"BW", items:[
+    {code:"BW.01", name:"Water Tank", desc:"ตรวจเช็คน้ำในแทงค์น้ำ"},
+    {code:"BW.02", name:"Water Pump", desc:"ตรวจเช็คการทำงานของปั๊มน้ำ"},
+    {code:"BW.03", name:"Main Valve", desc:"เช็ควาล์วน้ำว่าเปิด/ปิด"},
+    {code:"BW.04", name:"Conveyor Bridge Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+    {code:"BW.05", name:"Discharge Water Spray", desc:"เช็คสเปรย์น้ำว่าน้ำออก/ไม่ออก"},
+  ]},
+];
+const ITEM_META = {};
+CHECKLIST.forEach(c=>c.items.forEach(it=>ITEM_META[it.code]={...it,cat:c.title,catKey:c.key}));
+const STATUS_LABEL={normal:"ปกติ",abnormal:"ไม่ปกติ",na:"อื่นๆ"};
+const STORAGE_KEY="dust_records_v1";
+const hasStore = typeof window!=="undefined" && window.storage;
+
+/* ================= STATE ================= */
+const state={ records:[], draft:{}, line:"A", shift:"day", editId:null, filter:{line:"all",shift:"all",from:"",to:""} };
+
+/* ================= STORAGE ================= */
+async function loadRecords(){
+  if(!hasStore) return [];
+  try{ const r=await window.storage.get(STORAGE_KEY); return r&&r.value?JSON.parse(r.value):[]; }
+  catch(e){ return []; }
+}
+async function persist(){
+  if(!hasStore) return true;
+  try{ await window.storage.set(STORAGE_KEY, JSON.stringify(state.records)); return true; }
+  catch(e){ console.error("persist failed",e); return false; }
+}
+
+/* ================= HELPERS ================= */
+const $=s=>document.querySelector(s);
+const $$=s=>document.querySelectorAll(s);
+const esc=s=>(s==null?"":String(s)).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+function fmtDate(d){ if(!d) return "—"; const [y,m,dd]=d.split("-"); return `${dd}/${m}/${(+y)+543}`; }
+function toast(msg,type="ok"){ const t=$("#toast"); t.className=""; t.classList.add(type,"show"); $("#toastMsg").textContent=msg; clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),2600); }
+
+/* ================= ENTRY: build checklist ================= */
+function buildChecklist(){
+  const wrap=$("#checklist"); wrap.innerHTML="";
+  CHECKLIST.forEach(cat=>{
+    const g=document.createElement("div"); g.className="catgroup"; g.dataset.key=cat.key;
+    g.innerHTML=`
+      <div class="cathead" data-toggle>
+        <div class="cno">${cat.no}</div>
+        <div class="ctitle">${cat.title}</div>
+        <div class="cstat" data-catstat="${cat.key}"></div>
+        <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+      <div class="items">${cat.items.map(it=>itemRowHTML(it)).join("")}</div>`;
+    wrap.appendChild(g);
+  });
+  wrap.querySelectorAll("[data-toggle]").forEach(h=>h.addEventListener("click",e=>{
+    if(e.target.closest(".stbtn"))return; h.closest(".catgroup").classList.toggle("collapsed");
+  }));
+  wrap.querySelectorAll(".stbtn").forEach(b=>b.addEventListener("click",()=>setStatus(b.dataset.code,b.dataset.v)));
+  wrap.querySelectorAll("[data-note]").forEach(t=>t.addEventListener("input",()=>{
+    ensureDraft(t.dataset.note).note=t.value;
+  }));
+  wrap.querySelectorAll("[data-fix]").forEach(c=>c.addEventListener("change",()=>{
+    ensureDraft(c.dataset.fix).fixed=c.checked;
+  }));
+}
+function itemRowHTML(it){
+  return `<div class="itemrow" data-row="${it.code}">
+    <div class="icode">${it.code}</div>
+    <div><div class="iname">${it.name}</div><div class="idesc">${it.desc}</div></div>
+    <div class="istatus">
+      <div class="stbtns">
+        <button class="stbtn" data-code="${it.code}" data-v="normal">ปกติ</button>
+        <button class="stbtn" data-code="${it.code}" data-v="abnormal">ไม่ปกติ</button>
+        <button class="stbtn" data-code="${it.code}" data-v="na">อื่นๆ</button>
+      </div>
+      <div class="iextra" data-extra="${it.code}">
+        <textarea data-note="${it.code}" placeholder="หมายเหตุ / อาการที่พบ"></textarea>
+        <label class="fixrow"><input type="checkbox" data-fix="${it.code}"> แก้ไขแล้ว</label>
+      </div>
+    </div>
+  </div>`;
+}
+function ensureDraft(code){ if(!state.draft[code]) state.draft[code]={status:null,note:"",fixed:false}; return state.draft[code]; }
+function setStatus(code,v){
+  const d=ensureDraft(code);
+  d.status = d.status===v ? null : v;
+  const row=$(`[data-row="${code}"]`);
+  row.querySelectorAll(".stbtn").forEach(b=>{
+    b.classList.remove("on-ok","on-bad","on-na");
+    if(b.dataset.v===d.status) b.classList.add(d.status==="normal"?"on-ok":d.status==="abnormal"?"on-bad":"on-na");
+  });
+  const extra=row.querySelector(".iextra");
+  extra.classList.toggle("show", d.status==="abnormal");
+  syncCatStats(); syncLiveCount();
+}
+function syncCatStats(){
+  CHECKLIST.forEach(cat=>{
+    let ok=0,bad=0,na=0;
+    cat.items.forEach(it=>{const s=state.draft[it.code]?.status; if(s==="normal")ok++;else if(s==="abnormal")bad++;else if(s==="na")na++;});
+    const el=$(`[data-catstat="${cat.key}"]`); if(!el)return;
+    el.innerHTML=[ ok?`<span class="pill ok">${ok} ปกติ</span>`:"", bad?`<span class="pill bad">${bad} ผิดปกติ</span>`:"", na?`<span class="pill na">${na} อื่นๆ</span>`:"" ].join("");
+  });
+}
+function syncLiveCount(){
+  let ok=0,bad=0,na=0;
+  Object.values(state.draft).forEach(d=>{if(d.status==="normal")ok++;else if(d.status==="abnormal")bad++;else if(d.status==="na")na++;});
+  const total=ok+bad+na;
+  $("#liveCount").innerHTML = total? `ตรวจแล้ว <b>${total}</b>/31 · <span style="color:var(--ok)">ปกติ ${ok}</span> · <span style="color:var(--bad)">ผิดปกติ ${bad}</span> · อื่นๆ ${na}` : "ยังไม่ได้เลือกจุดตรวจ";
+}
+
+/* ---- entry controls ---- */
+function initSegments(){
+  $("#f_line").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;$$("#f_line button").forEach(x=>x.classList.remove("on"));b.classList.add("on");state.line=b.dataset.v;});
+  $("#f_shift").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;$$("#f_shift button").forEach(x=>x.classList.remove("on"));b.classList.add("on");state.shift=b.dataset.v;});
+}
+function resetForm(){
+  state.draft={}; state.editId=null;
+  ["f_name","f_empid","f_machine","f_smu","f_checker","f_en","f_approved"].forEach(id=>$("#"+id).value="");
+  $("#f_date").value=new Date().toISOString().slice(0,10);
+  $$("#f_line button").forEach((x,i)=>x.classList.toggle("on",i===0)); state.line="A";
+  $$("#f_shift button").forEach((x,i)=>x.classList.toggle("on",i===0)); state.shift="day";
+  $$(".stbtn").forEach(b=>b.classList.remove("on-ok","on-bad","on-na"));
+  $$(".iextra").forEach(e=>e.classList.remove("show"));
+  $$("[data-note]").forEach(t=>t.value=""); $$("[data-fix]").forEach(c=>c.checked=false);
+  $("#entryTitle").textContent="บันทึกใบตรวจเช็คใหม่";
+  $("#saveBtn").textContent="💾 บันทึกใบตรวจ";
+  $("#cancelEdit").style.display="none";
+  syncCatStats(); syncLiveCount();
+}
+function collectRecord(){
+  const items={};
+  Object.entries(state.draft).forEach(([code,d])=>{ if(d.status) items[code]={status:d.status,note:(d.note||"").trim(),fixed:!!d.fixed}; });
+  return {
+    id: state.editId||uid(),
+    date: $("#f_date").value||new Date().toISOString().slice(0,10),
+    line: state.line, shift: state.shift,
+    inspectorName:$("#f_name").value.trim(), inspectorId:$("#f_empid").value.trim(),
+    machineNo:$("#f_machine").value.trim(), smu:$("#f_smu").value.trim(),
+    checker:$("#f_checker").value.trim(), en:$("#f_en").value.trim(), approved:$("#f_approved").value.trim(),
+    items, createdAt: state.editId? (state.records.find(r=>r.id===state.editId)?.createdAt||Date.now()) : Date.now(),
+    updatedAt: Date.now()
+  };
+}
+async function saveRecord(){
+  const rec=collectRecord();
+  if(Object.keys(rec.items).length===0){ toast("กรุณาเลือกสถานะอย่างน้อย 1 จุดก่อนบันทึก","err"); return; }
+  if(!rec.inspectorName){ toast("กรุณากรอกชื่อผู้ตรวจ","err"); $("#f_name").focus(); return; }
+  if(state.editId){ const i=state.records.findIndex(r=>r.id===state.editId); state.records[i]=rec; }
+  else state.records.unshift(rec);
+  const okSave=await persist();
+  toast(state.editId?"อัปเดตใบตรวจเรียบร้อย":"บันทึกใบตรวจเรียบร้อย"+(okSave?"":" (โหมดชั่วคราว)"),"ok");
+  resetForm(); refreshAll(); switchTab("history");
+}
+function loadIntoForm(rec){
+  state.editId=rec.id; state.draft={};
+  $("#f_name").value=rec.inspectorName||""; $("#f_empid").value=rec.inspectorId||"";
+  $("#f_machine").value=rec.machineNo||""; $("#f_smu").value=rec.smu||"";
+  $("#f_checker").value=rec.checker||""; $("#f_en").value=rec.en||""; $("#f_approved").value=rec.approved||"";
+  $("#f_date").value=rec.date;
+  $$("#f_line button").forEach(x=>x.classList.toggle("on",x.dataset.v===rec.line)); state.line=rec.line;
+  $$("#f_shift button").forEach(x=>x.classList.toggle("on",x.dataset.v===rec.shift)); state.shift=rec.shift;
+  $$(".stbtn").forEach(b=>b.classList.remove("on-ok","on-bad","on-na"));
+  $$(".iextra").forEach(e=>e.classList.remove("show"));
+  $$("[data-note]").forEach(t=>t.value=""); $$("[data-fix]").forEach(c=>c.checked=false);
+  Object.entries(rec.items).forEach(([code,d])=>{
+    state.draft[code]={status:d.status,note:d.note||"",fixed:!!d.fixed};
+    const row=$(`[data-row="${code}"]`); if(!row)return;
+    row.querySelectorAll(".stbtn").forEach(b=>{ if(b.dataset.v===d.status) b.classList.add(d.status==="normal"?"on-ok":d.status==="abnormal"?"on-bad":"on-na"); });
+    if(d.status==="abnormal") row.querySelector(".iextra").classList.add("show");
+    const nt=row.querySelector("[data-note]"); if(nt)nt.value=d.note||"";
+    const fx=row.querySelector("[data-fix]"); if(fx)fx.checked=!!d.fixed;
+  });
+  $("#entryTitle").textContent="แก้ไขใบตรวจเช็ค";
+  $("#saveBtn").textContent="💾 บันทึกการแก้ไข";
+  $("#cancelEdit").style.display="inline-flex";
+  syncCatStats(); syncLiveCount(); switchTab("entry");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ================= FILTERS ================= */
+function filterMatch(r,f){
+  if(f.line!=="all"&&r.line!==f.line)return false;
+  if(f.shift!=="all"&&r.shift!==f.shift)return false;
+  if(f.from&&r.date<f.from)return false;
+  if(f.to&&r.date>f.to)return false;
+  return true;
+}
+function filtered(){ return state.records.filter(r=>filterMatch(r,state.filter)); }
+function filterBarHTML(){
+  const f=state.filter;
+  return `
+  <div class="field"><label>Line</label><select data-f="line">
+    <option value="all"${f.line==="all"?" selected":""}>ทุก Line</option>
+    <option value="A"${f.line==="A"?" selected":""}>Line A</option>
+    <option value="B"${f.line==="B"?" selected":""}>Line B</option>
+    <option value="N"${f.line==="N"?" selected":""}>Line N</option></select></div>
+  <div class="field"><label>กะ</label><select data-f="shift">
+    <option value="all"${f.shift==="all"?" selected":""}>ทุกกะ</option>
+    <option value="day"${f.shift==="day"?" selected":""}>Day</option>
+    <option value="night"${f.shift==="night"?" selected":""}>Night</option></select></div>
+  <div class="field"><label>ตั้งแต่วันที่</label><input type="date" data-f="from" value="${f.from}"></div>
+  <div class="field"><label>ถึงวันที่</label><input type="date" data-f="to" value="${f.to}"></div>
+  <button class="btn ghost sm" data-f="reset">ล้างตัวกรอง</button>`;
+}
+function bindFilters(container){
+  container.innerHTML=filterBarHTML();
+  container.querySelectorAll("[data-f]").forEach(el=>{
+    if(el.dataset.f==="reset"){ el.addEventListener("click",()=>{state.filter={line:"all",shift:"all",from:"",to:""};refreshAll();}); return; }
+    el.addEventListener("change",()=>{ state.filter[el.dataset.f]=el.value; refreshAll(); });
+  });
+}
+
+/* ================= DASHBOARD ================= */
+function computeStats(recs){
+  let ok=0,bad=0,na=0,unfixed=0;
+  const byCat={},byLine={A:0,B:0,N:0},byItem={};
+  CHECKLIST.forEach(c=>byCat[c.title]=0);
+  recs.forEach(r=>Object.entries(r.items).forEach(([code,d])=>{
+    if(d.status==="normal")ok++;
+    else if(d.status==="na")na++;
+    else if(d.status==="abnormal"){
+      bad++; if(!d.fixed)unfixed++;
+      const m=ITEM_META[code]; if(m){byCat[m.cat]=(byCat[m.cat]||0)+1;}
+      if(byLine[r.line]!==undefined)byLine[r.line]++;
+      byItem[code]=(byItem[code]||0)+1;
+    }
+  }));
+  const checked=ok+bad;
+  return {ok,bad,na,unfixed,checked,ready:checked?Math.round(ok/checked*100):0,byCat,byLine,byItem,total:recs.length};
+}
+function renderKPIs(s){
+  $("#kpis").innerHTML=`
+  ${kpi("b-water","ใบตรวจทั้งหมด",s.total,"ในช่วงที่กรอง")}
+  ${kpi("b-ok","จุดปกติ",s.ok,"จาก "+s.checked+" จุดที่ตรวจ")}
+  ${kpi("b-bad","จุดผิดปกติ",s.bad,"ต้องติดตามแก้ไข")}
+  ${kpi("b-amber","ค้างแก้ไข",s.unfixed,"ยังไม่ทำเครื่องหมายแก้ไข")}`;
+}
+function kpi(cls,label,val,sub){ return `<div class="kpi ${cls}"><div class="kbar"></div><div class="klabel">${label}</div><div class="kval">${val}</div><div class="ksub">${sub}</div></div>`; }
+function renderGauge(s){
+  const deg=s.ready*3.6;
+  const tank=$("#gaugeTank");
+  tank.style.setProperty("--deg",deg+"deg");
+  const col=s.ready>=90?"var(--ok)":s.ready>=70?"var(--amber)":"var(--bad)";
+  tank.style.background=`conic-gradient(${col} ${deg}deg,#eef1f2 0deg)`;
+  $("#gaugePct").textContent=s.ready+"%";
+  $("#gaugePct").style.color=col;
+  $("#gaugeLegend").innerHTML=`
+    <div><span class="dot" style="background:var(--ok)"></span><b>${s.ok}</b> จุดปกติ</div>
+    <div><span class="dot" style="background:var(--bad)"></span><b>${s.bad}</b> จุดผิดปกติ</div>
+    <div><span class="dot" style="background:var(--na)"></span><b>${s.na}</b> อื่นๆ</div>
+    <div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--line-2)">รวมตรวจ <b>${s.checked}</b> จุด</div>`;
+}
+function renderBars(el,data,colorFn,labelFn){
+  const entries=Object.entries(data); const max=Math.max(1,...entries.map(e=>e[1]));
+  if(entries.every(e=>e[1]===0)){ el.innerHTML=`<p class="sub" style="margin:8px 0 0">ยังไม่พบจุดผิดปกติในช่วงนี้ 🎉</p>`; return; }
+  el.innerHTML=entries.map(([k,v])=>`
+    <div class="bar"><div class="blabel">${labelFn?labelFn(k):k}</div>
+    <div class="btrack"><div class="bfill" style="width:${v/max*100}%;background:${colorFn(v)}"></div></div>
+    <div class="bval">${v}</div></div>`).join("");
+}
+function renderTopProblems(s){
+  const arr=Object.entries(s.byItem).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const el=$("#topProblems");
+  if(!arr.length){ el.innerHTML=`<div class="empty" style="padding:26px"><h3>ไม่มีจุดผิดปกติ</h3><p>ระบบทำงานปกติดีในช่วงที่เลือก</p></div>`; return; }
+  el.innerHTML=arr.map(([code,c],i)=>{const m=ITEM_META[code]||{name:code};return `
+    <div class="rank"><div class="rno">${i+1}</div><div class="rcode">${code}</div>
+    <div class="rname">${m.name}<div style="font-size:11px;color:var(--na)">${m.cat||""}</div></div>
+    <div class="rcount">${c}×</div></div>`;}).join("");
+}
+function renderDash(){
+  const s=computeStats(filtered());
+  renderKPIs(s); renderGauge(s);
+  renderBars($("#chartCat"),s.byCat,()=>"var(--bad)");
+  renderBars($("#chartLine"),s.byLine,()=>"var(--water)",k=>"Line "+k);
+  renderTopProblems(s);
+}
+
+/* ================= HISTORY ================= */
+function recStat(r){ let ok=0,bad=0,na=0,unf=0; Object.values(r.items).forEach(d=>{if(d.status==="normal")ok++;else if(d.status==="abnormal"){bad++;if(!d.fixed)unf++;}else na++;}); return {ok,bad,na,unf}; }
+function renderHistory(){
+  const recs=filtered();
+  $("#histCount").textContent=`ประวัติการตรวจ (${recs.length} ใบ)`;
+  const el=$("#histTable");
+  if(!recs.length){ el.innerHTML=`<div class="empty"><svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v16"/></svg><h3>ยังไม่มีข้อมูล</h3><p>ไปที่แท็บ “บันทึกการตรวจ” เพื่อเริ่มบันทึกใบแรก</p></div>`; return; }
+  el.innerHTML=`<table class="recs"><thead><tr>
+    <th>วันที่</th><th>Line / กะ</th><th>ผู้ตรวจ</th><th>เครื่องจักร</th><th>ผลตรวจ</th><th style="text-align:right">จัดการ</th>
+  </tr></thead><tbody>${recs.map(r=>{const st=recStat(r);return `
+    <tr>
+      <td class="mono">${fmtDate(r.date)}</td>
+      <td><span class="tag line">Line ${r.line}</span> <span class="tag ${r.shift}">${r.shift==="day"?"Day":"Night"}</span></td>
+      <td>${esc(r.inspectorName)||"—"}${r.inspectorId?`<div style="font-size:11px;color:var(--na)" class="mono">${esc(r.inspectorId)}</div>`:""}</td>
+      <td class="mono">${esc(r.machineNo)||"—"}</td>
+      <td><span class="mini"><span class="pill ok">${st.ok} ✓</span> ${st.bad?`<span class="pill bad">${st.bad} ✕</span>`:""} ${st.unf?`<span class="pill" style="background:#fff2df;color:var(--amber)">${st.unf} ค้าง</span>`:""}</span></td>
+      <td style="text-align:right;white-space:nowrap">
+        <button class="iconbtn" data-view="${r.id}" title="ดูรายละเอียด">👁</button>
+        <button class="iconbtn" data-edit="${r.id}" title="แก้ไข">✎</button>
+        <button class="iconbtn del" data-del="${r.id}" title="ลบ">🗑</button>
+      </td>
+    </tr>`;}).join("")}</tbody></table>`;
+  el.querySelectorAll("[data-view]").forEach(b=>b.addEventListener("click",()=>openDetail(b.dataset.view)));
+  el.querySelectorAll("[data-edit]").forEach(b=>b.addEventListener("click",()=>{const r=state.records.find(x=>x.id===b.dataset.edit);if(r)loadIntoForm(r);}));
+  el.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",()=>delRecord(b.dataset.del)));
+}
+async function delRecord(id){
+  const r=state.records.find(x=>x.id===id); if(!r)return;
+  if(!confirm(`ลบใบตรวจของ ${r.inspectorName||"ไม่ระบุ"} วันที่ ${fmtDate(r.date)} ?`))return;
+  state.records=state.records.filter(x=>x.id!==id); await persist(); refreshAll(); toast("ลบใบตรวจแล้ว","ok");
+}
+
+/* ================= DETAIL MODAL ================= */
+function openDetail(id){
+  const r=state.records.find(x=>x.id===id); if(!r)return;
+  const st=recStat(r);
+  let body="";
+  CHECKLIST.forEach(cat=>{
+    const rows=cat.items.filter(it=>r.items[it.code]);
+    if(!rows.length)return;
+    body+=`<div class="detcat">${cat.no}. ${cat.title}</div>`;
+    rows.forEach(it=>{const d=r.items[it.code];const pc=d.status==="normal"?"ok":d.status==="abnormal"?"bad":"na";
+      body+=`<div class="detitem"><div class="icode">${it.code}</div>
+        <div><b>${it.name}</b>${d.note?`<div style="font-size:11.5px;color:var(--ink-2)">📝 ${esc(d.note)}</div>`:""}</div>
+        <div style="text-align:right"><span class="pill ${pc}">${STATUS_LABEL[d.status]}</span>${d.status==="abnormal"?(d.fixed?` <span class="pill ok">แก้ไขแล้ว</span>`:` <span class="pill" style="background:#fff2df;color:var(--amber)">ค้างแก้ไข</span>`):""}</div>
+      </div>`;});
+  });
+  $("#modal").innerHTML=`
+    <div class="mhead">
+      <svg class="drop" width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2s7 7.5 7 12a7 7 0 1 1-14 0c0-4.5 7-12 7-12z" fill="#1CA0BE"/></svg>
+      <h3>ใบตรวจ Dust Suppression — Line ${r.line}</h3>
+      <button class="btn ghost sm" onclick="window.print()">🖨 พิมพ์</button>
+      <button class="close" data-close>✕</button>
+    </div>
+    <div class="mbody">
+      <div class="mmeta">
+        <div class="mm"><span>วันที่</span><b>${fmtDate(r.date)}</b></div>
+        <div class="mm"><span>กะ</span><b>${r.shift==="day"?"Day Shift":"Night Shift"}</b></div>
+        <div class="mm"><span>ผู้ตรวจ</span><b>${esc(r.inspectorName)||"—"}</b></div>
+        <div class="mm"><span>หมายเลขประจำตัว</span><b class="mono">${esc(r.inspectorId)||"—"}</b></div>
+        <div class="mm"><span>หมายเลขเครื่องจักร</span><b class="mono">${esc(r.machineNo)||"—"}</b></div>
+        <div class="mm"><span>SMU</span><b class="mono">${esc(r.smu)||"—"}</b></div>
+      </div>
+      <div class="mini" style="margin-bottom:6px"><span class="pill ok">ปกติ ${st.ok}</span> <span class="pill bad">ผิดปกติ ${st.bad}</span> <span class="pill na">อื่นๆ ${st.na}</span> ${st.unf?`<span class="pill" style="background:#fff2df;color:var(--amber)">ค้างแก้ไข ${st.unf}</span>`:""}</div>
+      ${body||'<p class="sub">ไม่มีจุดที่ตรวจ</p>'}
+      <div class="mmeta" style="margin-top:18px">
+        <div class="mm"><span>ผู้ตรวจเช็ค</span><b>${esc(r.checker)||"—"}</b></div>
+        <div class="mm"><span>EN</span><b>${esc(r.en)||"—"}</b></div>
+        <div class="mm"><span>Approved By</span><b>${esc(r.approved)||"—"}</b></div>
+      </div>
+    </div>`;
+  $("#modal").querySelector("[data-close]").addEventListener("click",closeDetail);
+  $("#overlay").classList.add("show");
+}
+function closeDetail(){ $("#overlay").classList.remove("show"); }
+
+/* ================= EXPORT ================= */
+function exportCSV(){
+  const recs=filtered();
+  if(!recs.length){ toast("ไม่มีข้อมูลให้ export","err"); return; }
+  const head=["วันที่","Line","กะ","ผู้ตรวจ","หมายเลขประจำตัว","หมายเลขเครื่องจักร","SMU","รหัส","หมวด","อุปกรณ์","สถานะ","หมายเหตุ","แก้ไขแล้ว"];
+  const rows=[head];
+  recs.forEach(r=>Object.entries(r.items).forEach(([code,d])=>{
+    const m=ITEM_META[code]||{name:code,cat:""};
+    rows.push([r.date,r.line,r.shift==="day"?"Day":"Night",r.inspectorName,r.inspectorId,r.machineNo,r.smu,code,m.cat,m.name,STATUS_LABEL[d.status],d.note||"",d.status==="abnormal"?(d.fixed?"ใช่":"ยัง"):""]);
+  }));
+  const csv="\uFEFF"+rows.map(row=>row.map(c=>`"${String(c==null?"":c).replace(/"/g,'""')}"`).join(",")).join("\r\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob);
+  a.download=`dust_suppression_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+  toast("Export CSV เรียบร้อย ("+(rows.length-1)+" แถว)","ok");
+}
+async function wipeAll(){
+  if(!state.records.length){toast("ไม่มีข้อมูลให้ล้าง","err");return;}
+  if(!confirm(`ลบข้อมูลทั้งหมด ${state.records.length} ใบ ? การกระทำนี้ย้อนกลับไม่ได้`))return;
+  state.records=[]; await persist(); refreshAll(); toast("ล้างข้อมูลทั้งหมดแล้ว","ok");
+}
+
+/* ================= TABS ================= */
+function switchTab(name){
+  $$("#tabs button").forEach(b=>b.classList.toggle("active",b.dataset.tab===name));
+  $$(".page").forEach(p=>p.classList.toggle("active",p.id==="page-"+name));
+  if(name==="dash")renderDash();
+  if(name==="history")renderHistory();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function refreshAll(){
+  const n=state.records.length; const badge=$("#histBadge");
+  badge.textContent=n; badge.style.display=n?"inline-block":"none";
+  renderDash(); renderHistory();
+}
+
+/* ================= INIT ================= */
+async function init(){
+  buildChecklist(); initSegments(); resetForm();
+  bindFilters($("#dashFilters")); bindFilters($("#histFilters"));
+  $("#tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(b)switchTab(b.dataset.tab);});
+  $("#saveBtn").addEventListener("click",saveRecord);
+  $("#cancelEdit").addEventListener("click",()=>{resetForm();toast("ยกเลิกการแก้ไขแล้ว","ok");});
+  $("#setAllOk").addEventListener("click",()=>{CHECKLIST.forEach(c=>c.items.forEach(it=>{const d=ensureDraft(it.code);d.status="normal";const row=$(`[data-row="${it.code}"]`);row.querySelectorAll(".stbtn").forEach(b=>{b.classList.remove("on-ok","on-bad","on-na");if(b.dataset.v==="normal")b.classList.add("on-ok");});row.querySelector(".iextra").classList.remove("show");}));syncCatStats();syncLiveCount();toast("ตั้งทุกจุดเป็นปกติแล้ว","ok");});
+  $("#clearAll").addEventListener("click",()=>{state.draft={};$$(".stbtn").forEach(b=>b.classList.remove("on-ok","on-bad","on-na"));$$(".iextra").forEach(e=>e.classList.remove("show"));$$("[data-note]").forEach(t=>t.value="");$$("[data-fix]").forEach(c=>c.checked=false);syncCatStats();syncLiveCount();});
+  $("#toggleAll").addEventListener("click",()=>{const groups=$$(".catgroup");const anyOpen=[...groups].some(g=>!g.classList.contains("collapsed"));groups.forEach(g=>g.classList.toggle("collapsed",anyOpen));});
+  $("#exportBtn").addEventListener("click",exportCSV);
+  $("#wipeBtn").addEventListener("click",wipeAll);
+  $("#overlay").addEventListener("click",e=>{if(e.target.id==="overlay")closeDetail();});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeDetail();});
+
+  state.records=await loadRecords();
+  refreshAll();
+  if(!hasStore){ $("#liveCount").insertAdjacentHTML("afterend",""); }
+}
+init();
+</script>
+</body>
+</html>
