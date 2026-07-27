@@ -778,11 +778,11 @@ footer{border-top:1px solid var(--line); margin-top:50px; padding-top:18px; colo
   <div class="kpis" id="prodKpis"></div>
   <div class="grid2" style="margin-top:18px">
     <div class="panel"><h3>ปริมาณขุด BCM รายเดือน — แผน vs จริง</h3><div class="ph-sub">แท่ง = ผลผลิตจริงรวม 2 เครื่อง · เส้น = แผนงาน</div><div class="chartbox tall"><canvas id="prodVolChart"></canvas></div></div>
-    <div class="panel"><h3>Productivity (BCM/ชม.) ต่อเครื่อง</h3><div class="ph-sub">เว้นช่วงที่เครื่องไม่ได้เดิน (SMU = 0)</div><div class="chartbox tall"><canvas id="prodRateChart"></canvas></div></div>
+    <div class="panel"><h3>Productivity (BCM/ชม.) ต่อเครื่อง</h3><div class="ph-sub">เส้นประจาง = เดือนที่เครื่องนั้นไม่ได้ผลิตเลย</div><div class="chartbox tall"><canvas id="prodRateChart"></canvas></div></div>
   </div>
   <div class="grid2" style="margin-top:18px">
     <div class="panel"><h3>การใช้ไฟฟ้า (kWh) รายเดือน</h3><div class="ph-sub">ธ.ค. 2023 – ส.ค. 2025 (ช่วงที่มีข้อมูลมิเตอร์)</div><div class="chartbox"><canvas id="prodElecChart"></canvas></div></div>
-    <div class="panel"><h3>อัตราการใช้ไฟฟ้า (kWh/BCM)</h3><div class="ph-sub">ยิ่งต่ำยิ่งประหยัด · เป้าหมายแผน 0.72 kWh/BCM</div><div class="chartbox"><canvas id="prodConsChart"></canvas></div></div>
+    <div class="panel"><h3>อัตราการใช้ไฟฟ้า (kWh/BCM)</h3><div class="ph-sub">ยิ่งต่ำยิ่งประหยัด · เป้าหมายแผน 0.72 kWh/BCM · เส้นประจาง = เดือนที่เครื่องไม่ได้ผลิต</div><div class="chartbox"><canvas id="prodConsChart"></canvas></div></div>
   </div>
   <div class="insights">
     <div class="ins" id="prodInsight1"></div>
@@ -1533,6 +1533,9 @@ function renderProduction(){
   const pr1 = P.map(o=>o.pr1), pr2 = P.map(o=>o.pr2);
   const c1 = P.map(o=>o.c1), c2 = P.map(o=>o.c2);
   const target = P.map(()=>0.72);
+  const down1 = pr1.map(v=>v==null), down2 = pr2.map(v=>v==null);
+  const downSegment = down => ctx => (down[ctx.p0DataIndex] || down[ctx.p1DataIndex]) ? [5,4] : undefined;
+  const fadeSegment = (down,color) => ctx => (down[ctx.p0DataIndex] || down[ctx.p1DataIndex]) ? color : undefined;
 
   const sumAt=P.reduce((s,o)=>s+o.at,0), sumA1=P.reduce((s,o)=>s+o.a1,0), sumA2=P.reduce((s,o)=>s+o.a2,0);
   const planned = P.filter(o=>o.pt>0);
@@ -1563,11 +1566,13 @@ function renderProduction(){
     scales:{x:{grid:{display:false},ticks:{autoSkip:true,maxTicksLimit:14}},y:{grid:{color:GRID},beginAtZero:true,ticks:{callback:v=>(v/1000)+'k'}}}}});
 
   mkChart('prodRateChart',{type:'line',data:{labels,datasets:[
-    {label:'BWE 1',data:pr1,borderColor:C.heat,backgroundColor:C.heat,tension:.3,pointRadius:2,spanGaps:false},
-    {label:'BWE 2',data:pr2,borderColor:C.uptime,backgroundColor:C.uptime,tension:.3,pointRadius:2,spanGaps:false},
+    {label:'BWE 1',data:pr1,borderColor:C.heat,backgroundColor:C.heat,tension:.3,pointRadius:2,spanGaps:true,
+      segment:{borderDash:downSegment(down1),borderColor:fadeSegment(down1,`rgba(${hex2rgb(C.heat)},0.35)`)}},
+    {label:'BWE 2',data:pr2,borderColor:C.uptime,backgroundColor:C.uptime,tension:.3,pointRadius:2,spanGaps:true,
+      segment:{borderDash:downSegment(down2),borderColor:fadeSegment(down2,`rgba(${hex2rgb(C.uptime)},0.35)`)}},
   ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
     plugins:{legend:{position:'top',labels:{usePointStyle:true,boxHeight:7,font:{size:11}}},
-      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(0)} BCM/ชม.`}}},
+      tooltip:{callbacks:{label:c=>c.parsed.y==null?`${c.dataset.label}: ไม่ได้ผลิต (เดือนนี้)`:`${c.dataset.label}: ${c.parsed.y.toFixed(0)} BCM/ชม.`}}},
     scales:{x:{grid:{display:false},ticks:{autoSkip:true,maxTicksLimit:14}},y:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'BCM/ชม.'}}}}});
 
   const elecRows = P.map((o,i)=>({i,o})).filter(x=>x.o.e1>0||x.o.e2>0);
@@ -1579,12 +1584,14 @@ function renderProduction(){
     scales:{x:{grid:{display:false},stacked:true},y:{grid:{color:GRID},beginAtZero:true,stacked:true,ticks:{callback:v=>(v/1000)+'k'}}}}});
 
   mkChart('prodConsChart',{type:'line',data:{labels,datasets:[
-    {label:'BWE 1',data:c1,borderColor:C.heat,backgroundColor:C.heat,tension:.3,pointRadius:2,spanGaps:false},
-    {label:'BWE 2',data:c2,borderColor:C.uptime,backgroundColor:C.uptime,tension:.3,pointRadius:2,spanGaps:false},
+    {label:'BWE 1',data:c1,borderColor:C.heat,backgroundColor:C.heat,tension:.3,pointRadius:2,spanGaps:true,
+      segment:{borderDash:downSegment(down1),borderColor:fadeSegment(down1,`rgba(${hex2rgb(C.heat)},0.35)`)}},
+    {label:'BWE 2',data:c2,borderColor:C.uptime,backgroundColor:C.uptime,tension:.3,pointRadius:2,spanGaps:true,
+      segment:{borderDash:downSegment(down2),borderColor:fadeSegment(down2,`rgba(${hex2rgb(C.uptime)},0.35)`)}},
     {label:'เป้าหมายแผน',data:target,borderColor:C.dim,borderDash:[6,4],pointRadius:0,borderWidth:1.4},
   ]},options:{maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
     plugins:{legend:{position:'top',labels:{usePointStyle:true,boxHeight:7,font:{size:11}}},
-      tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${c.parsed.y.toFixed(2)} kWh/BCM`}}},
+      tooltip:{callbacks:{label:c=>c.parsed.y==null?`${c.dataset.label}: ไม่ได้ผลิต (เดือนนี้)`:`${c.dataset.label}: ${c.parsed.y.toFixed(2)} kWh/BCM`}}},
     scales:{x:{grid:{display:false},ticks:{autoSkip:true,maxTicksLimit:14}},y:{grid:{color:GRID},beginAtZero:true,title:{display:true,text:'kWh/BCM'}}}}});
 
   // insight: หา "เดือนสุดท้ายที่ BWE1 ยังผลิต" เทียบ BWE2
